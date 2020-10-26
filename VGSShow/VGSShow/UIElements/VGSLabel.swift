@@ -27,7 +27,7 @@ public final class VGSLabel: UIView {
   // MARK: - UI Attribute
 
   /// `UIEdgeInsets` for text and placeholder inside `VGSTextField`.
-  public var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
+  public var padding = UIEdgeInsets.zero {
     didSet { setPaddings() }
   }
 
