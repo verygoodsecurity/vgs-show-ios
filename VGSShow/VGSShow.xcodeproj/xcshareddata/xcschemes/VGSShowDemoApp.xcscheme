@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3211D99D2542E4DD009BB381"
-               BuildableName = "VGSShowDemoAppTests.xctest"
-               BlueprintName = "VGSShowDemoAppTests"
-               ReferencedContainer = "container:VGSShow.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3211D9A82542E4DD009BB381"
-               BuildableName = "VGSShowDemoAppUITests.xctest"
-               BlueprintName = "VGSShowDemoAppUITests"
-               ReferencedContainer = "container:VGSShow.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -36,7 +36,7 @@ public enum HTTPMethod: String {
 		- data: response **data** object.
 		- response: URLResponse object represents a URL load response.
 	*/
-	case success(_ code:Int, _ data:Data?, _ response: URLResponse?)
+	case success( _ code: Int, _ data: Data?, _ response: URLResponse?)
 
 	/**
 	 Failed response case
