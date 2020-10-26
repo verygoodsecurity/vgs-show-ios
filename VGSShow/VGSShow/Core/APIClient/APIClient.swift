@@ -18,12 +18,8 @@ internal typealias BodyData = [String: Any]
 
 /// HTTP request methods
 public enum HTTPMethod: String {
-	/// GET method
-	case get     = "GET"
 	/// POST method
 	case post    = "POST"
-	/// PUT method
-	case put     = "PUT"
 }
 
 class APIClient {
