@@ -17,6 +17,26 @@
 		3211D9982542E4DD009BB381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3211D9962542E4DD009BB381 /* LaunchScreen.storyboard */; };
 		3211D9A32542E4DD009BB381 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9A22542E4DD009BB381 /* VGSShowDemoAppTests.swift */; };
 		3211D9AE2542E4DD009BB381 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */; };
+		44EE026225468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
+		44EE026325468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
+		44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
+		44EE026C25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
+		44EE027825468DE10031FB15 /* VGSErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE027725468DE10031FB15 /* VGSErrorInfo.swift */; };
+		44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE027725468DE10031FB15 /* VGSErrorInfo.swift */; };
+		44EE0281254697980031FB15 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE0280254697980031FB15 /* Environment.swift */; };
+		44EE0282254697980031FB15 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE0280254697980031FB15 /* Environment.swift */; };
+		44EE028F25469D850031FB15 /* VGSShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE028E25469D850031FB15 /* VGSShow.swift */; };
+		44EE029025469D850031FB15 /* VGSShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE028E25469D850031FB15 /* VGSShow.swift */; };
+		44EE029C25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */; };
+		44EE029D25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */; };
+		44EE02A625469F9B0031FB15 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02A525469F9B0031FB15 /* String+Exntesions.swift */; };
+		44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02A525469F9B0031FB15 /* String+Exntesions.swift */; };
+		44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02B22546A2400031FB15 /* VGSShow+Network.swift */; };
+		44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02B22546A2400031FB15 /* VGSShow+Network.swift */; };
+		44EE02E12546D9C10031FB15 /* VGSShowDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */; };
+		44EE02E22546D9C10031FB15 /* VGSShowDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */; };
+		44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
+		44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +83,16 @@
 		3211D9A92542E4DD009BB381 /* VGSShowDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppUITests.swift; sourceTree = "<group>"; };
 		3211D9AF2542E4DD009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44EE026125468A330031FB15 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		44EE026A25468D360031FB15 /* VGSShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
+		44EE027725468DE10031FB15 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
+		44EE0280254697980031FB15 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		44EE028E25469D850031FB15 /* VGSShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShow.swift; sourceTree = "<group>"; };
+		44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Utils.swift"; sourceTree = "<group>"; };
+		44EE02A525469F9B0031FB15 /* String+Exntesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Exntesions.swift"; sourceTree = "<group>"; };
+		44EE02B22546A2400031FB15 /* VGSShow+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Network.swift"; sourceTree = "<group>"; };
+		44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDataType.swift; sourceTree = "<group>"; };
+		44EE02E82546DA220031FB15 /* VGSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +162,9 @@
 		3211D9692542E2B4009BB381 /* VGSShow */ = {
 			isa = PBXGroup;
 			children = (
+				44EE025F254689930031FB15 /* Core */,
+				44EE026925468D190031FB15 /* Erros */,
+				44EE02A325469F350031FB15 /* Utils */,
 				3211D96A2542E2B4009BB381 /* VGSShow.h */,
 				3211D96B2542E2B4009BB381 /* Info.plist */,
 			);
@@ -178,6 +211,69 @@
 			path = VGSShowDemoAppUITests;
 			sourceTree = "<group>";
 		};
+		44EE025F254689930031FB15 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				44EE028D25469D780031FB15 /* Show */,
+				44EE027F254697860031FB15 /* Environment */,
+				44EE0260254689A80031FB15 /* APIClient */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		44EE0260254689A80031FB15 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				44EE026125468A330031FB15 /* APIClient.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		44EE026925468D190031FB15 /* Erros */ = {
+			isa = PBXGroup;
+			children = (
+				44EE026A25468D360031FB15 /* VGSShowErrors.swift */,
+				44EE027725468DE10031FB15 /* VGSErrorInfo.swift */,
+			);
+			path = Erros;
+			sourceTree = "<group>";
+		};
+		44EE027F254697860031FB15 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				44EE0280254697980031FB15 /* Environment.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		44EE028D25469D780031FB15 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				44EE028E25469D850031FB15 /* VGSShow.swift */,
+				44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */,
+				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
+				44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */,
+				44EE02E82546DA220031FB15 /* VGSResponse.swift */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
+		44EE02A325469F350031FB15 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				44EE02A425469F580031FB15 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		44EE02A425469F580031FB15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44EE02A525469F9B0031FB15 /* String+Exntesions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -200,7 +296,7 @@
 				3211D9632542E2B4009BB381 /* Sources */,
 				3211D9642542E2B4009BB381 /* Frameworks */,
 				3211D9652542E2B4009BB381 /* Resources */,
-				44EE023925467F5C0031FB15 /* ShellScript */,
+				44EE023925467F5C0031FB15 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -218,7 +314,7 @@
 				3211D96C2542E2B4009BB381 /* Sources */,
 				3211D96D2542E2B4009BB381 /* Frameworks */,
 				3211D96E2542E2B4009BB381 /* Resources */,
-				44EE023B25467F9A0031FB15 /* ShellScript */,
+				44EE023B25467F9A0031FB15 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -237,7 +333,7 @@
 				3211D9852542E4DA009BB381 /* Sources */,
 				3211D9862542E4DA009BB381 /* Frameworks */,
 				3211D9872542E4DA009BB381 /* Resources */,
-				44EE023A25467F8D0031FB15 /* ShellScript */,
+				44EE023A25467F8D0031FB15 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -255,7 +351,7 @@
 				3211D99A2542E4DD009BB381 /* Sources */,
 				3211D99B2542E4DD009BB381 /* Frameworks */,
 				3211D99C2542E4DD009BB381 /* Resources */,
-				44EE023C25467FA50031FB15 /* ShellScript */,
+				44EE023C25467FA50031FB15 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -274,7 +370,7 @@
 				3211D9A52542E4DD009BB381 /* Sources */,
 				3211D9A62542E4DD009BB381 /* Frameworks */,
 				3211D9A72542E4DD009BB381 /* Resources */,
-				44EE023D25467FB60031FB15 /* ShellScript */,
+				44EE023D25467FB60031FB15 /* SwiftLi nt */,
 			);
 			buildRules = (
 			);
@@ -297,6 +393,7 @@
 				TargetAttributes = {
 					3211D9662542E2B4009BB381 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1220;
 					};
 					3211D96F2542E2B4009BB381 = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -378,7 +475,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		44EE023925467F5C0031FB15 /* ShellScript */ = {
+		44EE023925467F5C0031FB15 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,15 +484,16 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/../.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		44EE023A25467F8D0031FB15 /* ShellScript */ = {
+		44EE023A25467F8D0031FB15 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -404,15 +502,16 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/../.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		44EE023B25467F9A0031FB15 /* ShellScript */ = {
+		44EE023B25467F9A0031FB15 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -421,15 +520,16 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/../.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		44EE023C25467FA50031FB15 /* ShellScript */ = {
+		44EE023C25467FA50031FB15 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,15 +538,16 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/../.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from\n";
 		};
-		44EE023D25467FB60031FB15 /* ShellScript */ = {
+		44EE023D25467FB60031FB15 /* SwiftLi nt */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -455,13 +556,14 @@
 			);
 			inputPaths = (
 			);
+			name = "SwiftLi nt";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/../.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -470,6 +572,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44EE02A625469F9B0031FB15 /* String+Exntesions.swift in Sources */,
+				44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */,
+				44EE029C25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
+				44EE028F25469D850031FB15 /* VGSShow.swift in Sources */,
+				44EE02E12546D9C10031FB15 /* VGSShowDataType.swift in Sources */,
+				44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */,
+				44EE0281254697980031FB15 /* Environment.swift in Sources */,
+				44EE027825468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
+				44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */,
+				44EE026225468A330031FB15 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +589,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44EE026C25468D360031FB15 /* VGSShowErrors.swift in Sources */,
+				44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */,
+				44EE029D25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
+				44EE029025469D850031FB15 /* VGSShow.swift in Sources */,
 				3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */,
+				44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */,
+				44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */,
+				44EE026325468A330031FB15 /* APIClient.swift in Sources */,
+				44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
+				44EE0282254697980031FB15 /* Environment.swift in Sources */,
+				44EE02E22546D9C10031FB15 /* VGSShowDataType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +793,7 @@
 		3211D97C2542E2B4009BB381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4445Y664U5;
@@ -690,6 +813,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -698,6 +822,7 @@
 		3211D97D2542E2B4009BB381 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4445Y664U5;
@@ -725,6 +850,7 @@
 		3211D97F2542E2B4009BB381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowTests/Info.plist;
@@ -743,6 +869,7 @@
 		3211D9802542E2B4009BB381 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowTests/Info.plist;
@@ -766,6 +893,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,6 +913,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
