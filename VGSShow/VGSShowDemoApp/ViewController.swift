@@ -32,8 +32,8 @@ class ViewController: UIViewController {
   }
 
   private func loadData() {
-	vgsShow.request(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (response) in
-		print(response)
+	vgsShow.request(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (requestResult) in
+		print(requestResult)
 	}
   }
 }
