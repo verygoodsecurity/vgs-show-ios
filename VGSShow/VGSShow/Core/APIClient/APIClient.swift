@@ -46,7 +46,7 @@ class APIClient {
 
     // MARK: - Public
 
-	func sendRequest(path: String, method: HTTPMethod = .post, validStatuses: Range<Int> = Constants.validStatuses, errorIdentifier: String, value: BodyData, completion block: RequestCompletion ) {
+	func sendRequest(path: String, method: HTTPMethod = .post, errorIdentifier: String, value: BodyData, completion block: RequestCompletion ) {
 		// Add Headers
 		var headers: [String: String] = [:]
 		headers["Content-Type"] = "application/json"
@@ -70,7 +70,7 @@ class APIClient {
 
     // MARK: - Private
 
-	private func performRequest(request: URLRequest, validStatuses: Range<Int> = Constants.validStatuses, errorIdentifier: String, value: BodyData, completion block: RequestCompletion) {
+	private func performRequest(request: URLRequest, errorIdentifier: String, value: BodyData, completion block: RequestCompletion) {
 		// Send data
 		URLSession.shared.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {
@@ -81,7 +81,7 @@ class APIClient {
 			  let statusCode = (response as? HTTPURLResponse)?.statusCode ?? VGSErrorType.unexpectedResponseType.rawValue
 
 				switch statusCode {
-				case validStatuses:
+				case Constants.validStatuses:
 					block?(.success(statusCode))
 					return
 				default:
