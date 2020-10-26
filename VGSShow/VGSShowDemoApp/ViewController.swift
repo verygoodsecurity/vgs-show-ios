@@ -14,7 +14,7 @@ final class DemoAppConfig {
 	static let vault = ""
 
 	/// Add test payload here id here:
-	static let payload = [:]
+	static let payload: JsonData = [:]
 
 	/// Add test path here:
 	static let path = "post"
