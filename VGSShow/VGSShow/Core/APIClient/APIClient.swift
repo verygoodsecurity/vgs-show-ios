@@ -46,7 +46,7 @@ class APIClient {
 
     // MARK: - Public
 
-	func sendRequest(path: String, method: HTTPMethod = .post, errorIdentifier: String, value: BodyData, completion block: RequestCompletion ) {
+	func sendRequest(path: String, method: HTTPMethod = .post, value: BodyData, completion block: RequestCompletion ) {
 		// Add Headers
 		var headers: [String: String] = [:]
 		headers["Content-Type"] = "application/json"
@@ -65,12 +65,12 @@ class APIClient {
 		request.httpMethod = method.rawValue
 		request.allHTTPHeaderFields = headers
 
-		performRequest(request: request, errorIdentifier: errorIdentifier, value: value, completion: block)
+		performRequest(request: request, value: value, completion: block)
 	}
 
     // MARK: - Private
 
-	private func performRequest(request: URLRequest, errorIdentifier: String, value: BodyData, completion block: RequestCompletion) {
+	private func performRequest(request: URLRequest, value: BodyData, completion block: RequestCompletion) {
 		// Send data
 		URLSession.shared.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {

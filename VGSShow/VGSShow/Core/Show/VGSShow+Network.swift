@@ -34,7 +34,7 @@ extension VGSShow {
 		let body = [String: AnyObject]()
 
 		// send request
-		apiClient.sendRequest(path: path, method: method, errorIdentifier: "showSDK.sendData.API", value: body) {(response ) in
+		apiClient.sendRequest(path: path, method: method, value: body) {(response ) in
 			block(response)
 		}
 	}
