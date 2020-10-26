@@ -22,7 +22,7 @@ final class DemoAppConfig {
 
 class ViewController: UIViewController {
 
-  let vgsShow = VGSShow(id: DemoAppConfig.vault, environment: .sandbox)
+	let vgsShow = VGSShow(vaultId: DemoAppConfig.vault, environment: .sandbox)
 
   override func viewDidLoad() {
     super.viewDidLoad()
