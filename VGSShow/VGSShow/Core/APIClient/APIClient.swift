@@ -72,7 +72,7 @@ class APIClient {
 
 	private func performRequest(request: URLRequest, value: BodyData, completion block: RequestCompletion) {
 		// Send data
-		URLSession.shared.dataTask(with: request) { (data, response, error) in
+		URLSession.shared.dataTask(with: request) { (_, response, error) in
 			DispatchQueue.main.async {
 				if let error = error as NSError? {
 					block?(.failure(error.code, error))

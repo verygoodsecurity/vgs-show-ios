@@ -10,19 +10,79 @@ import Foundation
 import UIKit
 #endif
 
+/// An object responsible for displaying revealed text data.
 public final class VGSLabel: UIView {
-  internal var label = MaskedLabel(frame: .zero)
+  
+  internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDataType = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
 
+  /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
   
+  /// Name that will be associated with `VGSLabel` and used as a JSON key on request response with revealed data from your organozation vault.
   public var fieldName: String!
   
+  // MARK: - UI Attribute
+
   /// `UIEdgeInsets` for text and placeholder inside `VGSTextField`.
   public var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
-      didSet { setMainPaddings() }
+    didSet { setPaddings() }
+  }
+
+  /// `VGSLabel` text font
+  public var font: UIFont? {
+    get {
+        return label.font
+    }
+    set {
+      label.font = newValue
+    }
+  }
+
+  /// `VGSLabel` text color
+  public var textColor: UIColor? {
+    get {
+        return label.textColor
+    }
+    set {
+      label.textColor = newValue
+    }
+  }
+
+  /// `VGSLabel` layer corner radius
+  public var cornerRadius: CGFloat {
+    get {
+        return layer.cornerRadius
+    }
+    set {
+        layer.cornerRadius = newValue
+        layer.masksToBounds = newValue > 0
+    }
+  }
+
+  /// `VGSLabel` layer borderWidth
+  public var borderWidth: CGFloat {
+    get {
+        return layer.borderWidth
+    }
+    set {
+        layer.borderWidth = newValue
+    }
+  }
+
+  /// `VGSLabel` layer borderColor
+  public var borderColor: UIColor? {
+    get {
+        guard let cgcolor = layer.borderColor else {
+            return nil
+        }
+        return UIColor(cgColor: cgcolor)
+    }
+    set {
+        layer.borderColor = newValue?.cgColor
+    }
   }
   
   // MARK: - Init
@@ -35,24 +95,30 @@ public final class VGSLabel: UIView {
       super.init(coder: aDecoder)
       mainInitialization()
   }
-  
-  @objc
+}
+
+internal extension VGSLabel {
   func mainInitialization() {
       // set main style for view
-      mainStyle()
+      setDefaultStyle()
       // add UI elements
-      buildTextFieldUI()
+      buildUI()
   }
 
-  @objc
-  func buildTextFieldUI() {
+  func setDefaultStyle() {
+      clipsToBounds = true
+      layer.borderColor = UIColor.lightGray.cgColor
+      layer.borderWidth = 1
+      layer.cornerRadius = 4
+  }
+  
+  func buildUI() {
       label.translatesAutoresizingMaskIntoConstraints = false
       addSubview(label)
-      setMainPaddings()
+      setPaddings()
   }
-
-  @objc
-  func setMainPaddings() {
+  
+  func setPaddings() {
     NSLayoutConstraint.deactivate(verticalConstraint)
     NSLayoutConstraint.deactivate(horizontalConstraints)
     
@@ -71,14 +137,4 @@ public final class VGSLabel: UIView {
     NSLayoutConstraint.activate(verticalConstraint)
     self.layoutIfNeeded()
   }
-  
-  func mainStyle() {
-      clipsToBounds = true
-      layer.borderColor = UIColor.lightGray.cgColor
-      layer.borderWidth = 1
-      layer.cornerRadius = 4
-  }
-
 }
-
-class MaskedLabel: UILabel { }
