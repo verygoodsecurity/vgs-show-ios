@@ -32,7 +32,7 @@ class ViewController: UIViewController {
   }
 
   private func loadData() {
-	vgsShow.fetchData(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (response) in
+	vgsShow.request(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (response) in
 		print(response)
 	}
   }

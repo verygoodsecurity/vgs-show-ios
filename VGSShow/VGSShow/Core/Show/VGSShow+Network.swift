@@ -20,7 +20,7 @@ extension VGSShow {
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
 	*/
-	public func fetchData(path: String, method: HTTPMethod = .post, payload: [String: Any]? = nil, completion block: @escaping (VGSResponse) -> Void) {
+	public func request(path: String, method: HTTPMethod = .post, payload: [String: Any]? = nil, completion block: @escaping (VGSResponse) -> Void) {
 
 		/// content analytics
 		var content: [String] = []
