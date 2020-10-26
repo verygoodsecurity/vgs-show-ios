@@ -26,33 +26,9 @@ public enum HTTPMethod: String {
 	case put     = "PUT"
 }
 
-/// Response enum cases for SDK requests
-@frozen public enum VGSResponse {
-	/**
-	 Success response case
-
-	 - Parameters:
-		- code: response status code.
-		- data: response **data** object.
-		- response: URLResponse object represents a URL load response.
-	*/
-	case success( _ code: Int, _ data: Data?, _ response: URLResponse?)
-
-	/**
-	 Failed response case
-
-	 - Parameters:
-		- code: response status code.
-		- data: response **Data** object.
-		- response: `URLResponse` object represents a URL load response.
-		- error: `Error` object.
-	*/
-	case failure(_ code:Int, _ data:Data?, _ response: URLResponse?, _ error:Error?)
-}
-
 class APIClient {
 
-	typealias RequestCompletion = ((_ response: VGSResponse) -> Void)?
+	typealias RequestCompletion = ((_ response: VGSRequestResult) -> Void)?
 
 	// MAR: - Constants
 
@@ -76,7 +52,7 @@ class APIClient {
 
 	func sendRequest(path: String, method: HTTPMethod = .post, validStatuses: Range<Int> = Constants.validStatuses, errorIdentifier: String, value: BodyData, completion block: RequestCompletion ) {
 		// Add Headers
-		var headers = [String : String]()
+		var headers: [String: String] = [:]
 		headers["Content-Type"] = "application/json"
 		// Add custom headers if need
 		if let customerHeaders = customHeader, customerHeaders.count > 0 {
@@ -103,17 +79,17 @@ class APIClient {
 		URLSession.shared.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {
 				if let error = error as NSError? {
-					block?(.failure(error.code, data, response, error))
+					block?(.failure(error.code, error))
 					return
 				}
 			  let statusCode = (response as? HTTPURLResponse)?.statusCode ?? VGSErrorType.unexpectedResponseType.rawValue
 
 				switch statusCode {
 				case validStatuses:
-					block?(.success(statusCode, data, response))
+					block?(.success(statusCode))
 					return
 				default:
-					block?(.failure(statusCode, data, response, error))
+					block?(.failure(statusCode, error))
 					return
 				}
 			}

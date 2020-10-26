@@ -20,7 +20,7 @@ extension VGSShow {
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
 	*/
-	public func request(path: String, method: HTTPMethod = .post, payload: [String: Any]? = nil, completion block: @escaping (VGSResponse) -> Void) {
+	public func request(path: String, method: HTTPMethod = .post, payload: [String: Any]? = nil, completion block: @escaping (VGSRequestResult) -> Void) {
 
 		/// content analytics
 		var content: [String] = []
@@ -31,10 +31,10 @@ extension VGSShow {
 			content.append("custom_header")
 		}
 
-		let body = [String : AnyObject]()
+		let body = [String: AnyObject]()
 
 		// send request
-		apiClient.sendRequest(path: path, method: method, errorIdentifier: "showSDK.sendData.API", value: body) { [weak self] (response ) in
+		apiClient.sendRequest(path: path, method: method, errorIdentifier: "showSDK.sendData.API", value: body) {(response ) in
 			block(response)
 		}
 	}

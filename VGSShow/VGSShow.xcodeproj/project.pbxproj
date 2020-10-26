@@ -33,6 +33,10 @@
 		44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02A525469F9B0031FB15 /* String+Exntesions.swift */; };
 		44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02B22546A2400031FB15 /* VGSShow+Network.swift */; };
 		44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02B22546A2400031FB15 /* VGSShow+Network.swift */; };
+		44EE02E12546D9C10031FB15 /* VGSShowDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */; };
+		44EE02E22546D9C10031FB15 /* VGSShowDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */; };
+		44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
+		44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,8 @@
 		44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Utils.swift"; sourceTree = "<group>"; };
 		44EE02A525469F9B0031FB15 /* String+Exntesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Exntesions.swift"; sourceTree = "<group>"; };
 		44EE02B22546A2400031FB15 /* VGSShow+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Network.swift"; sourceTree = "<group>"; };
+		44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDataType.swift; sourceTree = "<group>"; };
+		44EE02E82546DA220031FB15 /* VGSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +252,8 @@
 				44EE028E25469D850031FB15 /* VGSShow.swift */,
 				44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */,
 				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
+				44EE02E02546D9C10031FB15 /* VGSShowDataType.swift */,
+				44EE02E82546DA220031FB15 /* VGSResponse.swift */,
 			);
 			path = Show;
 			sourceTree = "<group>";
@@ -563,6 +571,8 @@
 				44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */,
 				44EE029C25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
 				44EE028F25469D850031FB15 /* VGSShow.swift in Sources */,
+				44EE02E12546D9C10031FB15 /* VGSShowDataType.swift in Sources */,
+				44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE0281254697980031FB15 /* Environment.swift in Sources */,
 				44EE027825468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */,
@@ -580,9 +590,11 @@
 				44EE029025469D850031FB15 /* VGSShow.swift in Sources */,
 				3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */,
 				44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */,
+				44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE026325468A330031FB15 /* APIClient.swift in Sources */,
 				44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				44EE0282254697980031FB15 /* Environment.swift in Sources */,
+				44EE02E22546D9C10031FB15 /* VGSShowDataType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

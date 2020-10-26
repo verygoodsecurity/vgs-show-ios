@@ -13,16 +13,6 @@ import UIKit
 /// VGSShow class provided facilities for fetching and displaying required info.
 public final class VGSShow {
 
-	/// `VGSShow` content mode.
-	public enum contentMode {
-
-        /// Fetch text content.
-		case text
-
-		/// Fetch image URL content.
-		case imageURL
-	}
-
 	/// API client.
 	internal let apiClient: APIClient
 
@@ -54,15 +44,14 @@ public final class VGSShow {
 	/// Initialzation
 	///
 	/// - Parameters:
-	///   - id: your organization vault id.
+	///   - vaultId: your organization vault id.
 	///   - environment: your organization vault environment. By default `Environment.sandbox`.
 	///   - dataRegion: id of data storage region (e.g. "eu-123"). Effects ONLY `Environment.live` vaults.
-	public init(id: String, environment: Environment = .sandbox, dataRegion: String? = nil) {
-	  let url = Self.generateVaultURL(tenantId: id, environment: environment, region: dataRegion)
+	public init(vaultId: String, environment: Environment = .sandbox, dataRegion: String? = nil) {
+	  let url = Self.generateVaultURL(tenantId: vaultId, environment: environment, region: dataRegion)
 	  apiClient = APIClient(baseURL: url)
-	  self.tenantId = id
+	  self.tenantId = vaultId
 	  self.environment = environment
 	  self.dataRegion = dataRegion
 	}
 }
-
