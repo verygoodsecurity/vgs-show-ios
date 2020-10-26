@@ -11,7 +11,7 @@ import VGSShow
 final class DemoAppConfig {
 
 	/// Add vault id here:
-	static let vault = ""
+	static let vaultId = "valutId"
 
 	/// Add test payload here id here:
 	static let payload: JsonData = [:]
@@ -22,18 +22,31 @@ final class DemoAppConfig {
 
 class ViewController: UIViewController {
 
-	let vgsShow = VGSShow(vaultId: DemoAppConfig.vault, environment: .sandbox)
-
+  @IBOutlet weak var stackView: UIStackView!
+  
+	let vgsShow = VGSShow(vaultId: DemoAppConfig.vaultId, environment: .sandbox)
+  let showLabel = VGSLabel()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-
-	loadData()
+    configureUI()
+    loadData()
+  }
+  
+  private func configureUI() {
+    showLabel.textColeo
+    stackView.addArrangedSubview(showLabel)
   }
 
   private func loadData() {
-	vgsShow.request(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (requestResult) in
-		print(requestResult)
-	}
+    vgsShow.request(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (requestResult) in
+      switch requestResult {
+      case .success(let code):
+          print(code)
+      case .failure(let code, let error):
+        print(code, error)
+      }
+    }
   }
 }

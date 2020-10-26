@@ -17,6 +17,11 @@
 		3211D9982542E4DD009BB381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3211D9962542E4DD009BB381 /* LaunchScreen.storyboard */; };
 		3211D9A32542E4DD009BB381 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9A22542E4DD009BB381 /* VGSShowDemoAppTests.swift */; };
 		3211D9AE2542E4DD009BB381 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */; };
+		32E972202547009D00F9710E /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E9721F2547009D00F9710E /* VGSLabel.swift */; };
+		32E972212547009D00F9710E /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E9721F2547009D00F9710E /* VGSLabel.swift */; };
+		32E9724F25470D5800F9710E /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
+		32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
+		32E972622547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
 		44EE026225468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026325468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
@@ -61,6 +66,13 @@
 			remoteGlobalIDString = 3211D9882542E4DA009BB381;
 			remoteInfo = VGSShowDemoApp;
 		};
+		32E9724825470D5300F9710E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3211D95E2542E2B4009BB381 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3211D9662542E2B4009BB381;
+			remoteInfo = VGSShow;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +95,8 @@
 		3211D9A92542E4DD009BB381 /* VGSShowDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppUITests.swift; sourceTree = "<group>"; };
 		3211D9AF2542E4DD009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32E9721F2547009D00F9710E /* VGSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
+		32E972602547216C00F9710E /* VGSMaskedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSMaskedLabel.swift; sourceTree = "<group>"; };
 		44EE026125468A330031FB15 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44EE026A25468D360031FB15 /* VGSShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
 		44EE027725468DE10031FB15 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
@@ -115,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E9724F25470D5800F9710E /* VGSShow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +159,7 @@
 				3211D9A12542E4DD009BB381 /* VGSShowDemoAppTests */,
 				3211D9AC2542E4DD009BB381 /* VGSShowDemoAppUITests */,
 				3211D9682542E2B4009BB381 /* Products */,
+				32E9724525470D5300F9710E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +180,7 @@
 			children = (
 				44EE025F254689930031FB15 /* Core */,
 				44EE026925468D190031FB15 /* Erros */,
+				32E9721E2547007B00F9710E /* UIElements */,
 				44EE02A325469F350031FB15 /* Utils */,
 				3211D96A2542E2B4009BB381 /* VGSShow.h */,
 				3211D96B2542E2B4009BB381 /* Info.plist */,
@@ -209,6 +226,22 @@
 				3211D9AF2542E4DD009BB381 /* Info.plist */,
 			);
 			path = VGSShowDemoAppUITests;
+			sourceTree = "<group>";
+		};
+		32E9721E2547007B00F9710E /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				32E9721F2547009D00F9710E /* VGSLabel.swift */,
+				32E972602547216C00F9710E /* VGSMaskedLabel.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		32E9724525470D5300F9710E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		44EE025F254689930031FB15 /* Core */ = {
@@ -338,6 +371,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				32E9724925470D5300F9710E /* PBXTargetDependency */,
 			);
 			name = VGSShowDemoApp;
 			productName = VGSShowDemoApp;
@@ -580,7 +614,9 @@
 				44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE0281254697980031FB15 /* Environment.swift in Sources */,
 				44EE027825468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
+				32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */,
 				44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */,
+				32E972202547009D00F9710E /* VGSLabel.swift in Sources */,
 				44EE026225468A330031FB15 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,7 +626,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44EE026C25468D360031FB15 /* VGSShowErrors.swift in Sources */,
+				32E972212547009D00F9710E /* VGSLabel.swift in Sources */,
 				44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */,
+				32E972622547216C00F9710E /* VGSMaskedLabel.swift in Sources */,
 				44EE029D25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
 				44EE029025469D850031FB15 /* VGSShow.swift in Sources */,
 				3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */,
@@ -645,6 +683,11 @@
 			isa = PBXTargetDependency;
 			target = 3211D9882542E4DA009BB381 /* VGSShowDemoApp */;
 			targetProxy = 3211D9AA2542E4DD009BB381 /* PBXContainerItemProxy */;
+		};
+		32E9724925470D5300F9710E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3211D9662542E2B4009BB381 /* VGSShow */;
+			targetProxy = 32E9724825470D5300F9710E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -720,7 +763,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -778,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
