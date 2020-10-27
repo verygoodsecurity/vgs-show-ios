@@ -48,6 +48,7 @@ extension VGSShow {
 						block(.failure(code, error))
 					}
 				case .imageURL:
+					#warning("used only for current environment.")
 					fatalError("not implemented")
 				}
 			case .failure(let code, let data, let response, let error):

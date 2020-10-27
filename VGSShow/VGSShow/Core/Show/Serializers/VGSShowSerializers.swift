@@ -35,6 +35,7 @@ final class VGSShowJSONSerializer: VGSShowSerializerProtocol {
 			return .failure(VGSShowError(type: .invalidJSON))
 		}
 
+		#warning("used only for current environment.") 
 		guard let json = jsonData["json"] as? JsonData else {
 			return .failure(VGSShowError(type: .jsonNotFound))
 		}
