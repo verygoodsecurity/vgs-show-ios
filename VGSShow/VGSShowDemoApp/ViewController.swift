@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var stackView: UIStackView!
   
-	let vgsShow = VGSShow(vaultId: DemoAppConfig.vaultId, environment: .sandbox)
+	let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
   let showLabel = VGSLabel()
   
   override func viewDidLoad() {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
   }
 
   private func loadData() {
-    vgsShow.request(path: DemoAppConfig.path, method: .post, payload: DemoAppConfig.payload) { (requestResult) in
+	vgsShow.request(path: DemoAppConfig.shared.path, method: .post, payload: DemoAppConfig.shared.payload) { (requestResult) in
       switch requestResult {
       case .success(let code):
           print(code)

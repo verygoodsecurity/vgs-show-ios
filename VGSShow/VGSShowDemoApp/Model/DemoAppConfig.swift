@@ -10,16 +10,40 @@ import VGSShow
 
 final class DemoAppConfig {
 
-	/// Add vault id here:
-	static let vaultId = "valutId"
+	// MARK: - Constants
 
-	/// Add test payload here id here:
-	static let payload: JsonData = [:]
+	// Setup these values in Xcode -> Select VGSShowDemoApp -> Edit Scheme -> Run-> Arguments -> Add Environment varialbes.
+	// Use current *.env approach for demo not to commit secrets.
+	private enum Constants {
+		static let vaultId = "VGS_TEST_VAULT_ID"
+		static let path = "VGS_TEST_PATH"
+		static let payloadKey = "VGS_TEST_PAYLOAD_KEY"
+		static let payloadValue = "VGS_TEST_PAYLOAD_VALUE"
+	}
 
-	/// Add test path here:
-	static let path = "post"
+	static let shared = DemoAppConfig()
 
-	static let vaultId2: String = {
-		return ""
-	}()
+	/// Vault id.
+	let vaultId: String
+
+	/// Payload to reveal.
+	let payload: JsonData
+
+	/// Test path:
+	let path: String
+
+	// MARK: - Initialization
+
+	private init() {
+		guard let testVault = environmentStringVar(Constants.vaultId),
+			let testPath = environmentStringVar(Constants.path),
+			let testPayloadKey = environmentStringVar(Constants.payloadKey),
+			let testPayloadValue = environmentStringVar(Constants.payloadValue) else {
+				fatalError("VGS Test env is not configured")
+		}
+
+		vaultId = testVault
+		path = testPath
+		payload = [testPayloadKey: testPayloadValue]
+	}
 }
