@@ -22,8 +22,9 @@
 		32E9724F25470D5800F9710E /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
 		32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
 		32E972622547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
-		44119E9F2547E0A5008B9759 /* DemoAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44119E9E2547E0A5008B9759 /* DemoAppConfig.swift */; };
-		44119EA22547E260008B9759 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44119EA12547E260008B9759 /* Helpers.swift */; };
+		44119EA525480682008B9759 /* VGSShowSerializers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44119EA425480682008B9759 /* VGSShowSerializers.swift */; };
+		44119EAB25484F19008B9759 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44119EAA25484F18008B9759 /* Helpers.swift */; };
+		44119EAD25484F33008B9759 /* DemoAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44119EAC25484F33008B9759 /* DemoAppConfig.swift */; };
 		44EE026225468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026325468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
@@ -99,8 +100,9 @@
 		3211D9AF2542E4DD009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32E9721F2547009D00F9710E /* VGSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
 		32E972602547216C00F9710E /* VGSMaskedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSMaskedLabel.swift; sourceTree = "<group>"; };
-		44119E9E2547E0A5008B9759 /* DemoAppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppConfig.swift; sourceTree = "<group>"; };
-		44119EA12547E260008B9759 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		44119EA425480682008B9759 /* VGSShowSerializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowSerializers.swift; sourceTree = "<group>"; };
+		44119EAA25484F18008B9759 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		44119EAC25484F33008B9759 /* DemoAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppConfig.swift; sourceTree = "<group>"; };
 		44EE026125468A330031FB15 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44EE026A25468D360031FB15 /* VGSShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
 		44EE027725468DE10031FB15 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
@@ -204,8 +206,8 @@
 		3211D98A2542E4DA009BB381 /* VGSShowDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				44119EA02547E24B008B9759 /* Helpers */,
-				44119E9D2547E084008B9759 /* Model */,
+				44119EA825484EA0008B9759 /* Helpers */,
+				44119EA925484EE4008B9759 /* Model */,
 				3211D98B2542E4DB009BB381 /* AppDelegate.swift */,
 				3211D98F2542E4DB009BB381 /* ViewController.swift */,
 				3211D9912542E4DB009BB381 /* Main.storyboard */,
@@ -250,20 +252,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		44119E9D2547E084008B9759 /* Model */ = {
+		44119EA32547FC8D008B9759 /* Serializers */ = {
 			isa = PBXGroup;
 			children = (
-				44119E9E2547E0A5008B9759 /* DemoAppConfig.swift */,
+				44119EA425480682008B9759 /* VGSShowSerializers.swift */,
 			);
-			path = Model;
+			path = Serializers;
 			sourceTree = "<group>";
 		};
-		44119EA02547E24B008B9759 /* Helpers */ = {
+		44119EA825484EA0008B9759 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				44119EA12547E260008B9759 /* Helpers.swift */,
+				44119EAA25484F18008B9759 /* Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		44119EA925484EE4008B9759 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				44119EAC25484F33008B9759 /* DemoAppConfig.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		44EE025F254689930031FB15 /* Core */ = {
@@ -304,6 +314,7 @@
 		44EE028D25469D780031FB15 /* Show */ = {
 			isa = PBXGroup;
 			children = (
+				44119EA32547FC8D008B9759 /* Serializers */,
 				44EE028E25469D850031FB15 /* VGSShow.swift */,
 				44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */,
 				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
@@ -640,6 +651,7 @@
 				44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */,
 				32E972202547009D00F9710E /* VGSLabel.swift in Sources */,
 				44EE026225468A330031FB15 /* APIClient.swift in Sources */,
+				44119EA525480682008B9759 /* VGSShowSerializers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,10 +679,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44119E9F2547E0A5008B9759 /* DemoAppConfig.swift in Sources */,
 				3211D9902542E4DB009BB381 /* ViewController.swift in Sources */,
+				44119EAB25484F19008B9759 /* Helpers.swift in Sources */,
+				44119EAD25484F33008B9759 /* DemoAppConfig.swift in Sources */,
 				3211D98C2542E4DB009BB381 /* AppDelegate.swift in Sources */,
-				44119EA22547E260008B9759 /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
