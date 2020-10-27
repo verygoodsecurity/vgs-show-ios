@@ -12,8 +12,15 @@ final class DemoAppConfig {
 
 	// MARK: - Constants
 
-	// Setup these values in Xcode -> Select VGSShowDemoApp -> Edit Scheme -> Run-> Arguments -> Add Environment varialbes.
 	// Use current *.env approach for demo not to commit secrets.
+	// 1. Select `Schemes`.
+	// 2. Tap on "New scheme".
+	// 3. Select target "VGSShowDemoApp".
+	// 4. Add custom scheme name - smth like `VGSShowDemoAppConfigured`.
+	// 5. **Important!**  Select `VGSShowDemoAppConfigured` scheme and uncheck `shared` to gitignore your custom scheme.
+	// 6. Select `VGSShowDemoAppConfigured`.
+	// 7. Select arguments.
+	// 8. Setup environment varialbes.
 	private enum Constants {
 		static let vaultId = "VGS_TEST_VAULT_ID"
 		static let path = "VGS_TEST_PATH"
@@ -21,6 +28,7 @@ final class DemoAppConfig {
 		static let payloadValue = "VGS_TEST_PAYLOAD_VALUE"
 	}
 
+	/// Shared instance
 	static let shared = DemoAppConfig()
 
 	/// Vault id.
@@ -35,6 +43,7 @@ final class DemoAppConfig {
 	// MARK: - Initialization
 
 	private init() {
+		/// Make sure configuration is ready.
 		guard let testVault = environmentStringVar(Constants.vaultId),
 			let testPath = environmentStringVar(Constants.path),
 			let testPayloadKey = environmentStringVar(Constants.payloadKey),
