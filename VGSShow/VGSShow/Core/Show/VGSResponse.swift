@@ -13,9 +13,10 @@ import Foundation
 	 Success response case
 
 	 - Parameters:
-		- code: response status code.
+		- code: `Int` object. response status code.
+		- result: `VGSShowResultData` object.
 	*/
-	case success( _ code: Int)
+	case success( _ code: Int, _ vgsData: VGSShowResultData )
 
 	/**
 	 Failed response case

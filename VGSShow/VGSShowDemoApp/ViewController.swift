@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var stackView: UIStackView!
   
-	let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
+  let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
   let showLabel = VGSLabel()
   
   override func viewDidLoad() {
@@ -28,10 +28,18 @@ class ViewController: UIViewController {
   }
 
   private func loadData() {
-	vgsShow.request(path: DemoAppConfig.shared.path, method: .post, payload: DemoAppConfig.shared.payload) { (requestResult) in
+	/// Set proper jsonSelector here.
+	vgsShow.request(path: DemoAppConfig.shared.path, method: .post, payload:
+	DemoAppConfig.shared.payload, vgsShowType: .text,jsonSelector: "") { (requestResult) in
       switch requestResult {
-      case .success(let code):
+      case .success(let code, let showData):
           print(code)
+		switch showData {
+		case .text(let rawText):
+			break
+		default:
+			break
+		}
       case .failure(let code, let error):
         print(code, error)
       }

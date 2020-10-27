@@ -16,6 +16,18 @@ public enum VGSErrorType: Int {
 
 	/// When reponse data format is not supported
 	case unexpectedResponseDataFormat = 1401
+
+	/// When response has no raw data.
+	case noRawData = 1402
+
+	/// When response cannot be decoded to json.
+	case invalidJSON = 1403
+
+	/// When response has no raw data.
+	case jsonNotFound = 1404
+
+	/// When no object found on specified path.
+	case valueNotFoundInJSON = 1405
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
