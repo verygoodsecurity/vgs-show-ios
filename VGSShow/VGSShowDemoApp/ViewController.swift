@@ -8,18 +8,6 @@
 import UIKit
 import VGSShow
 
-final class DemoAppConfig {
-
-	/// Add vault id here:
-	static let vaultId = "valutId"
-
-	/// Add test payload here id here:
-	static let payload: JsonData = [:]
-
-	/// Add test path here:
-	static let path = "post"
-}
-
 class ViewController: UIViewController {
 
   @IBOutlet weak var stackView: UIStackView!
@@ -35,7 +23,7 @@ class ViewController: UIViewController {
   }
   
   private func configureUI() {
-    showLabel.textColeo
+	showLabel.textColor = .black
     stackView.addArrangedSubview(showLabel)
   }
 
