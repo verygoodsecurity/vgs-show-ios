@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias VGSJSONKeyPath = String
+
 /// Response enum cases for SDK requests
 @frozen public enum VGSRequestResult {
 	/**
@@ -16,7 +18,7 @@ import Foundation
 		- code: `Int` object. response status code.
 		- result: `VGSShowResultData` object.
 	*/
-	case success( _ code: Int, _ vgsData: VGSShowResultData )
+	case success( _ code: Int, _ vgsData: [VGSJSONKeyPath : VGSShowResultData] )
 
 	/**
 	 Failed response case

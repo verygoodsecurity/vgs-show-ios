@@ -28,21 +28,47 @@ class ViewController: UIViewController {
   }
 
   private func loadData() {
-	/// Set proper jsonSelector here.
+
+	// Set proper jsonSelector here.
+	let jsonKeyPath = ""
+	let revealModels = [VGSShowRevealModel(jsonKeyPath: jsonKeyPath, decoder: .text)]
+
 	vgsShow.request(path: DemoAppConfig.shared.path, method: .post, payload:
-	DemoAppConfig.shared.payload, vgsShowType: .text, jsonSelector: "") { (requestResult) in
+	DemoAppConfig.shared.payload, revealModels: revealModels) { (requestResult) in
       switch requestResult {
-      case .success(let code, let showData):
+      case .success(let code, let revealedData):
           print("vgsshow success, code: \(code)")
-		switch showData {
-		case .text(let rawText):
-			break
-		default:
-			break
+
+		for data in revealedData {
+			print("jsonKeyPath: \(data.key)")
+			switch data.value {
+			case .text(let rawText):
+				break
+			default:
+				break
+			}
 		}
+
+		// Show unrevealed keys if smth not found.
+		if revealedData.count != revealedData.count {
+			let allJSONKeyPaths: [String] = revealModels.map({return $0.jsonKeyPath})
+			let revealedJSONKeyPaths: [String] = revealedData.map({return $0.key})
+
+			let unrevealedKeyPaths = allJSONKeyPaths.difference(from: revealedJSONKeyPaths)
+			print("unrevealedKeyPaths: \(unrevealedKeyPaths)")
+		}
+
       case .failure(let code, let error):
 		print("vgsshow failed, code: \(code), error: \(error)")
       }
     }
   }
+}
+
+extension Array where Element: Hashable {
+	func difference(from other: [Element]) -> [Element] {
+		let thisSet = Set(self)
+		let otherSet = Set(other)
+		return Array(thisSet.symmetricDifference(otherSet))
+	}
 }
