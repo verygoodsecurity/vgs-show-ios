@@ -62,6 +62,9 @@ class APIClient {
 
 	var customHeader: HTTPHeaders?
 
+	/// URLSession object.
+	internal let urlSession = URLSession(configuration: .ephemeral)
+
 	// MARK: - Initialization
 
 	init(baseURL url: URL) {
@@ -98,7 +101,7 @@ class APIClient {
 
 	private func performRequest(request: URLRequest, value: BodyData?, completion block: RequestCompletion) {
 		// Send data
-		URLSession.shared.dataTask(with: request) { (data, response, error) in
+		urlSession.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {
 				if let error = error as NSError? {
 					block?(.failure(error.code, data, response, error))

@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 	DemoAppConfig.shared.payload, vgsShowType: .text,jsonSelector: "") { (requestResult) in
       switch requestResult {
       case .success(let code, let showData):
-          print(code)
+          print("vgsshow success, code: \(code)")
 		switch showData {
 		case .text(let rawText):
 			break
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
 			break
 		}
       case .failure(let code, let error):
-        print(code, error)
+		print("vgsshow failed, code: \(code), error: \(error)")
       }
     }
   }
