@@ -19,8 +19,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
-    vgsShow.bindElement(cardNumberLabel)
-    vgsShow.bindElement(expDateLabel)
     configureUI()
     loadData()
   }
