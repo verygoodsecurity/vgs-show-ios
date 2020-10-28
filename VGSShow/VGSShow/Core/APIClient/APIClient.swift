@@ -34,7 +34,7 @@ class APIClient {
 		- data: response **data** object.
 		- response: URLResponse object represents a URL load response.
 		*/
-		case success(_ code:Int, _ data:Data?, _ response: URLResponse?)
+		case success(_ code: Int, _ data: Data?, _ response: URLResponse?)
 
 		/**
 		Failed response case
@@ -45,7 +45,7 @@ class APIClient {
 		- response: `URLResponse` object represents a URL load response.
 		- error: `Error` object.
 		*/
-		case failure(_ code:Int, _ data:Data?, _ response: URLResponse?, _ error:Error?)
+		case failure(_ code: Int, _ data: Data?, _ response: URLResponse?, _ error: Error?)
 	}
 
 	typealias RequestCompletion = ((_ response: APIClient.RequestResult) -> Void)?

@@ -30,7 +30,7 @@ class ViewController: UIViewController {
   private func loadData() {
 	/// Set proper jsonSelector here.
 	vgsShow.request(path: DemoAppConfig.shared.path, method: .post, payload:
-	DemoAppConfig.shared.payload, vgsShowType: .text,jsonSelector: "") { (requestResult) in
+	DemoAppConfig.shared.payload, vgsShowType: .text, jsonSelector: "") { (requestResult) in
       switch requestResult {
       case .success(let code, let showData):
           print("vgsshow success, code: \(code)")
