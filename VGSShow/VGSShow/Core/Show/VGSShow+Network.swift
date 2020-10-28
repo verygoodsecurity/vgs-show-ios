@@ -21,7 +21,7 @@ extension VGSShow {
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
 	*/
-	public func request(path: String, method: HTTPMethod = .post, payload: [String: Any]? = nil, vgsShowType: VGSShowDataType, jsonSelector: String, completion block: @escaping (VGSRequestResult) -> Void) {
+	public func request(path: String, method: HTTPMethod = .post, payload: JsonData? = nil, revealModels: [VGSShowRevealModel], completion block: @escaping (VGSRequestResult) -> Void) {
 
 		/// content analytics
 		//		var content: [String] = []
@@ -37,23 +37,30 @@ extension VGSShow {
 
 			switch requestResult {
 			case .success(let code, let data, let response):
-				switch vgsShowType {
-				case .text:
-					let result = VGSShowJSONSerializer.serializeDataByPath(jsonSelector, data: data, showDataType: vgsShowType)
-					switch result {
-					case .success(let showData):
-						block(.success(code, showData))
-
-					case .failure(let error):
-						block(.failure(code, error))
-					}
-				case .imageURL:
-					#warning("used only for current environment.")
-					fatalError("not implemented")
-				}
+				self.handleSuccessResponse(code, data: data, response: response, revealModels: revealModels, completion: block)
 			case .failure(let code, let data, let response, let error):
 				block(.failure(code, error))
 			}
 		}
+	}
+
+	// MARK: - Private
+
+	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, revealModels: [VGSShowRevealModel], completion block: @escaping (VGSRequestResult) -> Void ) {
+
+		var revealedData = [VGSJSONKeyPath : VGSShowResultData]()
+		for model in revealModels {
+			let jsonKeyPath = model.jsonKeyPath
+			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decoder)
+			let decodedResult = decoder.decodeDataPyPath(jsonKeyPath, data: data)
+			switch decodedResult {
+			case .success(let decodedData):
+				revealedData[jsonKeyPath] = decodedData
+			case .failure(let error):
+				print("failed to decode data for path: \(jsonKeyPath) with error: \(error)")
+			}
+		}
+
+		block(.success(code, revealedData))
 	}
 }

@@ -34,7 +34,7 @@ class APIClient {
 		- data: response **data** object.
 		- response: URLResponse object represents a URL load response.
 		*/
-		case success(_ code:Int, _ data:Data?, _ response: URLResponse?)
+		case success(_ code: Int, _ data: Data?, _ response: URLResponse?)
 
 		/**
 		Failed response case
@@ -45,7 +45,7 @@ class APIClient {
 		- response: `URLResponse` object represents a URL load response.
 		- error: `Error` object.
 		*/
-		case failure(_ code:Int, _ data:Data?, _ response: URLResponse?, _ error:Error?)
+		case failure(_ code: Int, _ data: Data?, _ response: URLResponse?, _ error: Error?)
 	}
 
 	typealias RequestCompletion = ((_ response: APIClient.RequestResult) -> Void)?
@@ -61,6 +61,9 @@ class APIClient {
 	let baseURL: URL!
 
 	var customHeader: HTTPHeaders?
+
+	/// URLSession object.
+	internal let urlSession = URLSession(configuration: .ephemeral)
 
 	// MARK: - Initialization
 
@@ -98,7 +101,7 @@ class APIClient {
 
 	private func performRequest(request: URLRequest, value: BodyData?, completion block: RequestCompletion) {
 		// Send data
-		URLSession.shared.dataTask(with: request) { (data, response, error) in
+		urlSession.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {
 				if let error = error as NSError? {
 					block?(.failure(error.code, data, response, error))

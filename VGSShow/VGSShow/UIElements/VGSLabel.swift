@@ -14,7 +14,7 @@ import UIKit
 public final class VGSLabel: UIView {
   
   internal var label = VGSMaskedLabel(frame: .zero)
-  internal let fieldType: VGSShowDataType = .text
+  internal let fieldType: VGSShowDataDecoder = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
 

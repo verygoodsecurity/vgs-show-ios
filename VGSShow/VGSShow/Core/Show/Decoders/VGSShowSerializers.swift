@@ -7,26 +7,16 @@
 
 import Foundation
 
-protocol VGSShowSerializerProtocol {
-	static func serializeDataByPath(_ path: String, data: Data?, showDataType: VGSShowDataType) -> VGSShowSerializerResult
-}
+final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
-enum VGSShowSerializerResult {
-	case success(_ data: VGSShowResultData)
-	case failure(_ error: VGSShowError)
-}
-
-final class VGSShowJSONSerializer: VGSShowSerializerProtocol {
-
-	// MARK: - VGSShowSerializerProtocol
+	// MARK: - VGSShowDecoderProtocol
 
 	/// Serialize data by specified path.
 	/// - Parameters:
 	///   - path: `String` object. Path for serialization.
 	///   - data: `Data?` object. Raw data to serialize.
-	///   - showDataType: `VGSShowDataType` enum object.
 	/// - Returns: `VGSShowSerializerResult` object. `success` if object is found, failure with associated error.
-	static func serializeDataByPath(_ path: String, data: Data?, showDataType: VGSShowDataType) -> VGSShowSerializerResult {
+	func decodeDataPyPath(_ path: VGSJSONKeyPath, data: Data?) -> VGSShowSerializerResult {
 		guard let rawData = data else {
 			return .failure(VGSShowError(type: .noRawData))
 		}
@@ -35,12 +25,7 @@ final class VGSShowJSONSerializer: VGSShowSerializerProtocol {
 			return .failure(VGSShowError(type: .invalidJSON))
 		}
 
-		#warning("used only for current environment.") 
-		guard let json = jsonData["json"] as? JsonData else {
-			return .failure(VGSShowError(type: .jsonNotFound))
-		}
-
-		guard let serializedText = json[path] as? String else {
+		guard let serializedText: String = jsonData.valueForKeyPath(keyPath: path) else {
 			return .failure(VGSShowError(type: .valueNotFoundInJSON))
 		}
 
