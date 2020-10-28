@@ -13,7 +13,8 @@ class ViewController: UIViewController {
   @IBOutlet weak var stackView: UIStackView!
   
   let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
-  let showLabel = VGSLabel()
+  let cardNumberLabel = VGSLabel()
+  let expDateLabel = VGSLabel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,8 +24,10 @@ class ViewController: UIViewController {
   }
   
   private func configureUI() {
-	showLabel.textColor = .black
-    stackView.addArrangedSubview(showLabel)
+    cardNumberLabel.textColor = .black
+    expDateLabel.textColor = .red
+    stackView.addArrangedSubview(cardNumberLabel)
+    stackView.addArrangedSubview(expDateLabel)
   }
 
   private func loadData() {

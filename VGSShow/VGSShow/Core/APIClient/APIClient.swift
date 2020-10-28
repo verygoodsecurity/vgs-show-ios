@@ -84,7 +84,10 @@ class APIClient {
 			})
 		}
 		// Setup URLRequest
-		let jsonData = try? JSONSerialization.data(withJSONObject: value)
+    var jsonData: Data?
+    if let value = value {
+      jsonData = try? JSONSerialization.data(withJSONObject: value)
+    }
 		let url = baseURL.appendingPathComponent(path)
 
 		var request = URLRequest(url: url)

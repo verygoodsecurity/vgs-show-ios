@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-F5-4Dp">
-                                <rect key="frame" x="20" y="164" width="374" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-F5-4Dp">
+                                <rect key="frame" x="20" y="164" width="374" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="izS-dr-V9a"/>
+                                    <constraint firstAttribute="height" constant="120" id="izS-dr-V9a"/>
                                 </constraints>
                             </stackView>
                         </subviews>
