@@ -1,0 +1,11 @@
+{
+	 "json": {
+			"card_data": {
+				 "data" : {
+					 "card_type" : "VISA"
+				 },
+				 "card_type2": "Mastercard",
+				 "card_TYPE" : "Mastercard-2"
+			}
+	 }
+}
