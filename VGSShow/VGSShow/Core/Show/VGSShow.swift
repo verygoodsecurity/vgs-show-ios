@@ -28,6 +28,12 @@ public final class VGSShow {
 	/// Unique form identifier
 	internal let formId = UUID().uuidString
 
+  internal var bindingModels = [VGSShowElementModel]()
+  
+  public func bind(_ label: VGSLabel) {
+    bindingModels.append(label.model)
+  }
+  
 	// MARK: Custom HTTP Headers
 
 	/// Set your custom HTTP headers

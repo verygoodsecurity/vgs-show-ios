@@ -13,16 +13,25 @@ import UIKit
 /// An object responsible for displaying revealed text data.
 public final class VGSLabel: UIView {
   
+  internal let model = VGSLabelModel()
+  
   internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDataDecoder = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
-
+  
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
   
   /// Name that will be associated with `VGSLabel` and used as a JSON key on request response with revealed data from your organozation vault.
-  public var fieldName: String!
+  public var fieldName: String! {
+    set {
+      model.jsonKeyPath = newValue
+    }
+    get {
+      return model.jsonKeyPath
+    }
+  }
   
   // MARK: - UI Attribute
 
@@ -103,6 +112,10 @@ internal extension VGSLabel {
       setDefaultStyle()
       // add UI elements
       buildUI()
+    
+      model.onValueChanged = { [weak self](text) in
+        self?.label.text = text
+      }
   }
 
   func setDefaultStyle() {

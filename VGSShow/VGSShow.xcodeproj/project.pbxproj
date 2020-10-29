@@ -17,8 +17,8 @@
 		3211D9982542E4DD009BB381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3211D9962542E4DD009BB381 /* LaunchScreen.storyboard */; };
 		3211D9A32542E4DD009BB381 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9A22542E4DD009BB381 /* VGSShowDemoAppTests.swift */; };
 		3211D9AE2542E4DD009BB381 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */; };
-		32E972202547009D00F9710E /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E9721F2547009D00F9710E /* VGSLabel.swift */; };
-		32E972212547009D00F9710E /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E9721F2547009D00F9710E /* VGSLabel.swift */; };
+		32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EBF5254AF35900D6B163 /* VGSLabel.swift */; };
+		32D5EC02254AF36700D6B163 /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */; };
 		32E9724F25470D5800F9710E /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
 		32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
 		32E972622547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
@@ -110,7 +110,8 @@
 		3211D9A92542E4DD009BB381 /* VGSShowDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppUITests.swift; sourceTree = "<group>"; };
 		3211D9AF2542E4DD009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32E9721F2547009D00F9710E /* VGSLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
+		32D5EBF5254AF35900D6B163 /* VGSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
+		32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelModel.swift; sourceTree = "<group>"; };
 		32E972602547216C00F9710E /* VGSMaskedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSMaskedLabel.swift; sourceTree = "<group>"; };
 		44119EA425480682008B9759 /* VGSShowSerializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowSerializers.swift; sourceTree = "<group>"; };
 		44119EAA25484F18008B9759 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -260,10 +261,19 @@
 			path = VGSShowDemoAppUITests;
 			sourceTree = "<group>";
 		};
+		32D5EBF4254AF35900D6B163 /* VGSLabel */ = {
+			isa = PBXGroup;
+			children = (
+				32D5EBF5254AF35900D6B163 /* VGSLabel.swift */,
+				32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */,
+			);
+			path = VGSLabel;
+			sourceTree = "<group>";
+		};
 		32E9721E2547007B00F9710E /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				32E9721F2547009D00F9710E /* VGSLabel.swift */,
+				32D5EBF4254AF35900D6B163 /* VGSLabel */,
 				32E972602547216C00F9710E /* VGSMaskedLabel.swift */,
 			);
 			path = UIElements;
@@ -716,11 +726,12 @@
 				44EE02E12546D9C10031FB15 /* VGSShowDataTransformer.swift in Sources */,
 				44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE0281254697980031FB15 /* Environment.swift in Sources */,
+				32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */,
 				44EE027825468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
+				32D5EC02254AF36700D6B163 /* VGSLabelModel.swift in Sources */,
 				32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */,
 				445BB15D254A919200D38499 /* Array+Extensions.swift in Sources */,
 				44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */,
-				32E972202547009D00F9710E /* VGSLabel.swift in Sources */,
 				44EE026225468A330031FB15 /* APIClient.swift in Sources */,
 				44119EA525480682008B9759 /* VGSShowSerializers.swift in Sources */,
 			);
@@ -731,7 +742,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44EE026C25468D360031FB15 /* VGSShowErrors.swift in Sources */,
-				32E972212547009D00F9710E /* VGSLabel.swift in Sources */,
 				445BB09E25492D7800D38499 /* VGSShowSerializers.swift in Sources */,
 				445BB0AB2549596700D38499 /* VGSJSONSelectorTests.swift in Sources */,
 				445BB0982549269900D38499 /* VGSShowNestedDictionaryTests.swift in Sources */,
