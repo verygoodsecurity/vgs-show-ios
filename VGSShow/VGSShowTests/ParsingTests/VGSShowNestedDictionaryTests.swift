@@ -13,37 +13,56 @@ class VGSShowNestedDictionaryTests: XCTestCase {
 	/// Test nested dictionary parsing.
 	func testNestedDictionaryParse() {
 		let testCardType = "VISA"
-		let testData: [String: JsonData] = [
-			"card_type": ["card_type": testCardType],
-			"json.card_type": ["json": ["card_type": testCardType]],
-			"json.card_data.card_type": ["json": ["card_data": ["card_type": testCardType]]],
-			"json.card_data.data.card_type": ["json": ["card_data": ["cardType": "MASTERCARD"], "data": ["card_type": testCardType]]]
-		]
 
-		for data in testData {
+		for data in provideTestData(validPaths: true) {
 			let json = data.value
 			let keyPath = data.key
 			if let cardType: String = json.valueForKeyPath(keyPath: keyPath) {
 				XCTAssert(cardType == testCardType)
+			} else {
+				XCTFail("Value not found for: \(keyPath) in json: \(json)")
 			}
 		}
 	}
 
 	/// Test nested dictionary parsing with wrong keys.
 	func testNestedDictionaryParseWrongKeys() {
-		let testCardType = "VISA"
-		let testData: [String: JsonData] = [
-			"card_typ": ["card_type": testCardType],
-			"json.card-type": ["json": ["card_type": testCardType]],
-			"json.card_data.card_Type": ["json": ["card_data": ["card_type": testCardType]]]
-		]
-
-		for data in testData {
+		for data in provideTestData(validPaths: false) {
 			let json = data.value
 			let keyPath = data.key
 			if let _: String = json.valueForKeyPath(keyPath: keyPath) {
-				XCTFail("wrong keypath: \(keyPath) used in json: \(json)")
+				XCTFail("wrong keypath: \(keyPath) in json: \(json)")
 			}
 		}
+	}
+
+	/// Return test data.
+	/// - Parameter validPaths: `Bool` flag. `true` to test valid paths.
+	/// - Returns: `[String: JsonData]` object.
+	private func provideTestData(validPaths: Bool) -> [String: JsonData] {
+		let bundle = Bundle(for: type(of: self))
+
+		let correctKeys = ["card_type",
+								"json.card_type",
+								"json.card_data.card_type",
+								"json.card_data.data.card_type"]
+
+		let wrongKeys = ["card_typ",
+								"json.card-type",
+								"json.card_data/card_type",
+								"json.card_data-data.card_type"]
+
+		let paths = validPaths ? correctKeys : wrongKeys
+
+		var testData = [String: JsonData]()
+		for (index, path) in paths.enumerated() {
+			if let json = JsonData.init(jsonFileName: "validNestedJSON_\(index+1)", bundle: bundle) {
+				testData[path] = json
+			} else {
+				XCTFail("local json not found for tests")
+			}
+		}
+
+		return testData
 	}
 }

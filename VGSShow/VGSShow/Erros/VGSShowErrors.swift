@@ -28,6 +28,9 @@ public enum VGSErrorType: Int {
 
 	/// When no object found on specified path.
 	case valueNotFoundInJSON = 1405
+
+	/// When cannot decode all data.
+	case dataPartiallyDecoded = 1406
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.

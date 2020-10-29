@@ -48,7 +48,7 @@ extension VGSShow {
 
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, revealModels: [VGSShowRevealModel], completion block: @escaping (VGSRequestResult) -> Void ) {
 
-		var revealedData = [VGSJSONKeyPath : VGSShowResultData]()
+		var revealedData = [VGSJSONKeyPath: VGSShowResultData]()
 		for model in revealModels {
 			let jsonKeyPath = model.jsonKeyPath
 			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decoder)
@@ -61,6 +61,19 @@ extension VGSShow {
 			}
 		}
 
-		block(.success(code, revealedData))
+		// Send error if smth not decoded.
+		if revealedData.count != revealModels.count {
+			let allJSONKeyPaths: [String] = revealModels.map({return $0.jsonKeyPath})
+			let revealedJSONKeyPaths: [String] = revealedData.map({return $0.key})
+
+			let unrevealedKeyPaths = allJSONKeyPaths.difference(from: revealedJSONKeyPaths)
+			print("unrevealedKeyPaths: \(unrevealedKeyPaths)")
+
+			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
+			let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
+			block(.failure(code, error))
+		} else {
+			block(.success(code, revealedData))
+		}
 	}
 }
