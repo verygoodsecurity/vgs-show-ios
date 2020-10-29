@@ -50,16 +50,7 @@ class ViewController: UIViewController {
     }
   }
   
-  
   @IBAction func revealButtonAction(_ sender: Any) {
     loadData()
   }
-}
-
-extension Array where Element: Hashable {
-	func difference(from other: [Element]) -> [Element] {
-		let thisSet = Set(self)
-		let otherSet = Set(other)
-		return Array(thisSet.symmetricDifference(otherSet))
-	}
 }
