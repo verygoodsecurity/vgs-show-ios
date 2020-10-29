@@ -12,8 +12,9 @@ import VGSCollectSDK
 class CollectViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
-
-    // Init VGS Collector
+    @IBOutlet weak var resultLabel: UILabel!
+  
+  // Init VGS Collector
     var vgsCollect = VGSCollect(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
     
     // VGS UI Elements
@@ -72,25 +73,17 @@ class CollectViewController: UIViewController {
         expCardDate.placeholder = "MM/YYYY"
         expCardDate.monthPickerFormat = .longSymbols
       
-        
         vgsCollect.textFields.forEach { textField in
           textField.textColor = .darkText
           textField.font = .systemFont(ofSize: 22)
           textField.padding = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
           textField.tintColor = .lightGray
-          /// Implement VGSTextFieldDelegate methods
-          textField.delegate = self
         }
     }
   
   @IBAction func uploadButtonAction(_ sender: Any) {
     // hide kayboard
     hideKeyboard()
-
-    // check if textfields are valid
-    vgsCollect.textFields.forEach { textField in
-      textField.borderColor = textField.state.isValid ? .lightGray : .red
-    }
 
     // send extra data
     var extraData = [String: Any]()
@@ -108,14 +101,20 @@ class CollectViewController: UIViewController {
                  let cardNumber = aliases["account_number_1"],
                  let expDate = aliases["exp_date_1"] {
                 
+                self?.resultLabel.text =  """
+                                          card_namber: \(cardNumber)\n
+                                          expiration_date: \(expDate)
+                                          """
                  let payload = ["account_number2": cardNumber,
                                "exp_date": expDate]
-                DemoAppConfig.shared.customPayload = payload
+                  
+                DemoAppConfig.shared.collectPayload = payload
                 print(payload)
               }
             }
             return
         case .failure(let code, _, _, let error):
+          self?.resultLabel.text = "Error \(code)"
           switch code {
           case 400..<499:
             // Wrong request. This also can happend when your Routs not setup yet or your <vaultId> is wrong
@@ -130,20 +129,6 @@ class CollectViewController: UIViewController {
             print("Submit request error: \(code), \(String(describing: error))")
           return
       }
-    }
-  }
-  
-}
-
-// MARK: - VGSTextFieldDelegate
-extension CollectViewController: VGSTextFieldDelegate {
-  func vgsTextFieldDidChange(_ textField: VGSTextField) {
-    print(textField.state.description)
-    textField.borderColor = textField.state.isValid  ? .gray : .red
-
-    /// Check Card Number Field State with addition attributes
-    if let cardState = textField.state as? CardState, cardState.isValid {
-        print("THIS IS: \(cardState.cardBrand.stringValue) - \(cardState.bin.prefix(4)) **** **** \(cardState.last4)")
     }
   }
 }
