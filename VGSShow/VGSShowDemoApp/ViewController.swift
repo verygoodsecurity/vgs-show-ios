@@ -20,26 +20,37 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     configureUI()
-    cardNumberLabel.fieldName = "json.account_number2"
     vgsShow.bind(cardNumberLabel)
     vgsShow.bind(expDateLabel)
   }
   
   private func configureUI() {
-    cardNumberLabel.textColor = .black
-    cardNumberLabel.padding = .init(top: 8, left: 8, bottom: 8, right: 8)
-    cardNumberLabel.borderColor = .blue
-    cardNumberLabel.textColor = .red
+    let padding = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
+    let textColor = UIColor.red
+    let borderColor = UIColor.blue
+    let font = UIFont.boldSystemFont(ofSize: 20)
     
-    expDateLabel.textColor = .red
+    cardNumberLabel.textColor = textColor
+    cardNumberLabel.padding = padding
+    cardNumberLabel.borderColor = borderColor
+    cardNumberLabel.font = font
+    cardNumberLabel.fieldName = "json.account_number2"
+
+    expDateLabel.textColor = textColor
+    expDateLabel.padding = padding
+    expDateLabel.borderColor = borderColor
+    expDateLabel.font = font
+    expDateLabel.fieldName = "json.exp_date"
+    
     stackView.addArrangedSubview(cardNumberLabel)
     stackView.addArrangedSubview(expDateLabel)
   }
 
 	private func loadData() {
+  
     vgsShow.request(path: DemoAppConfig.shared.path,
                     method: .post,
-                    payload: DemoAppConfig.shared.payload) { (requestResult) in
+                    payload: DemoAppConfig.shared.customPayload) { (requestResult) in
       
           switch requestResult {
           case .success(let code):
