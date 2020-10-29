@@ -10,50 +10,56 @@ import VGSShow
 
 class ViewController: UIViewController {
 
-	@IBOutlet weak var stackView: UIStackView!
-
-	let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
-	let cardNumberLabel = VGSLabel()
-	let expDateLabel = VGSLabel()
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view.
-		configureUI()
-		loadData()
-	}
-
-	private func configureUI() {
-		cardNumberLabel.textColor = .black
-		expDateLabel.textColor = .red
-		stackView.addArrangedSubview(cardNumberLabel)
-		stackView.addArrangedSubview(expDateLabel)
-	}
+  @IBOutlet weak var stackView: UIStackView!
+  
+  let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
+  let cardNumberLabel = VGSLabel()
+  let expDateLabel = VGSLabel()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view.
+    configureUI()
+    cardNumberLabel.fieldName = "json.account_number2"
+    vgsShow.bind(cardNumberLabel)
+    vgsShow.bind(expDateLabel)
+  }
+  
+  private func configureUI() {
+    cardNumberLabel.textColor = .black
+    cardNumberLabel.padding = .init(top: 8, left: 8, bottom: 8, right: 8)
+    cardNumberLabel.borderColor = .blue
+    cardNumberLabel.textColor = .red
+    
+    expDateLabel.textColor = .red
+    stackView.addArrangedSubview(cardNumberLabel)
+    stackView.addArrangedSubview(expDateLabel)
+  }
 
 	private func loadData() {
+    vgsShow.request(path: DemoAppConfig.shared.path,
+                    method: .post,
+                    payload: DemoAppConfig.shared.payload) { (requestResult) in
+      
+          switch requestResult {
+          case .success(let code):
+            print("vgsshow success, code: \(code)")
+          case .failure(let code, let error):
+            print("vgsshow failed, code: \(code), error: \(error)")
+          }
+    }
+  }
+  
+  
+  @IBAction func revealButtonAction(_ sender: Any) {
+    loadData()
+  }
+}
 
-		// Set proper jsonSelector here.
-		let jsonKeyPath = ""
-		let revealModels = [VGSShowRevealModel(jsonKeyPath: jsonKeyPath, decoder: .text)]
-
-		vgsShow.request(path: DemoAppConfig.shared.path, method: .post, payload:
-											DemoAppConfig.shared.payload, revealModels: revealModels) { (requestResult) in
-			switch requestResult {
-			case .success(let code, let revealedData):
-				print("vgsshow success, code: \(code)")
-
-				for data in revealedData {
-					print("jsonKeyPath: \(data.key)")
-					switch data.value {
-					case .text(let rawText):
-						break
-					default:
-						break
-					}
-				}
-			case .failure(let code, let error):
-				print("vgsshow failed, code: \(code), error: \(error)")
-			}
-		}
+extension Array where Element: Hashable {
+	func difference(from other: [Element]) -> [Element] {
+		let thisSet = Set(self)
+		let otherSet = Set(other)
+		return Array(thisSet.symmetricDifference(otherSet))
 	}
 }
