@@ -18,7 +18,7 @@ public typealias VGSJSONKeyPath = String
 		- code: `Int` object. response status code.
 		- result: `VGSShowResultData` object.
 	*/
-	case success( _ code: Int, _ vgsData: [VGSJSONKeyPath : VGSShowResultData] )
+	case success( _ code: Int)
 
 	/**
 	 Failed response case
