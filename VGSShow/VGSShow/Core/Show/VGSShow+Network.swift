@@ -69,7 +69,7 @@ extension VGSShow {
 			let unrevealedKeyPaths = allJSONKeyPaths.difference(from: revealedJSONKeyPaths)
 			print("unrevealedKeyPaths: \(unrevealedKeyPaths)")
 
-			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not decoded fields": unrevealedKeyPaths])
+			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
 			let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
 			block(.failure(code, error))
 		} else {
