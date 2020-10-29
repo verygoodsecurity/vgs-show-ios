@@ -36,6 +36,7 @@
 		445BB137254A887100D38499 /* validNestedJSON_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 445BB132254A887100D38499 /* validNestedJSON_1.json */; };
 		445BB138254A887100D38499 /* validNestedJSON_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 445BB133254A887100D38499 /* validNestedJSON_3.json */; };
 		445BB145254A894C00D38499 /* JsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BB144254A894C00D38499 /* JsonData+Extensions.swift */; };
+		445BB15D254A919200D38499 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BB15C254A919200D38499 /* Array+Extensions.swift */; };
 		44EE026225468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026325468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
@@ -123,6 +124,7 @@
 		445BB132254A887100D38499 /* validNestedJSON_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_1.json; sourceTree = "<group>"; };
 		445BB133254A887100D38499 /* validNestedJSON_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_3.json; sourceTree = "<group>"; };
 		445BB144254A894C00D38499 /* JsonData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JsonData+Extensions.swift"; sourceTree = "<group>"; };
+		445BB15C254A919200D38499 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		44EE026125468A330031FB15 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44EE026A25468D360031FB15 /* VGSShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
 		44EE027725468DE10031FB15 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			children = (
 				44EE02A525469F9B0031FB15 /* String+Exntesions.swift */,
 				445BB0902549262A00D38499 /* JsonData+Extensions.swift */,
+				445BB15C254A919200D38499 /* Array+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				44EE0281254697980031FB15 /* Environment.swift in Sources */,
 				44EE027825468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */,
+				445BB15D254A919200D38499 /* Array+Extensions.swift in Sources */,
 				44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */,
 				32E972202547009D00F9710E /* VGSLabel.swift in Sources */,
 				44EE026225468A330031FB15 /* APIClient.swift in Sources */,
