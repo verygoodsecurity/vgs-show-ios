@@ -19,6 +19,7 @@
 		3211D9AE2542E4DD009BB381 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */; };
 		32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EBF5254AF35900D6B163 /* VGSLabel.swift */; };
 		32D5EC02254AF36700D6B163 /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */; };
+		32D5EC22254B002F00D6B163 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC21254B002F00D6B163 /* CollectViewController.swift */; };
 		32E9724F25470D5800F9710E /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
 		32E972612547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
 		32E972622547216C00F9710E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E972602547216C00F9710E /* VGSMaskedLabel.swift */; };
@@ -57,6 +58,8 @@
 		44EE02E22546D9C10031FB15 /* VGSShowDataTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataTransformer.swift */; };
 		44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
 		44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
+		62F03ACAC4DBB48C1B467F5E /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6727702391512187546324B /* Pods_VGSShowDemoApp.framework */; };
+		ACCE908DF946949CD69BBB26 /* Pods_VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75699B340DC82A095773988F /* Pods_VGSShow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,7 @@
 		3211D9AF2542E4DD009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D5EBF5254AF35900D6B163 /* VGSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
 		32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelModel.swift; sourceTree = "<group>"; };
+		32D5EC21254B002F00D6B163 /* CollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
 		32E972602547216C00F9710E /* VGSMaskedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSMaskedLabel.swift; sourceTree = "<group>"; };
 		44119EA425480682008B9759 /* VGSShowSerializers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowSerializers.swift; sourceTree = "<group>"; };
 		44119EAA25484F18008B9759 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -136,6 +140,12 @@
 		44EE02B22546A2400031FB15 /* VGSShow+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Network.swift"; sourceTree = "<group>"; };
 		44EE02E02546D9C10031FB15 /* VGSShowDataTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDataTransformer.swift; sourceTree = "<group>"; };
 		44EE02E82546DA220031FB15 /* VGSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSResponse.swift; sourceTree = "<group>"; };
+		53ADF53075C6238335A1DF97 /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		64E067544BBE8DD9D772FC41 /* Pods-VGSShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShow.debug.xcconfig"; path = "Target Support Files/Pods-VGSShow/Pods-VGSShow.debug.xcconfig"; sourceTree = "<group>"; };
+		75699B340DC82A095773988F /* Pods_VGSShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D32448792B0AAE37CD8FE0B8 /* Pods-VGSShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShow.release.xcconfig"; path = "Target Support Files/Pods-VGSShow/Pods-VGSShow.release.xcconfig"; sourceTree = "<group>"; };
+		D6727702391512187546324B /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDF936FD68F7A64C231C6D2 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACCE908DF946949CD69BBB26 /* Pods_VGSShow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32E9724F25470D5800F9710E /* VGSShow.framework in Frameworks */,
+				62F03ACAC4DBB48C1B467F5E /* Pods_VGSShowDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +201,7 @@
 				3211D9AC2542E4DD009BB381 /* VGSShowDemoAppUITests */,
 				3211D9682542E2B4009BB381 /* Products */,
 				32E9724525470D5300F9710E /* Frameworks */,
+				44BE0755307DBFA82C80C1F0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,6 +248,7 @@
 				44119EA925484EE4008B9759 /* Model */,
 				3211D98B2542E4DB009BB381 /* AppDelegate.swift */,
 				3211D98F2542E4DB009BB381 /* ViewController.swift */,
+				32D5EC21254B002F00D6B163 /* CollectViewController.swift */,
 				3211D9912542E4DB009BB381 /* Main.storyboard */,
 				3211D9942542E4DD009BB381 /* Assets.xcassets */,
 				3211D9962542E4DD009BB381 /* LaunchScreen.storyboard */,
@@ -282,6 +296,8 @@
 		32E9724525470D5300F9710E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75699B340DC82A095773988F /* Pods_VGSShow.framework */,
+				D6727702391512187546324B /* Pods_VGSShowDemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -346,6 +362,18 @@
 				445BB144254A894C00D38499 /* JsonData+Extensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		44BE0755307DBFA82C80C1F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64E067544BBE8DD9D772FC41 /* Pods-VGSShow.debug.xcconfig */,
+				D32448792B0AAE37CD8FE0B8 /* Pods-VGSShow.release.xcconfig */,
+				53ADF53075C6238335A1DF97 /* Pods-VGSShowDemoApp.debug.xcconfig */,
+				ECDF936FD68F7A64C231C6D2 /* Pods-VGSShowDemoApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		44EE025F254689930031FB15 /* Core */ = {
@@ -432,6 +460,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3211D97B2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShow" */;
 			buildPhases = (
+				1C38C844C2FB4C450D066144 /* [CP] Check Pods Manifest.lock */,
 				3211D9622542E2B4009BB381 /* Headers */,
 				3211D9632542E2B4009BB381 /* Sources */,
 				3211D9642542E2B4009BB381 /* Frameworks */,
@@ -470,10 +499,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3211D9B02542E4DD009BB381 /* Build configuration list for PBXNativeTarget "VGSShowDemoApp" */;
 			buildPhases = (
+				714FDAAD831759B8C542BDA3 /* [CP] Check Pods Manifest.lock */,
 				3211D9852542E4DA009BB381 /* Sources */,
 				3211D9862542E4DA009BB381 /* Frameworks */,
 				3211D9872542E4DA009BB381 /* Resources */,
 				44EE023A25467F8D0031FB15 /* SwiftLint */,
+				4B7CCCA8D7A92D09AD00A6A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -620,6 +651,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1C38C844C2FB4C450D066144 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VGSShow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		44EE023925467F5C0031FB15 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -710,6 +763,45 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/../.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from\n";
 		};
+		4B7CCCA8D7A92D09AD00A6A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		714FDAAD831759B8C542BDA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VGSShowDemoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -766,6 +858,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3211D9902542E4DB009BB381 /* ViewController.swift in Sources */,
+				32D5EC22254B002F00D6B163 /* CollectViewController.swift in Sources */,
 				44119EAB25484F19008B9759 /* Helpers.swift in Sources */,
 				44119EAD25484F33008B9759 /* DemoAppConfig.swift in Sources */,
 				3211D98C2542E4DB009BB381 /* AppDelegate.swift in Sources */,
@@ -957,6 +1050,7 @@
 		};
 		3211D97C2542E2B4009BB381 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E067544BBE8DD9D772FC41 /* Pods-VGSShow.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -986,6 +1080,7 @@
 		};
 		3211D97D2542E2B4009BB381 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D32448792B0AAE37CD8FE0B8 /* Pods-VGSShow.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1052,6 +1147,7 @@
 		};
 		3211D9B12542E4DD009BB381 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53ADF53075C6238335A1DF97 /* Pods-VGSShowDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1072,6 +1168,7 @@
 		};
 		3211D9B22542E4DD009BB381 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECDF936FD68F7A64C231C6D2 /* Pods-VGSShowDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
