@@ -25,7 +25,7 @@ public final class VGSShow {
 	/// Current tenant id.
 	internal let tenantId: String
 
-	/// Unique form identifier
+	/// Unique form identifier.
 	internal let formId = UUID().uuidString
 
   internal var bindingModels = [VGSShowElementModel]()
@@ -36,7 +36,7 @@ public final class VGSShow {
   
 	// MARK: Custom HTTP Headers
 
-	/// Set your custom HTTP headers
+	/// Set your custom HTTP headers.
 	public var customHeaders: [String: String]? {
 		didSet {
 			if customHeaders != oldValue {
