@@ -16,7 +16,7 @@ public final class VGSLabel: UIView {
   internal let model = VGSLabelModel()
   
   internal var label = VGSMaskedLabel(frame: .zero)
-  internal let fieldType: VGSShowDataDecoder = .text
+  internal let fieldType: VGSShowDataDecoding = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
   
@@ -40,7 +40,7 @@ public final class VGSLabel: UIView {
     didSet { setPaddings() }
   }
 
-  /// `VGSLabel` text font
+  /// `VGSLabel` text font.
   public var font: UIFont? {
     get {
         return label.font
@@ -50,7 +50,17 @@ public final class VGSLabel: UIView {
     }
   }
 
-  /// `VGSLabel` text color
+	/// Number of lines.
+	public var numberOfLines: Int {
+		get {
+				return label.numberOfLines
+		}
+		set {
+			label.numberOfLines = newValue
+		}
+	}
+
+  /// `VGSLabel` text color.
   public var textColor: UIColor? {
     get {
         return label.textColor
@@ -60,7 +70,27 @@ public final class VGSLabel: UIView {
     }
   }
 
-  /// `VGSLabel` layer corner radius
+	/// `VGSLabel` text alignment.
+	public var textAlignment: NSTextAlignment {
+		get {
+				return label.textAlignment
+		}
+		set {
+			label.textAlignment = newValue
+		}
+	}
+
+	/// `VGSLabel` line break mode.
+	public var lineBreakMode: NSLineBreakMode {
+		get {
+			return label.lineBreakMode
+		}
+		set {
+			label.lineBreakMode = newValue
+		}
+	}
+
+  /// `VGSLabel` layer corner radius.
   public var cornerRadius: CGFloat {
     get {
         return layer.cornerRadius
@@ -71,7 +101,7 @@ public final class VGSLabel: UIView {
     }
   }
 
-  /// `VGSLabel` layer borderWidth
+  /// `VGSLabel` layer borderWidth.
   public var borderWidth: CGFloat {
     get {
         return layer.borderWidth
@@ -81,7 +111,27 @@ public final class VGSLabel: UIView {
     }
   }
 
-  /// `VGSLabel` layer borderColor
+	/// `VGSLabel` adjustsFontSizeToFitWidth mode.
+	internal var adjustsFontSizeToFitWidth: Bool {
+		get {
+				return label.adjustsFontSizeToFitWidth
+		}
+		set {
+			label.adjustsFontSizeToFitWidth = newValue
+		}
+	}
+
+	/// `VGSLabel` baselineAlignment mode.
+	internal var baselineAlignment: UIBaselineAdjustment {
+		get {
+				return label.baselineAdjustment
+		}
+		set {
+			label.baselineAdjustment = newValue
+		}
+	}
+
+  /// `VGSLabel` layer borderColor.
   public var borderColor: UIColor? {
     get {
         guard let cgcolor = layer.borderColor else {
@@ -93,6 +143,28 @@ public final class VGSLabel: UIView {
         layer.borderColor = newValue?.cgColor
     }
   }
+
+	// MARK: - Custom text styles
+
+	/// `VGSLabel` minimum text line height. 
+	public var textMinLineHeight: CGFloat {
+		get {
+			return label.textMinLineHeight
+		}
+		set {
+			label.textMinLineHeight = newValue
+		}
+	}
+
+	/// `VGSLabel` text character spacing.
+	public var characterSpacing: CGFloat {
+		get {
+			return label.characterSpacing
+		}
+		set {
+			label.characterSpacing = newValue
+		}
+	}
   
   // MARK: - Init
   override init(frame: CGRect) {

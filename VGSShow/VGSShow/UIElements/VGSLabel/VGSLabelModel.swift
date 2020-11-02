@@ -20,7 +20,7 @@ internal class VGSLabelModel: VGSShowElementModel {
 
   var jsonKeyPath: String = ""
   
-  var decodingDataType: VGSShowDataDecoder = .text {
+  var decodingDataType: VGSShowDataDecoding = .text {
     didSet {
       decoder = VGSDataDecoderFactory.provideDecorder(for: decodingDataType)
     }
