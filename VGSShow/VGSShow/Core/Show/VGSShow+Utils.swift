@@ -8,18 +8,10 @@
 import Foundation
 
 extension VGSShow {
-	class func generateVaultURL(tenantId: String, environment: Environment, region: String?) -> URL {
+	class func generateVaultURL(tenantId: String, environment: Environment) -> URL {
 
-		var environmentString = environment.rawValue
+		let environmentString = environment.path
 
-		if let region = region, !region.isEmpty {
-		  if environment == .live {
-			assert(Self.regionValid(region), "ERROR: DATA REGION IS NOT VALID!!!")
-			environmentString += "-" + region
-		  } else {
-			print("NOTE: DATA REGION SHOULD BE USED WITH LIVE ENVIRONMENT ONLY!!!")
-		  }
-		}
 		assert(Self.tenantIDValid(tenantId), "ERROR: TENANT ID IS NOT VALID!!!")
 
 		let strUrl = "https://" + tenantId + "." + environmentString + ".verygoodproxy.com"

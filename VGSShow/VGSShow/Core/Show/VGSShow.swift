@@ -19,9 +19,6 @@ public final class VGSShow {
 	// Environment object.
 	internal let environment: Environment
 
-    /// Current data region.
-	internal let dataRegion: String?
-
 	/// Current tenant id.
 	internal let tenantId: String
 
@@ -52,12 +49,10 @@ public final class VGSShow {
 	/// - Parameters:
 	///   - vaultId: your organization vault id.
 	///   - environment: your organization vault environment. By default `Environment.sandbox`.
-	///   - dataRegion: id of data storage region (e.g. "eu-123"). Effects ONLY `Environment.live` vaults.
-	public init(vaultId: String, environment: Environment = .sandbox, dataRegion: String? = nil) {
-	  let url = Self.generateVaultURL(tenantId: vaultId, environment: environment, region: dataRegion)
+	public init(vaultId: String, environment: Environment = .sandbox) {
+	  let url = Self.generateVaultURL(tenantId: vaultId, environment: environment)
 	  apiClient = APIClient(baseURL: url)
 	  self.tenantId = vaultId
 	  self.environment = environment
-	  self.dataRegion = dataRegion
 	}
 }
