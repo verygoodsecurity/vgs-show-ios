@@ -10,13 +10,20 @@ import Foundation
 /// Organization vault environment.
 public enum Environment {
 
-	/// Should be used for development and testing purpose.
+	/**
+	Should be used for development and testing purpose.
+	*/
 	case sandbox
 
-	/// Should be used for production.
+	/**
+	Should be used for production.
+
+	- Parameters:
+	- region: `String` object. Default is `nil`.
+	*/
 	case live(region: String? = nil)
 
-	var path: String {
+	internal var path: String {
 		switch self {
 		case .sandbox:
 			return "sandbox"
@@ -33,7 +40,7 @@ public enum Environment {
 		}
 	}
 
-	var region: String? {
+	internal var region: String? {
 		switch self {
 		case .sandbox:
 			return nil
