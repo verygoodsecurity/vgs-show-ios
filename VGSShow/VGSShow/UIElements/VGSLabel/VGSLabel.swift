@@ -119,7 +119,7 @@ internal extension VGSLabel {
       model.onValueChanged = { [weak self](text) in
         if let strongSelf = self {
           strongSelf.label.text = text
-          strongSelf.delegate?.labelTextDidChanged?(strongSelf)
+          strongSelf.delegate?.labelTextDidChange?(strongSelf)
         }
       }
   }

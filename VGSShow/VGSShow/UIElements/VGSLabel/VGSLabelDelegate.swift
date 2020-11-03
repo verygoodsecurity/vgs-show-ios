@@ -15,5 +15,5 @@ import UIKit
 public protocol VGSLabelDelegate: class {
   
   /// `VGSLabel` input changed
-  @objc optional func labelTextDidChanged(_ label: VGSLabel)
+  @objc optional func labelTextDidChange(_ label: VGSLabel)
 }

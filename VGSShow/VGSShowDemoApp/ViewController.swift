@@ -83,7 +83,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: VGSLabelDelegate {
-  func labelTextDidChanged(_ label: VGSLabel) {
+  func labelTextDidChange(_ label: VGSLabel) {
     label.backgroundColor = .black
   }
 }
