@@ -47,7 +47,8 @@ class ViewController: UIViewController {
     cardNumberLabel.backgroundColor = backgroundColor
     cardNumberLabel.layer.cornerRadius = cornerRadius
     cardNumberLabel.fieldName = "json.account_number2"
-
+    cardNumberLabel.delegate = self
+    
     expDateLabel.textColor = textColor
     expDateLabel.padding = padding
     expDateLabel.borderColor = borderColor
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
     expDateLabel.backgroundColor = backgroundColor
     expDateLabel.layer.cornerRadius = cornerRadius
     expDateLabel.fieldName = "json.exp_date"
+    expDateLabel.delegate = self
     
     stackView.addArrangedSubview(cardNumberLabel)
     stackView.addArrangedSubview(expDateLabel)
@@ -77,5 +79,11 @@ class ViewController: UIViewController {
   
   @IBAction func revealButtonAction(_ sender: Any) {
     loadData()
+  }
+}
+
+extension ViewController: VGSLabelDelegate {
+  func labelTextDidChange(_ label: VGSLabel) {
+    label.backgroundColor = .black
   }
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 #endif
 
+
 /// An object responsible for displaying revealed text data.
 public final class VGSLabel: UIView {
   
@@ -19,6 +20,8 @@ public final class VGSLabel: UIView {
   internal let fieldType: VGSShowDataDecoding = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
+  
+  public weak var delegate: VGSLabelDelegate?
   
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
@@ -186,7 +189,10 @@ internal extension VGSLabel {
       buildUI()
     
       model.onValueChanged = { [weak self](text) in
-        self?.label.text = text
+        if let strongSelf = self {
+          strongSelf.label.text = text
+          strongSelf.delegate?.labelTextDidChange?(strongSelf)
+        }
       }
   }
 
