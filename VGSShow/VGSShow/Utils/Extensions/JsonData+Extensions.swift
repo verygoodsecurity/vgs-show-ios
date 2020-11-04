@@ -8,7 +8,7 @@
 import Foundation
 
 extension JsonData {
-	/// Geneeric function. Returns value of specified type by keyPath.
+	/// Returns value of specified type by keyPath.
 	/// - Parameter keyPath: `String` keyPath.
 	/// - Returns: Object of type `T` if found or nil.
 	public func valueForKeyPath<T>(keyPath: String) -> T? {

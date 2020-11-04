@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 #endif
 
-/// VGSShow class provided facilities for fetching and displaying required info.
+/// VGSShow class provides facilities for fetching and displaying required info.
 public final class VGSShow {
 
 	/// API client.
