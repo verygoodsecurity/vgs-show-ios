@@ -8,7 +8,7 @@
 import Foundation
 
 internal protocol VGSShowElementModel {
-  var jsonKeyPath: String { get set }
+  var decodingKeyPath: String { get set }
   var value: String? { get set }
   var decoder: VGSShowDecoderProtocol { get }
   func decode(_ data: Data?) -> VGSShowError?
@@ -18,9 +18,9 @@ internal class VGSLabelModel: VGSShowElementModel {
 
   private(set) var decoder: VGSShowDecoderProtocol = VGSShowTextDecoder()
 
-  var jsonKeyPath: String = ""
+  var decodingKeyPath: String = ""
   
-  var decodingDataType: VGSShowDataDecoder = .text {
+  var decodingDataType: VGSShowDataDecoding = .text {
     didSet {
       decoder = VGSDataDecoderFactory.provideDecorder(for: decodingDataType)
     }
@@ -35,7 +35,7 @@ internal class VGSLabelModel: VGSShowElementModel {
   var onValueChanged: ((String?) -> Void)?
   
   func decode(_ data: Data?) -> VGSShowError? {
-    let result = decoder.decodeDataPyPath(jsonKeyPath, data: data)
+    let result = decoder.decodeDataPyPath(decodingKeyPath, data: data)
     switch result {
     case .success(let data):
       switch data {

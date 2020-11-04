@@ -15,8 +15,7 @@ extension VGSShow {
 	- path: Inbound rout path for your organization vault.
 	- method: HTTPMethod, default is `.post`.
 	- payload: Request payload , default is `nil`.
-	- jsonSelector: `String` object. Keypath to desired value.
-	- completion: response completion block, returns `VGSResponse`.
+	- completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
@@ -34,7 +33,7 @@ extension VGSShow {
 
 		// send request
     
-    guard self.bindingModels.count > 0 else{
+    guard self.registeredShowElementsModels.count > 0 else{
       /// TODO: failed error - nothing to reveal
       return
     }
@@ -43,7 +42,7 @@ extension VGSShow {
 
 			switch requestResult {
 			case .success(let code, let data, let response):
-        self.handleSuccessResponse(code, data: data, response: response, revealModels: self.bindingModels, completion: block)
+        self.handleSuccessResponse(code, data: data, response: response, revealModels: self.registeredShowElementsModels, completion: block)
 			case .failure(let code, let data, let response, let error):
 				block(.failure(code, error))
 			}
@@ -57,7 +56,7 @@ extension VGSShow {
     var unrevealedKeyPaths = [String]()
     revealModels.forEach{ model in
       if let error = model.decode(data) {
-        unrevealedKeyPaths.append(model.jsonKeyPath)
+        unrevealedKeyPaths.append(model.decodingKeyPath)
       }
     }
 	

@@ -16,7 +16,7 @@ public typealias HTTPHeaders = [String: String]
 /// Key-value data type, for internal use.
 internal typealias BodyData = [String: Any]
 
-/// HTTP request methods
+/// HTTP request methods.
 public enum HTTPMethod: String {
 	/// POST method
 	case post = "POST"
@@ -24,10 +24,10 @@ public enum HTTPMethod: String {
 
 class APIClient {
 
-	/// Response enum cases for SDK requests
+	/// Response enum cases for SDK requests.
 	enum RequestResult {
 		/**
-		Success response case
+		Success response case.
 
 		- Parameters:
 		- code: response status code.
@@ -37,7 +37,7 @@ class APIClient {
 		case success(_ code: Int, _ data: Data?, _ response: URLResponse?)
 
 		/**
-		Failed response case
+		Failed response case.
 
 		- Parameters:
 		- code: response status code.
@@ -50,7 +50,7 @@ class APIClient {
 
 	typealias RequestCompletion = ((_ response: APIClient.RequestResult) -> Void)?
 
-	// MAR: - Constants
+	// MARK: - Constants
 
 	enum Constants {
 		static let validStatuses: Range<Int> = 200..<300

@@ -11,10 +11,10 @@ import Foundation
 public enum VGSErrorType: Int {
 	// MARK: - Other errors
 
-	/// When response type is not supported
+	/// When response type is not supported.
 	case unexpectedResponseType = 1400
 
-	/// When reponse data format is not supported
+	/// When reponse data format is not supported.
 	case unexpectedResponseDataFormat = 1401
 
 	/// When response has no raw data.
@@ -36,10 +36,10 @@ public enum VGSErrorType: Int {
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
 public class VGSShowError: NSError {
 
-	/// `VGSErrorType `-  required for each `VGSError` instance
+	/// `VGSErrorType `-  required for each `VGSError` instance.
 	public let type: VGSErrorType!
 
-	/// Code assiciated with `VGSErrorType`
+	/// Code assiciated with `VGSErrorType`.
 	override public var code: Int {
 		return type.rawValue
 	}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VGSLabel Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/VGSLabel" class="dashAnchor"></a>
+    <a title="VGSLabel Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VGSLabel Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/VGSLabel.html">VGSLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VGSShow.html">VGSShow</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VGSShowError.html">VGSShowError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:7VGSShow24VGSCollectSDKErrorDomainSSvp">VGSCollectSDKErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:7VGSShow31VGSSDKErrorDataPartiallyDecodedSSvp">VGSSDKErrorDataPartiallyDecoded</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/Environment.html">Environment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VGSErrorType.html">VGSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VGSRequestResult.html">VGSRequestResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VGSShowDataDecoding.html">VGSShowDataDecoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VGSShowDecodedData.html">VGSShowDecodedData</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/JsonData.html">JsonData</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/VGSShowDecodingConfiguration.html">VGSShowDecodingConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7VGSShow11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7VGSShow8JsonDataa">JsonData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7VGSShow18VGSDecodingKeyPatha">VGSDecodingKeyPath</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:7VGSShow15VGSErrorInfoKeya">VGSErrorInfoKey</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VGSLabel</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSLabel</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                </div>
+              </div>
+            <p>A view that displays revealed text data.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC8delegateAA0B8Delegate_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC8delegateAA0B8Delegate_pSgvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The object that acts as the delegate of the VGSLabel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC9fieldNameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/fieldName" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC9fieldNameSSSgvp">fieldName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name that will be associated with <code>VGSLabel</code> and used as a decoding keyPath on request response with revealed data from your organozation vault.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">fieldName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20Attribute"></a>
+                <a name="//apple_ref/swift/Section/UI Attribute" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UI%20Attribute"></a>
+                  <h3 class="section-name"><p>UI Attribute</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC7paddingSo12UIEdgeInsetsVvp"></a>
+                    <a name="//apple_ref/swift/Property/padding" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC7paddingSo12UIEdgeInsetsVvp">padding</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>UIEdgeInsets</code> for text and placeholder inside <code>VGSTextField</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">padding</span><span class="p">:</span> <span class="kt">UIEdgeInsets</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC4fontSo6UIFontCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/font" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC4fontSo6UIFontCSgvp">font</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text font.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">font</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC13numberOfLinesSivp"></a>
+                    <a name="//apple_ref/swift/Property/numberOfLines" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC13numberOfLinesSivp">numberOfLines</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of lines.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">numberOfLines</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC9textColorSo7UIColorCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/textColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC9textColorSo7UIColorCSgvp">textColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text color.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC13textAlignmentSo06NSTextD0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/textAlignment" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC13textAlignmentSo06NSTextD0Vvp">textAlignment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text alignment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textAlignment</span><span class="p">:</span> <span class="kt">NSTextAlignment</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC13lineBreakModeSo06NSLinedE0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/lineBreakMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC13lineBreakModeSo06NSLinedE0Vvp">lineBreakMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> line break mode.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lineBreakMode</span><span class="p">:</span> <span class="kt">NSLineBreakMode</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC12cornerRadius12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/cornerRadius" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC12cornerRadius12CoreGraphics7CGFloatVvp">cornerRadius</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> layer corner radius.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cornerRadius</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC11borderWidth12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/borderWidth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC11borderWidth12CoreGraphics7CGFloatVvp">borderWidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> layer borderWidth.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">borderWidth</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC11borderColorSo7UIColorCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/borderColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC11borderColorSo7UIColorCSgvp">borderColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> layer borderColor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">borderColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Custom%20text%20styles"></a>
+                <a name="//apple_ref/swift/Section/Custom text styles" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Custom%20text%20styles"></a>
+                  <h3 class="section-name"><p>Custom text styles</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC17textMinLineHeight12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/textMinLineHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC17textMinLineHeight12CoreGraphics7CGFloatVvp">textMinLineHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> minimum text line height.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textMinLineHeight</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow8VGSLabelC16characterSpacing12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/characterSpacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow8VGSLabelC16characterSpacing12CoreGraphics7CGFloatVvp">characterSpacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text character spacing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">characterSpacing</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-11-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

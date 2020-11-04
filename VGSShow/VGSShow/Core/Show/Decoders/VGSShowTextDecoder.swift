@@ -1,5 +1,5 @@
 //
-//  VGSShowSerializers.swift
+//  VGSShowTextDecoder.swift
 //  VGSShow
 //
 //  Created by Eugene on 27.10.2020.
@@ -11,12 +11,12 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
 	// MARK: - VGSShowDecoderProtocol
 
-	/// Serialize data by specified path.
+	/// Decode data as text by specified path.
 	/// - Parameters:
 	///   - path: `String` object. Path for serialization.
 	///   - data: `Data?` object. Raw data to serialize.
-	/// - Returns: `VGSShowSerializerResult` object. `success` if object is found, failure with associated error.
-	func decodeDataPyPath(_ path: VGSJSONKeyPath, data: Data?) -> VGSShowSerializerResult {
+	/// - Returns: `VGSShowDecoderResult` object. `success` if object is found, failure with associated error.
+	func decodeDataPyPath(_ path: VGSDecodingKeyPath, data: Data?) -> VGSShowDecodingResult {
 		guard let rawData = data else {
 			return .failure(VGSShowError(type: .noRawData))
 		}
@@ -29,7 +29,7 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 			return .failure(VGSShowError(type: .valueNotFoundInJSON))
 		}
 
-		let textResult = VGSShowResultData.text(serializedText)
+		let textResult = VGSShowDecodedData.text(serializedText)
 
 		return .success(textResult)
 	}
