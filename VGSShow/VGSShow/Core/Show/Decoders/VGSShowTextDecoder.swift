@@ -14,21 +14,32 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 	/// Decode data as text by specified path.
 	/// - Parameters:
 	///   - path: `String` object. Path for serialization.
+	///   - responseFormat: `VGSResponseDecodingFormat` object. Response data decoding format.
 	///   - data: `Data?` object. Raw data to serialize.
 	/// - Returns: `VGSShowDecoderResult` object. `success` if object is found, failure with associated error.
-	func decodeDataPyPath(_ path: VGSDecodingKeyPath, data: Data?) -> VGSShowDecodingResult {
-		guard let rawData = data else {
-			return .failure(VGSShowError(type: .noRawData))
-		}
+	func decodeDataPyPath(_ path: VGSShowDecodingPath, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult {
 
-		guard let jsonData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? JsonData else {
-			return .failure(VGSShowError(type: .invalidJSON))
-		}
+		switch responseFormat {
+		case .json:
+			let decoder = VGSShowRawDataDecoder()
+			let rawDataDecodingResult = decoder.decodeRawDataToJSON(data, decodingFormat: responseFormat)
 
-		guard let serializedText: String = jsonData.valueForKeyPath(keyPath: path) else {
+			switch rawDataDecodingResult {
+			case .success(let jsonData):
+				return decodeJsonDataToText(jsonData, keyPath: path)
+			case .failure(let error):
+				return .failure(error)
+			}
+		}
+	}
+
+	// MARK: - Private
+
+	private	func decodeJsonDataToText(_ jsonData: JsonData, keyPath: VGSShowDecodingPath) -> VGSShowDecodingResult {
+
+		guard let serializedText: String = jsonData.valueForKeyPath(keyPath: keyPath) else {
 			return .failure(VGSShowError(type: .valueNotFoundInJSON))
 		}
-
 		let textResult = VGSShowDecodedData.text(serializedText)
 
 		return .success(textResult)

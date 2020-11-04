@@ -14,13 +14,14 @@ extension VGSShow {
 	- Parameters:
 	- path: Inbound rout path for your organization vault.
 	- method: HTTPMethod, default is `.post`.
-	- payload: Request payload , default is `nil`.
+	- payload: `JsonData` object, default is `nil`.
+	- responseFormat: `VGSResponseDecodingFormat` object. Response data decoding format, default is `.json`.
 	- completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
 	*/
-	public func request(path: String, method: HTTPMethod = .post, payload: JsonData? = nil, completion block: @escaping (VGSRequestResult) -> Void) {
+	public func request(path: String, method: HTTPMethod = .post, payload: JsonData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		/// content analytics
 		//		var content: [String] = []
@@ -32,16 +33,22 @@ extension VGSShow {
 		//		}
 
 		// send request
-    guard self.subscribedViewModels.count > 0 else{
+
+    guard self.subscribedViewModels.count > 0 else {
       /// TODO: failed error - nothing to reveal
       return
     }
+
+		// Set response format for each show element model.
+		for index in 0..<self.subscribedViewModels.count {
+			subscribedViewModels[index].responseFormat = responseFormat
+		}
     
-		apiClient.sendRequest(path: path, method: method, value: payload) { (requestResult) in
+		apiClient.sendRequest(path: path, method: method, value: payload ) { (requestResult) in
 
 			switch requestResult {
 			case .success(let code, let data, let response):
-        self.handleSuccessResponse(code, data: data, response: response, revealModels: self.subscribedViewModels, completion: block)
+        self.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: self.subscribedViewModels, completion: block)
 			case .failure(let code, let data, let response, let error):
 				block(.failure(code, error))
 			}
@@ -50,8 +57,7 @@ extension VGSShow {
 
 	// MARK: - Private
 
-	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSRequestResult) -> Void ) {
-
+	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSShowRequestResult) -> Void ) {
     var unrevealedKeyPaths = [String]()
     revealModels.forEach{ model in
       if let error = model.decode(data) {
