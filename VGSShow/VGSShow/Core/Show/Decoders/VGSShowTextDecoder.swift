@@ -16,7 +16,7 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 	///   - path: `String` object. Path for serialization.
 	///   - data: `Data?` object. Raw data to serialize.
 	/// - Returns: `VGSShowDecoderResult` object. `success` if object is found, failure with associated error.
-	func decodeDataPyPath(_ path: VGSJSONKeyPath, data: Data?) -> VGSShowDecodingResult {
+	func decodeDataPyPath(_ path: VGSDecodingKeyPath, data: Data?) -> VGSShowDecodingResult {
 		guard let rawData = data else {
 			return .failure(VGSShowError(type: .noRawData))
 		}

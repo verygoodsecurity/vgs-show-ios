@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 #endif
 
-/// VGSShow class provided facilities for fetching and displaying required info.
+/// VGSShow class provides facilities for fetching and displaying required info.
 public final class VGSShow {
 
 	/// API client.
@@ -28,10 +28,12 @@ public final class VGSShow {
 	/// Unique form identifier.
 	internal let formId = UUID().uuidString
 
-  internal var bindingModels = [VGSShowElementModel]()
-  
-  public func bind(_ label: VGSLabel) {
-    bindingModels.append(label.model)
+  internal var registeredShowElementsModels = [VGSShowElementModel]()
+
+	/// Registers `VGSLabel` view for specific `VGSShow` instance.
+	/// - Parameter label: `VGSLabel` view to register.
+  public func register(_ label: VGSLabel) {
+    registeredShowElementsModels.append(label.model)
   }
   
 	// MARK: Custom HTTP Headers

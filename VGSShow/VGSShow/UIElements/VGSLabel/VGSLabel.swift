@@ -11,7 +11,7 @@ import UIKit
 #endif
 
 
-/// An object responsible for displaying revealed text data.
+/// A view that displays revealed text data.
 public final class VGSLabel: UIView {
   
   internal let model = VGSLabelModel()
@@ -20,19 +20,20 @@ public final class VGSLabel: UIView {
   internal let fieldType: VGSShowDataDecoding = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
-  
+
+	/// The object that acts as the delegate of the VGSLabel.
   public weak var delegate: VGSLabelDelegate?
   
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
   
-  /// Name that will be associated with `VGSLabel` and used as a JSON key on request response with revealed data from your organozation vault.
+  /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organozation vault.
   public var fieldName: String! {
     set {
-      model.jsonKeyPath = newValue
+      model.decodingKeyPath = newValue
     }
     get {
-      return model.jsonKeyPath
+      return model.decodingKeyPath
     }
   }
   
