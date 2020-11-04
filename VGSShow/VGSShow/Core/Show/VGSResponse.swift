@@ -7,10 +7,10 @@
 
 import Foundation
 
-public typealias VGSDecodingKeyPath = String
+public typealias VGSShowDecodingPath = String
 
 /// Response enum cases for SDK requests.
-@frozen public enum VGSRequestResult {
+@frozen public enum VGSShowRequestResult {
 	/**
 	 Success response case.
 

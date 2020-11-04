@@ -32,7 +32,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
 	/// The object that acts as the delegate of the VGSLabel.
   public weak var delegate: VGSLabelDelegate?
-    
+
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
   

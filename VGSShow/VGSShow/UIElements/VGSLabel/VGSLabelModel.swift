@@ -11,6 +11,7 @@ import Foundation
 internal protocol VGSShowViewModelProtocol {
   var decodingKeyPath: String { get set }
   var decoder: VGSShowDecoderProtocol { get }
+	var responseFormat: VGSShowResponseDecodingFormat {get set}
   func decode(_ data: Data?) -> VGSShowError?
 }
 
@@ -25,7 +26,9 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
   private(set) var decoder: VGSShowDecoderProtocol = VGSShowTextDecoder()
   
   var decodingKeyPath: String = ""
-  
+
+	var responseFormat: VGSShowResponseDecodingFormat = .json
+
   var decodingDataType: VGSShowDataDecoding = .text {
     didSet {
       decoder = VGSDataDecoderFactory.provideDecorder(for: decodingDataType)
@@ -41,7 +44,7 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
   var onValueChanged: ((String?) -> Void)?
   
   func decode(_ data: Data?) -> VGSShowError? {
-    let result = decoder.decodeDataPyPath(decodingKeyPath, data: data)
+		let result = decoder.decodeDataPyPath(decodingKeyPath, responseFormat: responseFormat, data: data)
     switch result {
     case .success(let data):
       switch data {
