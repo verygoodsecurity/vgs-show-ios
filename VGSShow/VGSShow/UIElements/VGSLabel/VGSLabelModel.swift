@@ -7,17 +7,23 @@
 
 import Foundation
 
-internal protocol VGSShowElementModel {
+/// Protocol describing VGS Show View ViewModel
+internal protocol VGSShowViewModelProtocol {
   var decodingKeyPath: String { get set }
-  var value: String? { get set }
   var decoder: VGSShowDecoderProtocol { get }
   func decode(_ data: Data?) -> VGSShowError?
 }
 
-internal class VGSLabelModel: VGSShowElementModel {
+/// Protocol describing VGS Show Label ViewModel
+internal protocol VGSLabelViewModelProtocol: VGSShowViewModelProtocol {
+  var value: String? { get set }
+  var onValueChanged: ((String?) -> Void)? { get set }
+}
+
+internal class VGSLabelModel: VGSLabelViewModelProtocol {
 
   private(set) var decoder: VGSShowDecoderProtocol = VGSShowTextDecoder()
-
+  
   var decodingKeyPath: String = ""
   
   var decodingDataType: VGSShowDataDecoding = .text {

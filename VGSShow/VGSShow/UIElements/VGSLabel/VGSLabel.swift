@@ -10,10 +10,20 @@ import Foundation
 import UIKit
 #endif
 
+/// Protocol describing VGS View
+public protocol VGSViewProtocol: UIView {
+  var fieldName: String! { get set }
+}
+
+/// Protocol describing VGSLabel
+internal protocol VGSLabelProtocol: VGSViewProtocol {
+  var model: VGSLabelViewModelProtocol { get }
+}
+
 /// An object responsible for displaying revealed text data.
-public final class VGSLabel: UIView {
+public final class VGSLabel: UIView, VGSLabelProtocol {
   
-  internal let model = VGSLabelModel()
+  internal var model: VGSLabelViewModelProtocol = VGSLabelModel()
   
   internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDataDecoding = .text
@@ -22,9 +32,7 @@ public final class VGSLabel: UIView {
 
 	/// The object that acts as the delegate of the VGSLabel.
   public weak var delegate: VGSLabelDelegate?
-  
-  public weak var delegate: VGSLabelDelegate?
-  
+    
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
   

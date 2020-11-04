@@ -32,8 +32,7 @@ extension VGSShow {
 		//		}
 
 		// send request
-    
-    guard self.registeredShowElementsModels.count > 0 else{
+    guard self.subscribedViewModels.count > 0 else{
       /// TODO: failed error - nothing to reveal
       return
     }
@@ -42,7 +41,7 @@ extension VGSShow {
 
 			switch requestResult {
 			case .success(let code, let data, let response):
-        self.handleSuccessResponse(code, data: data, response: response, revealModels: self.registeredShowElementsModels, completion: block)
+        self.handleSuccessResponse(code, data: data, response: response, revealModels: self.subscribedViewModels, completion: block)
 			case .failure(let code, let data, let response, let error):
 				block(.failure(code, error))
 			}
@@ -51,7 +50,7 @@ extension VGSShow {
 
 	// MARK: - Private
 
-	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, revealModels: [VGSShowElementModel], completion block: @escaping (VGSRequestResult) -> Void ) {
+	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSRequestResult) -> Void ) {
 
     var unrevealedKeyPaths = [String]()
     revealModels.forEach{ model in
