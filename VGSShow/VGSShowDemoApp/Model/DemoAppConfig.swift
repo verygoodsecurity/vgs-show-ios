@@ -20,6 +20,8 @@ final class DemoAppConfig {
   }
   /// Shared instance
   static let shared = DemoAppConfig()
+
+	var collectPayload: [String : Any] = [:]
   
   private init(){ }
 }
