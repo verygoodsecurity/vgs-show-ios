@@ -41,17 +41,17 @@ public enum VGSShowDecodedData {
 public struct VGSShowDecodingConfiguration {
 
 	/// Determines path to reveal.
-	public let jsonKeyPath: VGSJSONKeyPath
+	public let keyPath: VGSDecodingKeyPath
 
 	/// Decoding type.
 	public let decoding: VGSShowDataDecoding
 
 	/// Init.
 	/// - Parameters:
-	///   - jsonKeyPath: `VGSJSONKeyPath` object. Key to reveal.
-	///   - trasformPolicy: `VGSShowDataDecoding` object. Data decoding type.
-	public init(jsonKeyPath: VGSJSONKeyPath, decoding: VGSShowDataDecoding) {
-		self.jsonKeyPath = jsonKeyPath
+	///   - keyPath: `VGSJSONKeyPath` object. Key to reveal.
+	///   - decoding: `VGSShowDataDecoding` object. Data decoding type.
+	public init(keyPath: VGSDecodingKeyPath, decoding: VGSShowDataDecoding) {
+		self.keyPath = keyPath
 		self.decoding = decoding
 	}
 }

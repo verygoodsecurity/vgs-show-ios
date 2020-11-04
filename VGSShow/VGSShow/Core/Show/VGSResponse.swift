@@ -7,7 +7,7 @@
 
 import Foundation
 
-public typealias VGSJSONKeyPath = String
+public typealias VGSDecodingKeyPath = String
 
 /// Response enum cases for SDK requests.
 @frozen public enum VGSRequestResult {

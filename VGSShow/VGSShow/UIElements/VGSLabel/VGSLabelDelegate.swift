@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 #endif
 
-/// Delegate methods produced by `VGSLabel`
+/// Delegate methods produced by `VGSLabel`.
 @objc
 public protocol VGSLabelDelegate: class {
   
