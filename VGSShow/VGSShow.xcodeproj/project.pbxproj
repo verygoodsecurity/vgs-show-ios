@@ -17,7 +17,16 @@
 		3211D9982542E4DD009BB381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3211D9962542E4DD009BB381 /* LaunchScreen.storyboard */; };
 		3211D9A32542E4DD009BB381 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9A22542E4DD009BB381 /* VGSShowDemoAppTests.swift */; };
 		3211D9AE2542E4DD009BB381 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */; };
+		3223ABD62553158000FACEC6 /* VGSShowResponseDecodingFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4471D5192552D41600C88A2B /* VGSShowResponseDecodingFormat.swift */; };
+		3223ABDC2553158500FACEC6 /* VGSShowRawDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4471D5252552D80300C88A2B /* VGSShowRawDataDecoder.swift */; };
+		3223ABE2255315B200FACEC6 /* JsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BB0902549262A00D38499 /* JsonData+Extensions.swift */; };
+		3223ABE8255315B500FACEC6 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BB15C254A919200D38499 /* Array+Extensions.swift */; };
 		3261A69D2551B08400A889AD /* VGSLabelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */; };
+		3261A6DF2552F76400A889AD /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */; };
+		3261A6E52552F78000A889AD /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EBF5254AF35900D6B163 /* VGSLabel.swift */; };
+		3261A6EB2552F79500A889AD /* VGSLabelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */; };
+		3261A7022553070D00A889AD /* VGSLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A7012553070D00A889AD /* VGSLabelTest.swift */; };
+		3281332625531DEE0041BB11 /* JsonData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3281332525531DEE0041BB11 /* JsonData+Bundle.swift */; };
 		32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EBF5254AF35900D6B163 /* VGSLabel.swift */; };
 		32D5EC02254AF36700D6B163 /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */; };
 		32D5EC22254B002F00D6B163 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC21254B002F00D6B163 /* CollectViewController.swift */; };
@@ -37,7 +46,6 @@
 		445BB135254A887100D38499 /* validNestedJSON_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 445BB130254A887100D38499 /* validNestedJSON_4.json */; };
 		445BB137254A887100D38499 /* validNestedJSON_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 445BB132254A887100D38499 /* validNestedJSON_1.json */; };
 		445BB138254A887100D38499 /* validNestedJSON_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 445BB133254A887100D38499 /* validNestedJSON_3.json */; };
-		445BB145254A894C00D38499 /* JsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BB144254A894C00D38499 /* JsonData+Extensions.swift */; };
 		445BB15D254A919200D38499 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445BB15C254A919200D38499 /* Array+Extensions.swift */; };
 		4471D51A2552D41600C88A2B /* VGSShowResponseDecodingFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4471D5192552D41600C88A2B /* VGSShowResponseDecodingFormat.swift */; };
 		4471D5262552D80300C88A2B /* VGSShowRawDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4471D5252552D80300C88A2B /* VGSShowRawDataDecoder.swift */; };
@@ -117,6 +125,8 @@
 		3211D9AD2542E4DD009BB381 /* VGSShowDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppUITests.swift; sourceTree = "<group>"; };
 		3211D9AF2542E4DD009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelDelegate.swift; sourceTree = "<group>"; };
+		3261A7012553070D00A889AD /* VGSLabelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelTest.swift; sourceTree = "<group>"; };
+		3281332525531DEE0041BB11 /* JsonData+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JsonData+Bundle.swift"; sourceTree = "<group>"; };
 		32D5EBF5254AF35900D6B163 /* VGSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
 		32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelModel.swift; sourceTree = "<group>"; };
 		32D5EC21254B002F00D6B163 /* CollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +142,6 @@
 		445BB130254A887100D38499 /* validNestedJSON_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_4.json; sourceTree = "<group>"; };
 		445BB132254A887100D38499 /* validNestedJSON_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_1.json; sourceTree = "<group>"; };
 		445BB133254A887100D38499 /* validNestedJSON_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_3.json; sourceTree = "<group>"; };
-		445BB144254A894C00D38499 /* JsonData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JsonData+Extensions.swift"; sourceTree = "<group>"; };
 		445BB15C254A919200D38499 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		4471D5192552D41600C88A2B /* VGSShowResponseDecodingFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowResponseDecodingFormat.swift; sourceTree = "<group>"; };
 		4471D5252552D80300C88A2B /* VGSShowRawDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataDecoder.swift; sourceTree = "<group>"; };
@@ -241,6 +250,7 @@
 			children = (
 				445BB143254A893A00D38499 /* Helpers */,
 				445BB0A92549592D00D38499 /* ParsingTests */,
+				3261A700255306FD00A889AD /* UIElements */,
 				3211D9752542E2B4009BB381 /* VGSShowTests.swift */,
 				3211D9772542E2B4009BB381 /* Info.plist */,
 			);
@@ -279,6 +289,14 @@
 				3211D9AF2542E4DD009BB381 /* Info.plist */,
 			);
 			path = VGSShowDemoAppUITests;
+			sourceTree = "<group>";
+		};
+		3261A700255306FD00A889AD /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3261A7012553070D00A889AD /* VGSLabelTest.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 		32D5EBF4254AF35900D6B163 /* VGSLabel */ = {
@@ -368,7 +386,7 @@
 		445BB143254A893A00D38499 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				445BB144254A894C00D38499 /* JsonData+Extensions.swift */,
+				3281332525531DEE0041BB11 /* JsonData+Bundle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -848,18 +866,26 @@
 				445BB09E25492D7800D38499 /* VGSShowTextDecoder.swift in Sources */,
 				445BB0AB2549596700D38499 /* VGSJSONSelectorTests.swift in Sources */,
 				445BB0982549269900D38499 /* VGSShowNestedDictionaryTests.swift in Sources */,
+				3223ABD62553158000FACEC6 /* VGSShowResponseDecodingFormat.swift in Sources */,
+				3261A6E52552F78000A889AD /* VGSLabel.swift in Sources */,
+				3223ABE8255315B500FACEC6 /* Array+Extensions.swift in Sources */,
 				44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */,
+				3281332625531DEE0041BB11 /* JsonData+Bundle.swift in Sources */,
 				32E972622547216C00F9710E /* VGSMaskedLabel.swift in Sources */,
 				445BB0C225495FE300D38499 /* VGSDataDecoderFactory.swift in Sources */,
 				44EE029D25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
 				44EE029025469D850031FB15 /* VGSShow.swift in Sources */,
+				3261A6DF2552F76400A889AD /* VGSLabelModel.swift in Sources */,
 				3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */,
+				3261A6EB2552F79500A889AD /* VGSLabelDelegate.swift in Sources */,
 				44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */,
 				44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */,
-				445BB145254A894C00D38499 /* JsonData+Extensions.swift in Sources */,
 				44EE026325468A330031FB15 /* APIClient.swift in Sources */,
+				3223ABDC2553158500FACEC6 /* VGSShowRawDataDecoder.swift in Sources */,
+				3223ABE2255315B200FACEC6 /* JsonData+Extensions.swift in Sources */,
 				44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				44EE0282254697980031FB15 /* Environment.swift in Sources */,
+				3261A7022553070D00A889AD /* VGSLabelTest.swift in Sources */,
 				44EE02E22546D9C10031FB15 /* VGSShowDataDecoding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
