@@ -17,7 +17,7 @@
     <a title="VGSShow Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (95% documented)</p>
+        <p><a href="../index.html"> Docs</a> (93% documented)</p>
         <p class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -73,13 +73,16 @@
                 <a href="../Enums/VGSErrorType.html">VGSErrorType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/VGSRequestResult.html">VGSRequestResult</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/VGSShowDataDecoding.html">VGSShowDataDecoding</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/VGSShowDecodedData.html">VGSShowDecodedData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a>
               </li>
             </ul>
           </li>
@@ -96,6 +99,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a>
               </li>
             </ul>
           </li>
@@ -117,10 +123,10 @@
                 <a href="../Typealiases.html#/s:7VGSShow8JsonDataa">JsonData</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:7VGSShow18VGSDecodingKeyPatha">VGSDecodingKeyPath</a>
+                <a href="../Typealiases.html#/s:7VGSShow15VGSErrorInfoKeya">VGSErrorInfoKey</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Typealiases.html#/s:7VGSShow15VGSErrorInfoKeya">VGSErrorInfoKey</a>
+                <a href="../Typealiases.html#/s:7VGSShow0A12DecodingPatha">VGSShowDecodingPath</a>
               </li>
             </ul>
           </li>
@@ -146,9 +152,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7VGSShowAAC8registeryyAA8VGSLabelCF"></a>
-                    <a name="//apple_ref/swift/Method/register(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShowAAC8registeryyAA8VGSLabelCF">register(_:<wbr>)</a>
+                    <a name="/s:7VGSShowAAC9subscribeyyAA8VGSLabelCF"></a>
+                    <a name="//apple_ref/swift/Method/subscribe(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShowAAC9subscribeyyAA8VGSLabelCF">subscribe(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -163,7 +169,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">_</span> <span class="nv">label</span><span class="p">:</span> <span class="kt"><a href="../Classes/VGSLabel.html">VGSLabel</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">_</span> <span class="nv">label</span><span class="p">:</span> <span class="kt"><a href="../Classes/VGSLabel.html">VGSLabel</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -315,9 +321,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7VGSShowAAC7request4path6method7payload10completionySS_AA10HTTPMethodOSDySSypGSgyAA16VGSRequestResultOctF"></a>
-                    <a name="//apple_ref/swift/Method/request(path:method:payload:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShowAAC7request4path6method7payload10completionySS_AA10HTTPMethodOSDySSypGSgyAA16VGSRequestResultOctF">request(path:<wbr>method:<wbr>payload:<wbr>completion:<wbr>)</a>
+                    <a name="/s:7VGSShowAAC7request4path6method7payload14responseFormat10completionySS_AA10HTTPMethodOSDySSypGSgAA0a16ResponseDecodingG0OyAA0A13RequestResultOctF"></a>
+                    <a name="//apple_ref/swift/Method/request(path:method:payload:responseFormat:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShowAAC7request4path6method7payload14responseFormat10completionySS_AA10HTTPMethodOSDySSypGSgAA0a16ResponseDecodingG0OyAA0A13RequestResultOctF">request(path:<wbr>method:<wbr>payload:<wbr>responseFormat:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -330,7 +336,8 @@
 <ul>
 <li>path: Inbound rout path for your organization vault.</li>
 <li>method: HTTPMethod, default is <code>.post</code>.</li>
-<li>payload: Request payload , default is <code>nil</code>.</li>
+<li>payload: <code><a href="../Typealiases.html#/s:7VGSShow8JsonDataa">JsonData</a></code> object, default is <code>nil</code>.</li>
+<li>responseFormat: <code>VGSResponseDecodingFormat</code> object. Response data decoding format, default is <code>.json</code>.</li>
 <li><p>completion: <code>VGSResponse</code> completion block. The completion handler to call when the load request is complete.</p></li>
 </ul><div class="aside aside-note">
     <p class="aside-title">Note</p>
@@ -343,7 +350,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7VGSShow8JsonDataa">JsonData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">completion</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/VGSRequestResult.html">VGSRequestResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:7VGSShow8JsonDataa">JsonData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">responseFormat</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">json</span><span class="p">,</span> <span class="n">completion</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
