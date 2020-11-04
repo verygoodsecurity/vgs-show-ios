@@ -28,12 +28,13 @@ public final class VGSShow {
 	/// Unique form identifier.
 	internal let formId = UUID().uuidString
 
-  internal var registeredShowElementsModels = [VGSShowElementModel]()
-
-	/// Registers `VGSLabel` view for specific `VGSShow` instance.
-	/// - Parameter label: `VGSLabel` view to register.
-  public func register(_ label: VGSLabel) {
-    registeredShowElementsModels.append(label.model)
+  /// Array of subsribed view models
+  internal var subscribedViewModels = [VGSShowViewModelProtocol]()
+  
+  /// Registers `VGSLabel` view for specific `VGSShow` instance.
+  /// - Parameter label: `VGSLabel` view to register.
+  public func subscribe(_ label: VGSLabel) {
+    subscribedViewModels.append(label.model)
   }
   
 	// MARK: Custom HTTP Headers
