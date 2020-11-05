@@ -46,6 +46,11 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     }
   }
   
+  /// A Boolean value indicating whether `VGSLabel` string has no characters.
+  public var isEmpty: Bool {
+    return label.isEmpty
+  }
+  
   // MARK: - UI Attribute
 
   /// `UIEdgeInsets` for text and placeholder inside `VGSTextField`.

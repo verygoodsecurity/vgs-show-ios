@@ -12,16 +12,6 @@ import UIKit
 
 internal class VGSMaskedLabel: UILabel {
 
-	/// set/get text just for internal using
-	internal var secureText: String? {
-		set {
-			super.text = newValue
-		}
-		get {
-			return super.text
-		}
-	}
-
 	/// Minimum text line height. Default is 0 (ignored on styling).
 	internal var textMinLineHeight: CGFloat = 0
 
@@ -54,27 +44,38 @@ internal class VGSMaskedLabel: UILabel {
 	}
 
 	// MARK: - Override
+  @available(*, deprecated, message: "Deprecated attribute.")
+  override var text: String? {
+      set {
+          secureText = newValue
+      }
+      get { return nil }
+  }
+  
+  /// set/get text just for internal using
+  internal var secureText: String? {
+    set {
+      if let string = newValue {
+        if isCustomAttributedString {
+          // Create mutable attributed string
+          let attributedString = string.attributed(with: customStyleAttributes)
 
-	override var text: String? {
-		set {
-			if let string = newValue {
-				if isCustomAttributedString {
-					// Create mutable attributed string
-					let attributedString = string.attributed(with: customStyleAttributes)
+          super.text = newValue
+          super.attributedText = attributedString
+          return
+        }
+      }
 
-					self.secureText = newValue
-					super.attributedText = attributedString
-					return
-				}
-			}
-
-			// Set text if custom attributes not specified.
-			self.secureText = newValue
-			super.text = newValue
-		}
-
-		get {
-			return super.text
-		}
-	}
+      // Set text if custom attributes not specified.
+      self.secureText = newValue
+      super.text = newValue
+    }
+    get {
+      return super.text
+    }
+  }
+  
+  internal var isEmpty: Bool {
+    return secureText?.isEmpty ?? true
+  }
 }
