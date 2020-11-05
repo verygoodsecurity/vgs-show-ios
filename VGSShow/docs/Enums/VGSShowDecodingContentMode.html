@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>JsonData Extension Reference</title>
+    <title>VGSShowDecodingContentMode Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/JsonData" class="dashAnchor"></a>
-    <a title="JsonData Extension Reference"></a>
+    <a name="//apple_ref/swift/Enum/VGSShowDecodingContentMode" class="dashAnchor"></a>
+    <a title="VGSShowDecodingContentMode Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (98% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        JsonData Extension Reference
+        VGSShowDecodingContentMode Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -129,15 +129,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>JsonData</h1>
+            <h1>VGSShowDecodingContentMode</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt"><a href="../Typealiases.html#/s:7VGSShow8JsonDataa">JsonData</a></span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSShowDecodingContentMode</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Specifies content mode to decode.</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -145,9 +146,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:SD7VGSShowSSRszypRs_rlE15valueForKeyPath03keyE0qd__SgSS_tlF"></a>
-                    <a name="//apple_ref/swift/Method/valueForKeyPath(keyPath:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:SD7VGSShowSSRszypRs_rlE15valueForKeyPath03keyE0qd__SgSS_tlF">valueForKeyPath(keyPath:<wbr>)</a>
+                    <a name="/s:7VGSShow0A19DecodingContentModeO4textyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/text" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow0A19DecodingContentModeO4textyA2CmF">text</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -155,39 +156,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns value of specified type by keyPath.</p>
+                        <p>Decode as text.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">valueForKeyPath</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">text</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>keyPath</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code>String</code> keyPath.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7VGSShow0A19DecodingContentModeO8imageURLyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/imageURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow0A19DecodingContentModeO8imageURLyA2CmF">imageURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Decode as image URL.</p>
+
                       </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Object of type <code>T</code> if found or nil.</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">imageURL</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
