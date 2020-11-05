@@ -40,7 +40,7 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 		guard let serializedText: String = jsonData.valueForKeyPath(keyPath: keyPath) else {
 			return .failure(VGSShowError(type: .valueNotFoundInJSON))
 		}
-		let textResult = VGSShowDecodedData.text(serializedText)
+		let textResult = VGSShowDecodedContent.text(serializedText)
 
 		return .success(textResult)
 	}
