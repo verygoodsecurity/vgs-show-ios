@@ -13,9 +13,9 @@ enum VGSShowDecodingResult {
 	 Success result.
 
 	 - Parameters:
-		- data: `VGSShowResultData` object.
+		- content: `VGSShowResultData` object.
 	*/
-	case success(_ data: VGSShowDecodedContent)
+	case success(_ content: VGSShowDecodedContent)
 
 	/**
 	 Failure result.
