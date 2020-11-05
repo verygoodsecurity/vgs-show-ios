@@ -18,7 +18,7 @@ public enum VGSShowDecodingContentMode {
 }
 
 /// Decoded content type.
-enum VGSShowDecodedContent {
+internal enum VGSShowDecodedContent {
 
 	/**
 	 Text content.
@@ -29,7 +29,7 @@ enum VGSShowDecodedContent {
 	case text(_ text: String)
 
 	/**
-	 Image content.
+	 Image URL content.
 
 	 - Parameters:
 		- url: `URL` object.

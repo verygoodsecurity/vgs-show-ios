@@ -44,6 +44,7 @@ public class VGSShowError: NSError {
 		return type.rawValue
 	}
 
+	///:nodoc:
 	public required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
