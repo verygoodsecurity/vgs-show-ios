@@ -7,8 +7,6 @@
 
 import Foundation
 
-public typealias VGSShowDecodingPath = String
-
 /// Response enum cases for SDK requests.
 @frozen public enum VGSShowRequestResult {
 	/**

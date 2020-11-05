@@ -28,7 +28,7 @@ enum VGSShowDecodingResult {
 
 /// Interface to implement by data decoders.
 protocol VGSShowDecoderProtocol {
-	func decodeDataPyPath(_ path: VGSShowDecodingPath, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult
+	func decodeDataPyPath(_ path: String, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult
 }
 
 /// `VGSDataDecoderFactory` provides decoders for specific decoding.

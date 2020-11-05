@@ -9,7 +9,7 @@ import Foundation
 
 extension VGSShow {
 	/**
-	Fetch text content.
+	Send request to reveal data on specific path. `VGSShow` instance will use all subsribed elements keyPaths to reveal data.
 
 	- Parameters:
 	- path: Inbound rout path for your organization vault.

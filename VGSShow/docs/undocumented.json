@@ -1,31 +1,10 @@
 {
   "warnings": [
     {
-      "file": "/Users/eugene/vgs-show-ios/VGSShow/VGSShow/Core/Show/VGSResponse.swift",
-      "line": 10,
-      "symbol": "VGSShowDecodingPath",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/eugene/vgs-show-ios/VGSShow/VGSShow/Erros/VGSErrorInfo.swift",
-      "line": 23,
-      "symbol": "VGSErrorInfoKey",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/eugene/vgs-show-ios/VGSShow/VGSShow/Erros/VGSShowErrors.swift",
       "line": 47,
       "symbol": "VGSShowError.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/eugene/vgs-show-ios/VGSShow/VGSShow/UIElements/VGSLabel/VGSLabel.swift",
-      "line": 15,
-      "symbol": "VGSViewProtocol.fieldName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],

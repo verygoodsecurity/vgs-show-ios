@@ -20,6 +20,7 @@ internal struct VGSErrorInfo {
 	}
 }
 
+/// Error info key.
 public typealias VGSErrorInfoKey = String
 
 /// Error key, used for errors when input data is required to be not empty but is empty or nil.
