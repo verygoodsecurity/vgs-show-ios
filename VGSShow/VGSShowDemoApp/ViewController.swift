@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 	@IBOutlet weak var stackView: UIStackView!
 	@IBOutlet weak var inputLabel: UILabel!
 
-	let vgsShow = VGSShow(vaultId: DemoAppConfig.shared.vaultId, environment: .sandbox)
+	let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
 	let cardNumberLabel = VGSLabel()
 	let expDateLabel = VGSLabel()
 
