@@ -29,7 +29,7 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 
 	var responseFormat: VGSShowResponseDecodingFormat = .json
 
-  var decodingDataType: VGSShowDataDecoding = .text {
+  var decodingDataType: VGSShowDecodingContentMode = .text {
     didSet {
       decoder = VGSDataDecoderFactory.provideDecorder(for: decodingDataType)
     }

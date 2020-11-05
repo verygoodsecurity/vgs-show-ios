@@ -27,7 +27,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   internal var model: VGSLabelViewModelProtocol = VGSLabelModel()
   
   internal var label = VGSMaskedLabel(frame: .zero)
-  internal let fieldType: VGSShowDataDecoding = .text
+  internal let fieldType: VGSShowDecodingContentMode = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
 

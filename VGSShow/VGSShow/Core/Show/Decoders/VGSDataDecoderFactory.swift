@@ -15,7 +15,7 @@ enum VGSShowDecodingResult {
 	 - Parameters:
 		- data: `VGSShowResultData` object.
 	*/
-	case success(_ data: VGSShowDecodedData)
+	case success(_ data: VGSShowDecodedContent)
 
 	/**
 	 Failure result.
@@ -36,7 +36,7 @@ final class VGSDataDecoderFactory {
 	/// Provides decoder for specific decoding.
 	/// - Parameter decoder: `VGSShowDataDecoding` object. Decoding type.
 	/// - Returns: Decoder object implementing `VGSShowDecoderProtocol` interface.
-	static func provideDecorder( for decoder: VGSShowDataDecoding) -> VGSShowDecoderProtocol {
+	static func provideDecorder( for decoder: VGSShowDecodingContentMode) -> VGSShowDecoderProtocol {
 		switch decoder {
 		case .text:
 			return VGSShowTextDecoder()
