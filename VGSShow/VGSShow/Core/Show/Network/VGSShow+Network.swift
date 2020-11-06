@@ -51,37 +51,6 @@ extension VGSShow {
 		}
 	}
 
-	/// 	Send request to reveal data using request configuration. `VGSShow` instance will use all subsribed elements keyPaths to reveal data.
-	/// - Parameters:
-	///   - requestConfiguration: `VGSShowRequestConfiguration` configuration object.
-	///   - completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
-	public func request(_ requestConfiguration: VGSShowRequestConfiguration, completion block: @escaping (VGSShowRequestResult) -> Void) {
-		guard hasViewModels else {
-			let error = VGSShowError(type: .noRegisteredElementsInShow)
-			block(.failure(error.code, error))
-			return
-		}
-
-		// For now take json payload. Other formats are not supported yet.
-		var payload: JsonData?
-		switch requestConfiguration.payload {
-		case .json(let jsonPayload):
-			payload = jsonPayload
-		default:
-			break
-		}
-
-		apiClient.sendRequest(path: requestConfiguration.path, method: requestConfiguration.method, value: payload ) { (requestResult) in
-
-			switch requestResult {
-			case .success(let code, let data, let response):
-				self.handleSuccessResponse(code, data: data, response: response, responseFormat: requestConfiguration.responseFormat, revealModels: self.subscribedViewModels, completion: block)
-			case .failure(let code, let data, let response, let error):
-				block(.failure(code, error))
-			}
-		}
-	}
-
 	// MARK: - Private
 
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSShowRequestResult) -> Void ) {

@@ -55,4 +55,3 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 		}
 	}
 }
-
