@@ -58,7 +58,7 @@ extension VGSShow {
 		revealModels.forEach { model in
 			// Decode data.
 			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-			let decodingResult = decoder.decodeDataPyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
+			let decodingResult = decoder.decodeDataForKeyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
 
 			// Update models with decoding result.
 			model.handleDecodingResult(decodingResult)

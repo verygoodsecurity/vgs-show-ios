@@ -11,13 +11,13 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
 	// MARK: - VGSShowDecoderProtocol
 
-	/// Decode data as text by specified path.
+	/// Decode data as text for specified path.
 	/// - Parameters:
 	///   - path: `String` object. Path for serialization.
 	///   - responseFormat: `VGSResponseDecodingFormat` object. Response data decoding format.
 	///   - data: `Data?` object. Raw data to serialize.
 	/// - Returns: `VGSShowDecoderResult` object. `success` if object is found, failure with associated error.
-	func decodeDataPyPath(_ path: String, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult {
+	func decodeDataForKeyPath(_ path: String, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult {
 
 		switch responseFormat {
 		case .json:
