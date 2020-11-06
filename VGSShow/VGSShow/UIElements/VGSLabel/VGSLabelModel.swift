@@ -9,8 +9,15 @@ import Foundation
 
 /// Protocol describing VGS Show View ViewModel
 internal protocol VGSShowViewModelProtocol {
+
+	/// KeyPath to decode.
 	var decodingKeyPath: String { get set }
+
+	/// Decoding content mode.
 	var decodingContentMode: VGSShowDecodingContentMode {get set}
+
+	/// Handle decoding result.
+	/// - Parameter result: `VGSShowDecodingResult` object.
 	func handleDecodingResult(_ result: VGSShowDecodingResult)
 }
 
