@@ -1,12 +1,6 @@
 {
   "warnings": [
-    {
-      "file": "/Users/eugene/vgs-show-ios/VGSShow/VGSShow/Erros/VGSShowErrors.swift",
-      "line": 47,
-      "symbol": "VGSShowError.init(coder:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    }
+
   ],
   "source_directory": "/Users/eugene/vgs-show-ios/VGSShow"
 }
