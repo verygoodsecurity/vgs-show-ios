@@ -34,17 +34,48 @@ extension VGSShow {
 
 		// send request
 
-    guard self.subscribedViewModels.isEmpty else {
+		guard self.subscribedViewModels.isEmpty else {
 			let error = VGSShowError(type: .noRegisteredElementsInShow)
 			block(.failure(error.code, error))
-      return
-    }
-    
+			return
+		}
+
 		apiClient.sendRequest(path: path, method: method, value: payload ) { (requestResult) in
 
 			switch requestResult {
 			case .success(let code, let data, let response):
-        self.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: self.subscribedViewModels, completion: block)
+				self.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: self.subscribedViewModels, completion: block)
+			case .failure(let code, let data, let response, let error):
+				block(.failure(code, error))
+			}
+		}
+	}
+
+	/// 	Send request to reveal data using request configuration. `VGSShow` instance will use all subsribed elements keyPaths to reveal data.
+	/// - Parameters:
+	///   - requestConfiguration: `VGSShowRequestConfiguration` configuration object.
+	///   - completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
+	public func request(_ requestConfiguration: VGSShowRequestConfiguration, completion block: @escaping (VGSShowRequestResult) -> Void) {
+		guard self.subscribedViewModels.isEmpty else {
+			let error = VGSShowError(type: .noRegisteredElementsInShow)
+			block(.failure(error.code, error))
+			return
+		}
+
+		// For now take json payload. Other formats are not supported yet.
+		var payload: JsonData?
+		switch requestConfiguration.payload {
+		case .json(let jsonPayload):
+			payload = jsonPayload
+		default:
+			break
+		}
+
+		apiClient.sendRequest(path: requestConfiguration.path, method: requestConfiguration.method, value: payload ) { (requestResult) in
+
+			switch requestResult {
+			case .success(let code, let data, let response):
+				self.handleSuccessResponse(code, data: data, response: response, responseFormat: requestConfiguration.responseFormat, revealModels: self.subscribedViewModels, completion: block)
 			case .failure(let code, let data, let response, let error):
 				block(.failure(code, error))
 			}
@@ -54,8 +85,8 @@ extension VGSShow {
 	// MARK: - Private
 
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSShowRequestResult) -> Void ) {
-    var unrevealedKeyPaths = [String]()
-    revealModels.forEach { model in
+		var unrevealedKeyPaths = [String]()
+		revealModels.forEach { model in
 			// Decode data.
 			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
 			let decodingResult = decoder.decodeDataPyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
@@ -65,18 +96,18 @@ extension VGSShow {
 
 			// Collect unrevealed keyPaths.
 			if decodingResult.error != nil {
-        unrevealedKeyPaths.append(model.decodingKeyPath)
-      }
-    }
+				unrevealedKeyPaths.append(model.decodingKeyPath)
+			}
+		}
 
 		// If not all data revealed send error to user.
-    if !unrevealedKeyPaths.isEmpty {
-      print(unrevealedKeyPaths)
-      let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
-      let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
-      block(.failure(code, error))
-    } else {
-      block(.success(code))
-    }
+		if !unrevealedKeyPaths.isEmpty {
+			print(unrevealedKeyPaths)
+			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
+			let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
+			block(.failure(code, error))
+		} else {
+			block(.success(code))
+		}
 	}
 }
