@@ -31,6 +31,9 @@ public enum VGSErrorType: Int {
 
 	/// When cannot decode all data.
 	case dataPartiallyDecoded = 1406
+
+	/// When VGSShow has no registered elements.
+	case noRegisteredElementsInShow = 1407
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.

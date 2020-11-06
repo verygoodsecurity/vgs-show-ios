@@ -34,15 +34,11 @@ extension VGSShow {
 
 		// send request
 
-    guard self.subscribedViewModels.count > 0 else {
-      /// TODO: failed error - nothing to reveal
+    guard self.subscribedViewModels.isEmpty else {
+			let error = VGSShowError(type: .noRegisteredElementsInShow)
+			block(.failure(error.code, error))
       return
     }
-
-		// Set response format for each show element model.
-		for index in 0..<self.subscribedViewModels.count {
-			subscribedViewModels[index].responseFormat = responseFormat
-		}
     
 		apiClient.sendRequest(path: path, method: method, value: payload ) { (requestResult) in
 
@@ -59,13 +55,22 @@ extension VGSShow {
 
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSShowRequestResult) -> Void ) {
     var unrevealedKeyPaths = [String]()
-    revealModels.forEach{ model in
-      if let error = model.decode(data) {
+    revealModels.forEach { model in
+			// Decode data.
+			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
+			let decodingResult = decoder.decodeDataPyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
+
+			// Update models with decoding result.
+			model.handleDecodingResult(decodingResult)
+
+			// Collect unrevealed keyPaths.
+			if decodingResult.error != nil {
         unrevealedKeyPaths.append(model.decodingKeyPath)
       }
     }
-	
-    if unrevealedKeyPaths.count > 0 {
+
+		// If not all data revealed send error to user.
+    if !unrevealedKeyPaths.isEmpty {
       print(unrevealedKeyPaths)
       let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
       let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)

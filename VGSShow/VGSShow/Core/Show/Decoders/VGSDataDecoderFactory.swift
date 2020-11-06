@@ -10,20 +10,30 @@ import Foundation
 /// `VGSShowDecodingResult` represents result of decoding.
 enum VGSShowDecodingResult {
 	/**
-	 Success result.
+	Success result.
 
-	 - Parameters:
-		- content: `VGSShowResultData` object.
+	- Parameters:
+	- content: `VGSShowResultData` object.
 	*/
 	case success(_ content: VGSShowDecodedContent)
 
 	/**
-	 Failure result.
+	Failure result.
 
-	 - Parameters:
-		- error: `VGSShowError` error.
+	- Parameters:
+	- error: `VGSShowError` error.
 	*/
 	case failure(_ error: VGSShowError)
+
+	/// Decoding error. 
+	var error: VGSShowError? {
+		switch self {
+		case .failure(let error):
+			return error
+		default:
+			return nil
+		}
+	}
 }
 
 /// Interface to implement by data decoders.
