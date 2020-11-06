@@ -59,7 +59,6 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
     case .failure(let error):
       return error
     }
-    return nil
   }
 }
 
