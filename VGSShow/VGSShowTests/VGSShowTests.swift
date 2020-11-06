@@ -65,7 +65,6 @@ class VGSShowTests: XCTestCase {
       host = liveForm.apiClient.baseURL.host ?? ""
       XCTAssertTrue(host == "testID.live-ua-0505.verygoodproxy.com")
       
-      
       var sandboxForm = VGSShow(id: "testID", environment: "sandbox")
       host = sandboxForm.apiClient.baseURL.host ?? ""
       XCTAssertTrue(host == "testID.sandbox.verygoodproxy.com")

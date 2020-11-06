@@ -11,13 +11,13 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
 	// MARK: - VGSShowDecoderProtocol
 
-	/// Decode data as text by specified path.
+	/// Decode data as text for specified path.
 	/// - Parameters:
 	///   - path: `String` object. Path for serialization.
 	///   - responseFormat: `VGSResponseDecodingFormat` object. Response data decoding format.
 	///   - data: `Data?` object. Raw data to serialize.
 	/// - Returns: `VGSShowDecoderResult` object. `success` if object is found, failure with associated error.
-	func decodeDataPyPath(_ path: VGSShowDecodingPath, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult {
+	func decodeDataForKeyPath(_ path: String, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult {
 
 		switch responseFormat {
 		case .json:
@@ -35,12 +35,12 @@ final class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
 	// MARK: - Private
 
-	private	func decodeJsonDataToText(_ jsonData: JsonData, keyPath: VGSShowDecodingPath) -> VGSShowDecodingResult {
+	private	func decodeJsonDataToText(_ jsonData: JsonData, keyPath: String) -> VGSShowDecodingResult {
 
 		guard let serializedText: String = jsonData.valueForKeyPath(keyPath: keyPath) else {
 			return .failure(VGSShowError(type: .valueNotFoundInJSON))
 		}
-		let textResult = VGSShowDecodedData.text(serializedText)
+		let textResult = VGSShowDecodedContent.text(serializedText)
 
 		return .success(textResult)
 	}

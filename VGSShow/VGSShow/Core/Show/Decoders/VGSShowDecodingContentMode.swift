@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// `VGSShow` data decoding modes.
-public enum VGSShowDecodingConentMode {
+/// Specifies content mode to decode.
+public enum VGSShowDecodingContentMode {
 
 	/// Decode as text.
 	case text
@@ -18,10 +18,10 @@ public enum VGSShowDecodingConentMode {
 }
 
 /// Decoded content type.
-enum VGSShowDecodedContent {
+internal enum VGSShowDecodedContent {
 
 	/**
-	 Text result data.
+	 Text content.
 
 	 - Parameters:
 		- text: `String` object.
@@ -29,7 +29,7 @@ enum VGSShowDecodedContent {
 	case text(_ text: String)
 
 	/**
-	 Image result data.
+	 Image URL content.
 
 	 - Parameters:
 		- url: `URL` object.
@@ -43,14 +43,14 @@ public struct VGSShowDecodingConfiguration {
 	/// Determines path to reveal.
 	public let keyPath: String
 
-	/// Decoding type.
-	public let decoding: VGSShowDecodingConentMode
+	/// Decoding mode.
+	public let decoding: VGSShowDecodingContentMode
 
 	/// Init.
 	/// - Parameters:
 	///   - keyPath: `String` object. Key to reveal.
-	///   - decoding: `VGSShowDataDecoding` object. Data decoding type.
-	public init(keyPath: String, decoding: VGSShowDecodingConentMode) {
+	///   - decoding: `VGSShowDecodingContentMode` object. Data decoding type.
+	public init(keyPath: String, decoding: VGSShowDecodingContentMode) {
 		self.keyPath = keyPath
 		self.decoding = decoding
 	}

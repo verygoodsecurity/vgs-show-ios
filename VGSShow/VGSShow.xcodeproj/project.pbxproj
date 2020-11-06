@@ -65,8 +65,8 @@
 		44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02A525469F9B0031FB15 /* String+Exntesions.swift */; };
 		44EE02B32546A2400031FB15 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02B22546A2400031FB15 /* VGSShow+Network.swift */; };
 		44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02B22546A2400031FB15 /* VGSShow+Network.swift */; };
-		44EE02E12546D9C10031FB15 /* VGSShowDataDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataDecoding.swift */; };
-		44EE02E22546D9C10031FB15 /* VGSShowDataDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDataDecoding.swift */; };
+		44EE02E12546D9C10031FB15 /* VGSShowDecodingContentMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDecodingContentMode.swift */; };
+		44EE02E22546D9C10031FB15 /* VGSShowDecodingContentMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E02546D9C10031FB15 /* VGSShowDecodingContentMode.swift */; };
 		44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
 		44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE02E82546DA220031FB15 /* VGSResponse.swift */; };
 		62F03ACAC4DBB48C1B467F5E /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6727702391512187546324B /* Pods_VGSShowDemoApp.framework */; };
@@ -153,7 +153,7 @@
 		44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Utils.swift"; sourceTree = "<group>"; };
 		44EE02A525469F9B0031FB15 /* String+Exntesions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Exntesions.swift"; sourceTree = "<group>"; };
 		44EE02B22546A2400031FB15 /* VGSShow+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Network.swift"; sourceTree = "<group>"; };
-		44EE02E02546D9C10031FB15 /* VGSShowDataDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDataDecoding.swift; sourceTree = "<group>"; };
+		44EE02E02546D9C10031FB15 /* VGSShowDecodingContentMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDecodingContentMode.swift; sourceTree = "<group>"; };
 		44EE02E82546DA220031FB15 /* VGSResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSResponse.swift; sourceTree = "<group>"; };
 		53ADF53075C6238335A1DF97 /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		64E067544BBE8DD9D772FC41 /* Pods-VGSShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShow.debug.xcconfig"; path = "Target Support Files/Pods-VGSShow/Pods-VGSShow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -330,6 +330,7 @@
 		44119EA32547FC8D008B9759 /* Decoders */ = {
 			isa = PBXGroup;
 			children = (
+				44EE02E02546D9C10031FB15 /* VGSShowDecodingContentMode.swift */,
 				44119EA425480682008B9759 /* VGSShowTextDecoder.swift */,
 				445BB0C025495FE300D38499 /* VGSDataDecoderFactory.swift */,
 				4471D5192552D41600C88A2B /* VGSShowResponseDecodingFormat.swift */,
@@ -391,6 +392,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		4490F9032555191A002ECA1B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				44EE02E82546DA220031FB15 /* VGSResponse.swift */,
+				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		44BE0755307DBFA82C80C1F0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,12 +450,10 @@
 		44EE028D25469D780031FB15 /* Show */ = {
 			isa = PBXGroup;
 			children = (
+				4490F9032555191A002ECA1B /* Network */,
 				44119EA32547FC8D008B9759 /* Decoders */,
 				44EE028E25469D850031FB15 /* VGSShow.swift */,
 				44EE029B25469EDD0031FB15 /* VGSShow+Utils.swift */,
-				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
-				44EE02E02546D9C10031FB15 /* VGSShowDataDecoding.swift */,
-				44EE02E82546DA220031FB15 /* VGSResponse.swift */,
 			);
 			path = Show;
 			sourceTree = "<group>";
@@ -842,7 +850,7 @@
 				445BB0912549262A00D38499 /* JsonData+Extensions.swift in Sources */,
 				44EE028F25469D850031FB15 /* VGSShow.swift in Sources */,
 				4471D51A2552D41600C88A2B /* VGSShowResponseDecodingFormat.swift in Sources */,
-				44EE02E12546D9C10031FB15 /* VGSShowDataDecoding.swift in Sources */,
+				44EE02E12546D9C10031FB15 /* VGSShowDecodingContentMode.swift in Sources */,
 				44EE02E92546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE0281254697980031FB15 /* Environment.swift in Sources */,
 				32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */,
@@ -886,7 +894,7 @@
 				44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				44EE0282254697980031FB15 /* Environment.swift in Sources */,
 				3261A7022553070D00A889AD /* VGSLabelTest.swift in Sources */,
-				44EE02E22546D9C10031FB15 /* VGSShowDataDecoding.swift in Sources */,
+				44EE02E22546D9C10031FB15 /* VGSShowDecodingContentMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,7 +1100,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4445Y664U5;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1122,7 +1130,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 4445Y664U5;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

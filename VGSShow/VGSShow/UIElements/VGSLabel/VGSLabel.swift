@@ -10,23 +10,24 @@ import Foundation
 import UIKit
 #endif
 
-/// Protocol describing VGS View
+/// Protocol describing VGS View.
 public protocol VGSViewProtocol: UIView {
+	/// Decoding keyPath name.
   var fieldName: String! { get set }
 }
 
-/// Protocol describing VGSLabel
+/// Protocol describing VGSLabel.
 internal protocol VGSLabelProtocol: VGSViewProtocol {
   var model: VGSLabelViewModelProtocol { get }
 }
 
-/// An object responsible for displaying revealed text data.
+/// An object that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
   
   internal var model: VGSLabelViewModelProtocol = VGSLabelModel()
   
   internal var label = VGSMaskedLabel(frame: .zero)
-  internal let fieldType: VGSShowDataDecoding = .text
+  internal let fieldType: VGSShowDecodingContentMode = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
 
