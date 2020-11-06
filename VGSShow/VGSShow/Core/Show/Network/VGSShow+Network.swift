@@ -34,7 +34,7 @@ extension VGSShow {
 
 		// send request
 
-		guard self.subscribedViewModels.isEmpty else {
+		guard hasViewModels else {
 			let error = VGSShowError(type: .noRegisteredElementsInShow)
 			block(.failure(error.code, error))
 			return
@@ -56,7 +56,7 @@ extension VGSShow {
 	///   - requestConfiguration: `VGSShowRequestConfiguration` configuration object.
 	///   - completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 	public func request(_ requestConfiguration: VGSShowRequestConfiguration, completion block: @escaping (VGSShowRequestResult) -> Void) {
-		guard self.subscribedViewModels.isEmpty else {
+		guard hasViewModels else {
 			let error = VGSShowError(type: .noRegisteredElementsInShow)
 			block(.failure(error.code, error))
 			return

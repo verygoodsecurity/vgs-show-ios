@@ -27,6 +27,11 @@ public final class VGSShow {
 
   /// Array of subsribed view models
   internal var subscribedViewModels = [VGSShowViewModelProtocol]()
+
+	/// `true` if has subscribed viewModels to reveal.
+	internal var hasViewModels: Bool {
+		return !subscribedViewModels.isEmpty
+	}
   
   /// Registers `VGSLabel` view for specific `VGSShow` instance.
   /// - Parameter label: `VGSLabel` view to register.
