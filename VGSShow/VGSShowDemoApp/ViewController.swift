@@ -47,6 +47,11 @@ class ViewController: UIViewController {
 		cardNumberLabel.backgroundColor = backgroundColor
 		cardNumberLabel.layer.cornerRadius = cornerRadius
 		cardNumberLabel.fieldName = "json.account_number2"
+
+		// Set mask regex model for card number: mask card number with `-`.
+		let maskRegex = VGSShowMaskRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4")
+		cardNumberLabel.maskRegex = maskRegex
+
 		cardNumberLabel.delegate = self
 
 		expDateLabel.textColor = textColor

@@ -13,12 +13,25 @@ public struct VGSShowMaskRegex {
 	/// Regex pattern.
 	public let pattern: String
 
-	/// Rexeg options.
-	public var options: NSRegularExpression.Options = .caseInsensitive
+	/// Regex options.
+	public let options: NSRegularExpression.Options
 
   /// Matching options.
-	public var matchingOptions: NSRegularExpression.MatchingOptions = []
+	public let matchingOptions: NSRegularExpression.MatchingOptions
 
   /// Replacement template.
 	public let template: String
+
+	/// Initializer.
+	/// - Parameters:
+	///   - pattern: `String` object. Regex pattern.
+	///   - options: `NSRegularExpression.Options` object.
+	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object.
+	///   - template: `String` object. Template for regex.
+	public init(pattern: String, options: NSRegularExpression.Options = .caseInsensitive, matchingOptions: NSRegularExpression.MatchingOptions = [], template: String) {
+		self.pattern = pattern
+		self.options = options
+		self.matchingOptions = matchingOptions
+		self.template = template
+	}
 }
