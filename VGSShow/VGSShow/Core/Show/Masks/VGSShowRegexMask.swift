@@ -7,14 +7,8 @@
 
 import Foundation
 
-internal protocol VGSShowRegexMaskable {
-	var regex: NSRegularExpression {get}
-	var template: String {get}
-	var matchingOptions: NSRegularExpression.MatchingOptions {get}
-}
-
 /// Holds mask regex options.
-public struct VGSShowRegexMask: VGSShowRegexMaskable {
+public struct VGSShowRegexMask {
 
   /// Matching options.
 	internal let matchingOptions: NSRegularExpression.MatchingOptions
@@ -31,16 +25,15 @@ public struct VGSShowRegexMask: VGSShowRegexMaskable {
 	///   - options: `NSRegularExpression.Options` object.
 	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object.
 	///   - template: `String` object. Template for replace.
-	public init?(pattern: String, options: NSRegularExpression.Options = .caseInsensitive, matchingOptions: NSRegularExpression.MatchingOptions = [], template: String) {
+	/// - Throws: `Error` object if cannot construct regex.
+	public init?(pattern: String, options: NSRegularExpression.Options = .caseInsensitive, matchingOptions: NSRegularExpression.MatchingOptions = [], template: String) throws {
 
 		do {
 			let regex = try NSRegularExpression(pattern: pattern, options: options)
-			self.regex = regex
-			self.matchingOptions = matchingOptions
-			self.template = template
-		} catch {
+			self.init(regex: regex, matchingOptions: matchingOptions, template: template)
+		} catch let error {
 			print(error)
-			return nil
+			throw error
 		}
 	}
 
