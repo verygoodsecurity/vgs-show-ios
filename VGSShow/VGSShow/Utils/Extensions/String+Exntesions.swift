@@ -133,10 +133,10 @@ internal extension String {
 
 internal extension String {
 	/// Transform string with mask regex.
-	/// - Parameter maskRegex: `VGSShowMaskRegex` object.
+	/// - Parameter maskRegex: `VGSShowRegexMask` object.
 	/// - Throws: Throws error if regex is invalid.
 	/// - Returns: Masked `String` object.
-	func transformWithMaskRegex(_ maskRegex: VGSShowMaskRegex) throws -> String {
+	func transformWithMaskRegex(_ maskRegex: VGSShowRegexMask) throws -> String {
 		let initalString = self
 
 		do {

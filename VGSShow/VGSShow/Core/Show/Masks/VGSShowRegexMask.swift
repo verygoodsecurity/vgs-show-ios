@@ -8,7 +8,7 @@
 import Foundation
 
 /// Holds mask regex options.
-public struct VGSShowMaskRegex {
+public struct VGSShowRegexMask {
 
 	/// Regex pattern.
 	public let pattern: String

@@ -59,7 +59,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     return label.isEmpty
   }
 
-	public var maskRegex: VGSShowMaskRegex? = nil {
+	public var regexMask: VGSShowRegexMask? = nil {
 		didSet {
 			applyMask()
 		}
@@ -258,7 +258,7 @@ internal extension VGSLabel {
   }
 
 	func applyMask() {
-		if let text = revealedText, let mask = maskRegex {
+		if let text = revealedText, let mask = regexMask {
 			do {
 				let maskedText = try text.transformWithMaskRegex(mask)
 				label.text = maskedText
