@@ -19,7 +19,7 @@ public struct VGSShowRegexMask {
 	/// Regex for mask.
 	internal let regex: NSRegularExpression
 
-	/// Initializer.
+	/// Initializer with mask regex pattern.
 	/// - Parameters:
 	///   - pattern: `String` object. Regex pattern.
 	///   - options: `NSRegularExpression.Options` object. Default is `.caseInsensitive`.
@@ -37,7 +37,7 @@ public struct VGSShowRegexMask {
 		}
 	}
 
-	/// Initialize with regex.
+	/// Initializer with regex object.
 	/// - Parameters:
 	///   - regex: `NSRegularExpression` object.
 	///   - matchingOptions: `NSRegularExpression.Options` object. Default is `[]`.
