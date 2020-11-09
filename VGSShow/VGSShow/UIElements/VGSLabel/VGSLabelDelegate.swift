@@ -16,4 +16,7 @@ public protocol VGSLabelDelegate: class {
   
   /// `VGSLabel` input changed.
   @objc optional func labelTextDidChange(_ label: VGSLabel)
+
+	/// Cannot apply mask string.
+	@objc optional func applyMaskDidFailWithError(_ error: Error, in label: VGSLabel)
 }

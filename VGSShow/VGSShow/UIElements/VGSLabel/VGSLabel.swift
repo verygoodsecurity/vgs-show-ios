@@ -36,6 +36,13 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
+
+	/// Last revealed text.
+	private var revealedText: String? {
+		didSet {
+			applyMask()
+		}
+	}
   
   /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organozation vault.
   public var fieldName: String! {
@@ -51,6 +58,12 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   public var isEmpty: Bool {
     return label.isEmpty
   }
+
+	public var maskRegex: VGSShowMaskRegex? = nil {
+		didSet {
+			applyMask()
+		}
+	}
   
   // MARK: - UI Attribute
 
@@ -60,7 +73,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
   /// `VGSLabel` text font.
-  public var font: UIFont? {
+	public var font: UIFont? {
     get {
         return label.font
     }
@@ -206,8 +219,7 @@ internal extension VGSLabel {
     
       model.onValueChanged = { [weak self](text) in
         if let strongSelf = self {
-          strongSelf.label.text = text
-          strongSelf.delegate?.labelTextDidChange?(strongSelf)
+          strongSelf.revealedText = text
         }
       }
   }
@@ -244,4 +256,16 @@ internal extension VGSLabel {
     NSLayoutConstraint.activate(verticalConstraint)
     self.layoutIfNeeded()
   }
+
+	func applyMask() {
+		if let text = revealedText, let mask = maskRegex {
+			do {
+				let maskedText = try text.transformWithMaskRegex(mask)
+				label.text = maskedText
+				delegate?.labelTextDidChange?(self)
+			} catch {
+				delegate?.applyMaskDidFailWithError?(error, in: self)
+			}
+		}
+	}
 }
