@@ -90,4 +90,8 @@ extension ViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
 		label.backgroundColor = .black
 	}
+
+	func applyMaskDidFailWithError(_ error: Error, in label: VGSLabel) {
+		print("cannot set mask,regex error: \(error)")
+	}
 }
