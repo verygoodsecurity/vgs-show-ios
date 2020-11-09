@@ -22,8 +22,8 @@ public struct VGSShowRegexMask {
 	/// Initializer.
 	/// - Parameters:
 	///   - pattern: `String` object. Regex pattern.
-	///   - options: `NSRegularExpression.Options` object.
-	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object.
+	///   - options: `NSRegularExpression.Options` object. Default is `.caseInsensitive`.
+	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object. Default is `[]`.
 	///   - template: `String` object. Template for replace.
 	/// - Throws: `Error` object if cannot construct regex.
 	public init?(pattern: String, options: NSRegularExpression.Options = .caseInsensitive, matchingOptions: NSRegularExpression.MatchingOptions = [], template: String) throws {
