@@ -59,6 +59,35 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     return label.isEmpty
   }
 
+	/**
+	Regex mask to format revealed string. Default is `nil`.
+
+	 # Example #
+	```
+	let cardNumberLabel = VGSLabel();
+
+	// Split card number to XXXX-XXXX-XXXX-XXXX format.
+	if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+	  cardNumberLabel.regexMask = regexMask
+	}
+
+	// Fetched data:  "4111111111111111"
+	// Text in label: "4111-1111-1111-1111"
+
+	// You can also set your own regex for formatting.
+	do {
+	 // Split card number to XXXX/XXXX/XXXX/XXXX format.
+   let regex = try NSRegularExpression(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", options: [])
+	  let regexMask = VGSShowRegexMask(regex: regex, template: "$1/$2/$3/$4")
+	  cardNumberLabel.regexMask = regexMask
+	} catch {
+	  print("wrong regex format: \(error)")
+	}
+
+	// Fetched data:  "4111111111111111"
+	// Text in label: "4111/1111/1111/1111"
+	```
+	*/
 	public var regexMask: VGSShowRegexMask? = nil {
 		didSet {
 			updateTextAndMaskIfNeeded()

@@ -48,7 +48,7 @@ class ViewController: UIViewController {
 		cardNumberLabel.layer.cornerRadius = cornerRadius
 		cardNumberLabel.fieldName = "json.account_number2"
 
-		// Set mask regex model for card number: mask card number with `-`.
+		// Split card number to XXXX-XXXX-XXXX-XXXX format.
 		// You can use do/try/catch if you want to check errors on creating regex. To keep example short, we will use just if/let statement.
 		if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
 			cardNumberLabel.regexMask = regexMask

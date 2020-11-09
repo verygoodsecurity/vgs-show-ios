@@ -14,21 +14,22 @@ final class VGSShowRegexMaskTests: XCTestCase {
 	func textRegexMask() {
 
 		let cardNumber = "4111111111111111"
+		let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
 
 		// Test fomatting with `-`.
-		if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+		if let regexMask = try? VGSShowRegexMask(pattern: cardNumberPattern, template: "$1-$2-$3-$4") {
 			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
 			XCTAssert(formattedNumber == "4111-1111-1111-1111")
 		}
 
 		// Test fomatting with ` `.
-		if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1 $2 $3 $4") {
+		if let regexMask = try? VGSShowRegexMask(pattern: cardNumberPattern, template: "$1 $2 $3 $4") {
 			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
 			XCTAssert(formattedNumber == "4111 1111 1111 1111")
 		}
 
 		// Test fomatting with `/`.
-		if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1/$2/$3/$4") {
+		if let regexMask = try? VGSShowRegexMask(pattern: cardNumberPattern, template: "$1/$2/$3/$4") {
 			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
 			XCTAssert(formattedNumber == "4111/1111/1111/1111")
 		}
