@@ -40,7 +40,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Last revealed text.
 	private var revealedText: String? {
 		didSet {
-			applyMask()
+			updateTextAndMaskIfNeeded()
 		}
 	}
   
@@ -61,7 +61,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
 	public var regexMask: VGSShowRegexMask? = nil {
 		didSet {
-			applyMask()
+			updateTextAndMaskIfNeeded()
 		}
 	}
   
@@ -257,15 +257,22 @@ internal extension VGSLabel {
     self.layoutIfNeeded()
   }
 
-	func applyMask() {
-		if let text = revealedText, let mask = regexMask {
-			do {
-				let maskedText = try text.transformWithMaskRegex(mask)
-				label.text = maskedText
-				delegate?.labelTextDidChange?(self)
-			} catch {
-				delegate?.applyMaskDidFailWithError?(error, in: self)
-			}
+	func updateTextAndMaskIfNeeded() {
+		guard let text = revealedText else {return}
+
+		// No mask: set revealed text.
+		guard let mask = regexMask else {
+			updateMaskedLabel(with: text)
+			return
 		}
+
+		// Set masked text to label.
+		let maskedText = text.transformWithRegexMask(mask)
+		updateMaskedLabel(with: maskedText)
+	}
+
+	func updateMaskedLabel(with text: String) {
+		label.text = text
+		delegate?.labelTextDidChange?(self)
 	}
 }

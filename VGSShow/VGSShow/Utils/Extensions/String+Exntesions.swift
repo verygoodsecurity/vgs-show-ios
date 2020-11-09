@@ -133,20 +133,14 @@ internal extension String {
 
 internal extension String {
 	/// Transform string with mask regex.
-	/// - Parameter maskRegex: `VGSShowRegexMask` object.
-	/// - Throws: Throws error if regex is invalid.
+	/// - Parameter regexMask: `VGSShowRegexMask` object.
 	/// - Returns: Masked `String` object.
-	func transformWithMaskRegex(_ maskRegex: VGSShowRegexMask) throws -> String {
+	func transformWithRegexMask(_ regexMask: VGSShowRegexMask) -> String {
 		let initalString = self
 
-		do {
-			let regex = try NSRegularExpression(pattern: maskRegex.pattern, options: maskRegex.options)
-			let range = NSRange(location: 0, length: initalString.count)
-			let maskedString = regex.stringByReplacingMatches(in: initalString, options: maskRegex.matchingOptions, range: range, withTemplate: maskRegex.template)
+		let range = NSRange(location: 0, length: initalString.count)
+		let maskedString = regexMask.regex.stringByReplacingMatches(in: initalString, options: regexMask.matchingOptions, range: range, withTemplate: regexMask.template)
 
-			return maskedString
-		} catch {
-			throw error
-		}
+		return maskedString
 	}
 }

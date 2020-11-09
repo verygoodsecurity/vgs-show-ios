@@ -49,8 +49,9 @@ class ViewController: UIViewController {
 		cardNumberLabel.fieldName = "json.account_number2"
 
 		// Set mask regex model for card number: mask card number with `-`.
-		let maskRegex = VGSShowMaskRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4")
-		cardNumberLabel.maskRegex = maskRegex
+		if let regexMask = VGSShowMaskRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+			cardNumberLabel.maskRegex = maskRegex
+		}
 
 		cardNumberLabel.delegate = self
 
@@ -89,9 +90,5 @@ class ViewController: UIViewController {
 extension ViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
 		label.backgroundColor = .black
-	}
-
-	func applyMaskDidFailWithError(_ error: Error, in label: VGSLabel) {
-		print("cannot set mask,regex error: \(error)")
 	}
 }
