@@ -59,6 +59,11 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     return label.isEmpty
   }
 
+  /// Revealed text length.
+  public var revealedTextLength: Int {
+		return revealedText?.count ?? 0
+  }
+
 	/**
 	Regex mask to format revealed string. Default is `nil`.
 
