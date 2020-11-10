@@ -37,7 +37,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   private(set) weak var vgsShow: VGSShow?
 
 	/// Last revealed text.
-	private var revealedText: String? {
+	internal var revealedText: String? {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}
