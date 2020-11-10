@@ -130,3 +130,20 @@ internal extension String {
 		return NSAttributedString(attributedString: attributedString)
 	}
 }
+
+internal extension String {
+	/// Transform string with mask regex.
+	/// - Parameter regexMask: `VGSShowRegexMask` object.
+	/// - Returns: Masked `String` object.
+	func transformWithRegexMask(_ regexMask: VGSShowRegexMask) -> String {
+		let initalString = self
+
+		let fullLengthRange = NSRange(location: 0, length: initalString.count)
+		// Use custom range or full length range if custom range not provided.
+		let regexRange = regexMask.range ?? fullLengthRange
+
+		let maskedString = regexMask.regex.stringByReplacingMatches(in: initalString, options: regexMask.matchingOptions, range: regexRange, withTemplate: regexMask.template)
+
+		return maskedString
+	}
+}
