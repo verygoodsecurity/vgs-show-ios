@@ -33,8 +33,13 @@ public final class VGSShow {
 		return !subscribedViews.isEmpty
 	}
   
-  /// Registers `VGSLabel` view for specific `VGSShow` instance.
-  /// - Parameter label: `VGSLabel` view to register.
+  ///  Returns an array of view models form subscribed vgs views.
+  internal var subscribedViewModels: [VGSViewModelProtocol] {
+    return subscribedViews.map({return $0.model})
+  }
+  
+  /// Subscribe VGSShowSDK  views to specific `VGSShow` instance.
+  /// - Parameter view: `VGSViewProtocol` view to register.
   public func subscribe(_ view: VGSViewProtocol) {
 		guard let vgsView = view as? VGSBaseViewProtocol else {
 			return
@@ -44,18 +49,20 @@ public final class VGSShow {
 		}
   }
 
-  /// Unregisters `VGSLabel` view for specific `VGSShow` instance.
-  /// - Parameter label: `VGSLabel` view to unregister.
+  /// Unsubcribes `VGSViewProtocol` view from specific `VGSShow` instance.
+  /// - Parameter view: `VGSViewProtocol` view to unregister.
   public func unsubscribe(_ view: VGSViewProtocol) {
 		subscribedViews.removeAll(where: {$0 == view})
   }
+  
+  /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
+  public func unsubscribeAllViews() {
+    subscribedViews = []
+  }
 
+  /// Returns an Array of `VGSLabel` objects subscribed to specific `VGSShow` instance.
 	public var subscribedLabels: [VGSLabel] {
-		return subscribedViews.compactMap({return $0.model.customView as? VGSLabel})
-	}
-
-	internal var subscribedViewModels: [VGSShowViewModelProtocol] {
-		return subscribedViews.map({return $0.model})
+		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
 	}
   
 	// MARK: Custom HTTP Headers

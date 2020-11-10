@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 /// Protocol describing VGS Show View ViewModel
-internal protocol VGSShowViewModelProtocol {
+internal protocol VGSViewModelProtocol {
 
 	/// KeyPath to decode.
 	var decodingKeyPath: String { get set }
@@ -21,20 +21,21 @@ internal protocol VGSShowViewModelProtocol {
 	/// - Parameter result: `VGSShowDecodingResult` object.
 	func handleDecodingResult(_ result: VGSShowDecodingResult)
 
-	var customView: UIView? { get set }
+  /// View, that should be managed by model
+	var view: VGSBaseViewProtocol? { get set }
 }
 
 /// Protocol describing VGS Show Label ViewModel
-internal protocol VGSLabelViewModelProtocol: VGSShowViewModelProtocol {
+internal protocol VGSLabelViewModelProtocol: VGSViewModelProtocol {
 	var value: String? { get set }
 	var onValueChanged: ((String?) -> Void)? { get set }
 }
 
 internal class VGSLabelModel: VGSLabelViewModelProtocol {
 
-	var decodingKeyPath: String = ""
+  weak var view: VGSBaseViewProtocol?
 
-	weak var customView: UIView?
+	var decodingKeyPath: String = ""
 
 	var decodingContentMode: VGSShowDecodingContentMode = .text
 

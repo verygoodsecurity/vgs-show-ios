@@ -10,27 +10,29 @@ import Foundation
 import UIKit
 #endif
 
-internal protocol VGSLabelProtocol {
-	var labelModel: VGSLabelViewModelProtocol { get }
+internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
+  var labelModel: VGSLabelViewModelProtocol { get }
 }
 
 /// An object that displays revealed text data.
-public final class VGSLabel: UIView, VGSViewProtocol, VGSBaseViewProtocol, VGSLabelProtocol {
-
-  internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
-
-	var model: VGSShowViewModelProtocol {
-		return labelModel
-	}
+public final class VGSLabel: UIView, VGSLabelProtocol {
 
   internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDecodingContentMode = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
   internal var verticalConstraint = [NSLayoutConstraint]()
+  internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
+  internal var model: VGSViewModelProtocol {
+    return labelModel
+  }
+  
+  // MARK: - Delegates
 
-	/// The object that acts as the delegate of the VGSLabel.
+  /// The object that acts as the delegate of the VGSLabel.
   public weak var delegate: VGSLabelDelegate?
 
+  // MARK: - Functional Attribute
+  
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
 
@@ -174,26 +176,6 @@ public final class VGSLabel: UIView, VGSViewProtocol, VGSBaseViewProtocol, VGSLa
     }
   }
 
-	/// `VGSLabel` adjustsFontSizeToFitWidth mode.
-	internal var adjustsFontSizeToFitWidth: Bool {
-		get {
-				return label.adjustsFontSizeToFitWidth
-		}
-		set {
-			label.adjustsFontSizeToFitWidth = newValue
-		}
-	}
-
-	/// `VGSLabel` baselineAlignment mode.
-	internal var baselineAlignment: UIBaselineAdjustment {
-		get {
-				return label.baselineAdjustment
-		}
-		set {
-			label.baselineAdjustment = newValue
-		}
-	}
-
   /// `VGSLabel` layer borderColor.
   public var borderColor: UIColor? {
     get {
@@ -229,6 +211,26 @@ public final class VGSLabel: UIView, VGSViewProtocol, VGSBaseViewProtocol, VGSLa
 		}
 	}
   
+  /// `VGSLabel` adjustsFontSizeToFitWidth mode.
+  internal var adjustsFontSizeToFitWidth: Bool {
+    get {
+        return label.adjustsFontSizeToFitWidth
+    }
+    set {
+      label.adjustsFontSizeToFitWidth = newValue
+    }
+  }
+
+  /// `VGSLabel` baselineAlignment mode.
+  internal var baselineAlignment: UIBaselineAdjustment {
+    get {
+        return label.baselineAdjustment
+    }
+    set {
+      label.baselineAdjustment = newValue
+    }
+  }
+  
   // MARK: - Init
   override init(frame: CGRect) {
       super.init(frame: frame)
@@ -239,73 +241,4 @@ public final class VGSLabel: UIView, VGSViewProtocol, VGSBaseViewProtocol, VGSLa
       super.init(coder: aDecoder)
       mainInitialization()
   }
-}
-
-internal extension VGSLabel {
-  func mainInitialization() {
-      // set main style for view
-      setDefaultStyle()
-      // add UI elements
-      buildUI()
-
-		labelModel.onValueChanged = { [weak self](text) in
-			if let strongSelf = self {
-				strongSelf.revealedText = text
-			}
-		}
-
-		labelModel.customView = self
-  }
-
-  func setDefaultStyle() {
-      clipsToBounds = true
-      layer.borderColor = UIColor.lightGray.cgColor
-      layer.borderWidth = 1
-      layer.cornerRadius = 4
-  }
-  
-  func buildUI() {
-      label.translatesAutoresizingMaskIntoConstraints = false
-      addSubview(label)
-      setPaddings()
-  }
-  
-  func setPaddings() {
-    NSLayoutConstraint.deactivate(verticalConstraint)
-    NSLayoutConstraint.deactivate(horizontalConstraints)
-    
-    let views = ["view": self, "label": label]
-      
-    horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(padding.left)-[label]-\(padding.right)-|",
-                                                                 options: .alignAllCenterY,
-                                                                 metrics: nil,
-                                                                 views: views)
-    NSLayoutConstraint.activate(horizontalConstraints)
-      
-    verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(padding.top)-[label]-\(padding.bottom)-|",
-                                                              options: .alignAllCenterX,
-                                                              metrics: nil,
-                                                              views: views)
-    NSLayoutConstraint.activate(verticalConstraint)
-    self.layoutIfNeeded()
-  }
-
-	func updateTextAndMaskIfNeeded() {
-		guard let text = revealedText else {return}
-
-		// No mask: set revealed text.
-		guard let mask = regexMask else {
-			updateMaskedLabel(with: text)
-			return
-		}
-
-		// Set masked text to label.
-		let maskedText = text.transformWithRegexMask(mask)
-		updateMaskedLabel(with: maskedText)
-	}
-
-	func updateMaskedLabel(with text: String) {
-		label.text = text
-		delegate?.labelTextDidChange?(self)
-	}
 }

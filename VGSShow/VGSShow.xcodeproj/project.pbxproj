@@ -27,6 +27,8 @@
 		3261A6EB2552F79500A889AD /* VGSLabelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */; };
 		3261A7022553070D00A889AD /* VGSLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A7012553070D00A889AD /* VGSLabelTest.swift */; };
 		3281332625531DEE0041BB11 /* JsonData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3281332525531DEE0041BB11 /* JsonData+Bundle.swift */; };
+		32B6B942255AECF80071E47A /* VGSLabel+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */; };
+		32B6B943255AECF80071E47A /* VGSLabel+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */; };
 		32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EBF5254AF35900D6B163 /* VGSLabel.swift */; };
 		32D5EC02254AF36700D6B163 /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */; };
 		32D5EC22254B002F00D6B163 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC21254B002F00D6B163 /* CollectViewController.swift */; };
@@ -132,6 +134,7 @@
 		3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelDelegate.swift; sourceTree = "<group>"; };
 		3261A7012553070D00A889AD /* VGSLabelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelTest.swift; sourceTree = "<group>"; };
 		3281332525531DEE0041BB11 /* JsonData+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JsonData+Bundle.swift"; sourceTree = "<group>"; };
+		32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSLabel+Internal.swift"; sourceTree = "<group>"; };
 		32D5EBF5254AF35900D6B163 /* VGSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
 		32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelModel.swift; sourceTree = "<group>"; };
 		32D5EC21254B002F00D6B163 /* CollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				32D5EBF5254AF35900D6B163 /* VGSLabel.swift */,
+				32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */,
 				32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */,
 				3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */,
 			);
@@ -881,6 +885,7 @@
 				445BB0C125495FE300D38499 /* VGSDataDecoderFactory.swift in Sources */,
 				44B4055A255AD9120041EC21 /* VGSViewProtocol.swift in Sources */,
 				44EE02A625469F9B0031FB15 /* String+Exntesions.swift in Sources */,
+				32B6B942255AECF80071E47A /* VGSLabel+Internal.swift in Sources */,
 				44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */,
 				44EE029C25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
 				445BB0912549262A00D38499 /* JsonData+Extensions.swift in Sources */,
@@ -924,6 +929,7 @@
 				3261A6DF2552F76400A889AD /* VGSLabelModel.swift in Sources */,
 				3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */,
 				3261A6EB2552F79500A889AD /* VGSLabelDelegate.swift in Sources */,
+				32B6B943255AECF80071E47A /* VGSLabel+Internal.swift in Sources */,
 				44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */,
 				44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE026325468A330031FB15 /* APIClient.swift in Sources */,
