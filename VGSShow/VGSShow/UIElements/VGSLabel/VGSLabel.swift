@@ -10,22 +10,19 @@ import Foundation
 import UIKit
 #endif
 
-/// Protocol describing VGS View.
-public protocol VGSViewProtocol: UIView {
-	/// Decoding keyPath name.
-  var fieldName: String! { get set }
-}
-
-/// Protocol describing VGSLabel.
-internal protocol VGSLabelProtocol: VGSViewProtocol {
-  var model: VGSLabelViewModelProtocol { get }
+internal protocol VGSLabelProtocol {
+	var labelModel: VGSLabelViewModelProtocol { get }
 }
 
 /// An object that displays revealed text data.
-public final class VGSLabel: UIView, VGSLabelProtocol {
-  
-  internal var model: VGSLabelViewModelProtocol = VGSLabelModel()
-  
+public final class VGSLabel: UIView, VGSViewProtocol, VGSBaseViewProtocol, VGSLabelProtocol {
+
+  internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
+
+	var model: VGSShowViewModelProtocol {
+		return labelModel
+	}
+
   internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDecodingContentMode = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
@@ -47,7 +44,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organozation vault.
   public var fieldName: String! {
     set {
-      model.decodingKeyPath = newValue
+      labelModel.decodingKeyPath = newValue
     }
     get {
       return model.decodingKeyPath
@@ -250,12 +247,14 @@ internal extension VGSLabel {
       setDefaultStyle()
       // add UI elements
       buildUI()
-    
-      model.onValueChanged = { [weak self](text) in
-        if let strongSelf = self {
-          strongSelf.revealedText = text
-        }
-      }
+
+		labelModel.onValueChanged = { [weak self](text) in
+			if let strongSelf = self {
+				strongSelf.revealedText = text
+			}
+		}
+
+		labelModel.customView = self
   }
 
   func setDefaultStyle() {

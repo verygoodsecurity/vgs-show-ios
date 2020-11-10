@@ -52,6 +52,8 @@
 		4484F68025591055005B5501 /* VGSShowRegexMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484F67F25591055005B5501 /* VGSShowRegexMask.swift */; };
 		4484F68125591055005B5501 /* VGSShowRegexMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484F67F25591055005B5501 /* VGSShowRegexMask.swift */; };
 		4484F68425595228005B5501 /* VGSShowRegexMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484F68325595228005B5501 /* VGSShowRegexMaskTests.swift */; };
+		44B4055A255AD9120041EC21 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B40559255AD9120041EC21 /* VGSViewProtocol.swift */; };
+		44B4055B255AD9120041EC21 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B40559255AD9120041EC21 /* VGSViewProtocol.swift */; };
 		44EE026225468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026325468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
@@ -150,6 +152,7 @@
 		4471D5252552D80300C88A2B /* VGSShowRawDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataDecoder.swift; sourceTree = "<group>"; };
 		4484F67F25591055005B5501 /* VGSShowRegexMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMask.swift; sourceTree = "<group>"; };
 		4484F68325595228005B5501 /* VGSShowRegexMaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMaskTests.swift; sourceTree = "<group>"; };
+		44B40559255AD9120041EC21 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
 		44EE026125468A330031FB15 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44EE026A25468D360031FB15 /* VGSShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
 		44EE027725468DE10031FB15 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 		32E9721E2547007B00F9710E /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				44B40558255AD8F30041EC21 /* VGSViewProtocols */,
 				32D5EBF4254AF35900D6B163 /* VGSLabel */,
 				32E972602547216C00F9710E /* VGSMaskedLabel.swift */,
 			);
@@ -421,6 +425,14 @@
 				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		44B40558255AD8F30041EC21 /* VGSViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				44B40559255AD9120041EC21 /* VGSViewProtocol.swift */,
+			);
+			path = VGSViewProtocols;
 			sourceTree = "<group>";
 		};
 		44BE0755307DBFA82C80C1F0 /* Pods */ = {
@@ -867,6 +879,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				445BB0C125495FE300D38499 /* VGSDataDecoderFactory.swift in Sources */,
+				44B4055A255AD9120041EC21 /* VGSViewProtocol.swift in Sources */,
 				44EE02A625469F9B0031FB15 /* String+Exntesions.swift in Sources */,
 				44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */,
 				44EE029C25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
@@ -915,6 +928,7 @@
 				44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE026325468A330031FB15 /* APIClient.swift in Sources */,
 				3223ABDC2553158500FACEC6 /* VGSShowRawDataDecoder.swift in Sources */,
+				44B4055B255AD9120041EC21 /* VGSViewProtocol.swift in Sources */,
 				3223ABE2255315B200FACEC6 /* JsonData+Extensions.swift in Sources */,
 				44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				4484F68425595228005B5501 /* VGSShowRegexMaskTests.swift in Sources */,
