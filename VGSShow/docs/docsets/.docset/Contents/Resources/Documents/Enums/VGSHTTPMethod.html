@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSShowRequestResult Enumeration Reference</title>
+    <title>VGSHTTPMethod Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/VGSShowRequestResult" class="dashAnchor"></a>
-    <a title="VGSShowRequestResult Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Enum/VGSHTTPMethod" class="dashAnchor"></a>
+    <a title="VGSHTTPMethod Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (100% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        VGSShowRequestResult Enumeration Reference
+        VGSHTTPMethod Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -132,16 +132,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>VGSShowRequestResult</h1>
+            <h1>VGSHTTPMethod</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">@frozen</span>
-<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSShowRequestResult</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSHTTPMethod</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                 </div>
               </div>
-            <p>Response enum cases for SDK requests.</p>
+            <p>HTTP request methods.</p>
 
           </section>
           <section class="section task-group-section">
@@ -150,9 +149,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7VGSShow0A13RequestResultO7successyACSicACmF"></a>
-                    <a name="//apple_ref/swift/Element/success(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShow0A13RequestResultO7successyACSicACmF">success(_:<wbr>)</a>
+                    <a name="/s:7VGSShow13VGSHTTPMethodO4postyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/post" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow13VGSHTTPMethodO4postyA2CmF">post</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -160,50 +159,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Success response case.</p>
-
-<ul>
-<li>code: <code>Int</code> object. Response status code.</li>
-</ul>
+                        <p>POST method</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">success</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7VGSShow0A13RequestResultO7failureyACSi_s5Error_pSgtcACmF"></a>
-                    <a name="//apple_ref/swift/Element/failure(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShow0A13RequestResultO7failureyACSi_s5Error_pSgtcACmF">failure(_:<wbr>_:<wbr>)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Failed response case.</p>
-
-<ul>
-<li>code: response status code.</li>
-<li>error: <code>Error</code> object.</li>
-</ul>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">failure</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">post</span> <span class="o">=</span> <span class="s">"POST"</span></code></pre>
 
                         </div>
                       </div>

@@ -38,7 +38,7 @@ public final class VGSShow {
     return subscribedViews.map({return $0.model})
   }
   
-  /// Subscribe VGSShowSDK  views to specific `VGSShow` instance.
+  /// Subscribes VGSShowSDK  view to specific `VGSShow` instance.
   /// - Parameter view: `VGSViewProtocol` view to register.
   public func subscribe(_ view: VGSViewProtocol) {
 		guard let vgsView = view as? VGSBaseViewProtocol else {
