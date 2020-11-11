@@ -17,7 +17,7 @@ public typealias HTTPHeaders = [String: String]
 internal typealias BodyData = [String: Any]
 
 /// HTTP request methods.
-public enum HTTPMethod: String {
+public enum VGSHTTPMethod: String {
 	/// POST method
 	case post = "POST"
 }
@@ -73,7 +73,7 @@ class APIClient {
 
 	// MARK: - Public
 
-	func sendRequest(path: String, method: HTTPMethod = .post, value: BodyData?, completion block: RequestCompletion ) {
+	func sendRequest(path: String, method: VGSHTTPMethod = .post, value: BodyData?, completion block: RequestCompletion ) {
 		// Add Headers
 		var headers: [String: String] = [:]
 		headers["Content-Type"] = "application/json"

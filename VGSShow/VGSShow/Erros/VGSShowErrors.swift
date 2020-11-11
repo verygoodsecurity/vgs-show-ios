@@ -17,23 +17,17 @@ public enum VGSErrorType: Int {
 	/// When reponse data format is not supported.
 	case unexpectedResponseDataFormat = 1401
 
-	/// When response has no raw data.
-	case noRawData = 1402
-
 	/// When response cannot be decoded to json.
-	case invalidJSON = 1403
+	case invalidJSON = 1402
 
-	/// When response has no raw data.
-	case jsonNotFound = 1404
+	/// When field cannot be found in specified path.
+	case fieldNotFound = 1403
 
-	/// When no object found on specified path.
-	case valueNotFoundInJSON = 1405
-
-	/// When cannot decode all data.
-	case dataPartiallyDecoded = 1406
+	/// When cannot decode data for all fields.
+	case dataPartiallyDecoded = 1404
 
 	/// When VGSShow has no registered elements.
-	case noRegisteredElementsInShow = 1407
+	case noRegisteredElementsInShow = 1405
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
