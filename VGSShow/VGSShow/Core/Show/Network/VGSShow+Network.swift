@@ -53,7 +53,7 @@ extension VGSShow {
 
 	// MARK: - Private
 
-	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSShowViewModelProtocol], completion block: @escaping (VGSShowRequestResult) -> Void ) {
+	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], completion block: @escaping (VGSShowRequestResult) -> Void ) {
 		var unrevealedKeyPaths = [String]()
 		revealModels.forEach { model in
 			// Decode data.

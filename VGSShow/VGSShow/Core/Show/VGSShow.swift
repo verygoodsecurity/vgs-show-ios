@@ -26,18 +26,44 @@ public final class VGSShow {
 	internal let formId = UUID().uuidString
 
   /// Array of subsribed view models
-  internal var subscribedViewModels = [VGSShowViewModelProtocol]()
+  internal var subscribedViews = [VGSBaseViewProtocol]()
 
 	/// `true` if has subscribed viewModels to reveal.
 	internal var hasViewModels: Bool {
-		return !subscribedViewModels.isEmpty
+		return !subscribedViews.isEmpty
 	}
   
-  /// Registers `VGSLabel` view for specific `VGSShow` instance.
-  /// - Parameter label: `VGSLabel` view to register.
-  public func subscribe(_ label: VGSLabel) {
-    subscribedViewModels.append(label.model)
+  ///  Returns an array of view models form subscribed vgs views.
+  internal var subscribedViewModels: [VGSViewModelProtocol] {
+    return subscribedViews.map({return $0.model})
   }
+  
+  /// Subscribe VGSShowSDK  views to specific `VGSShow` instance.
+  /// - Parameter view: `VGSViewProtocol` view to register.
+  public func subscribe(_ view: VGSViewProtocol) {
+		guard let vgsView = view as? VGSBaseViewProtocol else {
+			return
+		}
+		if !subscribedViews.contains(where: { return view == $0}) {
+			subscribedViews.append(vgsView)
+		}
+  }
+
+  /// Unsubcribes `VGSViewProtocol` view from specific `VGSShow` instance.
+  /// - Parameter view: `VGSViewProtocol` view to unregister.
+  public func unsubscribe(_ view: VGSViewProtocol) {
+		subscribedViews.removeAll(where: {$0 == view})
+  }
+  
+  /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
+  public func unsubscribeAllViews() {
+    subscribedViews = []
+  }
+
+  /// Returns an Array of `VGSLabel` objects subscribed to specific `VGSShow` instance.
+	public var subscribedLabels: [VGSLabel] {
+		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
+	}
   
 	// MARK: Custom HTTP Headers
 

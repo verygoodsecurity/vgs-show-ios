@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3211D9712542E2B4009BB381 /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
-		3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D9752542E2B4009BB381 /* VGSShowTests.swift */; };
 		3211D9782542E2B4009BB381 /* VGSShow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3211D96A2542E2B4009BB381 /* VGSShow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3211D98C2542E4DB009BB381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D98B2542E4DB009BB381 /* AppDelegate.swift */; };
 		3211D9902542E4DB009BB381 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3211D98F2542E4DB009BB381 /* ViewController.swift */; };
@@ -27,6 +26,10 @@
 		3261A6EB2552F79500A889AD /* VGSLabelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */; };
 		3261A7022553070D00A889AD /* VGSLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261A7012553070D00A889AD /* VGSLabelTest.swift */; };
 		3281332625531DEE0041BB11 /* JsonData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3281332525531DEE0041BB11 /* JsonData+Bundle.swift */; };
+		32B6B942255AECF80071E47A /* VGSLabel+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */; };
+		32B6B943255AECF80071E47A /* VGSLabel+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */; };
+		32B6B953255AEE700071E47A /* VGSShowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6B951255AEE700071E47A /* VGSShowTests.swift */; };
+		32B6B954255AEE700071E47A /* VGSShowTest+Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B6B952255AEE700071E47A /* VGSShowTest+Subscribe.swift */; };
 		32D5EBF6254AF35900D6B163 /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EBF5254AF35900D6B163 /* VGSLabel.swift */; };
 		32D5EC02254AF36700D6B163 /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */; };
 		32D5EC22254B002F00D6B163 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5EC21254B002F00D6B163 /* CollectViewController.swift */; };
@@ -52,6 +55,8 @@
 		4484F68025591055005B5501 /* VGSShowRegexMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484F67F25591055005B5501 /* VGSShowRegexMask.swift */; };
 		4484F68125591055005B5501 /* VGSShowRegexMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484F67F25591055005B5501 /* VGSShowRegexMask.swift */; };
 		4484F68425595228005B5501 /* VGSShowRegexMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4484F68325595228005B5501 /* VGSShowRegexMaskTests.swift */; };
+		44B4055A255AD9120041EC21 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B40559255AD9120041EC21 /* VGSViewProtocol.swift */; };
+		44B4055B255AD9120041EC21 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B40559255AD9120041EC21 /* VGSViewProtocol.swift */; };
 		44EE026225468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026325468A330031FB15 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026125468A330031FB15 /* APIClient.swift */; };
 		44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EE026A25468D360031FB15 /* VGSShowErrors.swift */; };
@@ -112,7 +117,6 @@
 		3211D96A2542E2B4009BB381 /* VGSShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VGSShow.h; sourceTree = "<group>"; };
 		3211D96B2542E2B4009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3211D9702542E2B4009BB381 /* VGSShowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3211D9752542E2B4009BB381 /* VGSShowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowTests.swift; sourceTree = "<group>"; };
 		3211D9772542E2B4009BB381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3211D9892542E4DA009BB381 /* VGSShowDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGSShowDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D98B2542E4DB009BB381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,9 @@
 		3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelDelegate.swift; sourceTree = "<group>"; };
 		3261A7012553070D00A889AD /* VGSLabelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelTest.swift; sourceTree = "<group>"; };
 		3281332525531DEE0041BB11 /* JsonData+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JsonData+Bundle.swift"; sourceTree = "<group>"; };
+		32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSLabel+Internal.swift"; sourceTree = "<group>"; };
+		32B6B951255AEE700071E47A /* VGSShowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowTests.swift; sourceTree = "<group>"; };
+		32B6B952255AEE700071E47A /* VGSShowTest+Subscribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSShowTest+Subscribe.swift"; sourceTree = "<group>"; };
 		32D5EBF5254AF35900D6B163 /* VGSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
 		32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelModel.swift; sourceTree = "<group>"; };
 		32D5EC21254B002F00D6B163 /* CollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +157,7 @@
 		4471D5252552D80300C88A2B /* VGSShowRawDataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataDecoder.swift; sourceTree = "<group>"; };
 		4484F67F25591055005B5501 /* VGSShowRegexMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMask.swift; sourceTree = "<group>"; };
 		4484F68325595228005B5501 /* VGSShowRegexMaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMaskTests.swift; sourceTree = "<group>"; };
+		44B40559255AD9120041EC21 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
 		44EE026125468A330031FB15 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44EE026A25468D360031FB15 /* VGSShowErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
 		44EE027725468DE10031FB15 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
@@ -257,7 +265,7 @@
 				445BB143254A893A00D38499 /* Helpers */,
 				445BB0A92549592D00D38499 /* ParsingTests */,
 				3261A700255306FD00A889AD /* UIElements */,
-				3211D9752542E2B4009BB381 /* VGSShowTests.swift */,
+				32B6B950255AEE700071E47A /* VGSShowTests */,
 				3211D9772542E2B4009BB381 /* Info.plist */,
 			);
 			path = VGSShowTests;
@@ -305,10 +313,20 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
+		32B6B950255AEE700071E47A /* VGSShowTests */ = {
+			isa = PBXGroup;
+			children = (
+				32B6B951255AEE700071E47A /* VGSShowTests.swift */,
+				32B6B952255AEE700071E47A /* VGSShowTest+Subscribe.swift */,
+			);
+			path = VGSShowTests;
+			sourceTree = "<group>";
+		};
 		32D5EBF4254AF35900D6B163 /* VGSLabel */ = {
 			isa = PBXGroup;
 			children = (
 				32D5EBF5254AF35900D6B163 /* VGSLabel.swift */,
+				32B6B941255AECF80071E47A /* VGSLabel+Internal.swift */,
 				32D5EC01254AF36700D6B163 /* VGSLabelModel.swift */,
 				3261A69C2551B08400A889AD /* VGSLabelDelegate.swift */,
 			);
@@ -318,6 +336,7 @@
 		32E9721E2547007B00F9710E /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				44B40558255AD8F30041EC21 /* VGSViewProtocols */,
 				32D5EBF4254AF35900D6B163 /* VGSLabel */,
 				32E972602547216C00F9710E /* VGSMaskedLabel.swift */,
 			);
@@ -421,6 +440,14 @@
 				44EE02B22546A2400031FB15 /* VGSShow+Network.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		44B40558255AD8F30041EC21 /* VGSViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				44B40559255AD9120041EC21 /* VGSViewProtocol.swift */,
+			);
+			path = VGSViewProtocols;
 			sourceTree = "<group>";
 		};
 		44BE0755307DBFA82C80C1F0 /* Pods */ = {
@@ -867,7 +894,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				445BB0C125495FE300D38499 /* VGSDataDecoderFactory.swift in Sources */,
+				44B4055A255AD9120041EC21 /* VGSViewProtocol.swift in Sources */,
 				44EE02A625469F9B0031FB15 /* String+Exntesions.swift in Sources */,
+				32B6B942255AECF80071E47A /* VGSLabel+Internal.swift in Sources */,
 				44EE026B25468D360031FB15 /* VGSShowErrors.swift in Sources */,
 				44EE029C25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
 				445BB0912549262A00D38499 /* JsonData+Extensions.swift in Sources */,
@@ -900,7 +929,9 @@
 				4484F68125591055005B5501 /* VGSShowRegexMask.swift in Sources */,
 				445BB0982549269900D38499 /* VGSShowNestedDictionaryTests.swift in Sources */,
 				3223ABD62553158000FACEC6 /* VGSShowResponseDecodingFormat.swift in Sources */,
+				32B6B953255AEE700071E47A /* VGSShowTests.swift in Sources */,
 				3261A6E52552F78000A889AD /* VGSLabel.swift in Sources */,
+				32B6B954255AEE700071E47A /* VGSShowTest+Subscribe.swift in Sources */,
 				3223ABE8255315B500FACEC6 /* Array+Extensions.swift in Sources */,
 				44EE02B42546A2400031FB15 /* VGSShow+Network.swift in Sources */,
 				3281332625531DEE0041BB11 /* JsonData+Bundle.swift in Sources */,
@@ -909,12 +940,13 @@
 				44EE029D25469EDD0031FB15 /* VGSShow+Utils.swift in Sources */,
 				44EE029025469D850031FB15 /* VGSShow.swift in Sources */,
 				3261A6DF2552F76400A889AD /* VGSLabelModel.swift in Sources */,
-				3211D9762542E2B4009BB381 /* VGSShowTests.swift in Sources */,
 				3261A6EB2552F79500A889AD /* VGSLabelDelegate.swift in Sources */,
+				32B6B943255AECF80071E47A /* VGSLabel+Internal.swift in Sources */,
 				44EE02A725469F9B0031FB15 /* String+Exntesions.swift in Sources */,
 				44EE02EA2546DA220031FB15 /* VGSResponse.swift in Sources */,
 				44EE026325468A330031FB15 /* APIClient.swift in Sources */,
 				3223ABDC2553158500FACEC6 /* VGSShowRawDataDecoder.swift in Sources */,
+				44B4055B255AD9120041EC21 /* VGSViewProtocol.swift in Sources */,
 				3223ABE2255315B200FACEC6 /* JsonData+Extensions.swift in Sources */,
 				44EE027925468DE10031FB15 /* VGSErrorInfo.swift in Sources */,
 				4484F68425595228005B5501 /* VGSShowRegexMaskTests.swift in Sources */,
