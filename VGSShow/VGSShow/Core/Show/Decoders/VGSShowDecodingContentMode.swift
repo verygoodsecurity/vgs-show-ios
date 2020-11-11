@@ -38,19 +38,19 @@ internal enum VGSShowDecodedContent {
 }
 
 /// `VGSShowDecodingConfiguration` represents model for configurating decoding options.
-public struct VGSShowDecodingConfiguration {
+internal struct VGSShowDecodingConfiguration {
 
 	/// Determines path to reveal.
-	public let keyPath: String
+	internal let keyPath: String
 
 	/// Decoding mode.
-	public let decoding: VGSShowDecodingContentMode
+	internal let decoding: VGSShowDecodingContentMode
 
 	/// Init.
 	/// - Parameters:
 	///   - keyPath: `String` object. Key to reveal.
 	///   - decoding: `VGSShowDecodingContentMode` object. Data decoding type.
-	public init(keyPath: String, decoding: VGSShowDecodingContentMode) {
+	internal init(keyPath: String, decoding: VGSShowDecodingContentMode) {
 		self.keyPath = keyPath
 		self.decoding = decoding
 	}

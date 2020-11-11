@@ -67,16 +67,13 @@
                 <a href="../Enums/Environment.html">Environment</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Enums/VGSErrorType.html">VGSErrorType</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/VGSShowDecodingContentMode.html">VGSShowDecodingContentMode</a>
+                <a href="../Enums/VGSHTTPMethod.html">VGSHTTPMethod</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/VGSShowRequestPayload.html">VGSShowRequestPayload</a>
+                <a href="../Enums/VGSShowDecodingContentMode.html">VGSShowDecodingContentMode</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a>
@@ -109,10 +106,7 @@
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Structs/VGSShowDecodingConfiguration.html">VGSShowDecodingConfiguration</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs.html#/s:7VGSShow0A20RequestConfigurationV">VGSShowRequestConfiguration</a>
+                <a href="../Structs/VGSShowRegexMask.html">VGSShowRegexMask</a>
               </li>
             </ul>
           </li>
@@ -215,33 +209,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7VGSShow12VGSErrorTypeO9noRawDatayA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/noRawData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShow12VGSErrorTypeO9noRawDatayA2CmF">noRawData</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When response has no raw data.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noRawData</span> <span class="o">=</span> <span class="mi">1402</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:7VGSShow12VGSErrorTypeO11invalidJSONyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/invalidJSON" class="dashAnchor"></a>
                     <a class="token" href="#/s:7VGSShow12VGSErrorTypeO11invalidJSONyA2CmF">invalidJSON</a>
@@ -259,7 +226,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidJSON</span> <span class="o">=</span> <span class="mi">1403</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidJSON</span> <span class="o">=</span> <span class="mi">1402</span></code></pre>
 
                         </div>
                       </div>
@@ -269,9 +236,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7VGSShow12VGSErrorTypeO12jsonNotFoundyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/jsonNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShow12VGSErrorTypeO12jsonNotFoundyA2CmF">jsonNotFound</a>
+                    <a name="/s:7VGSShow12VGSErrorTypeO13fieldNotFoundyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/fieldNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7VGSShow12VGSErrorTypeO13fieldNotFoundyA2CmF">fieldNotFound</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -279,41 +246,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When response has no raw data.</p>
+                        <p>When field cannot be found in specified path.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">jsonNotFound</span> <span class="o">=</span> <span class="mi">1404</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:7VGSShow12VGSErrorTypeO19valueNotFoundInJSONyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/valueNotFoundInJSON" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7VGSShow12VGSErrorTypeO19valueNotFoundInJSONyA2CmF">valueNotFoundInJSON</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When no object found on specified path.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">valueNotFoundInJSON</span> <span class="o">=</span> <span class="mi">1405</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fieldNotFound</span> <span class="o">=</span> <span class="mi">1403</span></code></pre>
 
                         </div>
                       </div>
@@ -333,14 +273,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When cannot decode all data.</p>
+                        <p>When cannot decode data for some fields (partially decoded).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dataPartiallyDecoded</span> <span class="o">=</span> <span class="mi">1406</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">dataPartiallyDecoded</span> <span class="o">=</span> <span class="mi">1404</span></code></pre>
 
                         </div>
                       </div>
@@ -367,7 +307,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noRegisteredElementsInShow</span> <span class="o">=</span> <span class="mi">1407</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noRegisteredElementsInShow</span> <span class="o">=</span> <span class="mi">1405</span></code></pre>
 
                         </div>
                       </div>
@@ -379,7 +319,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-11-06)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-11-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

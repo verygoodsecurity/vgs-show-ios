@@ -21,7 +21,7 @@ extension VGSShow {
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
 	*/
-	public func request(path: String, method: HTTPMethod = .post, payload: JsonData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
+	public func request(path: String, method: VGSHTTPMethod = .post, payload: JsonData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		/// content analytics
 		//		var content: [String] = []

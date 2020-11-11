@@ -20,7 +20,7 @@ final class VGSShowRawDataDecoder: VGSShowRawDataDecodable {
 	func decodeRawDataToJSON(_ data: Data?, decodingFormat: VGSShowResponseDecodingFormat) -> VGSShowRawDataDecodingOutput {
 
 		guard let rawData = data else {
-			return .failure(VGSShowError(type: .noRawData))
+			return .failure(VGSShowError(type: .unexpectedResponseDataFormat))
 		}
 
 		switch decodingFormat {

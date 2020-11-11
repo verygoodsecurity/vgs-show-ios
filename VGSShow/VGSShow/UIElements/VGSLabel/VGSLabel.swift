@@ -43,7 +43,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		}
 	}
   
-  /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organozation vault.
+  /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organization vault.
   public var fieldName: String! {
     set {
       labelModel.decodingKeyPath = newValue
@@ -53,7 +53,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     }
   }
   
-  /// A Boolean value indicating whether `VGSLabel` string has no characters.
+  /// A Boolean value indicating whether `VGSLabel` string is empty.
   public var isEmpty: Bool {
     return label.isEmpty
   }
