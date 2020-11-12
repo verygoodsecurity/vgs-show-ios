@@ -13,7 +13,6 @@
 		446B19E0255D0B3200FE9D1A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A79F9A255D0696009AF720 /* Info.plist */; };
 		446B19E1255D0B3600FE9D1A /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F88255D0696009AF720 /* VGSShowDemoAppUITests.swift */; };
 		446B19E2255D0B3A00FE9D1A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A79F89255D0696009AF720 /* Info.plist */; };
-		446B19E4255D0CAB00FE9D1A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44A79FBA255D06C6009AF720 /* Info.plist */; };
 		44A79F6B255D0678009AF720 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F43255D0678009AF720 /* APIClient.swift */; };
 		44A79F6C255D0678009AF720 /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F46255D0678009AF720 /* VGSResponse.swift */; };
 		44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F47255D0678009AF720 /* VGSShow+Network.swift */; };
@@ -115,6 +114,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3211D9662542E2B4009BB381;
 			remoteInfo = VGSShow;
+		};
+		44E0F61B255D2CDE00222B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3211D95E2542E2B4009BB381 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3211D9882542E4DA009BB381;
+			remoteInfo = VGSShowDemoApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -625,6 +631,7 @@
 			);
 			dependencies = (
 				3211D9732542E2B4009BB381 /* PBXTargetDependency */,
+				44E0F61C255D2CDE00222B8D /* PBXTargetDependency */,
 			);
 			name = VGSShowTests;
 			productName = VGSShowTests;
@@ -756,7 +763,6 @@
 				44A79FBF255D06C6009AF720 /* validNestedJSON_1.json in Resources */,
 				44A79FC0255D06C6009AF720 /* validNestedJSON_3.json in Resources */,
 				44A79FC2255D06C6009AF720 /* validNestedJSON_4.json in Resources */,
-				446B19E4255D0CAB00FE9D1A /* Info.plist in Resources */,
 				44A79FC1255D06C6009AF720 /* validNestedJSON_2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,6 +1071,11 @@
 			target = 3211D9662542E2B4009BB381 /* VGSShow */;
 			targetProxy = 32E9724825470D5300F9710E /* PBXContainerItemProxy */;
 		};
+		44E0F61C255D2CDE00222B8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3211D9882542E4DA009BB381 /* VGSShowDemoApp */;
+			targetProxy = 44E0F61B255D2CDE00222B8D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1274,7 +1285,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = VGSShowTests/Info.plist;
+				INFOPLIST_FILE = Tests/VGSShowTests/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1293,7 +1305,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = VGSShowTests/Info.plist;
+				INFOPLIST_FILE = Tests/VGSShowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
