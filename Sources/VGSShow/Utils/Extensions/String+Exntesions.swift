@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
 internal extension String {
 	var isAlphaNumeric: Bool {

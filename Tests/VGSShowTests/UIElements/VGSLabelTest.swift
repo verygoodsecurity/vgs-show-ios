@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import VGSShow
+@testable import VGSShow
 
 class VGSLabelTests: XCTestCase {
 

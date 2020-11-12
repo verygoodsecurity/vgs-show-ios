@@ -5,7 +5,9 @@
 //  Created by Eugene on 29.10.2020.
 //
 
+import XCTest
 import Foundation
+@testable import VGSShow
 
 extension JsonData {
 
