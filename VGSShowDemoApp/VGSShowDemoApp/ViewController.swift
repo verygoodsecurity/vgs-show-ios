@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import VGSShow
+import VGSShowSDK
 
 class ViewController: UIViewController {
 
