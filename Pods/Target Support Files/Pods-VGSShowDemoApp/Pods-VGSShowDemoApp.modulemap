@@ -1,6 +1,0 @@
-framework module Pods_VGSShowDemoApp {
-  umbrella header "Pods-VGSShowDemoApp-umbrella.h"
-
-  export *
-  module * { export * }
-}

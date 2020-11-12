@@ -89,5 +89,5 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-VGSShow/Pods
-VGSShow/VGSShow.xcworkspace/xcshareddata
+VGSShowDemoApp/Pods
+VGSShowDemoApp/VGSShow.xcworkspace/xcshareddata
