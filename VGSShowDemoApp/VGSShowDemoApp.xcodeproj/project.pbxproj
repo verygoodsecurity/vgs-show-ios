@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,8 +17,6 @@
 		44415FDB255D37540012D107 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FD5255D37540012D107 /* Helpers.swift */; };
 		44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FDD255D37610012D107 /* DemoAppConfig.swift */; };
 		44415FE0255D37610012D107 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FDE255D37610012D107 /* ViewController.swift */; };
-		44A70C61255D3BD1006C29E8 /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44415FE1255D388E0012D107 /* VGSShow.framework */; };
-		44A70C62255D3BD1006C29E8 /* VGSShow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 44415FE1255D388E0012D107 /* VGSShow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +44,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				44A70C62255D3BD1006C29E8 /* VGSShow.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +67,6 @@
 		44415FD5255D37540012D107 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		44415FDD255D37610012D107 /* DemoAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppConfig.swift; sourceTree = "<group>"; };
 		44415FDE255D37610012D107 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		44415FE1255D388E0012D107 /* VGSShow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VGSShow.framework; sourceTree = SOURCE_ROOT; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44A70C61255D3BD1006C29E8 /* VGSShow.framework in Frameworks */,
 				9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +132,6 @@
 				44415FCB255D37540012D107 /* Base.lproj */,
 				44415FD4255D37540012D107 /* Helpers */,
 				44415FA9255D36FA0012D107 /* Info.plist */,
-				44415FE1255D388E0012D107 /* VGSShow.framework */,
 			);
 			path = VGSShowDemoApp;
 			sourceTree = "<group>";
@@ -199,7 +193,6 @@
 				8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */,
 				FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
