@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ShowDemoViewController.swift
 //  VGSShowDemoApp
 //
 //  Created by Dima on 23.10.2020.
@@ -8,14 +8,20 @@
 import UIKit
 import VGSShowSDK
 
-class ViewController: UIViewController {
+class ShowDemoViewController: UIViewController {
 
-	@IBOutlet weak var stackView: UIStackView!
-	@IBOutlet weak var inputLabel: UILabel!
+	// MARK: - Outlets
+
+	@IBOutlet fileprivate weak var stackView: UIStackView!
+	@IBOutlet fileprivate weak var inputLabel: UILabel!
+
+	// MARK: - Constants
 
 	let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
 	let cardNumberLabel = VGSLabel()
 	let expDateLabel = VGSLabel()
+
+	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,6 +37,14 @@ class ViewController: UIViewController {
 			inputLabel.text = Array(dataToReveal).joined(separator: "\n\n")
 		}
 	}
+
+	// MARK: - Actions
+
+	@IBAction func revealButtonAction(_ sender: Any) {
+		loadData()
+	}
+
+	// MARK: - Helpers
 
 	private func configureUI() {
 		let padding = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
@@ -82,13 +96,11 @@ class ViewController: UIViewController {
 			}
 		}
 	}
-
-	@IBAction func revealButtonAction(_ sender: Any) {
-		loadData()
-	}
 }
 
-extension ViewController: VGSLabelDelegate {
+// MARK: - VGSLabelDelegate
+
+extension ShowDemoViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
 		label.backgroundColor = .black
 	}
