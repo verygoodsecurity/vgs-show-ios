@@ -137,7 +137,7 @@ internal extension String {
 	/// Transform string with mask regex.
 	/// - Parameter regexMask: `VGSShowRegexMask` object.
 	/// - Returns: Masked `String` object.
-	func transformWithRegexMask(_ regexMask: VGSShowRegexMask) -> String {
+	func transformWithRegexMask(_ regexMask: VGSTransformationRegex) -> String {
 		let initalString = self
 
 		let fullLengthRange = NSRange(location: 0, length: initalString.count)

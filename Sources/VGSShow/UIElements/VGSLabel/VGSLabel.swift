@@ -64,15 +64,15 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
 	/**
-	Regex mask to format revealed string. Default is `nil`.
+	Transformation regex to format revealed raw text. Default is `nil`.
 
 	 # Example #
 	```
 	let cardNumberLabel = VGSLabel();
 
 	// Split card number to XXXX-XXXX-XXXX-XXXX format.
-	if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
-	  cardNumberLabel.regexMask = regexMask
+	if let transformationRegex = try? VGSTransformationRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+	  cardNumberLabel.transformationRegex = transformationRegex
 	}
 
 	// Fetched data:  "4111111111111111"
@@ -82,17 +82,17 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	do {
 	 // Split card number to XXXX/XXXX/XXXX/XXXX format.
    let regex = try NSRegularExpression(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", options: [])
-	  let regexMask = VGSShowRegexMask(regex: regex, template: "$1/$2/$3/$4")
-	  cardNumberLabel.regexMask = regexMask
+	  let transformationRegex = VGSTransformationRegex(regex: regex, template: "$1/$2/$3/$4")
+	  cardNumberLabel.transformationRegex = transformationRegex
 	} catch {
 	  print("wrong regex format: \(error)")
 	}
 
-	// Fetched data:  "4111111111111111"
+	// Revealed raw text:  "4111111111111111"
 	// Text in label: "4111/1111/1111/1111"
 	```
 	*/
-	public var regexMask: VGSShowRegexMask? = nil {
+	public var transformationRegex: VGSTransformationRegex? = nil {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}

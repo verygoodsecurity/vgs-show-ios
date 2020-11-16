@@ -1,5 +1,5 @@
 //
-//  VGSShowMaskRegex.swift
+//  VGSTransformationRegex.swift
 //  VGSShow
 //
 //  Created by Eugene on 09.11.2020.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// Holds mask regex options.
-public struct VGSShowRegexMask {
+/// Holds transformation regex options.
+public struct VGSTransformationRegex {
 
   /// Matching options.
 	internal let matchingOptions: NSRegularExpression.MatchingOptions
@@ -16,7 +16,7 @@ public struct VGSShowRegexMask {
   /// Replacement template.
 	internal var template: String
 
-	/// Regex for mask.
+	/// Regex object.
 	internal let regex: NSRegularExpression
 
 	/// Regex range. If `nil` regex will be applied to the entire string length.

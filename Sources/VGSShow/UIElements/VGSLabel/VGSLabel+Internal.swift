@@ -60,7 +60,7 @@ internal extension VGSLabel {
     guard let text = revealedText else {return}
 
     // No mask: set revealed text.
-    guard let mask = regexMask else {
+    guard let mask = transformationRegex else {
       updateMaskedLabel(with: text)
       return
     }
