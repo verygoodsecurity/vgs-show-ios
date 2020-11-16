@@ -22,6 +22,8 @@ class ShowDemoViewController: UIViewController {
 	let cardNumberLabel = VGSLabel()
 	let expDateLabel = VGSLabel()
 
+	var isFormattedCardNumber: Bool = true
+
 	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
@@ -31,9 +33,7 @@ class ShowDemoViewController: UIViewController {
 		vgsShow.subscribe(cardNumberLabel)
 		vgsShow.subscribe(expDateLabel)
 
-		copyCardNumberButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .disabled)
-		copyCardNumberButton.setTitleColor(UIColor.white, for: .normal)
-		copyCardNumberButton.isEnabled = false
+		setupCopyButtonUI()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +45,20 @@ class ShowDemoViewController: UIViewController {
 
 	// MARK: - Actions
 
-	@IBAction func revealButtonAction(_ sender: Any) {
+	@IBAction private func revealButtonAction(_ sender: Any) {
 		loadData()
 	}
 
 	@IBAction private func copyCardAction(_ sender: UIButton) {
-		cardNumberLabel.copyRawText()
+		if !isFormattedCardNumber {
+			cardNumberLabel.copyRawText()
+		} else {
+			cardNumberLabel.copyFormattedText()
+		}
+	}
+
+	@IBAction private func switchChangeAction(_ sender: UISwitch) {
+		isFormattedCardNumber = sender.isOn
 	}
 
 	// MARK: - Helpers
@@ -106,6 +114,14 @@ class ShowDemoViewController: UIViewController {
 			}
 		}
 	}
+
+	private func setupCopyButtonUI() {
+		copyCardNumberButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .disabled)
+		copyCardNumberButton.setTitleColor(UIColor.white, for: .normal)
+		copyCardNumberButton.isEnabled = false
+		copyCardNumberButton.layer.cornerRadius = 6
+		copyCardNumberButton.layer.masksToBounds = true
+	}
 }
 
 // MARK: - VGSLabelDelegate
@@ -115,9 +131,10 @@ extension ShowDemoViewController: VGSLabelDelegate {
 		label.backgroundColor = .black
 	}
 
-	func labelDidCopyRawText(_ label: VGSLabel, hasText: Bool) {
+	func labelDidCopyText(_ label: VGSLabel, hasText: Bool, isFormatted: Bool) {
 		if hasText {
-			UIViewController.show(message: "Card number is copied!", controller: self)
+			let isFormattedText = isFormatted ? "Formatted" : "Raw"
+			UIViewController.show(message: "\(isFormattedText) card number is copied!", controller: self)
 		}
 	}
 }

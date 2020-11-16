@@ -60,10 +60,21 @@ internal extension VGSLabel {
 		let pasteBoard = UIPasteboard.general
 		if let rawText = revealedRawText {
 			pasteBoard.string = rawText
-			delegate?.labelDidCopyRawText?(self, hasText: true)
+			delegate?.labelDidCopyText?(self, hasText: true, isFormatted: false)
 		} else {
-			delegate?.labelDidCopyRawText?(self, hasText: false)
+			delegate?.labelDidCopyText?(self, hasText: false, isFormatted: false)
 		}
+	}
+
+	func copyFormattedRevealedText() {
+		let pasteBoard = UIPasteboard.general
+		if let displayedText = label.secureText {
+			pasteBoard.string = displayedText
+			delegate?.labelDidCopyText?(self, hasText: true, isFormatted: true)
+		} else {
+			delegate?.labelDidCopyText?(self, hasText: false, isFormatted: true)
+		}
+
 	}
 
   func updateTextAndMaskIfNeeded() {

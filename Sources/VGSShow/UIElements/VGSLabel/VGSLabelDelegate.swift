@@ -22,5 +22,6 @@ public protocol VGSLabelDelegate: class {
 	/// - Parameters:
 	///   - label: `VGSLabel` view in which raw text was copied.
 	///   - hasText: `Bool` flag. `true` if has text in pasteboard.
-	@objc optional func labelDidCopyRawText(_ label: VGSLabel, hasText: Bool)
+	///   - isFormatted: `Bool` flag. `true` if copied text is formatted, `false` if text is raw revealed text.
+	@objc optional func labelDidCopyText(_ label: VGSLabel, hasText: Bool, isFormatted: Bool)
 }

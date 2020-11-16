@@ -68,6 +68,11 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		copyRawRevealedText()
 	}
 
+	/// Copy formatted revealed text to pasteboard.
+	public func copyFormattedText() {
+		copyFormattedRevealedText()
+	}
+
 	/**
 	Transformation regex to format revealed raw text. Default is `nil`.
 

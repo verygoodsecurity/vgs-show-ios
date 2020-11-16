@@ -170,31 +170,47 @@
                                     <constraint firstAttribute="height" constant="120" id="izS-dr-V9a"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V90-Ip-a0L">
-                                <rect key="frame" x="127.5" y="553" width="159" height="44"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ekv-uC-aYu"/>
-                                </constraints>
-                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                <state key="normal" title="Copy card number">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="copyCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UKx-wB-DbP"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3je-9y-rOQ">
+                                <rect key="frame" x="63" y="545" width="288" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V90-Ip-a0L">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="44"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ekv-uC-aYu"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                        <state key="normal" title="Copy">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="copyCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UKx-wB-DbP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formatted card:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Bu-hc-IOJ">
+                                        <rect key="frame" x="96" y="12" width="123" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K83-Tq-5ko">
+                                        <rect key="frame" x="239" y="6.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchChangeAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="tTt-z1-n5N"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hJE-1q-Fl5" firstAttribute="top" secondItem="5ds-QC-Jhm" secondAttribute="bottom" constant="60" id="4GM-OD-0zU"/>
+                            <constraint firstItem="3je-9y-rOQ" firstAttribute="top" secondItem="FeV-F5-4Dp" secondAttribute="bottom" constant="16" id="53F-Os-qI4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wm9-aW-GUZ" secondAttribute="trailing" constant="20" id="5vf-KA-RRr"/>
                             <constraint firstItem="FeV-F5-4Dp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="CKX-xW-U2h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ds-QC-Jhm" secondAttribute="trailing" constant="20" id="HtA-52-z4S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJE-1q-Fl5" secondAttribute="trailing" constant="20" id="HvI-KU-R6R"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PIk-AS-hQC"/>
-                            <constraint firstItem="V90-Ip-a0L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R8x-Vh-kRH"/>
-                            <constraint firstItem="V90-Ip-a0L" firstAttribute="top" secondItem="FeV-F5-4Dp" secondAttribute="bottom" constant="24" id="RiO-Tk-IQG"/>
                             <constraint firstItem="FeV-F5-4Dp" firstAttribute="top" secondItem="tvs-Vg-7bc" secondAttribute="bottom" constant="40" id="WXx-Sm-RUB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FeV-F5-4Dp" secondAttribute="trailing" constant="20" id="cj4-NE-Tmw"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fLF-45-5UG"/>
@@ -203,6 +219,7 @@
                             <constraint firstItem="hJE-1q-Fl5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hvX-UE-pxg"/>
                             <constraint firstItem="tvs-Vg-7bc" firstAttribute="top" secondItem="wm9-aW-GUZ" secondAttribute="bottom" constant="50" id="izE-xM-9l7"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mM2-U8-x9g"/>
+                            <constraint firstItem="3je-9y-rOQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wsA-fp-3oz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
