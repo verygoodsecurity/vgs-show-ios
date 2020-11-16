@@ -64,7 +64,7 @@ class ShowDemoViewController: UIViewController {
 	// MARK: - Helpers
 
 	private func configureUI() {
-		let padding = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
+		let paddings = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
 		let textColor = UIColor.white
 		let borderColor = UIColor.clear
 		let font = UIFont.systemFont(ofSize: 20)
@@ -72,7 +72,7 @@ class ShowDemoViewController: UIViewController {
 		let cornerRadius: CGFloat = 0
 
 		cardNumberLabel.textColor = textColor
-		cardNumberLabel.padding = padding
+		cardNumberLabel.paddings = paddings
 		cardNumberLabel.borderColor = borderColor
 		cardNumberLabel.font = font
 		cardNumberLabel.backgroundColor = backgroundColor
@@ -88,7 +88,7 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.delegate = self
 
 		expDateLabel.textColor = textColor
-		expDateLabel.padding = padding
+		expDateLabel.paddings = paddings
 		expDateLabel.borderColor = borderColor
 		expDateLabel.font = font
 		expDateLabel.backgroundColor = backgroundColor

@@ -39,16 +39,21 @@ internal extension VGSLabel {
   func setPaddings() {
     NSLayoutConstraint.deactivate(verticalConstraint)
     NSLayoutConstraint.deactivate(horizontalConstraints)
+
+		if paddings.hasNegativeValue {
+			assertionFailure("cannot set padding \(paddings) with negative values")
+			return
+		}
     
     let views = ["view": self, "label": label]
       
-    horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(padding.left)-[label]-\(padding.right)-|",
+    horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(paddings.left)-[label]-\(paddings.right)-|",
                                                                  options: .alignAllCenterY,
                                                                  metrics: nil,
                                                                  views: views)
     NSLayoutConstraint.activate(horizontalConstraints)
       
-    verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(padding.top)-[label]-\(padding.bottom)-|",
+    verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(paddings.top)-[label]-\(paddings.bottom)-|",
                                                               options: .alignAllCenterX,
                                                               metrics: nil,
                                                               views: views)
