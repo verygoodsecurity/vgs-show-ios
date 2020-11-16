@@ -63,9 +63,9 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.fieldName = "json.account_number2"
 
 		// Split card number to XXXX-XXXX-XXXX-XXXX format.
-		// You can use do/try/catch if you want to check errors on creating regex. To keep example short, we will use just if/let statement.
-		if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
-			cardNumberLabel.regexMask = regexMask
+		// You can use do/try/catch if you want to check errors on creating regex. To keep example short, we use just if/let statement.
+		if let transformationRegex = try? VGSTransformationRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+			cardNumberLabel.transformationRegex = transformationRegex
 		}
 
 		cardNumberLabel.delegate = self
