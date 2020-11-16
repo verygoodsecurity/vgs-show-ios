@@ -170,6 +170,20 @@
                                     <constraint firstAttribute="height" constant="120" id="izS-dr-V9a"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V90-Ip-a0L">
+                                <rect key="frame" x="127.5" y="553" width="159" height="44"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ekv-uC-aYu"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                <state key="normal" title="Copy card number">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="copyCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UKx-wB-DbP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -179,6 +193,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ds-QC-Jhm" secondAttribute="trailing" constant="20" id="HtA-52-z4S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJE-1q-Fl5" secondAttribute="trailing" constant="20" id="HvI-KU-R6R"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PIk-AS-hQC"/>
+                            <constraint firstItem="V90-Ip-a0L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R8x-Vh-kRH"/>
+                            <constraint firstItem="V90-Ip-a0L" firstAttribute="top" secondItem="FeV-F5-4Dp" secondAttribute="bottom" constant="24" id="RiO-Tk-IQG"/>
                             <constraint firstItem="FeV-F5-4Dp" firstAttribute="top" secondItem="tvs-Vg-7bc" secondAttribute="bottom" constant="40" id="WXx-Sm-RUB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FeV-F5-4Dp" secondAttribute="trailing" constant="20" id="cj4-NE-Tmw"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fLF-45-5UG"/>
@@ -193,6 +209,7 @@
                     <tabBarItem key="tabBarItem" title="Show" id="c5N-b5-Mzy"/>
                     <navigationItem key="navigationItem" id="TZA-Qm-sbu"/>
                     <connections>
+                        <outlet property="copyCardNumberButton" destination="V90-Ip-a0L" id="Vbe-Gm-UGH"/>
                         <outlet property="inputLabel" destination="wm9-aW-GUZ" id="dhJ-pG-j4e"/>
                         <outlet property="stackView" destination="FeV-F5-4Dp" id="4SF-x9-CTM"/>
                     </connections>

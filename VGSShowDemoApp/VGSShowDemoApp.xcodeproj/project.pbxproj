@@ -17,6 +17,7 @@
 		4444EEF3255E645D002C9215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444EEF2255E645D002C9215 /* Assets.xcassets */; };
 		4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */; };
 		4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF6255E6467002C9215 /* CollectViewController.swift */; };
+		446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		4444EEF2255E645D002C9215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
 		4444EEF6255E6467002C9215 /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
+		446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				44415FD5255D37540012D107 /* Helpers.swift */,
+				446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */,
 				4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */,
 				4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */,
 				44415FDB255D37540012D107 /* Helpers.swift in Sources */,

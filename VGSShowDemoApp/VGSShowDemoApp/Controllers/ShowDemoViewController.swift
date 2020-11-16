@@ -14,6 +14,7 @@ class ShowDemoViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
+	@IBOutlet fileprivate weak var copyCardNumberButton: UIButton!
 
 	// MARK: - Constants
 
@@ -29,6 +30,10 @@ class ShowDemoViewController: UIViewController {
 		configureUI()
 		vgsShow.subscribe(cardNumberLabel)
 		vgsShow.subscribe(expDateLabel)
+
+		copyCardNumberButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .disabled)
+		copyCardNumberButton.setTitleColor(UIColor.white, for: .normal)
+		copyCardNumberButton.isEnabled = false
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +47,10 @@ class ShowDemoViewController: UIViewController {
 
 	@IBAction func revealButtonAction(_ sender: Any) {
 		loadData()
+	}
+
+	@IBAction private func copyCardAction(_ sender: UIButton) {
+		cardNumberLabel.copyRawText()
 	}
 
 	// MARK: - Helpers
@@ -90,6 +99,7 @@ class ShowDemoViewController: UIViewController {
 
 			switch requestResult {
 			case .success(let code):
+				self.copyCardNumberButton.isEnabled = true
 				print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
 				print("vgsshow failed, code: \(code), error: \(error)")
@@ -103,5 +113,11 @@ class ShowDemoViewController: UIViewController {
 extension ShowDemoViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
 		label.backgroundColor = .black
+	}
+
+	func labelDidCopyRawText(_ label: VGSLabel, hasText: Bool) {
+		if hasText {
+			UIViewController.show(message: "Card number is copied!", controller: self)
+		}
 	}
 }
