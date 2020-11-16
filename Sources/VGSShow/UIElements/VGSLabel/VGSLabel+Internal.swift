@@ -56,25 +56,38 @@ internal extension VGSLabel {
     self.layoutIfNeeded()
   }
 
-	func copyRawRevealedText() {
-		let pasteBoard = UIPasteboard.general
-		if let rawText = revealedRawText {
-			pasteBoard.string = rawText
-			delegate?.labelDidCopyText?(self, hasText: true, isFormatted: false)
-		} else {
-			delegate?.labelDidCopyText?(self, hasText: false, isFormatted: false)
+	var canCopyText: Bool {
+		return !revealedRawText.isNilOrEmpty
+	}
+
+	func copyRawRevealedTextWithFormat(format: VGSLabelCopyTextFormat) {
+		guard canCopyText, let rawText = revealedRawText else {
+			delegate?.labelCopyTextDidFinish?(self, format: format)
+			return
 		}
+
+		let pasteBoard = UIPasteboard.general
+		pasteBoard.string = rawText
+		delegate?.labelCopyTextDidFinish?(self, format: format)
 	}
 
 	func copyFormattedRevealedText() {
-		let pasteBoard = UIPasteboard.general
-		if let displayedText = label.secureText {
-			pasteBoard.string = displayedText
-			delegate?.labelDidCopyText?(self, hasText: true, isFormatted: true)
-		} else {
-			delegate?.labelDidCopyText?(self, hasText: false, isFormatted: true)
+		guard canCopyText, let rawText = revealedRawText else {
+			delegate?.labelCopyTextDidFinish?(self, format: .formatted)
+			return
 		}
 
+		// Copy raw displayed text if no transformation regex, mark delegate action as `.formatted`.
+		guard let labelTransformationRegex = transformationRegex else {
+			copyRawRevealedTextWithFormat(format: .formatted)
+			return
+		}
+
+		let pasteBoard = UIPasteboard.general
+    let formattedText = rawText.transformWithRegexMask(labelTransformationRegex)
+		pasteBoard.string = formattedText
+
+		delegate?.labelCopyTextDidFinish?(self, format: .formatted)
 	}
 
   func updateTextAndMaskIfNeeded() {

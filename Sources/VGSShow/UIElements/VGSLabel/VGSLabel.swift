@@ -17,6 +17,16 @@ internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
 /// An object that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
+	/// Text format to copy.
+	@objc public enum VGSLabelCopyTextFormat: Int {
+
+		/// Raw revealed text.
+		case raw
+
+		/// Formatted text.
+		case formatted
+	}
+
   internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDecodingContentMode = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
@@ -63,14 +73,15 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		return revealedRawText?.count ?? 0
   }
 
-	/// Copy raw revealed text to pasteboard.
-	public func copyRawText() {
-		copyRawRevealedText()
-	}
-
-	/// Copy formatted revealed text to pasteboard.
-	public func copyFormattedText() {
-		copyFormattedRevealedText()
+	/// Copy text to pasteboard with format.
+	/// - Parameter format: `VGSLabelCopyTextFormat` object, text format to copy. Default is `.raw`.
+	public func copyTextToPasteboard(format: VGSLabelCopyTextFormat = .raw) {
+		switch format {
+		case .raw:
+			copyRawRevealedTextWithFormat(format: .raw)
+		case .formatted:
+			copyFormattedRevealedText()
+		}
 	}
 
 	/**

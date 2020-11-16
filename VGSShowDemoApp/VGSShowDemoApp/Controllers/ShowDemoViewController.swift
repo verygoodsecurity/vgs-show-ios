@@ -51,9 +51,9 @@ class ShowDemoViewController: UIViewController {
 
 	@IBAction private func copyCardAction(_ sender: UIButton) {
 		if !isFormattedCardNumber {
-			cardNumberLabel.copyRawText()
+			cardNumberLabel.copyTextToPasteboard(format: .raw)
 		} else {
-			cardNumberLabel.copyFormattedText()
+			cardNumberLabel.copyTextToPasteboard(format: .formatted)
 		}
 	}
 
@@ -131,10 +131,17 @@ extension ShowDemoViewController: VGSLabelDelegate {
 		label.backgroundColor = .black
 	}
 
-	func labelDidCopyText(_ label: VGSLabel, hasText: Bool, isFormatted: Bool) {
-		if hasText {
-			let isFormattedText = isFormatted ? "Formatted" : "Raw"
-			UIViewController.show(message: "\(isFormattedText) card number is copied!", controller: self)
+	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.VGSLabelCopyTextFormat) {
+
+		if !label.isEmpty {
+			var textFormat = "Formatted"
+			switch format {
+			case .raw:
+				textFormat = "raw"
+			default:
+				break
+			}
+			UIViewController.show(message: "\(textFormat) card number is copied!", controller: self)
 		}
 	}
 }
