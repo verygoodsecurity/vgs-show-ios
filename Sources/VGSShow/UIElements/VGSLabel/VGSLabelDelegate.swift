@@ -17,4 +17,10 @@ public protocol VGSLabelDelegate: class {
 	/// Tells the delegate when text changes in the specified label.
 	/// - Parameter label: `VGSLabel` view in which text was changed.
   @objc optional func labelTextDidChange(_ label: VGSLabel)
+
+	/// Tells the delegate when raw text is copied in the specified label.
+	/// - Parameters:
+	///   - label: `VGSLabel` view in which raw text was copied.
+	///   - hasText: `Bool` flag. `true` if has text in pasteboard.
+	@objc optional func labelDidCopyRawText(_ label: VGSLabel, hasText: Bool)
 }

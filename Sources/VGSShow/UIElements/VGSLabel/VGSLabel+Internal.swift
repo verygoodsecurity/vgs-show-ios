@@ -18,7 +18,7 @@ internal extension VGSLabel {
       buildUI()
 
       labelModel.onValueChanged = { [weak self](text) in
-          self?.revealedText = text
+          self?.revealedRawText = text
       }
       labelModel.view = self
   }
@@ -56,8 +56,18 @@ internal extension VGSLabel {
     self.layoutIfNeeded()
   }
 
+	func copyRawRevealedText() {
+		let pasteBoard = UIPasteboard.general
+		if let rawText = revealedRawText {
+			pasteBoard.string = rawText
+			delegate?.labelDidCopyRawText?(self, hasText: true)
+		} else {
+			delegate?.labelDidCopyRawText?(self, hasText: false)
+		}
+	}
+
   func updateTextAndMaskIfNeeded() {
-    guard let text = revealedText else {return}
+    guard let text = revealedRawText else {return}
 
     // No mask: set revealed text.
     guard let mask = transformationRegex else {

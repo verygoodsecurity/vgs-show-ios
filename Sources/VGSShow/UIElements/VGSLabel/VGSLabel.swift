@@ -37,7 +37,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   private(set) weak var vgsShow: VGSShow?
 
 	/// Last revealed text.
-	internal var revealedText: String? {
+	internal var revealedRawText: String? {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}
@@ -59,9 +59,14 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
   /// Revealed text length.
-  public var revealedTextLength: Int {
-		return revealedText?.count ?? 0
+  public var revealedRawTextLength: Int {
+		return revealedRawText?.count ?? 0
   }
+
+	/// Copy raw revealed text to pasteboard.
+	public func copyRawText() {
+		copyRawRevealedText()
+	}
 
 	/**
 	Transformation regex to format revealed raw text. Default is `nil`.
