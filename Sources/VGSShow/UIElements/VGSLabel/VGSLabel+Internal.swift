@@ -11,6 +11,8 @@ import UIKit
 #endif
 
 internal extension VGSLabel {
+
+	/// Basic initialization & view setup.
   func mainInitialization() {
       // set main style for view
       setDefaultStyle()
@@ -23,19 +25,22 @@ internal extension VGSLabel {
       labelModel.view = self
   }
 
+	/// Default styles setup.
   func setDefaultStyle() {
       clipsToBounds = true
       layer.borderColor = UIColor.lightGray.cgColor
       layer.borderWidth = 1
       layer.cornerRadius = 4
   }
-  
+
+	/// Setup subviews.
   func buildUI() {
       label.translatesAutoresizingMaskIntoConstraints = false
       addSubview(label)
       setPaddings()
   }
-  
+
+	/// Set paddings.
   func setPaddings() {
     NSLayoutConstraint.deactivate(verticalConstraint)
     NSLayoutConstraint.deactivate(horizontalConstraints)
@@ -61,10 +66,13 @@ internal extension VGSLabel {
     self.layoutIfNeeded()
   }
 
+	/// `Bool` flag indicating if copy option is available.
 	var canCopyText: Bool {
 		return !revealedRawText.isNilOrEmpty
 	}
 
+	/// Copy raw revealed text with format.
+	/// - Parameter format: `VGSLabelCopyTextFormat` object,  format to copy text.
 	func copyRawRevealedTextWithFormat(format: VGSLabelCopyTextFormat) {
 		guard canCopyText, let rawText = revealedRawText else {
 			delegate?.labelCopyTextDidFinish?(self, format: format)
@@ -76,6 +84,7 @@ internal extension VGSLabel {
 		delegate?.labelCopyTextDidFinish?(self, format: format)
 	}
 
+	/// Copy formatted with transformation mask text.
 	func copyFormattedRevealedText() {
 		guard canCopyText, let rawText = revealedRawText else {
 			delegate?.labelCopyTextDidFinish?(self, format: .formatted)
@@ -95,6 +104,7 @@ internal extension VGSLabel {
 		delegate?.labelCopyTextDidFinish?(self, format: .formatted)
 	}
 
+	/// Update text and apply transformation regex if available.
   func updateTextAndMaskIfNeeded() {
     guard let text = revealedRawText else {return}
 
@@ -109,6 +119,8 @@ internal extension VGSLabel {
     updateMaskedLabel(with: maskedText)
   }
 
+	/// Set text to internal label, notify delegate about changing text.
+	/// - Parameter text: `String` object, raw text to set.
   func updateMaskedLabel(with text: String) {
     label.secureText = text
     delegate?.labelTextDidChange?(self)
