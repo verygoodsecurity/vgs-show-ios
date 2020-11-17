@@ -14,12 +14,15 @@ class ShowDemoViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
+	@IBOutlet fileprivate weak var copyCardNumberButton: UIButton!
 
 	// MARK: - Constants
 
 	let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
 	let cardNumberLabel = VGSLabel()
 	let expDateLabel = VGSLabel()
+
+	var isFormattedCardNumber: Bool = true
 
 	// MARK: - Lifecycle
 
@@ -29,6 +32,8 @@ class ShowDemoViewController: UIViewController {
 		configureUI()
 		vgsShow.subscribe(cardNumberLabel)
 		vgsShow.subscribe(expDateLabel)
+
+		setupCopyButtonUI()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -40,14 +45,26 @@ class ShowDemoViewController: UIViewController {
 
 	// MARK: - Actions
 
-	@IBAction func revealButtonAction(_ sender: Any) {
+	@IBAction private func revealButtonAction(_ sender: Any) {
 		loadData()
+	}
+
+	@IBAction private func copyCardAction(_ sender: UIButton) {
+		if !isFormattedCardNumber {
+			cardNumberLabel.copyTextToPasteboard(format: .raw)
+		} else {
+			cardNumberLabel.copyTextToPasteboard(format: .formatted)
+		}
+	}
+
+	@IBAction private func switchChangeAction(_ sender: UISwitch) {
+		isFormattedCardNumber = sender.isOn
 	}
 
 	// MARK: - Helpers
 
 	private func configureUI() {
-		let padding = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
+		let paddings = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
 		let textColor = UIColor.white
 		let borderColor = UIColor.clear
 		let font = UIFont.systemFont(ofSize: 20)
@@ -55,7 +72,7 @@ class ShowDemoViewController: UIViewController {
 		let cornerRadius: CGFloat = 0
 
 		cardNumberLabel.textColor = textColor
-		cardNumberLabel.padding = padding
+		cardNumberLabel.paddings = paddings
 		cardNumberLabel.borderColor = borderColor
 		cardNumberLabel.font = font
 		cardNumberLabel.backgroundColor = backgroundColor
@@ -63,15 +80,15 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.fieldName = "json.account_number2"
 
 		// Split card number to XXXX-XXXX-XXXX-XXXX format.
-		// You can use do/try/catch if you want to check errors on creating regex. To keep example short, we will use just if/let statement.
-		if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
-			cardNumberLabel.regexMask = regexMask
+		// You can use do/try/catch if you want to check errors on creating regex. To keep example short, we use just if/let statement.
+		if let transformationRegex = try? VGSTransformationRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+			cardNumberLabel.transformationRegex = transformationRegex
 		}
 
 		cardNumberLabel.delegate = self
 
 		expDateLabel.textColor = textColor
-		expDateLabel.padding = padding
+		expDateLabel.paddings = paddings
 		expDateLabel.borderColor = borderColor
 		expDateLabel.font = font
 		expDateLabel.backgroundColor = backgroundColor
@@ -90,11 +107,20 @@ class ShowDemoViewController: UIViewController {
 
 			switch requestResult {
 			case .success(let code):
+				self.copyCardNumberButton.isEnabled = true
 				print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
 				print("vgsshow failed, code: \(code), error: \(error)")
 			}
 		}
+	}
+
+	private func setupCopyButtonUI() {
+		copyCardNumberButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .disabled)
+		copyCardNumberButton.setTitleColor(UIColor.white, for: .normal)
+		copyCardNumberButton.isEnabled = false
+		copyCardNumberButton.layer.cornerRadius = 6
+		copyCardNumberButton.layer.masksToBounds = true
 	}
 }
 
@@ -103,5 +129,19 @@ class ShowDemoViewController: UIViewController {
 extension ShowDemoViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
 		label.backgroundColor = .black
+	}
+
+	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.VGSLabelCopyTextFormat) {
+
+		if !label.isEmpty {
+			var textFormat = "Formatted"
+			switch format {
+			case .raw:
+				textFormat = "raw"
+			default:
+				break
+			}
+			UIViewController.show(message: "\(textFormat) card number is copied!", controller: self)
+		}
 	}
 }

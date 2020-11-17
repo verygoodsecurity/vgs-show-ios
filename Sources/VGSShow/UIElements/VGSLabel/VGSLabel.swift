@@ -17,6 +17,16 @@ internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
 /// An object that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
+	/// Text format to copy.
+	@objc public enum VGSLabelCopyTextFormat: Int {
+
+		/// Raw revealed text.
+		case raw
+
+		/// Formatted text.
+		case formatted
+	}
+
   internal var label = VGSMaskedLabel(frame: .zero)
   internal let fieldType: VGSShowDecodingContentMode = .text
   internal var horizontalConstraints = [NSLayoutConstraint]()
@@ -37,7 +47,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   private(set) weak var vgsShow: VGSShow?
 
 	/// Last revealed text.
-	internal var revealedText: String? {
+	internal var revealedRawText: String? {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}
@@ -59,20 +69,31 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
   /// Revealed text length.
-  public var revealedTextLength: Int {
-		return revealedText?.count ?? 0
+  public var revealedRawTextLength: Int {
+		return revealedRawText?.count ?? 0
   }
 
+	/// Copy text to pasteboard with format.
+	/// - Parameter format: `VGSLabelCopyTextFormat` object, text format to copy. Default is `.raw`.
+	public func copyTextToPasteboard(format: VGSLabelCopyTextFormat = .raw) {
+		switch format {
+		case .raw:
+			copyRawRevealedTextWithFormat(format: .raw)
+		case .formatted:
+			copyFormattedRevealedText()
+		}
+	}
+
 	/**
-	Regex mask to format revealed string. Default is `nil`.
+	Transformation regex to format revealed raw text. Default is `nil`.
 
 	 # Example #
 	```
 	let cardNumberLabel = VGSLabel();
 
 	// Split card number to XXXX-XXXX-XXXX-XXXX format.
-	if let regexMask = try? VGSShowRegexMask(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
-	  cardNumberLabel.regexMask = regexMask
+	if let transformationRegex = try? VGSTransformationRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
+	  cardNumberLabel.transformationRegex = transformationRegex
 	}
 
 	// Fetched data:  "4111111111111111"
@@ -82,17 +103,17 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	do {
 	 // Split card number to XXXX/XXXX/XXXX/XXXX format.
    let regex = try NSRegularExpression(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", options: [])
-	  let regexMask = VGSShowRegexMask(regex: regex, template: "$1/$2/$3/$4")
-	  cardNumberLabel.regexMask = regexMask
+	  let transformationRegex = VGSTransformationRegex(regex: regex, template: "$1/$2/$3/$4")
+	  cardNumberLabel.transformationRegex = transformationRegex
 	} catch {
 	  print("wrong regex format: \(error)")
 	}
 
-	// Fetched data:  "4111111111111111"
+	// Revealed raw text:  "4111111111111111"
 	// Text in label: "4111/1111/1111/1111"
 	```
 	*/
-	public var regexMask: VGSShowRegexMask? = nil {
+	public var transformationRegex: VGSTransformationRegex? = nil {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}
@@ -100,8 +121,8 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   
   // MARK: - UI Attribute
 
-  /// `UIEdgeInsets` for text and placeholder inside `VGSTextField`.
-  public var padding = UIEdgeInsets.zero {
+  /// `UIEdgeInsets` for text and placeholder inside `VGSTextField`. **IMPORTANT!** Paddings should be non-negative.
+  public var paddings = UIEdgeInsets.zero {
     didSet { setPaddings() }
   }
 
