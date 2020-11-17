@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3211D9712542E2B4009BB381 /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
 		441EA1602562B1AA000A8BD6 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441EA15F2562B1AA000A8BD6 /* UIEdgeInsets+Extensions.swift */; };
+		4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083125639CDF006479FB /* VGSAnalyticsClient.swift */; };
+		4461083525639DEE006479FB /* VGSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083425639DEE006479FB /* VGSUtils.swift */; };
 		4485B51D255D5A3B00EA0882 /* validNestedJSON_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B519255D5A3B00EA0882 /* validNestedJSON_1.json */; };
 		4485B51E255D5A3B00EA0882 /* validNestedJSON_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51A255D5A3B00EA0882 /* validNestedJSON_3.json */; };
 		4485B51F255D5A3B00EA0882 /* validNestedJSON_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51B255D5A3B00EA0882 /* validNestedJSON_2.json */; };
@@ -85,6 +87,8 @@
 		3211D9672542E2B4009BB381 /* VGSShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGSShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D9702542E2B4009BB381 /* VGSShowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		441EA15F2562B1AA000A8BD6 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
+		4461083125639CDF006479FB /* VGSAnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSAnalyticsClient.swift; sourceTree = "<group>"; };
+		4461083425639DEE006479FB /* VGSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUtils.swift; sourceTree = "<group>"; };
 		4485B519255D5A3B00EA0882 /* validNestedJSON_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_1.json; sourceTree = "<group>"; };
 		4485B51A255D5A3B00EA0882 /* validNestedJSON_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_3.json; sourceTree = "<group>"; };
 		4485B51B255D5A3B00EA0882 /* validNestedJSON_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_2.json; sourceTree = "<group>"; };
@@ -163,6 +167,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4461083025639CBB006479FB /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				4461083125639CDF006479FB /* VGSAnalyticsClient.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		4461083325639DD5006479FB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4461083425639DEE006479FB /* VGSUtils.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		4485B516255D5A3B00EA0882 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +235,7 @@
 		44A79F41255D0678009AF720 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4461083025639CBB006479FB /* Analytics */,
 				44A79F42255D0678009AF720 /* APIClient */,
 				44A79F44255D0678009AF720 /* Show */,
 				44A79F53255D0678009AF720 /* Environment */,
@@ -283,6 +304,7 @@
 		44A79F55255D0678009AF720 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4461083325639DD5006479FB /* Helpers */,
 				44A79F56255D0678009AF720 /* Extensions */,
 			);
 			path = Utils;
@@ -571,8 +593,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */,
 				44A79F6B255D0678009AF720 /* APIClient.swift in Sources */,
 				44A79F76255D0678009AF720 /* VGSTransformationRegex.swift in Sources */,
+				4461083525639DEE006479FB /* VGSUtils.swift in Sources */,
 				44A79F72255D0678009AF720 /* VGSShowRawDataDecoder.swift in Sources */,
 				44A79F83255D0678009AF720 /* VGSLabelModel.swift in Sources */,
 				44A79F7E255D0678009AF720 /* VGSErrorInfo.swift in Sources */,
