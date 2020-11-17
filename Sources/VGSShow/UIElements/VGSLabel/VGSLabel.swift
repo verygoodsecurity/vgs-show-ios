@@ -76,12 +76,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Copy text to pasteboard with format.
 	/// - Parameter format: `VGSLabelCopyTextFormat` object, text format to copy. Default is `.raw`.
 	public func copyTextToPasteboard(format: VGSLabelCopyTextFormat = .raw) {
-		switch format {
-		case .raw:
-			copyRawRevealedTextWithFormat(format: .raw)
-		case .formatted:
-			copyFormattedRevealedText()
-		}
+		copyText(format: format)
 	}
 
 	/**

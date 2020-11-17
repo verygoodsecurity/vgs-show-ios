@@ -66,42 +66,36 @@ internal extension VGSLabel {
     self.layoutIfNeeded()
   }
 
-	/// `Bool` flag indicating if copy option is available.
-	var canCopyText: Bool {
-		return !revealedRawText.isNilOrEmpty
-	}
+	/// Copy to pasteboard text.
+	/// - Parameter format: `VGSLabelCopyTextFormat` object, format to copy text.
+	func copyText(format: VGSLabelCopyTextFormat) {
 
-	/// Copy raw revealed text with format.
-	/// - Parameter format: `VGSLabelCopyTextFormat` object,  format to copy text.
-	func copyRawRevealedTextWithFormat(format: VGSLabelCopyTextFormat) {
-		guard canCopyText, let rawText = revealedRawText else {
+		// Always notify delegate about copy action.
+		defer {
 			delegate?.labelCopyTextDidFinish?(self, format: format)
+		}
+
+		// Copy only non-empty text.
+		guard !isEmpty, let rawText = revealedRawText else {
 			return
 		}
 
 		let pasteBoard = UIPasteboard.general
-		pasteBoard.string = rawText
-		delegate?.labelCopyTextDidFinish?(self, format: format)
-	}
 
-	/// Copy formatted with transformation mask text.
-	func copyFormattedRevealedText() {
-		guard canCopyText, let rawText = revealedRawText else {
-			delegate?.labelCopyTextDidFinish?(self, format: .formatted)
-			return
+		switch format {
+		case .raw:
+			pasteBoard.string = rawText
+		case .formatted:
+			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
+			guard let labelTransformationRegex = transformationRegex else {
+				pasteBoard.string = rawText
+				return
+			}
+
+			// Copy transformed text.
+			let formattedText = rawText.transformWithRegexMask(labelTransformationRegex)
+			pasteBoard.string = formattedText
 		}
-
-		// Copy raw displayed text if no transformation regex, mark delegate action as `.formatted`.
-		guard let labelTransformationRegex = transformationRegex else {
-			copyRawRevealedTextWithFormat(format: .formatted)
-			return
-		}
-
-		let pasteBoard = UIPasteboard.general
-    let formattedText = rawText.transformWithRegexMask(labelTransformationRegex)
-		pasteBoard.string = formattedText
-
-		delegate?.labelCopyTextDidFinish?(self, format: .formatted)
 	}
 
 	/// Update text and apply transformation regex if available.
