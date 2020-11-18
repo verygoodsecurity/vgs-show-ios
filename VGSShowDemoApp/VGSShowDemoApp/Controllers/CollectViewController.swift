@@ -15,6 +15,7 @@ class CollectViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var resultLabel: UILabel!
+	@IBOutlet fileprivate weak var titleLabel: UILabel!
 
 	// MARK: - Vars
 
@@ -37,7 +38,13 @@ class CollectViewController: UIViewController {
 	// MARK: - Init UI
 
 	private func setupUI() {
+		if #available(iOS 11.0, *) {
+			titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+		} else {
+			titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+		}
 
+		// Add fields.
 		stackView.addArrangedSubview(cardNumber)
 		stackView.addArrangedSubview(expCardDate)
 

@@ -15,6 +15,7 @@ class ShowDemoViewController: UIViewController {
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
 	@IBOutlet fileprivate weak var copyCardNumberButton: UIButton!
+	@IBOutlet fileprivate weak var titleLabel: UILabel!
 
 	// MARK: - Constants
 
@@ -29,11 +30,15 @@ class ShowDemoViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+
+    // Setup VGSLabels.
 		configureUI()
 		vgsShow.subscribe(cardNumberLabel)
 		vgsShow.subscribe(expDateLabel)
 
+		// Setup demo copy button UI and title.
 		setupCopyButtonUI()
+		setupTitleUI()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -121,6 +126,14 @@ class ShowDemoViewController: UIViewController {
 		copyCardNumberButton.isEnabled = false
 		copyCardNumberButton.layer.cornerRadius = 6
 		copyCardNumberButton.layer.masksToBounds = true
+	}
+
+	private func setupTitleUI() {
+		if #available(iOS 11.0, *) {
+			titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+		} else {
+			titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+		}
 	}
 }
 
