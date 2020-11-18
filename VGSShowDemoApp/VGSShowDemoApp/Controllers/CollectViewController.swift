@@ -68,10 +68,10 @@ class CollectViewController: UIViewController {
 		expDateConfiguration.isRequiredValidOnly = true
 		expDateConfiguration.type = .expDate
 
-		/// Default .expDate format is "##/##"
+		// Default .expDate format is "##/##"
 		expDateConfiguration.formatPattern = "##/####"
 
-		/// Update validation rules
+		// Update validation rules
 		expDateConfiguration.validationRules = VGSValidationRuleSet(rules: [
 			VGSValidationRuleCardExpirationDate(dateFormat: .longYear, error: VGSValidationErrorType.expDate.rawValue)
 		])
@@ -98,7 +98,7 @@ class CollectViewController: UIViewController {
 		var extraData = [String: Any]()
 		extraData["customKey"] = "Custom Value"
 
-		/// New sendRequest func
+		// New sendRequest func
 		vgsCollect.sendData(path: "/post", extraData: extraData) { [weak self](response) in
 
 			switch response {
