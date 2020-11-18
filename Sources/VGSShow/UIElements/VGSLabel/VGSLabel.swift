@@ -18,7 +18,7 @@ internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
 	/// Text format to copy.
-	@objc public enum VGSLabelCopyTextFormat: Int {
+	@objc public enum CopyTextFormat: Int {
 
 		/// Raw revealed text.
 		case raw
@@ -74,8 +74,8 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
 	/// Copy text to pasteboard with format.
-	/// - Parameter format: `VGSLabelCopyTextFormat` object, text format to copy. Default is `.raw`.
-	public func copyTextToPasteboard(format: VGSLabelCopyTextFormat = .raw) {
+	/// - Parameter format: `VGSLabel.CopyTextFormat` object, text format to copy. Default is `.raw`.
+	public func copyTextToClipboard(format: CopyTextFormat = .raw) {
 		copyText(format: format)
 	}
 

@@ -68,7 +68,7 @@ internal extension VGSLabel {
 
 	/// Copy to pasteboard text.
 	/// - Parameter format: `VGSLabelCopyTextFormat` object, format to copy text.
-	func copyText(format: VGSLabelCopyTextFormat) {
+	func copyText(format: VGSLabel.CopyTextFormat) {
 
 		// Always notify delegate about copy action.
 		defer {
