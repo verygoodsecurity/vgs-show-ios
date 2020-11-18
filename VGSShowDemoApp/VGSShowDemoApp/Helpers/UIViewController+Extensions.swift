@@ -13,12 +13,12 @@ extension UIViewController {
 		let toastContainer = UIView(frame: .zero)
 		toastContainer.backgroundColor = UIColor.black.withAlphaComponent(0.7)
 		toastContainer.alpha = 0.0
-		toastContainer.layer.cornerRadius = 20;
+		toastContainer.layer.cornerRadius = 20
 		toastContainer.clipsToBounds  =  true
 		
 		let toastLabel = UILabel(frame: CGRect())
 		toastLabel.textColor = UIColor.white
-		toastLabel.textAlignment = .center;
+		toastLabel.textAlignment = .center
 		toastLabel.font.withSize(12.0)
 		toastLabel.text = message
 		toastLabel.clipsToBounds  =  true
