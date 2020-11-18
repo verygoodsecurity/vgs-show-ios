@@ -11,6 +11,9 @@ import UIKit
 /// :nodoc: VGS Analytics event type
 public enum VGSAnalyticsEventType: String {
 	case fieldInit = "Init"
+  case beforeSubmit = "BeforeSubmit"
+  case submit = "Submit"
+  case copy = "Copy"
 }
 
 /// Client responsably for managing and sending VGS Show SDK analytics events.
