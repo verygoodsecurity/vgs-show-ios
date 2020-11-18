@@ -42,7 +42,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-9u-5qy">
-                                <rect key="frame" x="132" y="676" width="150" height="50"/>
+                                <rect key="frame" x="132" y="713" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="00R-Wc-mDX"/>
@@ -100,7 +100,7 @@
                             <constraint firstItem="EBO-bb-VgO" firstAttribute="trailing" secondItem="DLq-dK-lxM" secondAttribute="trailing" constant="8" id="SsB-nH-Bkk"/>
                             <constraint firstItem="EBO-bb-VgO" firstAttribute="trailing" secondItem="TW0-s7-lRU" secondAttribute="trailing" constant="20" id="Xpg-fQ-aho"/>
                             <constraint firstItem="hXf-Nb-08v" firstAttribute="top" secondItem="TW0-s7-lRU" secondAttribute="bottom" constant="60" id="Xrs-U6-0fn"/>
-                            <constraint firstItem="EBO-bb-VgO" firstAttribute="bottom" secondItem="EUh-9u-5qy" secondAttribute="bottom" constant="87" id="YxC-6Y-M92"/>
+                            <constraint firstItem="EBO-bb-VgO" firstAttribute="bottom" secondItem="EUh-9u-5qy" secondAttribute="bottom" constant="50" id="YxC-6Y-M92"/>
                             <constraint firstItem="TW0-s7-lRU" firstAttribute="leading" secondItem="EBO-bb-VgO" secondAttribute="leading" constant="20" id="fJk-GU-PIx"/>
                             <constraint firstItem="hXf-Nb-08v" firstAttribute="leading" secondItem="EBO-bb-VgO" secondAttribute="leading" constant="20" id="kAO-N6-voz"/>
                             <constraint firstItem="DLq-dK-lxM" firstAttribute="top" secondItem="EBO-bb-VgO" secondAttribute="top" constant="50" id="mHY-nb-Gy1"/>
@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvs-Vg-7bc">
-                                <rect key="frame" x="132" y="319" width="150" height="50"/>
+                                <rect key="frame" x="132" y="306.5" width="150" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pnE-eI-cPS"/>
@@ -159,20 +159,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing to Reveal..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wm9-aW-GUZ">
-                                <rect key="frame" x="20" y="248.5" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="248.5" width="374" height="18"/>
                                 <color key="backgroundColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-F5-4Dp">
-                                <rect key="frame" x="20" y="409" width="374" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-F5-4Dp">
+                                <rect key="frame" x="20" y="391.5" width="374" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="izS-dr-V9a"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3je-9y-rOQ">
-                                <rect key="frame" x="63" y="545" width="288" height="44"/>
+                                <rect key="frame" x="63" y="527.5" width="288" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V90-Ip-a0L">
                                         <rect key="frame" x="0.0" y="0.0" width="76" height="44"/>
@@ -212,13 +212,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ds-QC-Jhm" secondAttribute="trailing" constant="20" id="HtA-52-z4S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJE-1q-Fl5" secondAttribute="trailing" constant="20" id="HvI-KU-R6R"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PIk-AS-hQC"/>
-                            <constraint firstItem="FeV-F5-4Dp" firstAttribute="top" secondItem="tvs-Vg-7bc" secondAttribute="bottom" constant="40" id="WXx-Sm-RUB"/>
+                            <constraint firstItem="FeV-F5-4Dp" firstAttribute="top" secondItem="tvs-Vg-7bc" secondAttribute="bottom" constant="35" id="WXx-Sm-RUB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FeV-F5-4Dp" secondAttribute="trailing" constant="20" id="cj4-NE-Tmw"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fLF-45-5UG"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="top" secondItem="hJE-1q-Fl5" secondAttribute="bottom" constant="20" id="gXH-f5-wwW"/>
                             <constraint firstItem="tvs-Vg-7bc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="heQ-T6-J5h"/>
                             <constraint firstItem="hJE-1q-Fl5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hvX-UE-pxg"/>
-                            <constraint firstItem="tvs-Vg-7bc" firstAttribute="top" secondItem="wm9-aW-GUZ" secondAttribute="bottom" constant="50" id="izE-xM-9l7"/>
+                            <constraint firstItem="tvs-Vg-7bc" firstAttribute="top" secondItem="wm9-aW-GUZ" secondAttribute="bottom" constant="40" id="izE-xM-9l7"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mM2-U8-x9g"/>
                             <constraint firstItem="3je-9y-rOQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wsA-fp-3oz"/>
                         </constraints>
