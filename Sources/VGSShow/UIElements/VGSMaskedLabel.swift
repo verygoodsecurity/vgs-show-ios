@@ -76,7 +76,6 @@ internal class VGSMaskedLabel: UILabel {
 			}
 
 			// Set text if custom attributes not specified.
-			self.secureText = newValue
 			super.text = newValue
 		}
 		get {
