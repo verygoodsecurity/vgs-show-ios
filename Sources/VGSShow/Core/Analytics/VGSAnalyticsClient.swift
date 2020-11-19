@@ -30,8 +30,9 @@ public class VGSAnalyticsClient {
 	/// Shared `VGSAnalyticsClient` instance
 	public static let shared = VGSAnalyticsClient()
 
+	#warning("Temprorary disabled analytics on default")
 	/// Enable or disable VGS analytics tracking
-	public var shouldCollectAnalytics = true
+	public var shouldCollectAnalytics = false
 
 	/// Uniq id that should stay the same during application rintime
 	public let vgsShowSessionId = UUID().uuidString
