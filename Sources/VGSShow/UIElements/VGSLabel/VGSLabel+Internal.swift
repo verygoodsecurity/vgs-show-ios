@@ -72,6 +72,7 @@ internal extension VGSLabel {
 
 		// Always notify delegate about copy action.
 		defer {
+			VGSAnalyticsClient.shared.trackEvent(.copy)
 			delegate?.labelCopyTextDidFinish?(self, format: format)
 		}
 
