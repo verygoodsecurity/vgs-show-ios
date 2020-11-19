@@ -35,17 +35,28 @@ extension VGSShow {
 		// send request
 
 		guard hasViewModels else {
-			let error = VGSShowError(type: .noRegisteredElementsInShow)
+			let error = VGSShowError(type: .noSubscribedViewsInShow)
+
+			// Track error.
+			VGSAnalyticsClient.shared.trackFormEvent(self, type: .beforeSubmit, status: .failed, extraData: [ "statusCode": error.code])
+
 			block(.failure(error.code, error))
 			return
 		}
 
-		apiClient.sendRequest(path: path, method: method, value: payload ) { (requestResult) in
+		apiClient.sendRequest(path: path, method: method, value: payload ) {[weak self] (requestResult) in
+
+			guard let strongSelf = self else {return}
 
 			switch requestResult {
 			case .success(let code, let data, let response):
-				self.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: self.subscribedViewModels, completion: block)
+				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, completion: block)
 			case .failure(let code, let data, let response, let error):
+
+				// Track error.
+				let errorMessage =  (error as NSError?)?.localizedDescription ?? ""
+				VGSAnalyticsClient.shared.trackFormEvent(strongSelf, type: .submit, status: .failed, extraData: ["statusCode": code, "error": errorMessage])
+
 				block(.failure(code, error))
 			}
 		}
@@ -74,8 +85,16 @@ extension VGSShow {
 			print(unrevealedKeyPaths)
 			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
 			let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
+
+			// Track error.
+			VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .failed, extraData: [ "statusCode": error.code])
+
 			block(.failure(code, error))
 		} else {
+
+			// Track success.
+					VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .success)
+
 			block(.success(code))
 		}
 	}
