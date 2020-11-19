@@ -98,6 +98,7 @@ class ShowDemoViewController: UIViewController {
 		expDateLabel.font = font
 		expDateLabel.backgroundColor = backgroundColor
 		expDateLabel.layer.cornerRadius = cornerRadius
+		expDateLabel.characterSpacing = 0.83
 		expDateLabel.fieldName = "json.exp_date"
 		expDateLabel.delegate = self
 
@@ -129,11 +130,7 @@ class ShowDemoViewController: UIViewController {
 	}
 
 	private func setupTitleUI() {
-		if #available(iOS 11.0, *) {
-			titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-		} else {
-			titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-		}
+		titleLabel.font = UIFont.demoAppLargeTitleFont
 	}
 }
 

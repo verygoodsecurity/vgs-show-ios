@@ -38,11 +38,7 @@ class CollectViewController: UIViewController {
 	// MARK: - Init UI
 
 	private func setupUI() {
-		if #available(iOS 11.0, *) {
-			titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-		} else {
-			titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-		}
+		titleLabel.font = UIFont.demoAppLargeTitleFont
 
 		// Add fields.
 		stackView.addArrangedSubview(cardNumber)
