@@ -13,7 +13,8 @@ public enum VGSAnalyticsEventType: String {
 	case fieldInit = "Init"
   case beforeSubmit = "BeforeSubmit"
   case submit = "Submit"
-  case copy = "Copy"
+  case copy = "Copy to clipboard click"
+	case fieldUnsubscibe = "Unsubscribe_field"
 }
 
 /// Client responsably for managing and sending VGS Show SDK analytics events.
@@ -25,17 +26,18 @@ public class VGSAnalyticsClient {
 		case success = "Ok"
 		case failed = "Failed"
 		case cancel = "Cancel"
+		case clicked = "Clicked"
 	}
 
-	/// Shared `VGSAnalyticsClient` instance
+	/// Shared `VGSAnalyticsClient` instance.
 	public static let shared = VGSAnalyticsClient()
 
 	#warning("Temprorary disabled analytics on default")
-	/// Enable or disable VGS analytics tracking
+	/// Enable or disable VGS analytics tracking.
 	public var shouldCollectAnalytics = false
 
-	/// Uniq id that should stay the same during application rintime
-	public let vgsShowSessionId = UUID().uuidString
+	/// Uniq id that should stay the same during application runtime.
+	public static let vgsShowSessionId = UUID().uuidString
 
 	private init() {}
 
@@ -44,7 +46,8 @@ public class VGSAnalyticsClient {
 	internal let baseURL = "https://vgs-collect-keeper.apps.verygood.systems/"
 
 	internal let defaultHttpHeaders: HTTPHeaders = {
-		return ["Content-Type": "application/x-www-form-urlencoded" ]
+		return ["Content-Type": "application/x-www-form-urlencoded",
+						"vgsShowSessionId": vgsShowSessionId]
 	}()
 
 	internal static let userAgentData: [String: Any] = {
@@ -52,7 +55,7 @@ public class VGSAnalyticsClient {
 		let osVersion = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
 		return [
 			"platform": UIDevice.current.systemName,
-			"device" : UIDevice.current.model,
+			"device": UIDevice.current.model,
 			"osVersion": osVersion ]
 	}()
 
@@ -84,9 +87,6 @@ public class VGSAnalyticsClient {
 		data["version"] = Utils.vgsShowVersion
 		data["source"] = "iosSDK"
 		data["localTimestamp"] = Int(Date().timeIntervalSince1970 * 1000)
-
-		#warning("Verify this field")
-		// data["vgsCollectSessionId"] = vgsShowSessionId
 		sendAnalyticsRequest(data: data)
 	}
 }
@@ -100,12 +100,12 @@ internal extension VGSAnalyticsClient {
 	///   - data: `[String: Any]` object. Request parameters.
 	func sendAnalyticsRequest(method: VGSHTTPMethod = .post, path: String = "vgs", data: [String: Any] ) {
 
-		// Check if tracking events enabled
+		// Check if tracking events enabled.
 		guard shouldCollectAnalytics else {
 			return
 		}
 
-		// Setup URLRequest
+		// Setup URLRequest.
 		guard let url = URL(string: baseURL)?.appendingPathComponent(path) else {
 			return
 		}
@@ -113,11 +113,15 @@ internal extension VGSAnalyticsClient {
 		request.httpMethod = method.rawValue
 		request.allHTTPHeaderFields = defaultHttpHeaders
 
-		let jsonData = try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+		// Add session id.
+		var analyticsParams = data
+		analyticsParams["vgsShowSessionId"] = VGSAnalyticsClient.vgsShowSessionId
+
+		let jsonData = try? JSONSerialization.data(withJSONObject: analyticsParams, options: .prettyPrinted)
 		let encodedJSON = jsonData?.base64EncodedData()
 		request.httpBody = encodedJSON
 
-		// Send data
+		// Send data.
 		urlSession.dataTask(with: request).resume()
 	}
 }

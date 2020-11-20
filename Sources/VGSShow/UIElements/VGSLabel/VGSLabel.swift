@@ -25,6 +25,15 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
 		/// Formatted text.
 		case formatted
+
+		var analyticsKey: String {
+			switch self {
+			case .formatted:
+				return "formatted"
+			case .raw:
+				return "raw"
+			}
+		}
 	}
 
   internal var label = VGSMaskedLabel(frame: .zero)

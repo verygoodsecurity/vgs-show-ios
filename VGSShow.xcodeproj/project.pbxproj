@@ -11,6 +11,7 @@
 		441EA1602562B1AA000A8BD6 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441EA15F2562B1AA000A8BD6 /* UIEdgeInsets+Extensions.swift */; };
 		4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083125639CDF006479FB /* VGSAnalyticsClient.swift */; };
 		4461083525639DEE006479FB /* VGSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083425639DEE006479FB /* VGSUtils.swift */; };
+		4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479E7812567A9720056350F /* VGSShow+Analytics.swift */; };
 		4485B51D255D5A3B00EA0882 /* validNestedJSON_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B519255D5A3B00EA0882 /* validNestedJSON_1.json */; };
 		4485B51E255D5A3B00EA0882 /* validNestedJSON_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51A255D5A3B00EA0882 /* validNestedJSON_3.json */; };
 		4485B51F255D5A3B00EA0882 /* validNestedJSON_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51B255D5A3B00EA0882 /* validNestedJSON_2.json */; };
@@ -89,6 +90,7 @@
 		441EA15F2562B1AA000A8BD6 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		4461083125639CDF006479FB /* VGSAnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSAnalyticsClient.swift; sourceTree = "<group>"; };
 		4461083425639DEE006479FB /* VGSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUtils.swift; sourceTree = "<group>"; };
+		4479E7812567A9720056350F /* VGSShow+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Analytics.swift"; sourceTree = "<group>"; };
 		4485B519255D5A3B00EA0882 /* validNestedJSON_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_1.json; sourceTree = "<group>"; };
 		4485B51A255D5A3B00EA0882 /* validNestedJSON_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_3.json; sourceTree = "<group>"; };
 		4485B51B255D5A3B00EA0882 /* validNestedJSON_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_2.json; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				44A79F4A255D0678009AF720 /* VGSShowDataDecoding.swift */,
 				44A79F4B255D0678009AF720 /* Decoders */,
 				44A79F51255D0678009AF720 /* Masks */,
+				4479E7812567A9720056350F /* VGSShow+Analytics.swift */,
 			);
 			path = Show;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				44A79F82255D0678009AF720 /* VGSLabel.swift in Sources */,
 				44A79F77255D0678009AF720 /* Environment.swift in Sources */,
 				44A79F79255D0678009AF720 /* JsonData+Extensions.swift in Sources */,
+				4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */,
 				44A79F73255D0678009AF720 /* VGSShowResponseDecodingFormat.swift in Sources */,
 				44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */,
 				44A79F80255D0678009AF720 /* VGSLabel+Internal.swift in Sources */,

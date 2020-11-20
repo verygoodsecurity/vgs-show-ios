@@ -45,6 +45,7 @@ public final class VGSShow {
 			return
 		}
 		if !subscribedViews.contains(where: { return view == $0}) {
+			trackSubscribeEvent(for: view)
 			subscribedViews.append(vgsView)
 		}
   }
@@ -52,11 +53,17 @@ public final class VGSShow {
   /// Unsubcribes `VGSViewProtocol` view from specific `VGSShow` instance.
   /// - Parameter view: `VGSViewProtocol` view to unregister.
   public func unsubscribe(_ view: VGSViewProtocol) {
+		trackUnsubscribeEvent(for: view)
 		subscribedViews.removeAll(where: {$0 == view})
   }
   
   /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
   public func unsubscribeAllViews() {
+		subscribedViews.forEach { (view) in
+			if let vgsView = view as? VGSViewProtocol {
+				trackUnsubscribeEvent(for: vgsView)
+			}
+		}
     subscribedViews = []
   }
 
