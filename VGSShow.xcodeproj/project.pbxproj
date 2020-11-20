@@ -258,11 +258,11 @@
 			children = (
 				44A79F45255D0678009AF720 /* Network */,
 				44A79F48255D0678009AF720 /* VGSShow+Utils.swift */,
+				4479E7812567A9720056350F /* VGSShow+Analytics.swift */,
 				44A79F49255D0678009AF720 /* VGSShow.swift */,
 				44A79F4A255D0678009AF720 /* VGSShowDataDecoding.swift */,
 				44A79F4B255D0678009AF720 /* Decoders */,
 				44A79F51255D0678009AF720 /* Masks */,
-				4479E7812567A9720056350F /* VGSShow+Analytics.swift */,
 			);
 			path = Show;
 			sourceTree = "<group>";
