@@ -62,6 +62,19 @@ class APIClient {
 
 	var customHeader: HTTPHeaders?
 
+	internal static let defaultHttpHeaders: HTTPHeaders = {
+			// Add Headers
+			let version = ProcessInfo.processInfo.operatingSystemVersion
+			let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+
+			let source = "show-iosSdk"
+			let medium = "vgs-show"
+
+			return [
+				"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsCollectSessionId=\(VGSAnalyticsClient.vgsShowSessionId)"
+			]
+	}()
+
 	/// URLSession object.
 	internal let urlSession = URLSession(configuration: .ephemeral)
 
@@ -77,12 +90,14 @@ class APIClient {
 		// Add Headers
 		var headers: [String: String] = [:]
 		headers["Content-Type"] = "application/json"
+
 		// Add custom headers if need
-		if let customerHeaders = customHeader, customerHeaders.count > 0 {
+		if let customerHeaders = customHeader, !customerHeaders.isEmpty {
 			customerHeaders.keys.forEach({ (key) in
 				headers[key] = customerHeaders[key]
 			})
 		}
+
 		// Setup URLRequest
     var jsonData: Data?
     if let value = value {

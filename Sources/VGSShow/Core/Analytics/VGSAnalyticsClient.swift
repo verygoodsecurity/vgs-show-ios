@@ -14,7 +14,7 @@ public enum VGSAnalyticsEventType: String {
   case beforeSubmit = "BeforeSubmit"
   case submit = "Submit"
   case copy = "Copy to clipboard click"
-	case fieldUnsubscibe = "Unsubscribe_field"
+	case fieldUnsubscibe = "UnsubscribeField"
 }
 
 /// Client responsably for managing and sending VGS Show SDK analytics events.
