@@ -64,15 +64,15 @@ class APIClient {
 
 	internal static let defaultHttpHeaders: HTTPHeaders = {
 			// Add Headers
-			let version = ProcessInfo.processInfo.operatingSystemVersion
-			let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+		let version = ProcessInfo.processInfo.operatingSystemVersion
+		let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
 
-			let source = "show-iosSdk"
-			let medium = "vgs-show"
+		let source = VGSAnalyticsClient.Constants.Metadata.source
+		let medium = VGSAnalyticsClient.Constants.Metadata.medium
 
-			return [
-				"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsCollectSessionId=\(VGSAnalyticsClient.vgsShowSessionId)"
-			]
+		return [
+			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsCollectSessionId=\(VGSAnalyticsClient.vgsShowSessionId)"
+		]
 	}()
 
 	/// URLSession object.

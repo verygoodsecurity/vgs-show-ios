@@ -29,6 +29,13 @@ public class VGSAnalyticsClient {
 		case clicked = "Clicked"
 	}
 
+	internal enum Constants {
+		enum Metadata {
+			static let source = "show-iosSdk"
+			static let medium = "vgs-show"
+		}
+	}
+
 	/// Shared `VGSAnalyticsClient` instance.
 	public static let shared = VGSAnalyticsClient()
 
@@ -85,7 +92,7 @@ public class VGSAnalyticsClient {
 		data["status"] = status.rawValue
 		data["ua"] = VGSAnalyticsClient.userAgentData
 		data["version"] = Utils.vgsShowVersion
-		data["source"] = "iosSDK"
+		data["source"] = Constants.Metadata.source
 		data["localTimestamp"] = Int(Date().timeIntervalSince1970 * 1000)
 		sendAnalyticsRequest(data: data)
 	}
