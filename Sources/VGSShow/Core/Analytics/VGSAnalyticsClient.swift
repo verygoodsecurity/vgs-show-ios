@@ -39,9 +39,8 @@ public class VGSAnalyticsClient {
 	/// Shared `VGSAnalyticsClient` instance.
 	public static let shared = VGSAnalyticsClient()
 
-	#warning("Temprorary disabled analytics on default")
 	/// Enable or disable VGS analytics tracking.
-	public var shouldCollectAnalytics = false
+	public var shouldCollectAnalytics = true
 
 	private init() {}
 
