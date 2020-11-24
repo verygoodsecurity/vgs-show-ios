@@ -43,9 +43,6 @@ public class VGSAnalyticsClient {
 	/// Enable or disable VGS analytics tracking.
 	public var shouldCollectAnalytics = false
 
-	/// Uniq id that should stay the same during application runtime.
-	public static let vgsShowSessionId = UUID().uuidString
-
 	private init() {}
 
 	internal let urlSession = URLSession(configuration: .ephemeral)
@@ -54,7 +51,7 @@ public class VGSAnalyticsClient {
 
 	internal let defaultHttpHeaders: HTTPHeaders = {
 		return ["Content-Type": "application/x-www-form-urlencoded",
-						"vgsShowSessionId": vgsShowSessionId]
+						"vgsShowSessionId": VGSShowSession.shared.vgsShowSessionId]
 	}()
 
 	internal static let userAgentData: [String: Any] = {
@@ -122,7 +119,7 @@ internal extension VGSAnalyticsClient {
 
 		// Add session id.
 		var analyticsParams = data
-		analyticsParams["vgsShowSessionId"] = VGSAnalyticsClient.vgsShowSessionId
+		analyticsParams["vgsShowSessionId"] = VGSShowSession.shared.vgsShowSessionId
 
 		let jsonData = try? JSONSerialization.data(withJSONObject: analyticsParams, options: .prettyPrinted)
 		let encodedJSON = jsonData?.base64EncodedData()

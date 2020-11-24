@@ -72,6 +72,7 @@
 		44CFF31A255D0E60009C1F1E /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F67255D0678009AF720 /* VGSLabelModel.swift */; };
 		44CFF31B255D0E63009C1F1E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */; };
 		44CFF31C255D0E66009C1F1E /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */; };
+		44E5DEF6256CEEB400FF22D9 /* VGSShowSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5DEF5256CEEB400FF22D9 /* VGSShowSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,7 @@
 		44A79FBA255D06C6009AF720 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMaskTests.swift; sourceTree = "<group>"; };
 		44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabelTest.swift; sourceTree = "<group>"; };
+		44E5DEF5256CEEB400FF22D9 /* VGSShowSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 		44A79F41255D0678009AF720 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				44E5DEF4256CEEA600FF22D9 /* Session */,
 				4461083025639CBB006479FB /* Analytics */,
 				44A79F42255D0678009AF720 /* APIClient */,
 				44A79F44255D0678009AF720 /* Show */,
@@ -442,6 +445,14 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
+		44E5DEF4256CEEA600FF22D9 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				44E5DEF5256CEEB400FF22D9 /* VGSShowSession.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -617,6 +628,7 @@
 				44A79F84255D0678009AF720 /* VGSMaskedLabel.swift in Sources */,
 				44A79F82255D0678009AF720 /* VGSLabel.swift in Sources */,
 				44A79F77255D0678009AF720 /* Environment.swift in Sources */,
+				44E5DEF6256CEEB400FF22D9 /* VGSShowSession.swift in Sources */,
 				44A79F79255D0678009AF720 /* JsonData+Extensions.swift in Sources */,
 				4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */,
 				44A79F73255D0678009AF720 /* VGSShowResponseDecodingFormat.swift in Sources */,
