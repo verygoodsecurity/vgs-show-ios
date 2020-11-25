@@ -90,5 +90,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 VGSShowDemoApp/Pods
-VGSShowDemoApp/VGSShow.xcworkspace/xcshareddata
-VGSShow/Pods
+VGSShowDemoApp/VGSShowDemoApp.xcworkspace/xcshareddata
+VGSShowSDK.xcodeproj/xcshareddata

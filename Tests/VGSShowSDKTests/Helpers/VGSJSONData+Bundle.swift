@@ -7,7 +7,7 @@
 
 import XCTest
 import Foundation
-@testable import VGSShow
+@testable import VGSShowSDK
 
 extension VGSJSONData {
 
