@@ -44,27 +44,6 @@
 		44A79FC7255D06C6009AF720 /* JsonData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB9255D06C6009AF720 /* JsonData+Bundle.swift */; };
 		44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */; };
 		44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */; };
-		44CFF304255D0E1A009C1F1E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F43255D0678009AF720 /* APIClient.swift */; };
-		44CFF305255D0E1F009C1F1E /* VGSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F46255D0678009AF720 /* VGSResponse.swift */; };
-		44CFF306255D0E21009C1F1E /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F47255D0678009AF720 /* VGSShow+Network.swift */; };
-		44CFF307255D0E24009C1F1E /* VGSShow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F48255D0678009AF720 /* VGSShow+Utils.swift */; };
-		44CFF309255D0E27009C1F1E /* VGSShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F49255D0678009AF720 /* VGSShow.swift */; };
-		44CFF30A255D0E29009C1F1E /* VGSShowDataDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F4A255D0678009AF720 /* VGSShowDataDecoding.swift */; };
-		44CFF30B255D0E2E009C1F1E /* VGSShowTextDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F4C255D0678009AF720 /* VGSShowTextDecoder.swift */; };
-		44CFF30C255D0E30009C1F1E /* VGSShowRawDataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F4D255D0678009AF720 /* VGSShowRawDataDecoder.swift */; };
-		44CFF30D255D0E32009C1F1E /* VGSShowResponseDecodingFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F4E255D0678009AF720 /* VGSShowResponseDecodingFormat.swift */; };
-		44CFF30E255D0E34009C1F1E /* VGSShowDecodingContentMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F4F255D0678009AF720 /* VGSShowDecodingContentMode.swift */; };
-		44CFF30F255D0E36009C1F1E /* VGSDataDecoderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F50255D0678009AF720 /* VGSDataDecoderFactory.swift */; };
-		44CFF310255D0E3A009C1F1E /* VGSTransformationRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F52255D0678009AF720 /* VGSTransformationRegex.swift */; };
-		44CFF311255D0E3F009C1F1E /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F54255D0678009AF720 /* Environment.swift */; };
-		44CFF315255D0E51009C1F1E /* VGSErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F60255D0678009AF720 /* VGSErrorInfo.swift */; };
-		44CFF316255D0E54009C1F1E /* VGSShowErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F61255D0678009AF720 /* VGSShowErrors.swift */; };
-		44CFF317255D0E59009C1F1E /* VGSLabel+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F64255D0678009AF720 /* VGSLabel+Internal.swift */; };
-		44CFF318255D0E5B009C1F1E /* VGSLabelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F65255D0678009AF720 /* VGSLabelDelegate.swift */; };
-		44CFF319255D0E5E009C1F1E /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F66255D0678009AF720 /* VGSLabel.swift */; };
-		44CFF31A255D0E60009C1F1E /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F67255D0678009AF720 /* VGSLabelModel.swift */; };
-		44CFF31B255D0E63009C1F1E /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */; };
-		44CFF31C255D0E66009C1F1E /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */; };
 		44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05110256E49C400DDBE41 /* Array+Extensions.swift */; };
 		44E05117256E49C400DDBE41 /* JsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05111256E49C400DDBE41 /* JsonData+Extensions.swift */; };
 		44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05112256E49C400DDBE41 /* String+Exntesions.swift */; };
@@ -661,32 +640,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A79FC6255D06C6009AF720 /* VGSShowTest+Subscribe.swift in Sources */,
-				44CFF310255D0E3A009C1F1E /* VGSTransformationRegex.swift in Sources */,
-				44CFF31B255D0E63009C1F1E /* VGSMaskedLabel.swift in Sources */,
-				44CFF30B255D0E2E009C1F1E /* VGSShowTextDecoder.swift in Sources */,
-				44CFF30F255D0E36009C1F1E /* VGSDataDecoderFactory.swift in Sources */,
-				44CFF309255D0E27009C1F1E /* VGSShow.swift in Sources */,
-				44CFF30A255D0E29009C1F1E /* VGSShowDataDecoding.swift in Sources */,
-				44CFF30D255D0E32009C1F1E /* VGSShowResponseDecodingFormat.swift in Sources */,
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
-				44CFF306255D0E21009C1F1E /* VGSShow+Network.swift in Sources */,
-				44CFF311255D0E3F009C1F1E /* Environment.swift in Sources */,
-				44CFF318255D0E5B009C1F1E /* VGSLabelDelegate.swift in Sources */,
-				44CFF319255D0E5E009C1F1E /* VGSLabel.swift in Sources */,
-				44CFF305255D0E1F009C1F1E /* VGSResponse.swift in Sources */,
-				44CFF307255D0E24009C1F1E /* VGSShow+Utils.swift in Sources */,
 				44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */,
-				44CFF31C255D0E66009C1F1E /* VGSViewProtocol.swift in Sources */,
-				44CFF304255D0E1A009C1F1E /* APIClient.swift in Sources */,
 				44A79FC7255D06C6009AF720 /* JsonData+Bundle.swift in Sources */,
 				44A79FC4255D06C6009AF720 /* VGSJSONSelectorTests.swift in Sources */,
-				44CFF31A255D0E60009C1F1E /* VGSLabelModel.swift in Sources */,
-				44CFF315255D0E51009C1F1E /* VGSErrorInfo.swift in Sources */,
-				44CFF316255D0E54009C1F1E /* VGSShowErrors.swift in Sources */,
 				44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */,
-				44CFF30C255D0E30009C1F1E /* VGSShowRawDataDecoder.swift in Sources */,
-				44CFF30E255D0E34009C1F1E /* VGSShowDecodingContentMode.swift in Sources */,
-				44CFF317255D0E59009C1F1E /* VGSLabel+Internal.swift in Sources */,
 				44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
