@@ -16,7 +16,7 @@ jobs:
           name: Run Tests
           command: fastlane scan
           environment:
-            SCAN_DEVICE: iPhone 12
+            SCAN_DEVICE: iPhone 8
             SCAN_SCHEME: VGSShowSDK
 
 workflows:
