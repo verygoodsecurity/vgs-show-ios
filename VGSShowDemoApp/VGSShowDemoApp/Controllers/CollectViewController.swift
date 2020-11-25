@@ -33,6 +33,8 @@ class CollectViewController: UIViewController {
 
 		setupUI()
 		setupElementsConfiguration()
+
+		resultLabel.font = UIFont.demoAppTextOutputFont
 	}
 
 	// MARK: - Init UI

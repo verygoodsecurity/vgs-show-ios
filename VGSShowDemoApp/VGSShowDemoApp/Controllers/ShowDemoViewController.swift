@@ -39,6 +39,8 @@ class ShowDemoViewController: UIViewController {
 		// Setup demo copy button UI and title.
 		setupCopyButtonUI()
 		setupTitleUI()
+
+		inputLabel.font = UIFont.demoAppTextOutputFont
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
