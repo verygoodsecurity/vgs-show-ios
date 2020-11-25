@@ -24,11 +24,20 @@ internal class VGSMaskedLabel: UILabel {
 	/// Custom styles.
 	private var customStyleAttributes: [StringStyleAttribute] {
 		var attributes: [StringStyleAttribute] = []
+
+		if textMinLineHeight > 0 {
 			attributes.append(.minimumLineHeight(textMinLineHeight))
+		}
 
-		  attributes.append(.characterSpacing(characterSpacing))
+		// Ignore 0 character spacing (can be negative).
+		if characterSpacing != 0 {
+			attributes.append(.characterSpacing(characterSpacing))
+		}
 
-		  attributes.append(.lineBreakMode(lineBreakMode))
+		// Need to apply current lineBreaking mode.
+		if !attributes.isEmpty {
+			attributes.append(.lineBreakMode(lineBreakMode))
+		}
 
 		return attributes
 	}
@@ -44,38 +53,37 @@ internal class VGSMaskedLabel: UILabel {
 	}
 
 	// MARK: - Override
-  @available(*, deprecated, message: "Deprecated attribute.")
-  override var text: String? {
-      set {
-          secureText = newValue
-      }
-      get { return nil }
-  }
-  
-  /// set/get text just for internal using
-  internal var secureText: String? {
-    set {
-      if let string = newValue {
-        if isCustomAttributedString {
-          // Create mutable attributed string
-          let attributedString = string.attributed(with: customStyleAttributes)
+	@available(*, deprecated, message: "Deprecated attribute.")
+	override var text: String? {
+		set {
+			secureText = newValue
+		}
+		get { return nil }
+	}
 
-          super.text = newValue
-          super.attributedText = attributedString
-          return
-        }
-      }
+	/// set/get text just for internal using
+	internal var secureText: String? {
+		set {
+			if let string = newValue {
+				if isCustomAttributedString {
+					// Create mutable attributed string
+					let attributedString = string.attributed(with: customStyleAttributes)
 
-      // Set text if custom attributes not specified.
-      self.secureText = newValue
-      super.text = newValue
-    }
-    get {
-      return super.text
-    }
-  }
-  
-  internal var isEmpty: Bool {
-    return secureText?.isEmpty ?? true
-  }
+					super.text = newValue
+					super.attributedText = attributedString
+					return
+				}
+			}
+
+			// Set text if custom attributes not specified.
+			super.text = newValue
+		}
+		get {
+			return super.text
+		}
+	}
+
+	internal var isEmpty: Bool {
+		return secureText?.isEmpty ?? true
+	}
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension VGSShow {
+internal extension VGSShow {
   /// Generates API String with environment and data region.
-  class func generateRegionalEnvironmentString(_ environment: Environment, region: String?) -> String {
+  class func generateRegionalEnvironmentString(_ environment: VGSEnvironment, region: String?) -> String {
     var environmentString = environment.rawValue
     if let region = region, !region.isEmpty {
         assert(Self.regionValid(region), "ERROR: REGION IS NOT VALID!!!")

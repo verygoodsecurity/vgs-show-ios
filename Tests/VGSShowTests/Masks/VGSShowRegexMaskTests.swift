@@ -18,19 +18,19 @@ final class VGSShowRegexMaskTests: XCTestCase {
 		let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
 
 		// Test fomatting with `-`.
-		if let regexMask = try? VGSShowRegexMask(pattern: cardNumberPattern, template: "$1-$2-$3-$4") {
+		if let regexMask = try? VGSTransformationRegex(pattern: cardNumberPattern, template: "$1-$2-$3-$4") {
 			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
 			XCTAssert(formattedNumber == "4111-1111-1111-1111")
 		}
 
 		// Test fomatting with ` `.
-		if let regexMask = try? VGSShowRegexMask(pattern: cardNumberPattern, template: "$1 $2 $3 $4") {
+		if let regexMask = try? VGSTransformationRegex(pattern: cardNumberPattern, template: "$1 $2 $3 $4") {
 			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
 			XCTAssert(formattedNumber == "4111 1111 1111 1111")
 		}
 
 		// Test fomatting with `/`.
-		if let regexMask = try? VGSShowRegexMask(pattern: cardNumberPattern, template: "$1/$2/$3/$4") {
+		if let regexMask = try? VGSTransformationRegex(pattern: cardNumberPattern, template: "$1/$2/$3/$4") {
 			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
 			XCTAssert(formattedNumber == "4111/1111/1111/1111")
 		}

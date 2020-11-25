@@ -1,5 +1,5 @@
 //
-//  Environment.swift
+//  VGSEnvironment.swift
 //  VGSShow
 //
 //  Created by Eugene on 26.10.2020.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Organization vault environment.
-public enum Environment: String {
+public enum VGSEnvironment: String {
 
 	/// Should be used for development and testing purpose.
 	case sandbox

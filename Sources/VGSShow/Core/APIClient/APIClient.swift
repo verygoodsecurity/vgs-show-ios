@@ -8,21 +8,22 @@
 import Foundation
 
 /// Key-value data type, usually used for response format.
-public typealias JsonData = [String: Any]
+public typealias VGSJSONData = [String: Any]
 
 /// Key-value data type, used in http request headers.
-public typealias HTTPHeaders = [String: String]
-
-/// Key-value data type, for internal use.
-internal typealias BodyData = [String: Any]
+public typealias VGSHTTPHeaders = [String: String]
 
 /// HTTP request methods.
 public enum VGSHTTPMethod: String {
-	/// POST method
+	/// POST method.
+	case get = "GET"
 	case post = "POST"
+	case put = "PUT"
+	case patch = "PATCH"
+	case delete = "DELETE"
 }
 
-class APIClient {
+internal class APIClient {
 
 	/// Response enum cases for SDK requests.
 	enum RequestResult {
@@ -60,7 +61,20 @@ class APIClient {
 
 	let baseURL: URL!
 
-	var customHeader: HTTPHeaders?
+	var customHeader: VGSHTTPHeaders?
+
+	internal static let defaultHttpHeaders: VGSHTTPHeaders = {
+			// Add Headers
+		let version = ProcessInfo.processInfo.operatingSystemVersion
+		let versionString = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
+
+		let source = VGSAnalyticsClient.Constants.Metadata.source
+		let medium = VGSAnalyticsClient.Constants.Metadata.medium
+
+		return [
+			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsShowSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)"
+		]
+	}()
 
 	/// URLSession object.
 	internal let urlSession = URLSession(configuration: .ephemeral)
@@ -73,16 +87,18 @@ class APIClient {
 
 	// MARK: - Public
 
-	func sendRequest(path: String, method: VGSHTTPMethod = .post, value: BodyData?, completion block: RequestCompletion ) {
+	func sendRequest(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion ) {
 		// Add Headers
 		var headers: [String: String] = [:]
 		headers["Content-Type"] = "application/json"
+
 		// Add custom headers if need
-		if let customerHeaders = customHeader, customerHeaders.count > 0 {
+		if let customerHeaders = customHeader, !customerHeaders.isEmpty {
 			customerHeaders.keys.forEach({ (key) in
 				headers[key] = customerHeaders[key]
 			})
 		}
+
 		// Setup URLRequest
     var jsonData: Data?
     if let value = value {
@@ -102,7 +118,7 @@ class APIClient {
 
 	// MARK: - Private
 
-	private func performRequest(request: URLRequest, value: BodyData?, completion block: RequestCompletion) {
+	private func performRequest(request: URLRequest, value: VGSJSONData?, completion block: RequestCompletion) {
 		// Send data
 		urlSession.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {

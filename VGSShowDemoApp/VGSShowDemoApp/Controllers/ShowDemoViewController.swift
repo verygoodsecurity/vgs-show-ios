@@ -15,6 +15,7 @@ class ShowDemoViewController: UIViewController {
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
 	@IBOutlet fileprivate weak var copyCardNumberButton: UIButton!
+	@IBOutlet fileprivate weak var titleLabel: UILabel!
 
 	// MARK: - Constants
 
@@ -29,11 +30,17 @@ class ShowDemoViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+
+    // Setup VGSLabels.
 		configureUI()
 		vgsShow.subscribe(cardNumberLabel)
 		vgsShow.subscribe(expDateLabel)
 
+		// Setup demo copy button UI and title.
 		setupCopyButtonUI()
+		setupTitleUI()
+
+		inputLabel.font = UIFont.demoAppTextOutputFont
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +58,9 @@ class ShowDemoViewController: UIViewController {
 
 	@IBAction private func copyCardAction(_ sender: UIButton) {
 		if !isFormattedCardNumber {
-			cardNumberLabel.copyTextToPasteboard(format: .raw)
+			cardNumberLabel.copyTextToClipboard(format: .raw)
 		} else {
-			cardNumberLabel.copyTextToPasteboard(format: .formatted)
+			cardNumberLabel.copyTextToClipboard(format: .formatted)
 		}
 	}
 
@@ -93,6 +100,7 @@ class ShowDemoViewController: UIViewController {
 		expDateLabel.font = font
 		expDateLabel.backgroundColor = backgroundColor
 		expDateLabel.layer.cornerRadius = cornerRadius
+		expDateLabel.characterSpacing = 0.83
 		expDateLabel.fieldName = "json.exp_date"
 		expDateLabel.delegate = self
 
@@ -122,6 +130,10 @@ class ShowDemoViewController: UIViewController {
 		copyCardNumberButton.layer.cornerRadius = 6
 		copyCardNumberButton.layer.masksToBounds = true
 	}
+
+	private func setupTitleUI() {
+		titleLabel.font = UIFont.demoAppLargeTitleFont
+	}
 }
 
 // MARK: - VGSLabelDelegate
@@ -131,7 +143,7 @@ extension ShowDemoViewController: VGSLabelDelegate {
 		label.backgroundColor = .black
 	}
 
-	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.VGSLabelCopyTextFormat) {
+	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
 
 		if !label.isEmpty {
 			var textFormat = "Formatted"

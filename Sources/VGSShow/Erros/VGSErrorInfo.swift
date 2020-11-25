@@ -26,5 +26,5 @@ public typealias VGSErrorInfoKey = String
 /// Error key, used for errors when input data is required to be not empty but is empty or nil.
 public let VGSSDKErrorDataPartiallyDecoded: VGSErrorInfoKey = "VGSSDKErrorDataPartiallyDecoded"
 
-/// An error domain string used to produce `VGSError` from `VGSCollectSDK` -  **"vgscollect.sdk"**.
-public let VGSCollectSDKErrorDomain = "vgsshow.sdk"
+/// An error domain string used to produce `VGSError` from `VGShowSDK` -  **"vgshow.sdk"**.
+public let VGSShowSDKErrorDomain = "vgsshow.sdk"

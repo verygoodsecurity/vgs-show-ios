@@ -40,7 +40,7 @@ class VGSShowNestedDictionaryTests: XCTestCase {
 	/// Return test data.
 	/// - Parameter validPaths: `Bool` flag. `true` to test valid paths.
 	/// - Returns: `[String: JsonData]` object.
-	private func provideTestData(validPaths: Bool) -> [String: JsonData] {
+	private func provideTestData(validPaths: Bool) -> [String: VGSJSONData] {
 		let bundle = Bundle(for: type(of: self))
 
 		let correctKeys = ["card_type",
@@ -55,9 +55,9 @@ class VGSShowNestedDictionaryTests: XCTestCase {
 
 		let paths = validPaths ? correctKeys : wrongKeys
 
-		var testData = [String: JsonData]()
+		var testData = [String: VGSJSONData]()
 		for (index, path) in paths.enumerated() {
-			if let json = JsonData.init(jsonFileName: "validNestedJSON_\(index+1)", bundle: bundle) {
+			if let json = VGSJSONData.init(jsonFileName: "validNestedJSON_\(index+1)", bundle: bundle) {
 				testData[path] = json
 			} else {
 				XCTFail("local json not found for tests")

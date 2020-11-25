@@ -26,8 +26,8 @@ public enum VGSErrorType: Int {
 	/// When cannot decode data for some fields (partially decoded).
 	case dataPartiallyDecoded = 1404
 
-	/// When VGSShow has no registered elements.
-	case noRegisteredElementsInShow = 1405
+	/// When VGSShow instance has no subscribed views.
+	case noSubscribedViewsInShow = 1405
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
@@ -48,6 +48,6 @@ public class VGSShowError: NSError {
 
 	internal required init(type: VGSErrorType, userInfo info: VGSErrorInfo? = nil) {
 		self.type = type
-		super.init(domain: VGSCollectSDKErrorDomain, code: type.rawValue, userInfo: info?.asDictionary)
+		super.init(domain: VGSShowSDKErrorDomain, code: type.rawValue, userInfo: info?.asDictionary)
 	}
 }

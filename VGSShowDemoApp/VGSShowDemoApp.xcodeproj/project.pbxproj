@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44014793256641A500A3627B /* UIFont+Extensions.swift */; };
+		440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */; };
 		44415FB3255D36FA0012D107 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FB2255D36FA0012D107 /* VGSShowDemoAppTests.swift */; };
 		44415FBE255D36FB0012D107 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FBD255D36FB0012D107 /* VGSShowDemoAppUITests.swift */; };
 		44415FDB255D37540012D107 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FD5255D37540012D107 /* Helpers.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		44014793256641A500A3627B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		44415F98255D36F90012D107 /* VGSShowDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGSShowDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44415FA9255D36FA0012D107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44415FAE255D36FA0012D107 /* VGSShowDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,8 @@
 			children = (
 				44415FD5255D37540012D107 /* Helpers.swift */,
 				446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */,
+				44014793256641A500A3627B /* UIFont+Extensions.swift */,
+				440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				44415F96255D36F90012D107 /* Resources */,
 				44A70C63255D3BD1006C29E8 /* Embed Frameworks */,
 				8002C8556CB122513E0C7407 /* [CP] Embed Pods Frameworks */,
+				4411D7952564F59C00A6FFD1 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -352,6 +359,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4411D7952564F59C00A6FFD1 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		8002C8556CB122513E0C7407 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,7 +428,9 @@
 				4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */,
 				44415FDB255D37540012D107 /* Helpers.swift in Sources */,
 				4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */,
+				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
+				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +592,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,7 +617,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

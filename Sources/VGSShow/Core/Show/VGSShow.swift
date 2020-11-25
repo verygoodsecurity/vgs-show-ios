@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 #endif
 
-/// VGSShow class provides facilities for fetching and displaying required info.
+/// An object you use for revealing and displaying data in corresponding subscribed VGS Show SDK views.
 public final class VGSShow {
 
 	/// API client.
@@ -45,6 +45,7 @@ public final class VGSShow {
 			return
 		}
 		if !subscribedViews.contains(where: { return view == $0}) {
+			trackSubscribeEvent(for: view)
 			subscribedViews.append(vgsView)
 		}
   }
@@ -52,11 +53,17 @@ public final class VGSShow {
   /// Unsubcribes `VGSViewProtocol` view from specific `VGSShow` instance.
   /// - Parameter view: `VGSViewProtocol` view to unregister.
   public func unsubscribe(_ view: VGSViewProtocol) {
+		trackUnsubscribeEvent(for: view)
 		subscribedViews.removeAll(where: {$0 == view})
   }
   
   /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
   public func unsubscribeAllViews() {
+		subscribedViews.forEach { (view) in
+			if let vgsView = view as? VGSViewProtocol {
+				trackUnsubscribeEvent(for: vgsView)
+			}
+		}
     subscribedViews = []
   }
 
@@ -81,8 +88,8 @@ public final class VGSShow {
   /// Initialzation
   ///
   /// - Parameters:
-  ///   - id: your organization vault id.
-  ///   - environment: your organization vault environment with data region.(e.g. "live", "live-eu1", "sanbox").
+  ///   - id: `String` object, your organization vault id.
+  ///   - environment: `String` object, your organization vault environment with data region.(e.g. "live", "live-eu1", "sanbox").
   public init(id: String, environment: String) {
     let url = Self.generateVaultURL(tenantId: id, regionalEnvironment: environment)
     apiClient = APIClient(baseURL: url)
@@ -93,10 +100,10 @@ public final class VGSShow {
   /// Initialzation
   ///
   /// - Parameters:
-  ///   - id: your organization vault id.
-  ///   - environment: your organization vault environment. By default `Environment.sandbox`.
-  ///   - dataRegion: id of data storage region (e.g. "eu-123").
-  public convenience init(id: String, environment: Environment = .sandbox, dataRegion: String? = nil) {
+  ///   - id: `String` object, your organization vault id.
+  ///   - environment: `VGSEnvironment` object, your organization vault environment. By default `.sandbox`.
+  ///   - dataRegion: `String` object, id of data storage region (e.g. "eu-123").
+  public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil) {
     let env = Self.generateRegionalEnvironmentString(environment, region: dataRegion)
     self.init(id: id, environment: env)
   }

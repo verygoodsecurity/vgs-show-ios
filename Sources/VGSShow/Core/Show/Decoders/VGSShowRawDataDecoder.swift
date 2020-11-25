@@ -7,16 +7,16 @@
 
 import Foundation
 
-enum VGSShowRawDataDecodingOutput {
-	case success(_ data: JsonData)
+internal enum VGSShowRawDataDecodingOutput {
+	case success(_ data: VGSJSONData)
 	case failure(_ error: VGSShowError)
 }
 
-protocol VGSShowRawDataDecodable {
+internal protocol VGSShowRawDataDecodable {
 	func decodeRawDataToJSON(_ data: Data?, decodingFormat: VGSShowResponseDecodingFormat) -> VGSShowRawDataDecodingOutput
 }
 
-final class VGSShowRawDataDecoder: VGSShowRawDataDecodable {
+internal final class VGSShowRawDataDecoder: VGSShowRawDataDecodable {
 	func decodeRawDataToJSON(_ data: Data?, decodingFormat: VGSShowResponseDecodingFormat) -> VGSShowRawDataDecodingOutput {
 
 		guard let rawData = data else {
@@ -26,7 +26,7 @@ final class VGSShowRawDataDecoder: VGSShowRawDataDecodable {
 		switch decodingFormat {
 
 		case .json:
-			guard let jsonData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? JsonData else {
+			guard let jsonData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? VGSJSONData else {
 				return .failure(VGSShowError(type: .invalidJSON))
 			}
 

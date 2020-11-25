@@ -58,7 +58,7 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 			default:
 				#warning("not supported data format")
 			}
-		case .failure(let error):
+		case .failure:
 			break
 		}
 	}
