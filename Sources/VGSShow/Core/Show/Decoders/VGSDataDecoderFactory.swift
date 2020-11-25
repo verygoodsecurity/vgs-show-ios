@@ -8,7 +8,7 @@
 import Foundation
 
 /// `VGSShowDecodingResult` represents result of decoding.
-enum VGSShowDecodingResult {
+internal enum VGSShowDecodingResult {
 	/**
 	Success result.
 
@@ -37,12 +37,12 @@ enum VGSShowDecodingResult {
 }
 
 /// Interface to implement by data decoders.
-protocol VGSShowDecoderProtocol {
+internal protocol VGSShowDecoderProtocol {
 	func decodeDataForKeyPath(_ path: String, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult
 }
 
 /// `VGSDataDecoderFactory` provides decoders for specific decoding.
-final class VGSDataDecoderFactory {
+internal final class VGSDataDecoderFactory {
 	/// Provides decoder for specific decoding.
 	/// - Parameter decoder: `VGSShowDataDecoding` object. Decoding type.
 	/// - Returns: Decoder object implementing `VGSShowDecoderProtocol` interface.
