@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class VGSShowTextDecoder: VGSShowDecoderProtocol {
+final internal class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
 	// MARK: - VGSShowDecoderProtocol
 
