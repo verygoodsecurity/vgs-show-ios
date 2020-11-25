@@ -19,7 +19,7 @@ extension VGSShow {
 	- completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 
 	- Note:
-	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
+	Errors can be returned in the `NSURLErrorDomain` and `VGSShowSDKErrorDomain`.
 	*/
 	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
 

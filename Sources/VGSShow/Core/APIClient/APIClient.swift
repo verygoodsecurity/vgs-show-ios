@@ -72,7 +72,7 @@ internal class APIClient {
 		let medium = VGSAnalyticsClient.Constants.Metadata.medium
 
 		return [
-			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsCollectSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)"
+			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsShowSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)"
 		]
 	}()
 

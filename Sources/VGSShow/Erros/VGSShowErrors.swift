@@ -48,6 +48,6 @@ public class VGSShowError: NSError {
 
 	internal required init(type: VGSErrorType, userInfo info: VGSErrorInfo? = nil) {
 		self.type = type
-		super.init(domain: VGSCollectSDKErrorDomain, code: type.rawValue, userInfo: info?.asDictionary)
+		super.init(domain: VGSShowSDKErrorDomain, code: type.rawValue, userInfo: info?.asDictionary)
 	}
 }
