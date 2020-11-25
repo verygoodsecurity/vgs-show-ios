@@ -34,6 +34,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "VGSShowSDK"
+               BuildableName = "VGSShowSDK"
+               BlueprintName = "VGSShowSDK"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +63,16 @@
                BlueprintIdentifier = "VGSShowTests"
                BuildableName = "VGSShowTests"
                BlueprintName = "VGSShowTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "VGSShowSDKTests"
+               BuildableName = "VGSShowSDKTests"
+               BlueprintName = "VGSShowSDKTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

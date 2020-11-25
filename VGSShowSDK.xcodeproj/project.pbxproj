@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3211D9712542E2B4009BB381 /* VGSShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShow.framework */; };
+		32010B3A256EACEC00E19C71 /* VGSShowSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 32010B39256EACEC00E19C71 /* VGSShowSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3211D9712542E2B4009BB381 /* VGSShowSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShowSDK.framework */; };
 		4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083125639CDF006479FB /* VGSAnalyticsClient.swift */; };
 		4461083525639DEE006479FB /* VGSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083425639DEE006479FB /* VGSUtils.swift */; };
 		4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479E7812567A9720056350F /* VGSShow+Analytics.swift */; };
@@ -44,7 +45,6 @@
 		44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB9255D06C6009AF720 /* VGSJSONData+Bundle.swift */; };
 		44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */; };
 		44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */; };
-		44C43E70256E6D6C00850D37 /* VGSShow.h in Headers */ = {isa = PBXBuildFile; fileRef = 44A79F5A255D0678009AF720 /* VGSShow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05110256E49C400DDBE41 /* Array+Extensions.swift */; };
 		44E05117256E49C400DDBE41 /* VGSJsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05111256E49C400DDBE41 /* VGSJsonData+Extensions.swift */; };
 		44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05112256E49C400DDBE41 /* String+Exntesions.swift */; };
@@ -64,8 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3211D9672542E2B4009BB381 /* VGSShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGSShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3211D9702542E2B4009BB381 /* VGSShowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32010B39256EACEC00E19C71 /* VGSShowSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSShowSDK.h; sourceTree = "<group>"; };
+		3211D9672542E2B4009BB381 /* VGSShowSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGSShowSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3211D9702542E2B4009BB381 /* VGSShowSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4461083125639CDF006479FB /* VGSAnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSAnalyticsClient.swift; sourceTree = "<group>"; };
 		4461083425639DEE006479FB /* VGSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUtils.swift; sourceTree = "<group>"; };
 		4479E7812567A9720056350F /* VGSShow+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Analytics.swift"; sourceTree = "<group>"; };
@@ -87,8 +88,6 @@
 		44A79F50255D0678009AF720 /* VGSDataDecoderFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSDataDecoderFactory.swift; sourceTree = "<group>"; };
 		44A79F52255D0678009AF720 /* VGSTransformationRegex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSTransformationRegex.swift; sourceTree = "<group>"; };
 		44A79F54255D0678009AF720 /* VGSEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSEnvironment.swift; sourceTree = "<group>"; };
-		44A79F5A255D0678009AF720 /* VGSShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSShow.h; sourceTree = "<group>"; };
-		44A79F5D255D0678009AF720 /* package.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = package.xcworkspace; sourceTree = "<group>"; };
 		44A79F5E255D0678009AF720 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A79F60255D0678009AF720 /* VGSErrorInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSErrorInfo.swift; sourceTree = "<group>"; };
 		44A79F61255D0678009AF720 /* VGSShowErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowErrors.swift; sourceTree = "<group>"; };
@@ -126,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3211D9712542E2B4009BB381 /* VGSShow.framework in Frameworks */,
+				3211D9712542E2B4009BB381 /* VGSShowSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +144,8 @@
 		3211D9682542E2B4009BB381 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3211D9672542E2B4009BB381 /* VGSShow.framework */,
-				3211D9702542E2B4009BB381 /* VGSShowTests.xctest */,
+				3211D9672542E2B4009BB381 /* VGSShowSDK.framework */,
+				3211D9702542E2B4009BB381 /* VGSShowSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,23 +214,22 @@
 		44A79F3F255D0678009AF720 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				44A79F40255D0678009AF720 /* VGSShow */,
+				44A79F40255D0678009AF720 /* VGSShowSDK */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		44A79F40255D0678009AF720 /* VGSShow */ = {
+		44A79F40255D0678009AF720 /* VGSShowSDK */ = {
 			isa = PBXGroup;
 			children = (
-				44A79F5B255D0678009AF720 /* .swiftpm */,
+				32010B39256EACEC00E19C71 /* VGSShowSDK.h */,
 				44A79F5E255D0678009AF720 /* Info.plist */,
-				44A79F5A255D0678009AF720 /* VGSShow.h */,
 				44A79F41255D0678009AF720 /* Core */,
 				44A79F55255D0678009AF720 /* Utils */,
 				44A79F5F255D0678009AF720 /* Erros */,
 				44A79F62255D0678009AF720 /* UIElements */,
 			);
-			path = VGSShow;
+			path = VGSShowSDK;
 			sourceTree = "<group>";
 		};
 		44A79F41255D0678009AF720 /* Core */ = {
@@ -322,22 +320,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		44A79F5B255D0678009AF720 /* .swiftpm */ = {
-			isa = PBXGroup;
-			children = (
-				44A79F5C255D0678009AF720 /* xcode */,
-			);
-			path = .swiftpm;
-			sourceTree = "<group>";
-		};
-		44A79F5C255D0678009AF720 /* xcode */ = {
-			isa = PBXGroup;
-			children = (
-				44A79F5D255D0678009AF720 /* package.xcworkspace */,
-			);
-			path = xcode;
-			sourceTree = "<group>";
-		};
 		44A79F5F255D0678009AF720 /* Erros */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,12 +361,12 @@
 		44A79FAA255D06C6009AF720 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				44A79FAB255D06C6009AF720 /* VGSShowTests */,
+				44A79FAB255D06C6009AF720 /* VGSShowSDKTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		44A79FAB255D06C6009AF720 /* VGSShowTests */ = {
+		44A79FAB255D06C6009AF720 /* VGSShowSDKTests */ = {
 			isa = PBXGroup;
 			children = (
 				4485B516255D5A3B00EA0882 /* Resources */,
@@ -395,7 +377,7 @@
 				44A79FBB255D06C6009AF720 /* Masks */,
 				44A79FBD255D06C6009AF720 /* UIElements */,
 			);
-			path = VGSShowTests;
+			path = VGSShowSDKTests;
 			sourceTree = "<group>";
 		};
 		44A79FAC255D06C6009AF720 /* ParsingTests */ = {
@@ -474,16 +456,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44C43E70256E6D6C00850D37 /* VGSShow.h in Headers */,
+				32010B3A256EACEC00E19C71 /* VGSShowSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3211D9662542E2B4009BB381 /* VGSShow */ = {
+		3211D9662542E2B4009BB381 /* VGSShowSDK */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3211D97B2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShow" */;
+			buildConfigurationList = 3211D97B2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowSDK" */;
 			buildPhases = (
 				3211D9622542E2B4009BB381 /* Headers */,
 				3211D9632542E2B4009BB381 /* Sources */,
@@ -495,14 +477,14 @@
 			);
 			dependencies = (
 			);
-			name = VGSShow;
+			name = VGSShowSDK;
 			productName = VGSShow;
-			productReference = 3211D9672542E2B4009BB381 /* VGSShow.framework */;
+			productReference = 3211D9672542E2B4009BB381 /* VGSShowSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		3211D96F2542E2B4009BB381 /* VGSShowTests */ = {
+		3211D96F2542E2B4009BB381 /* VGSShowSDKTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3211D97E2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowTests" */;
+			buildConfigurationList = 3211D97E2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowSDKTests" */;
 			buildPhases = (
 				3211D96C2542E2B4009BB381 /* Sources */,
 				3211D96D2542E2B4009BB381 /* Frameworks */,
@@ -514,9 +496,9 @@
 			dependencies = (
 				3211D9732542E2B4009BB381 /* PBXTargetDependency */,
 			);
-			name = VGSShowTests;
+			name = VGSShowSDKTests;
 			productName = VGSShowTests;
-			productReference = 3211D9702542E2B4009BB381 /* VGSShowTests.xctest */;
+			productReference = 3211D9702542E2B4009BB381 /* VGSShowSDKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -537,7 +519,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3211D9612542E2B4009BB381 /* Build configuration list for PBXProject "VGSShow" */;
+			buildConfigurationList = 3211D9612542E2B4009BB381 /* Build configuration list for PBXProject "VGSShowSDK" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -550,8 +532,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3211D9662542E2B4009BB381 /* VGSShow */,
-				3211D96F2542E2B4009BB381 /* VGSShowTests */,
+				3211D9662542E2B4009BB381 /* VGSShowSDK */,
+				3211D96F2542E2B4009BB381 /* VGSShowSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -674,7 +656,7 @@
 /* Begin PBXTargetDependency section */
 		3211D9732542E2B4009BB381 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3211D9662542E2B4009BB381 /* VGSShow */;
+			target = 3211D9662542E2B4009BB381 /* VGSShowSDK */;
 			targetProxy = 3211D9722542E2B4009BB381 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -815,7 +797,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/VGSShow/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/VGSShowSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -824,7 +806,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -846,7 +828,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				INFOPLIST_FILE = "$(SRCROOT)/Sources/VGSShow/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/VGSShowSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -855,7 +837,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -871,14 +853,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
-				INFOPLIST_FILE = Tests/VGSShowTests/Info.plist;
+				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
 				"INFOPLIST_FILE[sdk=*]" = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -892,13 +874,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				INFOPLIST_FILE = Tests/VGSShowTests/Info.plist;
+				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowSDKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -908,7 +890,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3211D9612542E2B4009BB381 /* Build configuration list for PBXProject "VGSShow" */ = {
+		3211D9612542E2B4009BB381 /* Build configuration list for PBXProject "VGSShowSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3211D9792542E2B4009BB381 /* Debug */,
@@ -917,7 +899,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3211D97B2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShow" */ = {
+		3211D97B2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3211D97C2542E2B4009BB381 /* Debug */,
@@ -926,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3211D97E2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowTests" */ = {
+		3211D97E2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowSDKTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3211D97F2542E2B4009BB381 /* Debug */,
