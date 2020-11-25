@@ -48,9 +48,9 @@ public class VGSAnalyticsClient {
 
 	internal let baseURL = "https://vgs-collect-keeper.apps.verygood.systems/"
 
-	internal let defaultHttpHeaders: HTTPHeaders = {
+	internal let defaultHttpHeaders: VGSHTTPHeaders = {
 		return ["Content-Type": "application/x-www-form-urlencoded",
-						"vgsShowSessionId": VGSShowSession.shared.vgsShowSessionId]
+						"vgsShowSessionId": VGSShowAnalyticsSession.shared.vgsShowSessionId]
 	}()
 
 	internal static let userAgentData: [String: Any] = {
@@ -119,7 +119,7 @@ internal extension VGSAnalyticsClient {
 
 		// Add session id.
 		var analyticsParams = data
-		analyticsParams["vgsShowSessionId"] = VGSShowSession.shared.vgsShowSessionId
+		analyticsParams["vgsShowSessionId"] = VGSShowAnalyticsSession.shared.vgsShowSessionId
 
 		let jsonData = try? JSONSerialization.data(withJSONObject: analyticsParams, options: .prettyPrinted)
 		let encodedJSON = jsonData?.base64EncodedData()

@@ -5,7 +5,7 @@
 
 import Foundation
 
-extension VGSShow {
+internal extension VGSShow {
 	/// Track subscribe event for view.
 	/// - Parameter view: `VGSViewProtocol` view to track.
 	func trackSubscribeEvent(for view: VGSViewProtocol) {

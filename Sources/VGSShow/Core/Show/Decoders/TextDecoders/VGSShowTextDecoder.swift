@@ -35,7 +35,7 @@ final internal class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
 	// MARK: - Private
 
-	private	func decodeJsonDataToText(_ jsonData: JsonData, keyPath: String) -> VGSShowDecodingResult {
+	private	func decodeJsonDataToText(_ jsonData: VGSJSONData, keyPath: String) -> VGSShowDecodingResult {
 
 		guard let serializedText: String = jsonData.valueForKeyPath(keyPath: keyPath) else {
 			return .failure(VGSShowError(type: .fieldNotFound))

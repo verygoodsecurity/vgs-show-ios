@@ -1,5 +1,5 @@
 //
-//  VGSShowDataDecoding.swift
+//  VGSShowDecodingContentMode.swift
 //  VGSShow
 //
 //  Created by Eugene on 26.10.2020.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-/// `VGSShow` data decoding modes.
-public enum VGSShowDecodingConentMode {
+/// Specifies content mode to decode.
+public enum VGSShowDecodingContentMode {
 
 	/// Decode as text.
 	case text

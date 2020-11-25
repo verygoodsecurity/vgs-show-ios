@@ -1,5 +1,5 @@
 //
-//  Dictionary+Extensions.swift
+//  VGSJsonData+Extensions.swift
 //  VGSShow
 //
 //  Created by Eugene on 28.10.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension JsonData {
+extension VGSJSONData {
 	/// Returns value of specified type by keyPath.
 	/// - Parameter keyPath: `String` keyPath.
 	/// - Returns: Object of type `T` if found or nil.

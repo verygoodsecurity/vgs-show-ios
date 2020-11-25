@@ -8,7 +8,7 @@
 import Foundation
 
 internal enum VGSShowRawDataDecodingOutput {
-	case success(_ data: JsonData)
+	case success(_ data: VGSJSONData)
 	case failure(_ error: VGSShowError)
 }
 
@@ -26,7 +26,7 @@ internal final class VGSShowRawDataDecoder: VGSShowRawDataDecodable {
 		switch decodingFormat {
 
 		case .json:
-			guard let jsonData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? JsonData else {
+			guard let jsonData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? VGSJSONData else {
 				return .failure(VGSShowError(type: .invalidJSON))
 			}
 

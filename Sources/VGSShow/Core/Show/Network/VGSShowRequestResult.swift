@@ -1,5 +1,5 @@
 //
-//  VGSResponse.swift
+//  VGSShowRequestResult.swift
 //  VGSShow
 //
 //  Created by Eugene on 26.10.2020.

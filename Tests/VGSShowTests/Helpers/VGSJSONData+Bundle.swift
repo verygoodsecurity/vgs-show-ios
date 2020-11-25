@@ -1,5 +1,5 @@
 //
-//  JsonData+Extensions.swift
+//  VGSJSONData+Extensions.swift
 //  VGSShowTests
 //
 //  Created by Eugene on 29.10.2020.
@@ -9,7 +9,7 @@ import XCTest
 import Foundation
 @testable import VGSShow
 
-extension JsonData {
+extension VGSJSONData {
 
 	init?(jsonFileName: String, bundle: Bundle) {
 		let notFoundCompletion = {
@@ -20,7 +20,7 @@ extension JsonData {
 			do {
 				let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
 				let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-				guard let json = jsonResult as? JsonData else {
+				guard let json = jsonResult as? VGSJSONData else {
 					notFoundCompletion()
 					return nil
 				}

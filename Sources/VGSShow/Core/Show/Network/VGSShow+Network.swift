@@ -14,14 +14,14 @@ extension VGSShow {
 	- Parameters:
 	- path: Inbound rout path for your organization vault.
 	- method: HTTPMethod, default is `.post`.
-	- payload: `JsonData` object, default is `nil`.
+	- payload: `VGSJSONData` object, default is `nil`.
 	- responseFormat: `VGSResponseDecodingFormat` object. Response data decoding format, default is `.json`.
 	- completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSCollectSDKErrorDomain`.
 	*/
-	public func request(path: String, method: VGSHTTPMethod = .post, payload: JsonData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
+	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		// Content analytics.
 		var extraAnalyticsInfo = [String: Any]()
