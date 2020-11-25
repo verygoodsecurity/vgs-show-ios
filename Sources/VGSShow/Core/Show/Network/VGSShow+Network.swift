@@ -24,7 +24,7 @@ extension VGSShow {
 	public func request(path: String, method: VGSHTTPMethod = .post, payload: JsonData? = nil, responseFormat: VGSShowResponseDecodingFormat = .json, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		// Content analytics.
-		var extraAnalyticsInfo = [String : Any]()
+		var extraAnalyticsInfo = [String: Any]()
 		extraAnalyticsInfo["content"] = contentForAnalytics(from: payload)
 
 		// Don't send request if no subscibed views.
@@ -46,7 +46,7 @@ extension VGSShow {
 			switch requestResult {
 			case .success(let code, let data, let response):
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
-			case .failure(let code, let data, let response, let error):
+			case .failure(let code, _, _, let error):
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
@@ -59,9 +59,11 @@ extension VGSShow {
 
 	// MARK: - Private
 
-	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String : Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void ) {
+	// swiftlint:disable:next function_parameter_count line_length
+	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 		var unrevealedKeyPaths = [String]()
 		revealModels.forEach { model in
+
 			// Decode data.
 			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
 			let decodingResult = decoder.decodeDataForKeyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
@@ -75,6 +77,11 @@ extension VGSShow {
 			}
 		}
 
+		// Handle unrevealed keys.
+		handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
+	}
+
+	private func handleUnrevealedKeypaths(_ unrevealedKeyPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 		// If not all data revealed send error to user.
 		if !unrevealedKeyPaths.isEmpty {
 			print(unrevealedKeyPaths)
@@ -99,9 +106,9 @@ extension VGSShow {
 	///   - message: `String` object, error message. Defaule is `nil`.
 	///   - type: `VGSAnalyticsEventType` object, event type.
 	///   - extraInfo: `[String: Any]` object, extra info.
-	private func trackErrorEvent(with code: Int, message: String? = nil, type: VGSAnalyticsEventType, extraInfo: [String : Any] = [:]) {
+	private func trackErrorEvent(with code: Int, message: String? = nil, type: VGSAnalyticsEventType, extraInfo: [String: Any] = [:]) {
 
-		var extraAnalyticsData = [String : Any]()
+		var extraAnalyticsData = [String: Any]()
 		extraAnalyticsData["statusCode"] = code
 		if message != nil {
 			extraAnalyticsData["error"] = message
