@@ -11,7 +11,7 @@ internal struct VGSTextFormattersContainer {
   // MARK: - Private interface
 
   /// An array of `VGSTransformationRegex` objects.
-	private var transformationRegexes: [VGSTransformationRegex] = []
+	private (set) internal var transformationRegexes: [VGSTransformationRegex] = []
 
   // MARK: - Public interface
 
