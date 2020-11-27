@@ -55,11 +55,6 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	internal var model: VGSViewModelProtocol {
     return labelModel
   }
-  
-  // MARK: - Delegates
-
-  /// The object that acts as the delegate of the VGSLabel.
-  public weak var delegate: VGSLabelDelegate?
 
   // MARK: - Functional Attribute
   
@@ -80,6 +75,13 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		}
 	}
 
+	// MARK: - Delegates
+
+	/// The object that acts as the delegate of the VGSLabel.
+	public weak var delegate: VGSLabelDelegate?
+
+	// MARK: - Public interface
+
 	/// Add transformation regex to format raw revealed text.
 	/// - Parameters:
 	///   - regex: `NSRegularExpression` object, transformation regex.
@@ -87,7 +89,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object, matching options to use, default is `[]`.
 	public func addTransformationRegex(_ regex: NSRegularExpression, template: String, matchingOptions: NSRegularExpression.MatchingOptions = []) {
 		let transformationRegex = VGSTransformationRegex(regex: regex, template: template, matchingOptions: matchingOptions)
-		textFormattersContainer.transformationRegexes.append(transformationRegex)
+		textFormattersContainer.addTransformationRegex(transformationRegex)
 	}
 
   /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organization vault.
@@ -250,6 +252,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
   
   // MARK: - Init
+	
   override init(frame: CGRect) {
       super.init(frame: frame)
       mainInitialization()

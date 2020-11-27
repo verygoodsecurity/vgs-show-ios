@@ -8,8 +8,12 @@ import Foundation
 /// An object that acts as a container for different text formatters.
 internal struct VGSTextFormattersContainer {
 
+  // MARK: - Private interface
+
   /// An array of `VGSTransformationRegex` objects.
-	internal var transformationRegexes: [VGSTransformationRegex] = []
+	private var transformationRegexes: [VGSTransformationRegex] = []
+
+  // MARK: - Public interface
 
 	/// `Bool` flag, indicating if has formatting.
 	internal var hasFormatting: Bool {
@@ -33,5 +37,10 @@ internal struct VGSTextFormattersContainer {
 	/// Reset all custom formatters.
 	mutating internal func resetAllFormatters() {
 		transformationRegexes = []
+	}
+
+	/// Add new transformation regex.
+	mutating func addTransformationRegex(_ transformationRegex: VGSTransformationRegex) {
+		transformationRegexes.append(transformationRegex)
 	}
 }
