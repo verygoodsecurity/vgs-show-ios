@@ -61,7 +61,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
 
-	/// Text formatters container. holds different formatters.
+	/// Text formatters container, holds different formatters.
 	internal var textFormattersContainer = VGSTextFormattersContainer() {
 		didSet {
 			updateTextAndMaskIfNeeded()
@@ -86,9 +86,8 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// - Parameters:
 	///   - regex: `NSRegularExpression` object, transformation regex.
 	///   - template: `String` object, template for replacement.
-	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object, matching options to use, default is `[]`.
-	public func addTransformationRegex(_ regex: NSRegularExpression, template: String, matchingOptions: NSRegularExpression.MatchingOptions = []) {
-		let transformationRegex = VGSTransformationRegex(regex: regex, template: template, matchingOptions: matchingOptions)
+	public func addTransformationRegex(_ regex: NSRegularExpression, template: String) {
+		let transformationRegex = VGSTransformationRegex(regex: regex, template: template)
 		textFormattersContainer.addTransformationRegex(transformationRegex)
 	}
 
