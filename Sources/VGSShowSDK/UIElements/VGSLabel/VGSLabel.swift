@@ -36,12 +36,23 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		}
 	}
 
+	/// Masked label.
   internal var label = VGSMaskedLabel(frame: .zero)
-  internal let fieldType: VGSShowDecodingContentMode = .text
-  internal var horizontalConstraints = [NSLayoutConstraint]()
+
+	/// Field content type (will be used for decoding).
+	internal let fieldType: VGSShowDecodingContentMode = .text
+
+  /// Horizontal constraints.
+	internal var horizontalConstraints = [NSLayoutConstraint]()
+
+	/// Vertical constraints.
   internal var verticalConstraint = [NSLayoutConstraint]()
-  internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
-  internal var model: VGSViewModelProtocol {
+
+  /// View model, hodls business logic.
+	internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
+
+  /// Wrapper to support internal `VGSBaseViewProtocol`.
+	internal var model: VGSViewModelProtocol {
     return labelModel
   }
   
@@ -55,13 +66,30 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Show form that will be assiciated with `VGSLabel`.
   private(set) weak var vgsShow: VGSShow?
 
+	/// Text formatters container. holds different formatters.
+	internal var textFormattersContainer = VGSTextFormattersContainer() {
+		didSet {
+			updateTextAndMaskIfNeeded()
+		}
+	}
+
 	/// Last revealed text.
 	internal var revealedRawText: String? {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}
 	}
-  
+
+	/// Add transformation regex to format raw revealed text.
+	/// - Parameters:
+	///   - regex: `NSRegularExpression` object, transformation regex.
+	///   - template: `String` object, template for replacement.
+	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object, matching options to use, default is `[]`.
+	public func addTransformationRegex(_ regex: NSRegularExpression, template: String, matchingOptions: NSRegularExpression.MatchingOptions = []) {
+		let transformationRegex = VGSTransformationRegex(regex: regex, template: template, matchingOptions: matchingOptions)
+		textFormattersContainer.transformationRegexes.append(transformationRegex)
+	}
+
   /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organization vault.
   public var fieldName: String! {
     set {
@@ -88,41 +116,6 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		copyText(format: format)
 	}
 
-	/**
-	Transformation regex to format revealed raw text. Default is `nil`.
-
-	 # Example #
-	```
-	let cardNumberLabel = VGSLabel();
-
-	// Split card number to XXXX-XXXX-XXXX-XXXX format.
-	if let transformationRegex = try? VGSTransformationRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
-	  cardNumberLabel.transformationRegex = transformationRegex
-	}
-
-	// Fetched data:  "4111111111111111"
-	// Text in label: "4111-1111-1111-1111"
-
-	// You can also set your own regex for formatting.
-	do {
-	 // Split card number to XXXX/XXXX/XXXX/XXXX format.
-   let regex = try NSRegularExpression(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", options: [])
-	  let transformationRegex = VGSTransformationRegex(regex: regex, template: "$1/$2/$3/$4")
-	  cardNumberLabel.transformationRegex = transformationRegex
-	} catch {
-	  print("wrong regex format: \(error)")
-	}
-
-	// Revealed raw text:  "4111111111111111"
-	// Text in label: "4111/1111/1111/1111"
-	```
-	*/
-	public var transformationRegex: VGSTransformationRegex? = nil {
-		didSet {
-			updateTextAndMaskIfNeeded()
-		}
-	}
-  
   // MARK: - UI Attribute
 
   /// `UIEdgeInsets` for text and placeholder inside `VGSTextField`. **IMPORTANT!** Paddings should be non-negative.

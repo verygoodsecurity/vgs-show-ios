@@ -8,49 +8,25 @@
 import Foundation
 
 /// Holds transformation regex options.
-public struct VGSTransformationRegex {
-
-  /// Matching options.
-	internal let matchingOptions: NSRegularExpression.MatchingOptions
-
-  /// Replacement template.
-	internal var template: String
+internal struct VGSTransformationRegex {
 
 	/// Regex object.
 	internal let regex: NSRegularExpression
 
-	/// Regex range. If `nil` regex will be applied to the entire string length.
-	internal let range: NSRange?
+  /// Replacement template.
+	internal let template: String
+
+  /// Matching options.
+	internal let matchingOptions: NSRegularExpression.MatchingOptions
 
 	/// Initializer with mask regex pattern.
 	/// - Parameters:
-	///   - pattern: `String` object. Regex pattern.
-	///   - options: `NSRegularExpression.Options` object. Default is `[]`.
-	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object. Default is `[]`.
-	///   - range: `NSRange` object. Range for regex. Default is `nil`. If `nil` regex will be applied to the entire string length.
-	///   - template: `String` object. Template for replace.
-	/// - Throws: `Error` object if cannot construct regex.
-	public init?(pattern: String, options: NSRegularExpression.Options = [], matchingOptions: NSRegularExpression.MatchingOptions = [], range: NSRange? = nil, template: String) throws {
-
-		do {
-			let regex = try NSRegularExpression(pattern: pattern, options: options)
-			self.init(regex: regex, matchingOptions: matchingOptions, range: range, template: template)
-		} catch let error {
-			print(error)
-			throw error
-		}
-	}
-
-	/// Initializer with regex object.
-	/// - Parameters:
-	///   - regex: `NSRegularExpression` object.
-	///   - matchingOptions: `NSRegularExpression.Options` object. Default is `[]`.
-	///   - range: `NSRange` object. Range for regex. Default is `nil`. If `nil` regex will be applied to the entire string length.
-	///   - template: String object. Template for replace.
-	public init(regex: NSRegularExpression, matchingOptions: NSRegularExpression.MatchingOptions = [], range: NSRange? = nil, template: String) {
+	///   - regex: `NSRegularExpression` object, transformation regex.
+	///   - template: `String` object, template for replacement.
+	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object, matching options to use, default is `[]`.
+	internal init(regex: NSRegularExpression, template: String, matchingOptions: NSRegularExpression.MatchingOptions = []) {
 		self.regex = regex
-		self.range = range
-		self.matchingOptions = matchingOptions
 		self.template = template
+		self.matchingOptions = matchingOptions
 	}
 }

@@ -12,27 +12,43 @@ import Foundation
 final class VGSShowRegexMaskTests: XCTestCase {
 
 	/// Test regex mask formatting.
-	func textRegexMask() {
+	func testRegexMask() {
 
 		let cardNumber = "4111111111111111"
 		let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
 
-		// Test fomatting with `-`.
-		if let regexMask = try? VGSTransformationRegex(pattern: cardNumberPattern, template: "$1-$2-$3-$4") {
-			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
-			XCTAssert(formattedNumber == "4111-1111-1111-1111")
+		let templates = ["$1-$2-$3-$4", "$1 $2 $3 $4", "$1/$2/$3/$4"]
+		let transformedTexts = ["4111-1111-1111-1111", "4111 1111 1111 1111", "4111/1111/1111/1111"]
+
+		let label = VGSLabel()
+		label.revealedRawText = cardNumber
+
+		for index in 0..<templates.count {
+			do {
+				let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
+				label.addTransformationRegex(regex, template: templates[index])
+			} catch {
+				assertionFailure("invalid regex")
+			}
+
+			XCTAssert(label.label.secureText == transformedTexts[index])
 		}
 
-		// Test fomatting with ` `.
-		if let regexMask = try? VGSTransformationRegex(pattern: cardNumberPattern, template: "$1 $2 $3 $4") {
-			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
-			XCTAssert(formattedNumber == "4111 1111 1111 1111")
+		// Test reset to raw text.
+		label.resetToRawText()
+		XCTAssert(label.label.secureText == cardNumber)
+
+		// Test multiple formatters.
+		for index in 0..<templates.count {
+			do {
+				let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
+				label.addTransformationRegex(regex, template: templates[index])
+			} catch {
+				assertionFailure("invalid regex")
+			}
 		}
 
-		// Test fomatting with `/`.
-		if let regexMask = try? VGSTransformationRegex(pattern: cardNumberPattern, template: "$1/$2/$3/$4") {
-			let formattedNumber = cardNumber.transformWithRegexMask(regexMask)
-			XCTAssert(formattedNumber == "4111/1111/1111/1111")
-		}
+		XCTAssert(label.textFormattersContainer.transformationRegexes.count == templates.count)
+		XCTAssert(label.label.secureText == transformedTexts.last!)
 	}
 }
