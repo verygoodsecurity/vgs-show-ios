@@ -6,7 +6,7 @@
 import Foundation
 
 /// An object that acts as a container for different text formatters.
-internal struct VGSTextFormattersStrategy {
+internal struct VGSTextFormattersContainer {
 
   // MARK: - Private interface
 
