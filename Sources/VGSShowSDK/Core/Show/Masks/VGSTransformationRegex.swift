@@ -17,16 +17,14 @@ internal struct VGSTransformationRegex {
 	internal let template: String
 
   /// Matching options.
-	internal let matchingOptions: NSRegularExpression.MatchingOptions
+	internal var matchingOptions: NSRegularExpression.MatchingOptions = []
 
 	/// Initializer with mask regex pattern.
 	/// - Parameters:
 	///   - regex: `NSRegularExpression` object, transformation regex.
 	///   - template: `String` object, template for replacement.
-	///   - matchingOptions: `NSRegularExpression.MatchingOptions` object, matching options to use, default is `[]`.
-	internal init(regex: NSRegularExpression, template: String, matchingOptions: NSRegularExpression.MatchingOptions = []) {
+	internal init(regex: NSRegularExpression, template: String) {
 		self.regex = regex
 		self.template = template
-		self.matchingOptions = matchingOptions
 	}
 }
