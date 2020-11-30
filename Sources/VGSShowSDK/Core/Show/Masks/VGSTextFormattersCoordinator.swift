@@ -1,11 +1,11 @@
 //
-//  VGSTextFormattersContainer.swift
+//  VGSTextFormattersCoordinator.swift
 //  VGSShowSDK
 //
 
 import Foundation
 
-/// An object that acts as a container for text formatting logic.
+/// An object that acts as a coordinator for text formatting logic.
 internal struct VGSTextFormattersCoordinator {
 
 	/// Formatter type.
