@@ -5,8 +5,15 @@
 
 import Foundation
 
-/// An object that acts as a container for different text formatters.
-internal struct VGSTextFormattersContainer {
+/// An object that acts as a container for text formatting logic.
+internal struct VGSTextFormattersCoordinator {
+
+	/// Formatter type.
+ 	internal enum Formatter {
+
+		/// Transformation regex formatter
+		case transformationRegex
+	}
 
   // MARK: - Private interface
 
@@ -17,11 +24,11 @@ internal struct VGSTextFormattersContainer {
 
 	/// `Bool` flag, indicating if has formatting.
 	internal var hasFormatting: Bool {
-		return hasRegexes
+		return hasTransformationRegexes
 	}
 
 	/// `Bool` flag, indicating if has transformation regexes.
-	internal var hasRegexes: Bool {
+	internal var hasTransformationRegexes: Bool {
 		return !transformationRegexes.isEmpty
 	}
 

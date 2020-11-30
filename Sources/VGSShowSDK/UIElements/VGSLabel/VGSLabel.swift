@@ -62,7 +62,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   private(set) weak var vgsShow: VGSShow?
 
 	/// Text formatters container, holds different formatters.
-	internal var textFormattersContainer = VGSTextFormattersContainer() {
+	internal var textFormattersContainer = VGSTextFormattersCoordinator() {
 		didSet {
 			updateTextAndMaskIfNeeded()
 		}

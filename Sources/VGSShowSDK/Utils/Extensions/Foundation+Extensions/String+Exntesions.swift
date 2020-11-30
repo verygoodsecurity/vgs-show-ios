@@ -149,7 +149,7 @@ internal extension String {
 
 	func transformWithRegexes(_ transformationRegexes: [VGSTransformationRegex]) -> String {
 		return transformationRegexes.reduce(self) { (text, regex) -> String in
-			return transformWithRegex(regex)
+			return text.transformWithRegex(regex)
 		}
 	}
 }
