@@ -86,10 +86,16 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.layer.cornerRadius = cornerRadius
 		cardNumberLabel.fieldName = "json.account_number2"
 
-		// Split card number to XXXX-XXXX-XXXX-XXXX format.
-		// You can use do/try/catch if you want to check errors on creating regex. To keep example short, we use just if/let statement.
-		if let transformationRegex = try? VGSTransformationRegex(pattern: "(\\d{4})(\\d{4})(\\d{4})(\\d{4})", template: "$1-$2-$3-$4") {
-			cardNumberLabel.transformationRegex = transformationRegex
+		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
+		do {
+			let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
+			let template = "$1-$2-$3-$4"
+			let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
+
+			// Add transformation regex to your label.
+			cardNumberLabel.addTransformationRegex(regex, template: template)
+		} catch {
+			assertionFailure("invalid regex, error: \(error)")
 		}
 
 		cardNumberLabel.delegate = self

@@ -89,13 +89,13 @@ internal extension VGSLabel {
 			pasteBoard.string = rawText
 		case .formatted:
 			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
-			guard let labelTransformationRegex = transformationRegex else {
+			guard textFormattersContainer.hasFormatting else {
 				pasteBoard.string = rawText
 				return
 			}
 
 			// Copy transformed text.
-			let formattedText = rawText.transformWithRegexMask(labelTransformationRegex)
+			let formattedText = textFormattersContainer.formatText(rawText)
 			pasteBoard.string = formattedText
 		}
 	}
@@ -105,13 +105,13 @@ internal extension VGSLabel {
     guard let text = revealedRawText else {return}
 
     // No mask: set revealed text.
-    guard let mask = transformationRegex else {
+		guard textFormattersContainer.hasFormatting else {
       updateMaskedLabel(with: text)
       return
     }
 
     // Set masked text to label.
-    let maskedText = text.transformWithRegexMask(mask)
+    let maskedText = textFormattersContainer.formatText(text)
     updateMaskedLabel(with: maskedText)
   }
 
@@ -121,4 +121,9 @@ internal extension VGSLabel {
     label.secureText = text
     delegate?.labelTextDidChange?(self)
   }
+
+	/// Reset all masks. For internal use now.
+	func resetToRawText() {
+		textFormattersContainer.resetAllFormatters()
+	}
 }
