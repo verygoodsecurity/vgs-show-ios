@@ -8,19 +8,12 @@ import Foundation
 /// An object that acts as a coordinator for text formatting logic.
 internal struct VGSTextFormattersCoordinator {
 
-	/// Formatter type.
- 	internal enum Formatter {
-
-		/// Transformation regex formatter
-		case transformationRegex
-	}
-
-  // MARK: - Private interface
+  // MARK: - Private
 
   /// An array of `VGSTransformationRegex` objects.
 	private (set) internal var transformationRegexes: [VGSTransformationRegex] = []
 
-  // MARK: - Public interface
+  // MARK: - Interface
 
 	/// `Bool` flag, indicating if has formatting.
 	internal var hasFormatting: Bool {
