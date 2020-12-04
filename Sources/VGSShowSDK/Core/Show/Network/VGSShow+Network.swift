@@ -27,15 +27,9 @@ extension VGSShow {
 		var extraAnalyticsInfo = [String: Any]()
 		extraAnalyticsInfo["content"] = contentForAnalytics(from: payload)
 
-		// Don't send request if no subscribed views.
-		guard hasViewModels else {
-			let error = VGSShowError(type: .noSubscribedViewsInShow)
-
-			// Track error.
-			trackErrorEvent(with: error.code, type: .beforeSubmit, extraInfo: extraAnalyticsInfo)
-
-			block(.failure(error.code, error))
-			return
+		// Log warning if no subscribed views.
+		if !hasViewModels {
+			print("WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
 		}
 
 		// Sends request.
