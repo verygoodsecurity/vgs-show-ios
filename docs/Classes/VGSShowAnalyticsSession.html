@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSViewProtocol Protocol Reference</title>
+    <title>VGSShowAnalyticsSession Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/VGSViewProtocol" class="dashAnchor"></a>
-    <a title="VGSViewProtocol Protocol Reference"></a>
+    <a name="//apple_ref/swift/Class/VGSShowAnalyticsSession" class="dashAnchor"></a>
+    <a title="VGSShowAnalyticsSession Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">VGSShowSDK 0.0.1 Docs</a> (100% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">VGSShowSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        VGSViewProtocol Protocol Reference
+        VGSShowAnalyticsSession Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -127,26 +127,35 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>VGSViewProtocol</h1>
+            <h1>VGSShowAnalyticsSession</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">VGSViewProtocol</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSShowAnalyticsSession</span></code></pre>
 
                 </div>
               </div>
-            <p>Protocol describing VGS View.</p>
+            <p>Holds shared VGSShow analytics session info.</p>
 
           </section>
           <section class="section task-group-section">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public"></a>
+                <a name="//apple_ref/swift/Section/Public" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public"></a>
+                  <h3 class="section-name"><p>Public</p>
+</h3>
+                </div>
+              </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK15VGSViewProtocolP9fieldNameSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/fieldName" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK15VGSViewProtocolP9fieldNameSSSgvp">fieldName</a>
+                    <a name="/s:10VGSShowSDK0A16AnalyticsSessionC6sharedACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/shared" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A16AnalyticsSessionC6sharedACvpZ">shared</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +163,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decoding keyPath name.</p>
+                        <p>Shared session instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">fieldName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">shared</span><span class="p">:</span> <span class="kt">VGSShowAnalyticsSession</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A16AnalyticsSessionC07vgsShowD2IdSSvp"></a>
+                    <a name="//apple_ref/swift/Property/vgsShowSessionId" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A16AnalyticsSessionC07vgsShowD2IdSSvp">vgsShowSessionId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Uniq id that should stay the same during application runtime.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">vgsShowSessionId</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
