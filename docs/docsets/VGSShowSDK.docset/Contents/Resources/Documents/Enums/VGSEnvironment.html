@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSViewProtocol Protocol Reference</title>
+    <title>VGSEnvironment Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/VGSViewProtocol" class="dashAnchor"></a>
-    <a title="VGSViewProtocol Protocol Reference"></a>
+    <a name="//apple_ref/swift/Enum/VGSEnvironment" class="dashAnchor"></a>
+    <a title="VGSEnvironment Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">VGSShowSDK 0.0.1 Docs</a> (100% documented)</p>
@@ -29,7 +29,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">VGSShowSDK Reference</a>
         <img id="carat" src="../img/carat.png" />
-        VGSViewProtocol Protocol Reference
+        VGSEnvironment Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -127,15 +127,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>VGSViewProtocol</h1>
+            <h1>VGSEnvironment</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">VGSViewProtocol</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSEnvironment</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                 </div>
               </div>
-            <p>Protocol describing VGS View.</p>
+            <p>Organization vault environment.</p>
 
           </section>
           <section class="section task-group-section">
@@ -144,9 +144,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK15VGSViewProtocolP9fieldNameSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/fieldName" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK15VGSViewProtocolP9fieldNameSSSgvp">fieldName</a>
+                    <a name="/s:10VGSShowSDK14VGSEnvironmentO7sandboxyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/sandbox" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK14VGSEnvironmentO7sandboxyA2CmF">sandbox</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,14 +154,41 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decoding keyPath name.</p>
+                        <p>Should be used for development and testing purpose.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">fieldName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">sandbox</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK14VGSEnvironmentO4liveyA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/live" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK14VGSEnvironmentO4liveyA2CmF">live</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Should be used for production.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">live</span></code></pre>
 
                         </div>
                       </div>
