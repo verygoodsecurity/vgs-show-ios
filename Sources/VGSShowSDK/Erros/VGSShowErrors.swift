@@ -25,9 +25,6 @@ public enum VGSErrorType: Int {
 
 	/// When cannot decode data for some fields (partially decoded).
 	case dataPartiallyDecoded = 1404
-
-	/// When VGSShow instance has no subscribed views.
-	case noSubscribedViewsInShow = 1405
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
