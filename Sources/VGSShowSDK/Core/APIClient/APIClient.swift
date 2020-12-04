@@ -15,11 +15,19 @@ public typealias VGSHTTPHeaders = [String: String]
 
 /// HTTP request methods.
 public enum VGSHTTPMethod: String {
-	/// POST method.
+	/// GET method.
 	case get = "GET"
+
+	/// POST method.
 	case post = "POST"
+
+	/// PUT method.
 	case put = "PUT"
+
+	/// PATCH method.
 	case patch = "PATCH"
+
+	/// DELETE method.
 	case delete = "DELETE"
 }
 
