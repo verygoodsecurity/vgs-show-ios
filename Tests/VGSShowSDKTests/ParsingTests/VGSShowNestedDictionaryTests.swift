@@ -41,7 +41,10 @@ class VGSShowNestedDictionaryTests: XCTestCase {
 	/// - Parameter validPaths: `Bool` flag. `true` to test valid paths.
 	/// - Returns: `[String: JsonData]` object.
 	private func provideTestData(validPaths: Bool) -> [String: VGSJSONData] {
-		let bundle = Bundle(for: type(of: self))
+		var bundle = Bundle(for: type(of: self))
+		#if SWIFT_PACKAGE
+			bundle = Bundle.module
+		#endif
 
 		let correctKeys = ["card_type",
 								"json.card_type",
