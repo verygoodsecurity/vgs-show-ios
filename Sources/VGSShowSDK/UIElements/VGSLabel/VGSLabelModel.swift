@@ -27,10 +27,16 @@ internal protocol VGSViewModelProtocol {
 	var view: VGSBaseViewProtocol? { get set }
 }
 
-/// Protocol describing VGS Show Label ViewModel
+/// Protocol describing VGS Show Label ViewModel.
 internal protocol VGSLabelViewModelProtocol: VGSViewModelProtocol {
+	/// Value.
 	var value: String? { get set }
+
+	/// Change value completion block.
 	var onValueChanged: ((String?) -> Void)? { get set }
+
+	/// Error completion block.
+	var onError: ((VGSShowError) -> Void)? { get set }
 }
 
 internal class VGSLabelModel: VGSLabelViewModelProtocol {
@@ -48,6 +54,7 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 	}
 
 	var onValueChanged: ((String?) -> Void)?
+	var onError: ((VGSShowError) -> Void)?
 
 	func handleDecodingResult(_ result: VGSShowDecodingResult) {
 		switch result {
@@ -58,8 +65,8 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 			default:
 				#warning("not supported data format")
 			}
-		case .failure:
-			break
+		case .failure(let error):
+			onError?(error)
 		}
 	}
 }

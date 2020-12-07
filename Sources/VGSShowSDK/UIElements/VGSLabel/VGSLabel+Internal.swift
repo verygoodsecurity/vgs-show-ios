@@ -22,6 +22,10 @@ internal extension VGSLabel {
       labelModel.onValueChanged = { [weak self](text) in
           self?.revealedRawText = text
       }
+	  	labelModel.onError = {[weak self] (error) in
+			    guard let strongSelf = self else {return}
+				  strongSelf.delegate?.labelRevealDataDidFail?(strongSelf, error: error)
+		  }
       labelModel.view = self
   }
 

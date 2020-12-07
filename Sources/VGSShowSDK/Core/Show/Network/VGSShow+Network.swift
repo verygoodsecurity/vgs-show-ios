@@ -68,6 +68,8 @@ extension VGSShow {
 			// Collect unrevealed keyPaths.
 			if decodingResult.error != nil {
 				unrevealedKeyPaths.append(model.decodingKeyPath)
+			} else {
+				
 			}
 		}
 
@@ -76,22 +78,15 @@ extension VGSShow {
 	}
 
 	private func handleUnrevealedKeypaths(_ unrevealedKeyPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
-		// If not all data revealed send error to user.
+
 		if !unrevealedKeyPaths.isEmpty {
-			print(unrevealedKeyPaths)
-			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
-			let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
-
-			trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
-
-			block(.failure(code, error))
-		} else {
-
-			// Track success.
-			VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .success, extraData: extraAnalyticsInfo)
-
-			block(.success(code))
+			print("⚠️ VGSShowSDK WARNING! Cannot reveal data for fields: \(unrevealedKeyPaths)")
 		}
+
+		// Track success.
+		VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .success, extraData: extraAnalyticsInfo)
+
+		block(.success(code))
 	}
 
 	/// Track error event.

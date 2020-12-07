@@ -22,9 +22,6 @@ public enum VGSErrorType: Int {
 
 	/// When field cannot be found in specified path.
 	case fieldNotFound = 1403
-
-	/// When cannot decode data for some fields (partially decoded).
-	case dataPartiallyDecoded = 1404
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
