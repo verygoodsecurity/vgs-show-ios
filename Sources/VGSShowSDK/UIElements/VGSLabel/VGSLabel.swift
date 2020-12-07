@@ -24,12 +24,12 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		case raw
 
 		/// Formatted text.
-		case formatted
+		case transformed
 
 		var analyticsKey: String {
 			switch self {
-			case .formatted:
-				return "formatted"
+			case .transformed:
+				return "transformed"
 			case .raw:
 				return "raw"
 			}
