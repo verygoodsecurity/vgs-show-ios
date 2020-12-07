@@ -150,6 +150,7 @@ extension ShowDemoViewController: VGSLabelDelegate {
 	}
 
 	func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError) {
+		// Set label border to red color on error. You can make typo in label field to simulate this error case.
 		label.borderColor = .red
 	}
 
