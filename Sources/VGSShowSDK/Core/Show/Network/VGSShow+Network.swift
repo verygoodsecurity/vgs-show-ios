@@ -56,25 +56,41 @@ extension VGSShow {
 	// swiftlint:disable:next function_parameter_count line_length
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 		var unrevealedKeyPaths = [String]()
-		revealModels.forEach { model in
 
-			// Decode data.
-			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-			let decodingResult = decoder.decodeDataForKeyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
+		switch responseFormat {
 
-			// Update models with decoding result.
-			model.handleDecodingResult(decodingResult)
+		// Handle `.json` response format.
+		case .json:
+			// Try to decode raw data to JSON.
+			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
+			switch jsonDecodingResult {
+			case .success(let json):
+				revealModels.forEach { model in
 
-			// Collect unrevealed keyPaths.
-			if decodingResult.error != nil {
-				unrevealedKeyPaths.append(model.decodingKeyPath)
-			} else {
-				
+					// Decode data.
+					let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
+					let decodingResult = decoder.decodeJSONForKeyPath(model.decodingKeyPath, json: json)
+
+					// Update models with decoding result.
+					model.handleDecodingResult(decodingResult)
+
+					// Collect unrevealed keyPaths.
+					if decodingResult.error != nil {
+						unrevealedKeyPaths.append(model.decodingKeyPath)
+					} else {
+
+					}
+				}
+				// Handle unrevealed keys.
+				handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
+
+			case .failure(let error):
+				// Mark reveal request as failed with error - cannot decode response.
+				print("VGSShowSDK error: \(error)")
+				trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
+				block(.failure(error.code, error))
 			}
 		}
-
-		// Handle unrevealed keys.
-		handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
 	}
 
 	private func handleUnrevealedKeypaths(_ unrevealedKeyPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
