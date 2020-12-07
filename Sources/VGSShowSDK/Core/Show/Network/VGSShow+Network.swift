@@ -29,7 +29,7 @@ extension VGSShow {
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
-			print("WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
+			print("⚠️ VGSShowSDK WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
 		}
 
 		// Sends request.
@@ -55,7 +55,6 @@ extension VGSShow {
 
 	// swiftlint:disable:next function_parameter_count line_length
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
-		var unrevealedKeyPaths = [String]()
 
 		switch responseFormat {
 
@@ -65,24 +64,8 @@ extension VGSShow {
 			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
 			switch jsonDecodingResult {
 			case .success(let json):
-				revealModels.forEach { model in
-
-					// Decode data.
-					let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-					let decodingResult = decoder.decodeJSONForKeyPath(model.decodingKeyPath, json: json)
-
-					// Update models with decoding result.
-					model.handleDecodingResult(decodingResult)
-
-					// Collect unrevealed keyPaths.
-					if decodingResult.error != nil {
-						unrevealedKeyPaths.append(model.decodingKeyPath)
-					} else {
-
-					}
-				}
-				// Handle unrevealed keys.
-				handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
+				// Reveal data.
+				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 
 			case .failure(let error):
 				// Mark reveal request as failed with error - cannot decode response.
@@ -91,6 +74,26 @@ extension VGSShow {
 				block(.failure(error.code, error))
 			}
 		}
+	}
+
+	private func revealDecodedResponse(_ json: VGSJSONData, code: Int, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
+
+		var unrevealedKeyPaths = [String]()
+		revealModels.forEach { model in
+			// Reveal data.
+			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
+			let decodingResult = decoder.decodeJSONForKeyPath(model.decodingKeyPath, json: json)
+
+			// Update models with decoding result.
+			model.handleDecodingResult(decodingResult)
+
+			// Collect unrevealed keyPaths.
+			if decodingResult.error != nil {
+				unrevealedKeyPaths.append(model.decodingKeyPath)
+			}
+		}
+		// Handle unrevealed keys.
+		handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
 	}
 
 	private func handleUnrevealedKeypaths(_ unrevealedKeyPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
