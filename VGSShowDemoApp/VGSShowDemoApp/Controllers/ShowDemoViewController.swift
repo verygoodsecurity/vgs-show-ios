@@ -149,6 +149,10 @@ extension ShowDemoViewController: VGSLabelDelegate {
 		label.backgroundColor = .black
 	}
 
+	func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError) {
+		label.borderColor = .red
+	}
+
 	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
 
 		if !label.isEmpty {
