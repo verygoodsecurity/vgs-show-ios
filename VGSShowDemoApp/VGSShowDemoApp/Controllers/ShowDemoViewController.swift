@@ -23,7 +23,7 @@ class ShowDemoViewController: UIViewController {
 	let cardNumberLabel = VGSLabel()
 	let expDateLabel = VGSLabel()
 
-	var isFormattedCardNumber: Bool = true
+	var isTransformedCardNumber: Bool = true
 
 	// MARK: - Lifecycle
 
@@ -57,15 +57,15 @@ class ShowDemoViewController: UIViewController {
 	}
 
 	@IBAction private func copyCardAction(_ sender: UIButton) {
-		if !isFormattedCardNumber {
+		if !isTransformedCardNumber {
 			cardNumberLabel.copyTextToClipboard(format: .raw)
 		} else {
-			cardNumberLabel.copyTextToClipboard(format: .formatted)
+			cardNumberLabel.copyTextToClipboard(format: .transformed)
 		}
 	}
 
 	@IBAction private func switchChangeAction(_ sender: UISwitch) {
-		isFormattedCardNumber = sender.isOn
+		isTransformedCardNumber = sender.isOn
 	}
 
 	// MARK: - Helpers
@@ -149,13 +149,18 @@ extension ShowDemoViewController: VGSLabelDelegate {
 		label.backgroundColor = .black
 	}
 
+	func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError) {
+		// Set label border to red color on error. You can make typo in label field to simulate this error case.
+		label.borderColor = .red
+	}
+
 	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
 
 		if !label.isEmpty {
-			var textFormat = "Formatted"
+			var textFormat = "Transformed"
 			switch format {
 			case .raw:
-				textFormat = "raw"
+				textFormat = "Raw"
 			default:
 				break
 			}

@@ -97,7 +97,7 @@ internal class APIClient {
 
 	func sendRequest(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion ) {
 		// Add Headers
-		var headers: [String: String] = [:]
+		var headers: [String: String] = APIClient.defaultHttpHeaders
 		headers["Content-Type"] = "application/json"
 
 		// Add custom headers if need

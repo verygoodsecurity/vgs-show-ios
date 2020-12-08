@@ -29,7 +29,7 @@ extension VGSShow {
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
-			print("WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
+			print("⚠️ VGSShowSDK WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
 		}
 
 		// Sends request.
@@ -40,7 +40,15 @@ extension VGSShow {
 			switch requestResult {
 			case .success(let code, let data, let response):
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
-			case .failure(let code, _, _, let error):
+			case .failure(let code, let data, let response, let error):
+				print("❗VGSShowSDK request error: status code \(code)")
+
+				if let errorData = data {
+					if let text = String(data: errorData, encoding: String.Encoding.utf8) {
+						print("❗VGSShowSDK request error info:")
+						print("\(text)")
+					}
+				}
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
@@ -55,12 +63,34 @@ extension VGSShow {
 
 	// swiftlint:disable:next function_parameter_count line_length
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
+
+		switch responseFormat {
+
+		// Handle `.json` response format.
+		case .json:
+			// Try to decode raw data to JSON.
+			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
+			switch jsonDecodingResult {
+			case .success(let json):
+				// Reveal data.
+				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
+
+			case .failure(let error):
+				// Mark reveal request as failed with error - cannot decode response.
+				print("❗VGSShowSDK decoding error \(error)")
+				trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
+				block(.failure(error.code, error))
+			}
+		}
+	}
+
+	private func revealDecodedResponse(_ json: VGSJSONData, code: Int, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
+
 		var unrevealedKeyPaths = [String]()
 		revealModels.forEach { model in
-
-			// Decode data.
+			// Reveal data.
 			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-			let decodingResult = decoder.decodeDataForKeyPath(model.decodingKeyPath, responseFormat: responseFormat, data: data)
+			let decodingResult = decoder.decodeJSONForKeyPath(model.decodingKeyPath, json: json)
 
 			// Update models with decoding result.
 			model.handleDecodingResult(decodingResult)
@@ -70,28 +100,20 @@ extension VGSShow {
 				unrevealedKeyPaths.append(model.decodingKeyPath)
 			}
 		}
-
 		// Handle unrevealed keys.
 		handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
 	}
 
 	private func handleUnrevealedKeypaths(_ unrevealedKeyPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
-		// If not all data revealed send error to user.
+
 		if !unrevealedKeyPaths.isEmpty {
-			print(unrevealedKeyPaths)
-			let userInfo = VGSErrorInfo(key: VGSSDKErrorDataPartiallyDecoded, description: "Not all data decoded.", extraInfo: ["not_decoded_fields": unrevealedKeyPaths])
-			let error = VGSShowError.init(type: .dataPartiallyDecoded, userInfo: userInfo)
-
-			trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
-
-			block(.failure(code, error))
-		} else {
-
-			// Track success.
-			VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .success, extraData: extraAnalyticsInfo)
-
-			block(.success(code))
+			print("⚠️ VGSShowSDK WARNING! Cannot reveal data for fields: \(unrevealedKeyPaths)")
 		}
+
+		// Track success.
+		VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .success, extraData: extraAnalyticsInfo)
+
+		block(.success(code))
 	}
 
 	/// Track error event.

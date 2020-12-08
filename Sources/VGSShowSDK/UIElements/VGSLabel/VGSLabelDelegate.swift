@@ -23,4 +23,9 @@ public protocol VGSLabelDelegate: class {
 	///   - label: `VGSLabel` view in which raw text was copied.
 	///   - format: `VGSLabelCopyTextFormat` object, copied text format.
 	@objc optional func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat)
+
+	/// Tells the delegate when reveal data operation was failed for the subscribed `VGSLabel` view.
+	/// - Parameter label: `VGSLabel` view in which reveal data operation was failed.
+	/// - Parameter error: `VGSShowError` object.
+	@objc optional func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError)
 }

@@ -31,7 +31,7 @@ public class VGSAnalyticsClient {
 
 	internal enum Constants {
 		enum Metadata {
-			static let source = "show-iosSdk"
+			static let source = "show-iosSDK"
 			static let medium = "vgs-show"
 		}
 	}

@@ -22,6 +22,10 @@ internal extension VGSLabel {
       labelModel.onValueChanged = { [weak self](text) in
           self?.revealedRawText = text
       }
+	  	labelModel.onError = {[weak self] (error) in
+			    guard let strongSelf = self else {return}
+				  strongSelf.delegate?.labelRevealDataDidFail?(strongSelf, error: error)
+		  }
       labelModel.view = self
   }
 
@@ -87,7 +91,7 @@ internal extension VGSLabel {
 		switch format {
 		case .raw:
 			pasteBoard.string = rawText
-		case .formatted:
+		case .transformed:
 			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
 			guard textFormattersContainer.hasFormatting else {
 				pasteBoard.string = rawText

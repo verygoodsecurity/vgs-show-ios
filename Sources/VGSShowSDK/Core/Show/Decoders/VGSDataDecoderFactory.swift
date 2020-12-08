@@ -9,7 +9,7 @@ import Foundation
 
 /// Interface to implement by data decoders.
 internal protocol VGSShowDecoderProtocol {
-	func decodeDataForKeyPath(_ path: String, responseFormat: VGSShowResponseDecodingFormat, data: Data?) -> VGSShowDecodingResult
+	func decodeJSONForKeyPath(_ keyPath: String, json: VGSJSONData) -> VGSShowDecodingResult
 }
 
 /// `VGSDataDecoderFactory` provides decoders for specific decoding.
