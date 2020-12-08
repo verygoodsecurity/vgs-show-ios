@@ -102,7 +102,11 @@ public class VGSAnalyticsClient {
 		return "COCOAPODS"
 		#endif
 
-		return "CarthageOrManual"
+		#if SWIFT_PACKAGE
+			return "SWIFT_PACKAGE_MANAGER"
+		#endif
+
+		return "CARTHAGE_OR_MANUAL"
 	}
 }
 
