@@ -42,7 +42,9 @@ public class VGSAnalyticsClient {
 	/// Enable or disable VGS analytics tracking.
 	public var shouldCollectAnalytics = true
 
-	private init() {}
+	private init() {
+
+	}
 
 	internal let urlSession = URLSession(configuration: .ephemeral)
 
@@ -60,7 +62,8 @@ public class VGSAnalyticsClient {
 			"platform": UIDevice.current.systemName,
 			"device": UIDevice.current.model,
 			"deviceModel": UIDevice.current.modelIdentifier,
-			"osVersion": osVersion ]
+			"osVersion": osVersion,
+		  "sdkIntegration": sdkIntegration]
 	}()
 
 	/// :nodoc: Track events related to specific VGSShow instance
@@ -92,6 +95,14 @@ public class VGSAnalyticsClient {
 		data["source"] = Constants.Metadata.source
 		data["localTimestamp"] = Int(Date().timeIntervalSince1970 * 1000)
 		sendAnalyticsRequest(data: data)
+	}
+
+	private static var sdkIntegration: String {
+		#if COCOAPODS
+		return "COCOAPODS"
+		#endif
+
+		return "CarthageOrManual"
 	}
 }
 
