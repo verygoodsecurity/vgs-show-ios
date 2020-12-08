@@ -50,7 +50,7 @@ internal extension VGSLabel {
     NSLayoutConstraint.deactivate(horizontalConstraints)
 
 		if paddings.hasNegativeValue {
-			assertionFailure("cannot set paddings \(paddings) with negative values")
+			print("⚠️ VGSShowSDK WARNING! Cannot set paddings \(paddings) with negative values")
 			return
 		}
     
