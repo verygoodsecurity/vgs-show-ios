@@ -10,17 +10,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: uninstall outdated gems and make fastlane launch faster
-          command: sudo gem cleanup 
-      - run:
-          name: install fastlane
-          command: sudo gem install fastlane 
-      - run:
           name: Run Tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 8
-            SCAN_SCHEME: VGSShowSDKTests
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.1'
 
 workflows:
   version: 2
