@@ -14,7 +14,7 @@ final class VGSShowRegexMaskTests: XCTestCase {
 	/// Test regex mask formatting.
 	func testRegexMask() {
 
-		let cardNumber = "4111111111111111"
+		let cardNumber =  "4111111111111111"
 		let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
 
 		let templates = ["$1-$2-$3-$4", "$1 $2 $3 $4", "$1/$2/$3/$4"]
