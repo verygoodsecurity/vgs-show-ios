@@ -6,7 +6,7 @@ version: 2
 jobs:
   build-and-test-sdk:
     macos:
-      xcode: "12.2"
+      xcode: "12.1"
     steps:
       - checkout
       - run:
