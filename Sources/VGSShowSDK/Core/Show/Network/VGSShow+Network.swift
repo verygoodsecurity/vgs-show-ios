@@ -43,12 +43,15 @@ extension VGSShow {
 			case .failure(let code, let data, let response, let error):
 				print("❗VGSShowSDK response error status code: \(code)")
 				if let httpResponse = response as? HTTPURLResponse {
-					print("❗VGSShowSDK response error headers:  \(httpResponse.allHeaderFields)")
+					print("❗VGSShowSDK response error headers:")
+					for erorHeader in httpResponse.allHeaderFields {
+						print("\(erorHeader.key) : \(erorHeader.value)")
+					}
 				}
 				if let errorData = data {
-					if let text = String(data: errorData, encoding: String.Encoding.utf8) {
+					if let bodyErrorText = String(data: errorData, encoding: String.Encoding.utf8) {
 						print("❗VGSShowSDK response error: info:")
-						print("\(text)")
+						print("\(bodyErrorText)")
 					}
 				}
 
