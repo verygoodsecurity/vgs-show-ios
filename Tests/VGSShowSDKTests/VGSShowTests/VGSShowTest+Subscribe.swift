@@ -16,7 +16,7 @@ extension VGSShowTests {
       let label1 = VGSLabel()
       label1.fieldName = "label1"
       vgsShow.subscribe(label1)
-      XCTAssertTrue(vgsShow.subscribedLabels.count == 0)
+      XCTAssertTrue(vgsShow.subscribedLabels.count == 1)
       XCTAssertTrue(vgsShow.subscribedViews.count == 1)
       
       let label2 = VGSLabel()
