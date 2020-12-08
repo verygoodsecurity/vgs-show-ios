@@ -63,7 +63,7 @@ public class VGSAnalyticsClient {
 			"device": UIDevice.current.model,
 			"deviceModel": UIDevice.current.modelIdentifier,
 			"osVersion": osVersion,
-		  "sdkIntegration": sdkIntegration]
+		  "dependencyManager": sdkIntegration]
 	}()
 
 	/// :nodoc: Track events related to specific VGSShow instance
@@ -99,14 +99,14 @@ public class VGSAnalyticsClient {
 
 	private static var sdkIntegration: String {
 		#if COCOAPODS
-		return "COCOAPODS"
+		  return "COCOAPODS"
 		#endif
 
 		#if SWIFT_PACKAGE
-			return "SWIFT_PACKAGE_MANAGER"
+			return "SPM"
 		#endif
 
-		return "CARTHAGE_OR_MANUAL"
+		return "OTHER"
 	}
 }
 
