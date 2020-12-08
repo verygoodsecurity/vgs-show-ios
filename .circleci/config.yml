@@ -10,6 +10,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: uninstall outdated gems and make fastlane launch faster
+          command: sudo gem cleanup 
+      - run:
           name: install fastlane
           command: sudo gem install fastlane 
       - run:
