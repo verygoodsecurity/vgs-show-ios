@@ -42,9 +42,7 @@ public class VGSAnalyticsClient {
 	/// Enable or disable VGS analytics tracking.
 	public var shouldCollectAnalytics = true
 
-	private init() {
-
-	}
+	private init() {}
 
 	internal let urlSession = URLSession(configuration: .ephemeral)
 
