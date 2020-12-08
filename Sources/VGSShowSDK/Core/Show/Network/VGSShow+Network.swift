@@ -40,7 +40,15 @@ extension VGSShow {
 			switch requestResult {
 			case .success(let code, let data, let response):
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
-			case .failure(let code, _, _, let error):
+			case .failure(let code, let data, let response, let error):
+				print("❗VGSShowSDK request error: status code \(code)")
+
+				if let errorData = data {
+					if let text = String(data: errorData, encoding: String.Encoding.utf8) {
+						print("❗VGSShowSDK request error info:")
+						print("\(text)")
+					}
+				}
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
@@ -69,7 +77,7 @@ extension VGSShow {
 
 			case .failure(let error):
 				// Mark reveal request as failed with error - cannot decode response.
-				print("VGSShowSDK error: \(error)")
+				print("❗VGSShowSDK decoding error \(error)")
 				trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
 				block(.failure(error.code, error))
 			}
