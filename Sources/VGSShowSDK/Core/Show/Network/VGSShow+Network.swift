@@ -41,17 +41,22 @@ extension VGSShow {
 			case .success(let code, let data, let response):
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 			case .failure(let code, let data, let response, let error):
-				print("❗VGSShowSDK request error: status code \(code)")
-
+				print("❗VGSShowSDK response error status code: \(code)")
+				if let httpResponse = response as? HTTPURLResponse {
+					print("❗VGSShowSDK response error headers:  \(httpResponse.allHeaderFields)")
+				}
 				if let errorData = data {
 					if let text = String(data: errorData, encoding: String.Encoding.utf8) {
-						print("❗VGSShowSDK request error info:")
+						print("❗VGSShowSDK response error: info:")
 						print("\(text)")
 					}
 				}
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
+
+				print("❗VGSShowSDK response error message: \(errorMessage)")
+
 				strongSelf.trackErrorEvent(with: code, message: errorMessage, type: .submit, extraInfo: extraAnalyticsInfo)
 
 				block(.failure(code, error))

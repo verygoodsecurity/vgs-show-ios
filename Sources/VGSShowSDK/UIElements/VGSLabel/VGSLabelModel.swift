@@ -62,8 +62,6 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 			switch content {
 			case .text(let text):
 				self.value = text
-			default:
-				#warning("not supported data format")
 			}
 		case .failure(let error):
 			onError?(error)
