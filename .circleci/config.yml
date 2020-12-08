@@ -10,9 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install fastlane
-          command: sudo gem install fastlane 
-      - run:
           name: Run Tests
           command: fastlane scan
           environment:
