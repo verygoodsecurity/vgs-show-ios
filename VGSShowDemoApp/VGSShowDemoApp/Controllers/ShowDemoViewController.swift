@@ -16,6 +16,7 @@ class ShowDemoViewController: UIViewController {
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
 	@IBOutlet fileprivate weak var copyCardNumberButton: UIButton!
 	@IBOutlet fileprivate weak var titleLabel: UILabel!
+	@IBOutlet fileprivate weak var showButton: UIButton!
 
 	// MARK: - Constants
 
@@ -38,6 +39,7 @@ class ShowDemoViewController: UIViewController {
 
 		// Setup demo copy button UI and title.
 		setupCopyButtonUI()
+		setupShowButtonUI()
 		setupTitleUI()
 
 		inputLabel.font = UIFont.demoAppTextOutputFont
@@ -116,14 +118,17 @@ class ShowDemoViewController: UIViewController {
 
 	private func loadData() {
 
+		showButton.isEnabled = false
 		vgsShow.request(path: DemoAppConfig.shared.path,
 										method: .post, payload: DemoAppConfig.shared.collectPayload) { (requestResult) in
 
 			switch requestResult {
 			case .success(let code):
+				self.showButton.isEnabled = true
 				self.copyCardNumberButton.isEnabled = true
 				print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
+				self.showButton.isEnabled = true
 				print("vgsshow failed, code: \(code), error: \(error)")
 			}
 		}
@@ -135,6 +140,14 @@ class ShowDemoViewController: UIViewController {
 		copyCardNumberButton.isEnabled = false
 		copyCardNumberButton.layer.cornerRadius = 6
 		copyCardNumberButton.layer.masksToBounds = true
+	}
+
+	private func setupShowButtonUI() {
+		showButton.setTitle("SHOW", for: .normal)
+		showButton.setTitleColor(.white, for: .normal)
+
+		showButton.setTitle("LOADING...", for: .disabled)
+		showButton.setTitleColor(UIColor.white.withAlphaComponent(0.4), for: .disabled)
 	}
 
 	private func setupTitleUI() {
