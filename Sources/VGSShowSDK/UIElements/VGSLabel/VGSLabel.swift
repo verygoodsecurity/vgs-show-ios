@@ -14,7 +14,7 @@ internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
   var labelModel: VGSLabelViewModelProtocol { get }
 }
 
-/// An object that displays revealed text data.
+/// A view that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
 	/// Text format to copy.
