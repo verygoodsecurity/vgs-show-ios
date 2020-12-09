@@ -119,7 +119,14 @@ internal class APIClient {
 		request.httpMethod = method.rawValue
 		request.allHTTPHeaderFields = headers
 
-		print("url: \(url)")
+		print("⬆️ VGSShowSDK request url: \(url)")
+		if let headers = request.allHTTPHeaderFields {
+			print("⬆️ VGSShowSDK request headers: \(headers)")
+		}
+
+		if let payload = value {
+			print("⬆️ VGSShowSDK request payload: \(payload)")
+		}
 
 		performRequest(request: request, value: value, completion: block)
 	}

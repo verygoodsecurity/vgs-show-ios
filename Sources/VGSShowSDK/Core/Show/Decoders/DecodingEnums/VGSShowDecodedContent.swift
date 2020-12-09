@@ -17,14 +17,6 @@ internal enum VGSShowDecodedContent {
 		- text: `String` object.
 	*/
 	case text(_ text: String)
-
-	/**
-	 Image URL content.
-
-	 - Parameters:
-		- url: `URL` object.
-	*/
-	case imageURL(_ url: URL)
 }
 
 /// `VGSShowDecodingConfiguration` represents model for configurating decoding options.

@@ -21,10 +21,6 @@ internal final class VGSDataDecoderFactory {
 		switch decoder {
 		case .text:
 			return VGSShowTextDecoder()
-
-		case .imageURL:
-			#warning("imageURL decoding not implemented yet")
-			fatalError("not implemented")
 		}
 	}
 }

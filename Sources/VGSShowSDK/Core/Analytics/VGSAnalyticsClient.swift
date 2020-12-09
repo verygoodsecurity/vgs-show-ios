@@ -60,7 +60,8 @@ public class VGSAnalyticsClient {
 			"platform": UIDevice.current.systemName,
 			"device": UIDevice.current.model,
 			"deviceModel": UIDevice.current.modelIdentifier,
-			"osVersion": osVersion ]
+			"osVersion": osVersion,
+		  "dependencyManager": sdkIntegration]
 	}()
 
 	/// :nodoc: Track events related to specific VGSShow instance
@@ -92,6 +93,18 @@ public class VGSAnalyticsClient {
 		data["source"] = Constants.Metadata.source
 		data["localTimestamp"] = Int(Date().timeIntervalSince1970 * 1000)
 		sendAnalyticsRequest(data: data)
+	}
+
+	private static var sdkIntegration: String {
+		#if COCOAPODS
+		  return "COCOAPODS"
+		#endif
+
+		#if SWIFT_PACKAGE
+			return "SPM"
+		#endif
+
+		return "OTHER"
 	}
 }
 
