@@ -12,7 +12,8 @@ VGS Show - is a product suite that allows customers to reveal and show informati
   <img src="./revealed_data_img.png" width="200" alt="VGS Show iOS SDK Revealed Data" hspace="20">
 </p>
 
-
+Table of contents
+=================
 <!--ts-->
    * [Before you start](#before-you-start)
    * [Integration](#integration)
