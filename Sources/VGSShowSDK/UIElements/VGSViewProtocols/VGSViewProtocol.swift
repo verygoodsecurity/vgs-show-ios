@@ -12,8 +12,8 @@ import UIKit
 
 /// Protocol describing VGS View.
 public protocol VGSViewProtocol: UIView {
-	/// Decoding keyPath name.
-  var fieldName: String! { get set }
+	/// Decoding content path.
+  var contentPath: String! { get set }
 }
 
 internal protocol VGSBaseViewProtocol: UIView {

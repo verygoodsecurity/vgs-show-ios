@@ -9,10 +9,10 @@ import XCTest
 import Foundation
 @testable import VGSShowSDK
 
-class VGSJSONSelectorTests: XCTestCase {
+class VGSJSONContentPathsTests: XCTestCase {
 
-	/// Test valid jsonSelectors.
-	func testValidJSONSelectors() {
+	/// Test valid json content paths.
+	func testValidJSONContentPaths() {
 		let validJSONKeyPaths = [
 			"card_brand_name",
 			"card-brand-name",
@@ -28,8 +28,8 @@ class VGSJSONSelectorTests: XCTestCase {
 		}
 	}
 
-	/// Test invalid jsonSelectors.
-	func testInvalidJSONSelectors() {
+	/// Test invalid json content paths.
+	func testInvalidJSONContentPaths() {
 		let invalidJSONKeyPaths = [
 			"/card_brand_name",
 			"{card_name}",

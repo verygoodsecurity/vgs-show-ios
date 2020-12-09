@@ -14,13 +14,13 @@ extension VGSShowTests {
       XCTAssertTrue(vgsShow.subscribedLabels.count == 0)
       
       let label1 = VGSLabel()
-      label1.fieldName = "label1"
+      label1.contentPath = "label1"
       vgsShow.subscribe(label1)
       XCTAssertTrue(vgsShow.subscribedLabels.count == 1)
       XCTAssertTrue(vgsShow.subscribedViews.count == 1)
       
       let label2 = VGSLabel()
-      label1.fieldName = "label2"
+      label1.contentPath = "label2"
       vgsShow.subscribe(label2)
       XCTAssertTrue(vgsShow.subscribedLabels.count == 2)
       XCTAssertTrue(vgsShow.subscribedViews.count == 2)
@@ -66,7 +66,7 @@ extension VGSShowTests {
       XCTAssertTrue(vgsShow.subscribedLabels.count == 0)
       
       let label1 = VGSLabel()
-      label1.fieldName = "label1"
+      label1.contentPath = "label1"
       vgsShow.subscribe(label1)
       vgsShow.subscribe(label1)
       vgsShow.subscribe(label1)
@@ -79,7 +79,7 @@ extension VGSShowTests {
         
     /// test no crash when unsubscribe from empty array
     let label1 = VGSLabel()
-    label1.fieldName = "label1"
+    label1.contentPath = "label1"
     vgsShow.subscribe(label1)
     XCTAssertTrue(vgsShow.subscribedLabels.count == 1)
     
@@ -94,6 +94,6 @@ extension VGSShowTests {
 /// Testable view that conforms to public VGSViewProtocol protocol
 class CustomView: UIView, VGSViewProtocol {
   
-  var fieldName: String! = "some_field"
+  var contentPath: String! = "some_field"
   
 }

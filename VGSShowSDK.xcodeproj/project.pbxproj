@@ -40,7 +40,7 @@
 		44A79F84255D0678009AF720 /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */; };
 		44A79F85255D0678009AF720 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */; };
 		44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift */; };
-		44A79FC4255D06C6009AF720 /* VGSJSONSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB4255D06C6009AF720 /* VGSJSONSelectorTests.swift */; };
+		44A79FC4255D06C6009AF720 /* VGSJSONContentPathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB4255D06C6009AF720 /* VGSJSONContentPathsTests.swift */; };
 		44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB6255D06C6009AF720 /* VGSShowTests.swift */; };
 		44A79FC6255D06C6009AF720 /* VGSShowTest+Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB7255D06C6009AF720 /* VGSShowTest+Subscribe.swift */; };
 		44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB9255D06C6009AF720 /* VGSJSONData+Bundle.swift */; };
@@ -100,7 +100,7 @@
 		44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSMaskedLabel.swift; sourceTree = "<group>"; };
 		44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
 		44A79FB3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowNestedDictionaryTests.swift; sourceTree = "<group>"; };
-		44A79FB4255D06C6009AF720 /* VGSJSONSelectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSJSONSelectorTests.swift; sourceTree = "<group>"; };
+		44A79FB4255D06C6009AF720 /* VGSJSONContentPathsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSJSONContentPathsTests.swift; sourceTree = "<group>"; };
 		44A79FB6255D06C6009AF720 /* VGSShowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowTests.swift; sourceTree = "<group>"; };
 		44A79FB7255D06C6009AF720 /* VGSShowTest+Subscribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSShowTest+Subscribe.swift"; sourceTree = "<group>"; };
 		44A79FB9255D06C6009AF720 /* VGSJSONData+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSJSONData+Bundle.swift"; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				44A79FB3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift */,
-				44A79FB4255D06C6009AF720 /* VGSJSONSelectorTests.swift */,
+				44A79FB4255D06C6009AF720 /* VGSJSONContentPathsTests.swift */,
 			);
 			path = ParsingTests;
 			sourceTree = "<group>";
@@ -649,7 +649,7 @@
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
 				44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */,
 				44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */,
-				44A79FC4255D06C6009AF720 /* VGSJSONSelectorTests.swift in Sources */,
+				44A79FC4255D06C6009AF720 /* VGSJSONContentPathsTests.swift in Sources */,
 				44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */,
 				44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */,
 			);

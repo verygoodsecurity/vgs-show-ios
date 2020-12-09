@@ -84,7 +84,7 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.font = font
 		cardNumberLabel.backgroundColor = backgroundColor
 		cardNumberLabel.layer.cornerRadius = cornerRadius
-		cardNumberLabel.fieldName = "json.account_number2"
+		cardNumberLabel.contentPath = "json.account_number2"
 
 		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
 		do {
@@ -107,7 +107,7 @@ class ShowDemoViewController: UIViewController {
 		expDateLabel.backgroundColor = backgroundColor
 		expDateLabel.layer.cornerRadius = cornerRadius
 		expDateLabel.characterSpacing = 0.83
-		expDateLabel.fieldName = "json.exp_date"
+		expDateLabel.contentPath = "json.exp_date"
 		expDateLabel.delegate = self
 
 		stackView.addArrangedSubview(cardNumberLabel)

@@ -13,8 +13,8 @@ import UIKit
 /// Protocol describing VGS Show View ViewModel
 internal protocol VGSViewModelProtocol {
 
-	/// KeyPath to decode.
-	var decodingKeyPath: String { get set }
+	/// Content path to decode.
+	var decodingContentPath: String { get set }
 
 	/// Decoding content mode.
 	var decodingContentMode: VGSShowDecodingContentMode {get set}
@@ -43,7 +43,7 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 
   weak var view: VGSBaseViewProtocol?
 
-	var decodingKeyPath: String = ""
+	var decodingContentPath: String = ""
 
 	var decodingContentMode: VGSShowDecodingContentMode = .text
 
