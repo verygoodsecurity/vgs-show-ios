@@ -42,11 +42,11 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-9u-5qy">
-                                <rect key="frame" x="132" y="727" width="150" height="50"/>
+                                <rect key="frame" x="122" y="727" width="170" height="50"/>
                                 <color key="backgroundColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="00R-Wc-mDX"/>
-                                    <constraint firstAttribute="width" constant="150" id="htK-Rt-K7Y"/>
+                                    <constraint firstAttribute="width" constant="170" id="htK-Rt-K7Y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -110,6 +110,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Collect" id="3Oj-ez-TTW"/>
                     <connections>
+                        <outlet property="collectButton" destination="EUh-9u-5qy" id="g2N-fu-MoW"/>
                         <outlet property="resultLabel" destination="z2A-2p-LUW" id="zmN-hO-Wvi"/>
                         <outlet property="stackView" destination="TW0-s7-lRU" id="bgf-QO-prW"/>
                         <outlet property="titleLabel" destination="DLq-dK-lxM" id="8MV-Bh-54l"/>
