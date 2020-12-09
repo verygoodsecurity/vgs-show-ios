@@ -8,8 +8,8 @@ VGS Show - is a product suite that allows customers to reveal and show informati
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/verygoodsecurity/vgs-show-ios/canary/not_revealed_data_img.png" width="200" alt="VGS Show iOS SDK Aliases" hspace="20">
-  <img src="https://raw.githubusercontent.com/verygoodsecurity/vgs-show-ios/canary/revealed_data_img.png" width="200" alt="VGS Show iOS SDK Revealed Data" hspace="20">
+  <img src="./not_revealed_data_img.png" width="200" alt="VGS Show iOS SDK Aliases" hspace="20">
+  <img src="./revealed_data_img.png" width="200" alt="VGS Show iOS SDK Revealed Data" hspace="20">
 </p>
 
 
