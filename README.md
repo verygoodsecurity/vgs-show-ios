@@ -1,8 +1,6 @@
 [![UT](https://img.shields.io/badge/Unit_Test-pass-green)]()
 [![license](https://img.shields.io/github/license/verygoodsecurity/vgs-show-ios.svg)]()
-[![Platform](https://img.shields.io/cocoapods/p/VGSShowSDK.svg?style=flat)](https://github.com/verygoodsecurity/vgs-show-ios)
 [![swift](https://img.shields.io/badge/swift-5-orange)]()
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/VGSShowSDK.svg?style=flat)](https://cocoapods.org/pods/VGSShowSDK)
 
 # VGS Show iOS SDK
 
@@ -13,7 +11,8 @@ VGS Show - is a product suite that allows customers to reveal and show informati
 You should have your organization registered at the <a href="https://dashboard.verygoodsecurity.com/dashboard/" target="_blank">VGS Dashboard</a>.
 Sandbox vault will be pre-created for you. You should use your <vault id> and have already created aliases to start revealing data. If you need to create aliases, you can use [VGSCollecSDK](https://github.com/verygoodsecurity/vgs-collect-ios) with same <vault id> to create some, or try one of the methods described in our [docs](https://www.verygoodsecurity.com/docs/guides/inbound-connection#try-it-out).
 
-# Integration
+
+## Integration
 
 ### CocoaPods
 
@@ -32,13 +31,7 @@ Add the following line  to your `Cartfile`:
 github "verygoodsecurity/vgs-show-ios"
 ```
 
-then run:
-
-```ruby
-carthage update --platform iOS
-```
-
-Don't forget to import `VGSShowSDK` into your project.
+Don't forget to import `VGSShowSDK.framework` into your project.
 
 
 ### Swift Package Manager, Xcode 12+ (beta)
@@ -54,6 +47,7 @@ dependencies: [
 ```
 
 > NOTE: Swift Packange Manager support still in beta testing.
+
 
 ## Usage
 
@@ -83,8 +77,8 @@ override func viewDidLoad() {
     /// ...
     
     // Setup content path in reveal response
-    cardNumberLabel.fieldName = "cardData.cardNumber"
-    expDateLabel.fieldName = "cardData.expDate"
+    cardNumberLabel.contentPath = "cardData.cardNumber"
+    expDateLabel.contentPath = "cardData.expDate"
 
     // Register VGSShow views in vgsShow instance.
     vgsShow.subscribe(cardNumberLabel)
@@ -122,6 +116,7 @@ private func configureUI() {
 }
 ...
 ```
+
 ### Make reveal data request
 
 In order to change aliases to the real data, you need to make reveal request. The aliases data will be revealed when the response goes through VGS proxy. If the request is success, revealed data will be automatically displayed in subscribed VGS Show UI Elements. You also can  send any additional data in the request payload.
@@ -153,13 +148,8 @@ func revealData() {
 }
 ```
 
-*
 ## Demo Application
-Demo application for collecting card data on iOS is <a href="https://github.com/vgs-samples/very-spacy-food">here</a>.
-
-### Documentation
--  SDK Documentation: https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk
--  API Documentation: https://verygoodsecurity.github.io/vgs-show-ios/
+Demo application for collecting card data on iOS is <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/main/VGSShowDemoApp">here</a>.
 
 ### Releases
 To follow `VGSShowSDK` updates and changes check the [releases](https://github.com/verygoodsecurity/vgs-show-ios/releases) page.
@@ -172,9 +162,8 @@ VGSAnalyticsClient.shared.shouldCollectAnalytics = false
 ```
 
 ## Dependencies
-- iOS 11+
+- iOS 10+
 - Swift 5
 
 ## License
-
 VGSShow iOS SDK is released under the MIT license. [See LICENSE](https://github.com/verygoodsecurity/vgs-show-ios/blob/master/LICENSE) for details.
