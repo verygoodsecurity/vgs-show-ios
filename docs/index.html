@@ -58,9 +58,6 @@
             <a href="Global%20Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Global%20Variables.html#/s:10VGSShowSDK31VGSSDKErrorDataPartiallyDecodedSSvp">VGSSDKErrorDataPartiallyDecoded</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Global%20Variables.html#/s:10VGSShowSDK0A14SDKErrorDomainSSvp">VGSShowSDKErrorDomain</a>
               </li>
             </ul>
@@ -85,14 +82,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Extensions/VGSJSONData.html">VGSJSONData</a>
               </li>
             </ul>
           </li>
@@ -127,12 +116,174 @@
         <section>
           <section class="section">
             
-            <h1 id='vgs-show-ios' class='heading'>vgs-show-ios</h1>
+            <p><a href=""><img src="https://img.shields.io/badge/Unit_Test-pass-green" alt="UT"></a>
+<a href=""><img src="https://img.shields.io/github/license/verygoodsecurity/vgs-show-ios.svg" alt="license"></a>
+<a href="https://github.com/verygoodsecurity/vgs-show-ios"><img src="https://img.shields.io/cocoapods/p/VGSShowSDK.svg?style=flat" alt="Platform"></a>
+<a href=""><img src="https://img.shields.io/badge/swift-5-orange" alt="swift"></a>
+<a href="https://cocoapods.org/pods/VGSShowSDK"><img src="https://img.shields.io/cocoapods/v/VGSShowSDK.svg?style=flat" alt="Cocoapods Compatible"></a></p>
+<h1 id='vgs-show-ios-sdk' class='heading'>VGS Show iOS SDK</h1>
+
+<p>VGS Show - is a product suite that allows customers to reveal and show information securely without possession of it. VGSShow iOS SDK  allows you to securely reveal data from VGS and display it via forms without having to have that data pass through your systems. The form UI Elements behave like traditional labels while securing access to the unsecured data.</p>
+<h2 id='before-you-start' class='heading'>Before you start</h2>
+
+<p>You should have your organization registered at the <a href="https://dashboard.verygoodsecurity.com/dashboard/" target="_blank">VGS Dashboard</a>.
+Sandbox vault will be pre-created for you. You should use your <vault id> and have already created aliases to start revealing data. If you need to create aliases, you can use <a href="https://github.com/verygoodsecurity/vgs-collect-ios">VGSCollecSDK</a> with same <vault id> to create some, or try one of the methods described in our <a href="https://www.verygoodsecurity.com/docs/guides/inbound-connection#try-it-out">docs</a>.</p>
+<h1 id='integration' class='heading'>Integration</h1>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p><a href="https://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate VGSShowSDK into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'VGSShowSDK'</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>VGCollectSDK is also available through <a href="https://github.com/Carthage/Carthage">Carthage</a>.
+Add the following line  to your <code>Cartfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"verygoodsecurity/vgs-show-ios"</span>
+</code></pre>
+
+<p>then run:</p>
+<pre class="highlight ruby"><code><span class="n">carthage</span> <span class="n">update</span> <span class="o">--</span><span class="n">platform</span> <span class="n">iOS</span>
+</code></pre>
+
+<p>Don&rsquo;t forget to import <code>VGSShowSDK</code> into your project.</p>
+<h3 id='swift-package-manager-xcode-12-beta' class='heading'>Swift Package Manager, Xcode 12+ (beta)</h3>
+
+<p>The <a href="https://swift.org/package-manager/">Swift Package Manager</a> is a tool for automating the distribution of Swift code and is integrated into the <code>swift</code> compiler.</p>
+
+<p>Once you have your Swift package set up, add VGSShowSDK dependency.</p>
+<pre class="highlight swift"><code><span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
+    <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/verygoodsecurity/vgs-show-ios"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"1.0.0"</span><span class="p">))</span>
+<span class="p">]</span>
+</code></pre>
+
+<blockquote>
+<p>NOTE: Swift Packange Manager support still in beta testing.</p>
+</blockquote>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='import-sdk-into-your-file' class='heading'>Import SDK into your file</h3>
+<pre class="highlight swift"><code>
+<span class="kd">import</span> <span class="kt">VGSShowSDK</span>
+
+</code></pre>
+<h3 id='create-vgsshow-instance-and-vgs-ui-elements' class='heading'>Create VGSShow instance and VGS UI Elements</h3>
+
+<p>Use your <code>&lt;vaultId&gt;</code> to initialize VGSShow instance. You can get it in your <a href="https://dashboard.verygoodsecurity.com/">organisation dashboard</a>.</p>
+<h3 id='code-example' class='heading'>Code example</h3>
+<pre class="highlight swift"><code>
+<span class="c1">/// VGSShow instance.</span>
+<span class="k">let</span> <span class="nv">vgsShow</span> <span class="o">=</span> <span class="kt">VGSShow</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="s">"&lt;VAULT_ID&gt;"</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">)</span>
+
+<span class="c1">/// VGSShow views.</span>
+<span class="k">let</span> <span class="nv">cardNumberLabel</span> <span class="o">=</span> <span class="kt">VGSLabel</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">expDateLabel</span> <span class="o">=</span> <span class="kt">VGSLabel</span><span class="p">()</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+    <span class="c1">/// ...</span>
+
+    <span class="c1">// Setup content path in reveal response</span>
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">fieldName</span> <span class="o">=</span> <span class="s">"cardData.cardNumber"</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">fieldName</span> <span class="o">=</span> <span class="s">"cardData.expDate"</span>
+
+    <span class="c1">// Register VGSShow views in vgsShow instance.</span>
+    <span class="n">vgsShow</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">cardNumberLabel</span><span class="p">)</span>
+    <span class="n">vgsShow</span><span class="o">.</span><span class="nf">subscribe</span><span class="p">(</span><span class="n">expDateLabel</span><span class="p">)</span>
+
+    <span class="c1">// Configure UI.</span>
+    <span class="nf">configureUI</span><span class="p">()</span>
+
+    <span class="c1">/// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// Configure VGS Show UI Elements.</span>
+<span class="kd">private</span> <span class="kd">func</span> <span class="nf">configureUI</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">paddings</span> <span class="o">=</span> <span class="kt">UIEdgeInsets</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nv">left</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="nv">right</span><span class="p">:</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">textColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">white</span>
+    <span class="k">let</span> <span class="nv">borderColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">clear</span>
+    <span class="k">let</span> <span class="nv">font</span> <span class="o">=</span> <span class="kt">UIFont</span><span class="o">.</span><span class="nf">systemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">backgroundColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">systemBlue</span>
+    <span class="k">let</span> <span class="nv">cornerRadius</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">textColor</span>
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">paddings</span> <span class="o">=</span> <span class="n">paddings</span>
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="n">borderColor</span>
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">font</span>
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">backgroundColor</span>
+    <span class="n">cardNumberLabel</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="n">cornerRadius</span>
+
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">textColor</span> <span class="o">=</span> <span class="n">textColor</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">paddings</span> <span class="o">=</span> <span class="n">paddings</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="n">borderColor</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="n">font</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="n">backgroundColor</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="n">cornerRadius</span>
+    <span class="n">expDateLabel</span><span class="o">.</span><span class="n">characterSpacing</span> <span class="o">=</span> <span class="mf">0.83</span>
+<span class="p">}</span>
+<span class="o">...</span>
+</code></pre>
+<h3 id='make-reveal-data-request' class='heading'>Make reveal data request</h3>
+
+<p>In order to change aliases to the real data, you need to make reveal request. The aliases data will be revealed when the response goes through VGS proxy. If the request is success, revealed data will be automatically displayed in subscribed VGS Show UI Elements. You also can  send any additional data in the request payload.</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">revealData</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="c1">/// set custom headers</span>
+  <span class="n">vgsShow</span><span class="o">.</span><span class="n">customHeaders</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="s">"custom-header"</span><span class="p">:</span> <span class="s">"custom data"</span>
+  <span class="p">]</span>
+
+  <span class="c1">/// send any additional data to your backend</span>
+  <span class="k">let</span> <span class="nv">customPayload</span> <span class="o">=</span> <span class="p">[</span><span class="s">"CustomKey"</span> <span class="p">:</span> <span class="s">"CustomValue"</span><span class="p">]()</span>
+
+  <span class="c1">/// make a reveal request</span>
+  <span class="n">vgsShow</span><span class="o">.</span><span class="nf">request</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="s">"post"</span><span class="p">,</span>
+                                  <span class="nv">method</span><span class="p">:</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span>
+                <span class="nv">payload</span><span class="p">:</span> <span class="n">customPayload</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">requestResult</span><span class="p">)</span> <span class="k">in</span>
+
+      <span class="k">switch</span> <span class="n">requestResult</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="k">let</span> <span class="nv">code</span><span class="p">):</span>
+          <span class="k">self</span><span class="o">.</span><span class="n">copyCardNumberButton</span><span class="o">.</span><span class="n">isEnabled</span> <span class="o">=</span> <span class="kc">true</span>
+          <span class="nf">print</span><span class="p">(</span><span class="s">"vgsshow success, code: </span><span class="se">\(</span><span class="n">code</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+      <span class="k">case</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="k">let</span> <span class="nv">code</span><span class="p">,</span> <span class="k">let</span> <span class="nv">error</span><span class="p">):</span>
+          <span class="nf">print</span><span class="p">(</span><span class="s">"vgsshow failed, code: </span><span class="se">\(</span><span class="n">code</span><span class="se">)</span><span class="s">, error: </span><span class="se">\(</span><span class="n">error</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>*</p>
+<h2 id='demo-application' class='heading'>Demo Application</h2>
+
+<p>Demo application for collecting card data on iOS is <a href="https://github.com/vgs-samples/very-spacy-food">here</a>.</p>
+<h3 id='documentation' class='heading'>Documentation</h3>
+
+<ul>
+<li>SDK Documentation: <a href="https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk">https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk</a></li>
+<li>API Documentation: <a href="https://verygoodsecurity.github.io/vgs-show-ios/">https://verygoodsecurity.github.io/vgs-show-ios/</a></li>
+</ul>
+<h3 id='releases' class='heading'>Releases</h3>
+
+<p>To follow <code>VGSShowSDK</code> updates and changes check the <a href="https://github.com/verygoodsecurity/vgs-show-ios/releases">releases</a> page.</p>
+<h3 id='metrics' class='heading'>Metrics</h3>
+
+<p>VGSShow tracks a few key metrics to understand SDK features usage help us know what areas need improvement. No personal/sensitive information is collected.
+You can easily opt-out of metrics collection in <code>VGSAnalyticsClient</code>:</p>
+<pre class="highlight plaintext"><code>VGSAnalyticsClient.shared.shouldCollectAnalytics = false
+</code></pre>
+<h2 id='dependencies' class='heading'>Dependencies</h2>
+
+<ul>
+<li>iOS 11+</li>
+<li>Swift 5</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p>VGSShow iOS SDK is released under the MIT license. <a href="https://github.com/verygoodsecurity/vgs-show-ios/blob/master/LICENSE">See LICENSE</a> for details.</p>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://github.com/verygoodsecurity/vgs-show-ios" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://github.com/verygoodsecurity/vgs-show-ios" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
