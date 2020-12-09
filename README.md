@@ -7,6 +7,29 @@
 VGS Show - is a product suite that allows customers to reveal and show information securely without possession of it. VGSShow iOS SDK  allows you to securely reveal data from VGS and display it via forms without having to have that data pass through your systems. The form UI Elements behave like traditional labels while securing access to the unsecured data.
 
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/verygoodsecurity/vgs-show-ios/canary/not_revealed_data_img.png" width="200" alt="VGS Show iOS SDK Aliases" hspace="20">
+  <img src="https://raw.githubusercontent.com/verygoodsecurity/vgs-show-ios/canary/revealed_data_img.png" width="200" alt="VGS Show iOS SDK Revealed Data" hspace="20">
+</p>
+
+
+<!--ts-->
+   * [Before you start](#before-you-start)
+   * [Integration](#integration)
+      * [CocoaPods](#cocoapods)
+      * [Carthage](#carthage)
+      * [Swift Package Manager](#swift-package-manager-xcode-12-beta) 
+   * [Usage](#usage)
+      * [Import SDK](#import-sdk)
+      * [Create VGSShow instance and VGS UI Elements](#create-vgsshow-instance-and-vgs-ui-elements)
+      * [Make reveal data request](#make-reveal-data-request)
+      * [Demo Application](#demo-application)
+      * [Releases](#releases)
+      * [Metrics](#metrics)
+   * [Dependencies](#dependencies)
+   * [License](#license)
+<!--te-->
+
 ## Before you start
 You should have your organization registered at the <a href="https://dashboard.verygoodsecurity.com/dashboard/" target="_blank">VGS Dashboard</a>.
 Sandbox vault will be pre-created for you. You should use your <vault id> and have already created aliases to start revealing data. If you need to create aliases, you can use [VGSCollecSDK](https://github.com/verygoodsecurity/vgs-collect-ios) with same <vault id> to create some, or try one of the methods described in our [docs](https://www.verygoodsecurity.com/docs/guides/inbound-connection#try-it-out).
@@ -51,7 +74,7 @@ dependencies: [
 
 ## Usage
 
-### Import SDK into your file
+### Import SDK
 ```swift
 
 import VGSShowSDK
