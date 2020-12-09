@@ -16,6 +16,7 @@ class CollectViewController: UIViewController {
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var resultLabel: UILabel!
 	@IBOutlet fileprivate weak var titleLabel: UILabel!
+	@IBOutlet fileprivate weak var collectButton: UIButton!
 
 	// MARK: - Vars
 
@@ -32,6 +33,7 @@ class CollectViewController: UIViewController {
 		super.viewDidLoad()
 
 		setupUI()
+		setupCollectButtonUI()
 		setupElementsConfiguration()
 
 		resultLabel.font = UIFont.demoAppTextOutputFont
@@ -93,6 +95,14 @@ class CollectViewController: UIViewController {
 		}
 	}
 
+	private func setupCollectButtonUI() {
+		collectButton.setTitle("Collect", for: .normal)
+		collectButton.setTitleColor(.white, for: .normal)
+
+		collectButton.setTitle("Loading...", for: .disabled)
+		collectButton.setTitleColor(UIColor.white.withAlphaComponent(0.4), for: .disabled)
+	}
+
 	// MARK: - Actions
 
 	@IBAction func uploadButtonAction(_ sender: Any) {
@@ -103,9 +113,12 @@ class CollectViewController: UIViewController {
 		var extraData = [String: Any]()
 		extraData["customKey"] = "Custom Value"
 
+		collectButton.isEnabled = false
+
 		// New sendRequest func
 		vgsCollect.sendData(path: "/post", extraData: extraData) { [weak self](response) in
 
+			self?.collectButton.isEnabled = true
 			switch response {
 			case .success(_, let data, _):
 				if let data = data, let jsonData = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
