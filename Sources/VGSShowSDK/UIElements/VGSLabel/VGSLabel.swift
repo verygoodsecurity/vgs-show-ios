@@ -91,13 +91,13 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		textFormattersContainer.addTransformationRegex(transformationRegex)
 	}
 
-  /// Name that will be associated with `VGSLabel` and used as a decoding keyPath on request response with revealed data from your organization vault.
-  public var fieldName: String! {
+  /// Name that will be associated with `VGSLabel` and used as a decoding contentPath on request response with revealed data from your organization vault.
+  public var contentPath: String! {
     set {
-      labelModel.decodingKeyPath = newValue
+      labelModel.decodingContentPath = newValue
     }
     get {
-      return model.decodingKeyPath
+      return model.decodingContentPath
     }
   }
   

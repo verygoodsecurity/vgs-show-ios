@@ -14,9 +14,9 @@ class VGSLabelTests: XCTestCase {
   /// Test valid jsonSelectors.
   func testLabelTextAttributes() {
     let label = VGSLabel()
-    label.fieldName = "test.label"
+    label.contentPath = "test.label"
     
-    XCTAssertTrue(label.fieldName == "test.label")
+    XCTAssertTrue(label.contentPath == "test.label")
     XCTAssertTrue(label.isEmpty)
     
     label.label.secureText = "123"

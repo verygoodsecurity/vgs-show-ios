@@ -9,7 +9,7 @@ import Foundation
 
 extension VGSShow {
 	/**
-	Send request to reveal data on specific path. `VGSShow` instance will use all subsribed elements keyPaths to reveal data.
+	Send request to reveal data on specific path. `VGSShow` instance will use all subsribed elements contentPaths to reveal data.
 
 	- Parameters:
 	- path: Inbound rout path for your organization vault.
@@ -94,28 +94,28 @@ extension VGSShow {
 
 	private func revealDecodedResponse(_ json: VGSJSONData, code: Int, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
-		var unrevealedKeyPaths = [String]()
+		var unrevealedContentPaths = [String]()
 		revealModels.forEach { model in
 			// Reveal data.
 			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-			let decodingResult = decoder.decodeJSONForKeyPath(model.decodingKeyPath, json: json)
+			let decodingResult = decoder.decodeJSONForContentPath(model.decodingContentPath, json: json)
 
 			// Update models with decoding result.
 			model.handleDecodingResult(decodingResult)
 
-			// Collect unrevealed keyPaths.
+			// Collect unrevealed contentPaths.
 			if decodingResult.error != nil {
-				unrevealedKeyPaths.append(model.decodingKeyPath)
+				unrevealedContentPaths.append(model.decodingContentPath)
 			}
 		}
 		// Handle unrevealed keys.
-		handleUnrevealedKeypaths(unrevealedKeyPaths, code, completion: block)
+		handleUnrevealedContentPaths(unrevealedContentPaths, code, completion: block)
 	}
 
-	private func handleUnrevealedKeypaths(_ unrevealedKeyPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
+	private func handleUnrevealedContentPaths(_ unrevealedContentPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
-		if !unrevealedKeyPaths.isEmpty {
-			print("⚠️ VGSShowSDK WARNING! Cannot reveal data for fields: \(unrevealedKeyPaths)")
+		if !unrevealedContentPaths.isEmpty {
+			print("⚠️ VGSShowSDK WARNING! Cannot reveal data for contentPaths: \(unrevealedContentPaths)")
 		}
 
 		// Track success.

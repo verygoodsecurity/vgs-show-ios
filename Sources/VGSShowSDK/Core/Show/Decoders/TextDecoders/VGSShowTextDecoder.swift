@@ -9,9 +9,9 @@ import Foundation
 
 final internal class VGSShowTextDecoder: VGSShowDecoderProtocol {
 
-	func decodeJSONForKeyPath(_ keyPath: String, json: VGSJSONData) -> VGSShowDecodingResult {
+	func decodeJSONForContentPath(_ contentPath: String, json: VGSJSONData) -> VGSShowDecodingResult {
 
-		guard let serializedText: String = json.valueForKeyPath(keyPath: keyPath) else {
+		guard let serializedText: String = json.valueForKeyPath(keyPath: contentPath) else {
 			return .failure(VGSShowError(type: .fieldNotFound))
 		}
 		let textResult = VGSShowDecodedContent.text(serializedText)
