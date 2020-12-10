@@ -128,12 +128,14 @@ class CollectViewController: UIViewController {
 						let cardNumber = aliases["card_number"],
 						let expDate = aliases["exp_date"] {
 
+						
+
 						self?.resultLabel.text =  """
 						card_namber: \(cardNumber)\n
 						expiration_date: \(expDate)
 						"""
-						let payload = ["card_number": cardNumber,
-													 "exp_date": expDate]
+						let payload = ["card_data.card_number": cardNumber,
+													 "card_data.exp_date": expDate]
 
 						DemoAppConfig.shared.collectPayload = payload
 						print(payload)

@@ -80,6 +80,7 @@ extension VGSShow {
 			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
 			switch jsonDecodingResult {
 			case .success(let json):
+				print("VGSShow response: \(json)")
 				// Reveal data.
 				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 
