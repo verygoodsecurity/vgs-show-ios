@@ -33,7 +33,7 @@ extension VGSShow {
 		}
 
 		// Sends request.
-		apiClient.sendRequest(path: path, method: method, value: payload ) {[weak self] (requestResult) in
+		apiClient.sendRequestWithJSON(path: path, method: method, value: payload ) {[weak self] (requestResult) in
 
 			guard let strongSelf = self else {return}
 
@@ -41,25 +41,10 @@ extension VGSShow {
 			case .success(let code, let data, let response):
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 			case .failure(let code, let data, let response, let error):
-				print("❗VGSShowSDK response error status code: \(code)")
-				if let httpResponse = response as? HTTPURLResponse {
-					print("❗VGSShowSDK response error headers:")
-					for erorHeader in httpResponse.allHeaderFields {
-						print("\(erorHeader.key) : \(erorHeader.value)")
-					}
-				}
-				if let errorData = data {
-					if let bodyErrorText = String(data: errorData, encoding: String.Encoding.utf8) {
-						print("❗VGSShowSDK response error: info:")
-						print("\(bodyErrorText)")
-					}
-				}
+				VGSShowLogger.logErrorResponse(response, data: data, error: error, code: code)
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
-
-				print("❗VGSShowSDK response error message: \(errorMessage)")
-
 				strongSelf.trackErrorEvent(with: code, message: errorMessage, type: .submit, extraInfo: extraAnalyticsInfo)
 
 				block(.failure(code, error))

@@ -5,6 +5,7 @@
 //  Created by Eugene on 26.10.2020.
 //
 
+
 import Foundation
 
 /// Key-value data type, usually used for response format.
@@ -32,6 +33,58 @@ public enum VGSHTTPMethod: String {
 }
 
 internal class APIClient {
+
+	typealias VGSAPIEncodingSuccess = (_ data: Data?) -> ()
+	typealias VGSAPIEncodingFailure = (_ error: VGSShowError) -> ()
+
+	internal enum PayloadType {
+		case json(_ payload: VGSJSONData?)
+
+		func encodeToRequestBodyData(success: VGSAPIEncodingSuccess, failure: VGSAPIEncodingFailure) {
+			switch self {
+			case .json(let payload):
+				guard let json = payload else {
+					// No JSON to encode.
+					success(nil)
+					return
+				}
+
+				if !JSONSerialization.isValidJSONObject(json) {
+					// Cannot send request if JSON is invalid.
+					let error = VGSShowError(type: .invalidJSONPayload)
+					failure(error)
+					return
+				}
+
+				guard let data = try? JSONSerialization.data(withJSONObject: json) else {
+					// Cannot send request if JSON cannot be decoded to data.
+					let error = VGSShowError(type: .invalidJSONPayload)
+					failure(error)
+					return
+				}
+
+				success(data)
+			}
+		}
+
+		var additionalHeaders: [String: String] {
+			var additionalRequestHeaders = [String: String]()
+
+			switch self {
+			case .json:
+				additionalRequestHeaders["Content-Type"] = "application/json"
+			}
+
+			return additionalRequestHeaders
+		}
+
+		var rawPayload: Any? {
+			switch self {
+			case .json(let json):
+				return json
+			}
+		}
+	}
 
 	/// Response enum cases for SDK requests.
 	enum RequestResult {
@@ -67,7 +120,7 @@ internal class APIClient {
 
 	// MARK: - Vars
 
-	let baseURL: URL!
+	let baseURL: URL?
 
 	var customHeader: VGSHTTPHeaders?
 
@@ -89,51 +142,52 @@ internal class APIClient {
 
 	// MARK: - Initialization
 
-	init(baseURL url: URL) {
+	init(baseURL url: URL?) {
 		baseURL = url
 	}
 
 	// MARK: - Public
 
-	func sendRequest(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion ) {
-		// Add Headers
-		var headers: [String: String] = APIClient.defaultHttpHeaders
-		headers["Content-Type"] = "application/json"
+	func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion) {
 
-		// Add custom headers if need
-		if let customerHeaders = customHeader, !customerHeaders.isEmpty {
-			customerHeaders.keys.forEach({ (key) in
-				headers[key] = customerHeaders[key]
-			})
+		let payload = PayloadType.json(value)
+		sendDataRequest(path: path, method: method, payload: payload, block: block)
+	}
+
+	func sendDataRequest(path: String, method: VGSHTTPMethod = .post, payload: PayloadType, block: RequestCompletion) {
+		guard let apiURL = baseURL else {
+			let error = VGSShowError(type: .invalidConfigurationURL)
+			print("❗VGSShowSDK CONFIGURATION ERROR: NOT VALID ORGANIZATION PARAMETERS!!! CANNOT BUILD URL!!!")
+			block?(.failure(error.code, nil, nil, error))
+			return
 		}
 
-		// Setup URLRequest
-    var jsonData: Data?
-    if let value = value {
-      jsonData = try? JSONSerialization.data(withJSONObject: value)
-    }
-		let url = baseURL.appendingPathComponent(path)
+		payload.encodeToRequestBodyData {(data) in
+      // Setup headers.
+			let headers = provideHeaders(with: payload.additionalHeaders)
 
-		var request = URLRequest(url: url)
-		request.httpBody = jsonData
-		request.httpMethod = method.rawValue
-		request.allHTTPHeaderFields = headers
+			// Setup URLRequest.
+			let url = apiURL.appendingPathComponent(path)
 
-		print("⬆️ VGSShowSDK request url: \(url)")
-		if let headers = request.allHTTPHeaderFields {
-			print("⬆️ VGSShowSDK request headers: \(headers)")
+			var request = URLRequest(url: url)
+			request.httpBody = data
+			request.httpMethod = method.rawValue
+			request.allHTTPHeaderFields = headers
+
+			// Log request.
+			VGSShowLogger.logRequest(request, payload: payload)
+
+			// Perform request.
+			self.performRequest(request: request, completion: block)
+		} failure: { (error) in
+			print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload), error: \(error)")
+			block?(.failure(error.code, nil, nil, error))
 		}
-
-		if let payload = value {
-			print("⬆️ VGSShowSDK request payload: \(payload)")
-		}
-
-		performRequest(request: request, value: value, completion: block)
 	}
 
 	// MARK: - Private
 
-	private func performRequest(request: URLRequest, value: VGSJSONData?, completion block: RequestCompletion) {
+	private func performRequest(request: URLRequest, completion block: RequestCompletion) {
 		// Send data
 		urlSession.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {
@@ -153,5 +207,24 @@ internal class APIClient {
 				}
 			}
 		}.resume()
+	}
+
+	// MARK: - Helpers
+
+	private func provideHeaders(with additionalRequestHeaders: [String: String]) -> [String: String] {
+		var headers: [String: String] = APIClient.defaultHttpHeaders
+
+		// Add custom headers if need
+		if let customerHeaders = customHeader, !customerHeaders.isEmpty {
+			customerHeaders.keys.forEach({ (key) in
+				headers[key] = customerHeaders[key]
+			})
+		}
+
+		additionalRequestHeaders.keys.forEach({ (key) in
+			headers[key] = additionalRequestHeaders[key]
+		})
+
+		return headers
 	}
 }
