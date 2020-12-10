@@ -25,6 +25,9 @@ public enum VGSErrorType: Int {
 
 	/// When payload is invalid JSON.
 	case invalidJSONPayload = 1404
+
+	/// When tenant config is invalid.
+	case invalidConfigurationURL = 1480
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
