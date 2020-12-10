@@ -86,7 +86,7 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.font = font
 		cardNumberLabel.backgroundColor = backgroundColor
 		cardNumberLabel.layer.cornerRadius = cornerRadius
-		cardNumberLabel.contentPath = "json.account_number2"
+		cardNumberLabel.contentPath = "json.card_number"
 
 		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
 		do {
