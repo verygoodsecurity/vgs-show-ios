@@ -109,28 +109,29 @@ internal class APIClient {
 			return
 		}
 
-		// swiftlint:disable:next superfluous_disable_command multiple_closures_with_trailing_closure no_space_in_method_call
-		payload.encodeToRequestBodyData {(data) in
-      // Setup headers.
-			let headers = provideHeaders(with: payload.additionalHeaders)
+		let encodingResult = payload.encodeToRequestBodyData()
 
-			// Setup URLRequest.
-			let url = apiURL.appendingPathComponent(path)
+		switch encodingResult {
+		case .success(let data):
+		      // Setup headers.
+					let headers = provideHeaders(with: payload.additionalHeaders)
 
-			var request = URLRequest(url: url)
-			request.httpBody = data
-			request.httpMethod = method.rawValue
-			request.allHTTPHeaderFields = headers
+					// Setup URLRequest.
+					let url = apiURL.appendingPathComponent(path)
 
-			// Log request.
-			VGSShowLogger.logRequest(request, payload: payload)
+					var request = URLRequest(url: url)
+					request.httpBody = data
+					request.httpMethod = method.rawValue
+					request.allHTTPHeaderFields = headers
 
-			// Perform request.
-			self.performRequest(request: request, completion: block)
-			// swiftlint:disable:next superfluous_disable_command multiple_closures_with_trailing_closure 
-		} failure: { (error) in
-			print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload), error: \(error)")
-			block?(.failure(error.code, nil, nil, error))
+					// Log request.
+					VGSShowLogger.logRequest(request, payload: payload)
+
+					// Perform request.
+					self.performRequest(request: request, completion: block)
+		case .failure(let error):
+					print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload), error: \(error)")
+					block?(.failure(error.code, nil, nil, error))
 		}
 	}
 

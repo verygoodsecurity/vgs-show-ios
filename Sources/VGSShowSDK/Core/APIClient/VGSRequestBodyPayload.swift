@@ -8,9 +8,6 @@ import Foundation
 /// Request payload body.
 internal enum VGSRequestPayloadBody {
 
-	typealias EncodingSuccess = (_ data: Data?) -> Void
-	typealias EncodingFailure = (_ error: VGSShowError) -> Void
-
 	/**
 	 JSON payload.
 
@@ -23,30 +20,27 @@ internal enum VGSRequestPayloadBody {
 	/// - Parameters:
 	///   - success: `EncodingSuccess` completion block.
 	///   - failure: `EncodingFailure` completion block.
-	internal func encodeToRequestBodyData(success: EncodingSuccess, failure: EncodingFailure) {
+	internal func encodeToRequestBodyData() -> Result<Data?, VGSShowError> {
 		switch self {
 		case .json(let payload):
 			guard let json = payload else {
 				// No JSON to encode.
-				success(nil)
-				return
+				return .success(nil)
 			}
 
 			if !JSONSerialization.isValidJSONObject(json) {
 				// Cannot send request if JSON is invalid.
 				let error = VGSShowError(type: .invalidJSONPayload)
-				failure(error)
-				return
+				return .failure(error)
 			}
 
 			guard let data = try? JSONSerialization.data(withJSONObject: json) else {
 				// Cannot send request if JSON cannot be decoded to data.
 				let error = VGSShowError(type: .invalidJSONPayload)
-				failure(error)
-				return
+				return .failure(error)
 			}
 
-			success(data)
+			return .success(data)
 		}
 	}
 
