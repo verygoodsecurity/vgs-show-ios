@@ -8,7 +8,7 @@ import Foundation
 internal class VGSShowLogger {
 
 	internal static func logRequest(_ request: URLRequest, payload: APIClient.PayloadType) {
-		print("⬆️ VGSShowSDK request url: \(request.url?.absoluteString)")
+		print("⬆️ VGSShowSDK request url: \(stringFromURL(request.url))")
 		if let headers = request.allHTTPHeaderFields {
 			print("⬆️ VGSShowSDK request headers: \(headers)")
 		}
@@ -18,17 +18,17 @@ internal class VGSShowLogger {
 	}
 
 	internal static func logErrorResponse(_ response: URLResponse?, data: Data?, error: Error?, code: Int) {
-		print("⬇️❗VGSShowSDK request failed: url: \(response?.url?.absoluteString)")
-		print("⬇️❗VGSShowSDK request failed: status code: \(code)")
+		print("❗Failed ⬇️ VGSShowSDK request url: \(stringFromURL(response?.url))")
+		print("❗Failed ⬇️ VGSShowSDK response status code: \(code)")
 		if let httpResponse = response as? HTTPURLResponse {
-			print("⬇️❗VGSShowSDK request failed: headers:")
+			print("❗Failed ⬇️ VGSShowSDK response headers:")
 			for erorHeader in httpResponse.allHeaderFields {
 				print("\(erorHeader.key) : \(erorHeader.value)")
 			}
 		}
 		if let errorData = data {
 			if let bodyErrorText = String(data: errorData, encoding: String.Encoding.utf8) {
-				print("⬇️❗VGSShowSDK request failed, extra info:")
+				print("❗Failed ⬇️ VGSShowSDK response extra info:")
 				print("\(bodyErrorText)")
 			}
 		}
@@ -36,15 +36,15 @@ internal class VGSShowLogger {
 		// Track error.
 		let errorMessage = (error as NSError?)?.localizedDescription ?? ""
 
-		print("⬇️❗VGSShowSDK response error message: \(errorMessage)")
+		print("❗Failed ⬇️ VGSShowSDK response error message: \(errorMessage)")
 	}
 
 	internal static func logSuccessResponse(_ response: URLResponse?, data: Data?, code: Int, responseFormat: VGSShowResponseDecodingFormat) {
-		print("⬇️ ✅  VGSShowSDK request success, url: \(response?.url?.absoluteString)")
-		print("⬇️ ✅ VGSShowSDK request success, code: \(code)")
+		print("✅ Success ⬇️ VGSShowSDK request url: \(stringFromURL(response?.url))")
+		print("✅ Success ⬇️ VGSShowSDK response code: \(code)")
 
 		if let httpResponse = response as? HTTPURLResponse {
-			print("⬇️ ✅ VGSShowSDK request success: headers:")
+			print("✅ Success ⬇️ VGSShowSDK response headers:")
 			for erorHeader in httpResponse.allHeaderFields {
 				print("\(erorHeader.key) : \(erorHeader.value)")
 			}
@@ -54,10 +54,15 @@ internal class VGSShowLogger {
 			switch responseFormat {
 			case .json:
 				if case .success(let json) = VGSShowRawDataDecoder().decodeRawDataToJSON(rawData) {
-					print("⬇️ ✅ VGSShowSDK request success: response:")
+					print("✅ Success ⬇️ VGSShowSDK response JSON:")
 					print(json)
 				}
 			}
 		}
+	}
+
+	private static func stringFromURL(_ url: URL?) -> String {
+		guard let requestURL = url else {return ""}
+		return requestURL.absoluteString
 	}
 }

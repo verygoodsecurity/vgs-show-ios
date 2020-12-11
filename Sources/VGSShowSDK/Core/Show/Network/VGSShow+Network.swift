@@ -39,6 +39,9 @@ extension VGSShow {
 
 			switch requestResult {
 			case .success(let code, let data, let response):
+				// Log success response.
+				VGSShowLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
+
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 			case .failure(let code, let data, let response, let error):
 				VGSShowLogger.logErrorResponse(response, data: data, error: error, code: code)
