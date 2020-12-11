@@ -18,7 +18,9 @@ internal class VGSShowLogger {
 	}
 
 	internal static func logErrorResponse(_ response: URLResponse?, data: Data?, error: Error?, code: Int) {
-		print("❗Failed ⬇️ VGSShowSDK request url: \(stringFromURL(response?.url))")
+		if let url = response?.url {
+			print("❗Failed ⬇️ VGSShowSDK request url: \(stringFromURL(url))")
+		}
 		print("❗Failed ⬇️ VGSShowSDK response status code: \(code)")
 		if let httpResponse = response as? HTTPURLResponse {
 			print("❗Failed ⬇️ VGSShowSDK response headers:")
