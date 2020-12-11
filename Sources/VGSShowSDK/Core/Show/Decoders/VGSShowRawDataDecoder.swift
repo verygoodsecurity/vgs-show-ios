@@ -24,7 +24,7 @@ internal final class VGSShowRawDataDecoder: VGSShowRawDataDecodable {
 		}
 
 		guard let jsonData = try? JSONSerialization.jsonObject(with: rawData, options: []) as? VGSJSONData else {
-			return .failure(VGSShowError(type: .invalidJSON))
+			return .failure(VGSShowError(type: .responseIsInvalidJSON))
 		}
 
 		return .success(jsonData)
