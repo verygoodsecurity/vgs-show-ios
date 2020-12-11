@@ -23,5 +23,5 @@ internal struct VGSErrorInfo {
 /// Error info key.
 public typealias VGSErrorInfoKey = String
 
-/// An error domain string used to produce `VGSError` from `VGShowSDK` -  **"vgshow.sdk"**.
+/// An error domain string used to produce `VGSError` from `VGSShowSDK` -  **"vgsshow.sdk"**.
 public let VGSShowSDKErrorDomain = "vgsshow.sdk"

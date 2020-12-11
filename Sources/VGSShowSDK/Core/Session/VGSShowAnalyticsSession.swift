@@ -5,7 +5,7 @@
 
 import Foundation
 
-/// Holds shared VGSShow analytics session info.
+/// :nodoc:  Holds shared VGSShow analytics session info.
 public final class VGSShowAnalyticsSession {
 
 	// MARK: - Public

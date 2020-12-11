@@ -9,7 +9,6 @@ import Foundation
 
 /// Type of `VGSError` and it status code.
 public enum VGSErrorType: Int {
-	// MARK: - Other errors
 
 	/// When response type is not supported.
 	case unexpectedResponseType = 1400

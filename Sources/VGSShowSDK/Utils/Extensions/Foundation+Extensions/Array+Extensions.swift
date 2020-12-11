@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Array where Element: Hashable {
+internal extension Array where Element: Hashable {
 	func difference(from other: [Element]) -> [Element] {
 		let thisSet = Set(self)
 		let otherSet = Set(other)

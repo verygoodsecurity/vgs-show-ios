@@ -17,6 +17,8 @@ internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
 /// A view that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
+  // MARK: - Enums
+  
 	/// Text format to copy.
 	@objc public enum CopyTextFormat: Int {
 
