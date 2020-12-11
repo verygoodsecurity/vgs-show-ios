@@ -5,7 +5,6 @@
 //  Created by Eugene on 26.10.2020.
 //
 
-
 import Foundation
 
 /// Key-value data type, usually used for response format.
@@ -110,6 +109,7 @@ internal class APIClient {
 			return
 		}
 
+		// swiftlint:disable:next superfluous_disable_command multiple_closures_with_trailing_closure no_space_in_method_call
 		payload.encodeToRequestBodyData {(data) in
       // Setup headers.
 			let headers = provideHeaders(with: payload.additionalHeaders)
@@ -127,6 +127,7 @@ internal class APIClient {
 
 			// Perform request.
 			self.performRequest(request: request, completion: block)
+			// swiftlint:disable:next superfluous_disable_command multiple_closures_with_trailing_closure 
 		} failure: { (error) in
 			print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload), error: \(error)")
 			block?(.failure(error.code, nil, nil, error))
