@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Type of `VGSError`  and it status code.
+/// Type of `VGSError` and it status code.
 public enum VGSErrorType: Int {
 	// MARK: - Other errors
 
@@ -26,8 +26,30 @@ public enum VGSErrorType: Int {
 	/// When payload is invalid JSON.
 	case invalidJSONPayload = 1404
 
-	/// When tenant config is invalid.
+	/// When VGS config URL is not valid.
 	case invalidConfigurationURL = 1480
+
+	var message: String {
+
+		let text: String
+
+		switch self {
+		case .unexpectedResponseType:
+			text = "Unexpected response type"
+		case .unexpectedResponseDataFormat:
+			text = "Unexpected Response Data Format"
+		case .invalidJSON:
+			text = "Response cannot be decoded to JSON"
+		case .fieldNotFound:
+			text = "Field not found in specified path"
+		case .invalidJSONPayload:
+			text = "Payload is not valid JSON"
+		case .invalidConfigurationURL:
+			text = "VGS configuration URL is not valid"
+		}
+
+		return text
+	}
 }
 
 /// An error produced by `VGSShowSDK`. Works similar to default `NSError` in iOS.
