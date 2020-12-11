@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VGSLabel Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/VGSLabel" class="dashAnchor"></a>
+
+    <a title="VGSLabel Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          VGSShowSDK
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/verygoodsecurity/vgs-show-ios">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">VGSShowSDK Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      VGSLabel Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSLabel.html">VGSLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSLabel/CopyTextFormat.html">– CopyTextFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSShow.html">VGSShow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSShowError.html">VGSShowError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10VGSShowSDK0A14SDKErrorDomainSSvp">VGSShowSDKErrorDomain</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSEnvironment.html">VGSEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSErrorType.html">VGSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSHTTPMethod.html">VGSHTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK15VGSErrorInfoKeya">VGSErrorInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK14VGSHTTPHeadersa">VGSHTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>VGSLabel</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSLabel</span> <span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">VGSLabelProtocol</span></code></pre>
+
+                </div>
+              </div>
+            <p>A view that displays revealed text data.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Enums"></a>
+                <a name="//apple_ref/swift/Section/Enums" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Enums"></a>
+                  <h3 class="section-name"><p>Enums</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC14CopyTextFormatO"></a>
+                    <a name="//apple_ref/swift/Enum/CopyTextFormat" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC14CopyTextFormatO">CopyTextFormat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Text format to copy.</p>
+
+                        <a href="../Classes/VGSLabel/CopyTextFormat.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">enum</span> <span class="kt">CopyTextFormat</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L23-L39">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Delegates"></a>
+                <a name="//apple_ref/swift/Section/Delegates" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Delegates"></a>
+                  <h3 class="section-name"><p>Delegates</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC8delegateAA0C8Delegate_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC8delegateAA0C8Delegate_pSgvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The object that acts as the delegate of the VGSLabel.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L83">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20interface"></a>
+                <a name="//apple_ref/swift/Section/Public interface" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20interface"></a>
+                  <h3 class="section-name"><p>Public interface</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC22addTransformationRegex_8templateySo19NSRegularExpressionC_SStF"></a>
+                    <a name="//apple_ref/swift/Method/addTransformationRegex(_:template:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC22addTransformationRegex_8templateySo19NSRegularExpressionC_SStF">addTransformationRegex(_:template:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add transformation regex to format raw revealed text.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addTransformationRegex</span><span class="p">(</span><span class="n">_</span> <span class="nv">regex</span><span class="p">:</span> <span class="kt">NSRegularExpression</span><span class="p">,</span> <span class="nv">template</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>regex</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSRegularExpression</code> object, transformation regex.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>template</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>String</code> object, template for replacement.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L91-L94">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC11contentPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/contentPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC11contentPathSSSgvp">contentPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name that will be associated with <code>VGSLabel</code> and used as a decoding contentPath on request response with revealed data from your organization vault.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">contentPath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L97-L104">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC7isEmptySbvp"></a>
+                    <a name="//apple_ref/swift/Property/isEmpty" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC7isEmptySbvp">isEmpty</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value indicating whether <code>VGSLabel</code> string is empty.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isEmpty</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L107-L109">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC21revealedRawTextLengthSivp"></a>
+                    <a name="//apple_ref/swift/Property/revealedRawTextLength" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC21revealedRawTextLengthSivp">revealedRawTextLength</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Revealed text length.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">revealedRawTextLength</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L112-L114">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC19copyTextToClipboard6formatyAC04CopyE6FormatO_tF"></a>
+                    <a name="//apple_ref/swift/Method/copyTextToClipboard(format:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC19copyTextToClipboard6formatyAC04CopyE6FormatO_tF">copyTextToClipboard(format:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Copy text to pasteboard with format.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">copyTextToClipboard</span><span class="p">(</span><span class="nv">format</span><span class="p">:</span> <span class="kt"><a href="../Classes/VGSLabel/CopyTextFormat.html">CopyTextFormat</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">raw</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>format</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Classes/VGSLabel/CopyTextFormat.html">VGSLabel.CopyTextFormat</a></code> object, text format to copy. Default is <code>.raw</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L118-L120">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20Attribute"></a>
+                <a name="//apple_ref/swift/Section/UI Attribute" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UI%20Attribute"></a>
+                  <h3 class="section-name"><p>UI Attribute</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC8paddingsSo12UIEdgeInsetsVvp"></a>
+                    <a name="//apple_ref/swift/Property/paddings" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC8paddingsSo12UIEdgeInsetsVvp">paddings</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>UIEdgeInsets</code> for text and placeholder inside <code>VGSTextField</code>. <strong>IMPORTANT!</strong> Paddings should be non-negative.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">paddings</span><span class="p">:</span> <span class="kt">UIEdgeInsets</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L125-L127">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC4fontSo6UIFontCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/font" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC4fontSo6UIFontCSgvp">font</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text font.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">font</span><span class="p">:</span> <span class="kt">UIFont</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L130-L137">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC13numberOfLinesSivp"></a>
+                    <a name="//apple_ref/swift/Property/numberOfLines" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC13numberOfLinesSivp">numberOfLines</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Number of lines.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">numberOfLines</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L140-L147">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC9textColorSo7UIColorCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/textColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC9textColorSo7UIColorCSgvp">textColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text color.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L150-L157">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC13textAlignmentSo06NSTextE0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/textAlignment" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC13textAlignmentSo06NSTextE0Vvp">textAlignment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text alignment.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textAlignment</span><span class="p">:</span> <span class="kt">NSTextAlignment</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L160-L167">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC13lineBreakModeSo06NSLineeF0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/lineBreakMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC13lineBreakModeSo06NSLineeF0Vvp">lineBreakMode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> line break mode.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lineBreakMode</span><span class="p">:</span> <span class="kt">NSLineBreakMode</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L170-L177">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC12cornerRadius12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/cornerRadius" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC12cornerRadius12CoreGraphics7CGFloatVvp">cornerRadius</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> layer corner radius.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">cornerRadius</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L180-L188">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC11borderWidth12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/borderWidth" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC11borderWidth12CoreGraphics7CGFloatVvp">borderWidth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> layer borderWidth.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">borderWidth</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L191-L198">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC11borderColorSo7UIColorCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/borderColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC11borderColorSo7UIColorCSgvp">borderColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> layer borderColor.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">borderColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L201-L211">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Custom%20text%20styles"></a>
+                <a name="//apple_ref/swift/Section/Custom text styles" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Custom%20text%20styles"></a>
+                  <h3 class="section-name"><p>Custom text styles</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC17textMinLineHeight12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/textMinLineHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC17textMinLineHeight12CoreGraphics7CGFloatVvp">textMinLineHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> minimum text line height.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">textMinLineHeight</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L216-L223">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK8VGSLabelC16characterSpacing12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/characterSpacing" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK8VGSLabelC16characterSpacing12CoreGraphics7CGFloatVvp">characterSpacing</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>VGSLabel</code> text character spacing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">characterSpacing</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L226-L233">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-11)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

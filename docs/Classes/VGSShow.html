@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VGSShow Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/VGSShow" class="dashAnchor"></a>
+
+    <a title="VGSShow Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          VGSShowSDK
+        </a>
+        
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/verygoodsecurity/vgs-show-ios">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">VGSShowSDK Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      VGSShow Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSLabel.html">VGSLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSLabel/CopyTextFormat.html">– CopyTextFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSShow.html">VGSShow</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSShowError.html">VGSShowError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10VGSShowSDK0A14SDKErrorDomainSSvp">VGSShowSDKErrorDomain</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSEnvironment.html">VGSEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSErrorType.html">VGSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSHTTPMethod.html">VGSHTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK15VGSErrorInfoKeya">VGSErrorInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK14VGSHTTPHeadersa">VGSHTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            <h1>VGSShow</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSShow</span></code></pre>
+
+                </div>
+              </div>
+            <p>An object you use for revealing and displaying data in corresponding subscribed VGS Show SDK views.</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Get%20Subscribed%20Views"></a>
+                <a name="//apple_ref/swift/Section/Get Subscribed Views" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Get%20Subscribed%20Views"></a>
+                  <h3 class="section-name"><p>Get Subscribed Views</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C16subscribedLabelsSayAA8VGSLabelCGvp"></a>
+                    <a name="//apple_ref/swift/Property/subscribedLabels" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C16subscribedLabelsSayAA8VGSLabelCGvp">subscribedLabels</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an Array of <code><a href="../Classes/VGSLabel.html">VGSLabel</a></code> objects subscribed to specific <code>VGSShow</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">subscribedLabels</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/VGSLabel.html">VGSLabel</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L44-L46">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Custom%20HTTP%20Headers"></a>
+                <a name="//apple_ref/swift/Section/Custom HTTP Headers" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Custom%20HTTP%20Headers"></a>
+                  <h3 class="section-name"><p>Custom HTTP Headers</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C13customHeadersSDyS2SGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/customHeaders" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C13customHeadersSDyS2SGSgvp">customHeaders</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set your custom HTTP headers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">customHeaders</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L51-L57">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialzation"></a>
+                <a name="//apple_ref/swift/Section/Initialzation" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initialzation"></a>
+                  <h3 class="section-name"><p>Initialzation</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:environment:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc">init(id:environment:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialzation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>String</code> object, your organization vault id.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>environment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>String</code> object, your organization vault environment with data region.(e.g. &ldquo;live&rdquo;, &ldquo;live-eu1&rdquo;, &ldquo;sanbox&rdquo;).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L66-L71">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:environment:dataRegion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc">init(id:environment:dataRegion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialzation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSEnvironment.html">VGSEnvironment</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">,</span> <span class="nv">dataRegion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>String</code> object, your organization vault id.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>environment</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Enums/VGSEnvironment.html">VGSEnvironment</a></code> object, your organization vault environment. By default <code>.sandbox</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dataRegion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>String</code> object, id of data storage region (e.g. &ldquo;eu-123&rdquo;).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L79-L82">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Manage%20Views"></a>
+                <a name="//apple_ref/swift/Section/Manage Views" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Manage%20Views"></a>
+                  <h3 class="section-name"><p>Manage Views</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C9subscribeyyAA15VGSViewProtocol_pF"></a>
+                    <a name="//apple_ref/swift/Method/subscribe(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C9subscribeyyAA15VGSViewProtocol_pF">subscribe(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Subscribes VGSShowSDK  view to specific <code>VGSShow</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a></code> view to register.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L88-L96">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C11unsubscribeyyAA15VGSViewProtocol_pF"></a>
+                    <a name="//apple_ref/swift/Method/unsubscribe(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C11unsubscribeyyAA15VGSViewProtocol_pF">unsubscribe(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsubcribes <code><a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a></code> view from specific <code>VGSShow</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unsubscribe</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a></code> view to unregister.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L100-L103">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C19unsubscribeAllViewsyyF"></a>
+                    <a name="//apple_ref/swift/Method/unsubscribeAllViews()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C19unsubscribeAllViewsyyF">unsubscribeAllViews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unsubcribes all <code><a href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a></code> views from specific <code>VGSShow</code> instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unsubscribeAllViews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L106-L113">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/API%20Request"></a>
+                <a name="//apple_ref/swift/Section/API Request" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/API%20Request"></a>
+                  <h3 class="section-name"><p>API Request</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK0A0C7request4path6method7payload14responseFormat10completionySS_AA13VGSHTTPMethodOSDySSypGSgAA0a16ResponseDecodingH0OyAA0A13RequestResultOctF"></a>
+                    <a name="//apple_ref/swift/Method/request(path:method:payload:responseFormat:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C7request4path6method7payload14responseFormat10completionySS_AA13VGSHTTPMethodOSDySSypGSgAA0a16ResponseDecodingH0OyAA0A13RequestResultOctF">request(path:method:payload:responseFormat:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send request to reveal data on specific path. <code>VGSShow</code> instance will use all subsribed elements contentPaths to reveal data.</p>
+
+<ul>
+<li>path: Inbound rout path for your organization vault.</li>
+<li>method: HTTPMethod, default is <code>.post</code>.</li>
+<li>payload: <code><a href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a></code> object, default is <code>nil</code>.</li>
+<li>responseFormat: <code>VGSResponseDecodingFormat</code> object. Response data decoding format, default is <code>.json</code>.</li>
+<li><p>completion: <code>VGSResponse</code> completion block. The completion handler to call when the load request is complete.</p></li>
+</ul><div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Errors can be returned in the <code>NSURLErrorDomain</code> and <code><a href="../Global%20Variables.html#/s:10VGSShowSDK0A14SDKErrorDomainSSvp">VGSShowSDKErrorDomain</a></code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSHTTPMethod.html">VGSHTTPMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">responseFormat</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">json</span><span class="p">,</span> <span class="n">completion</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/Network/VGSShow+Network.swift#L27-L61">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2020 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-11)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
