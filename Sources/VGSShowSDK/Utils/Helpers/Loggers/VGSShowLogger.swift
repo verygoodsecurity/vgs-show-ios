@@ -7,7 +7,7 @@ import Foundation
 
 internal class VGSShowLogger {
 
-	internal static func logRequest(_ request: URLRequest, payload: APIClient.PayloadType) {
+	internal static func logRequest(_ request: URLRequest, payload: VGSRequestPayloadBody) {
 		print("⬆️ VGSShowSDK request url: \(stringFromURL(request.url))")
 		if let headers = request.allHTTPHeaderFields {
 			print("⬆️ VGSShowSDK request headers: \(headers)")

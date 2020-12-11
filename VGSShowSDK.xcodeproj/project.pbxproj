@@ -22,6 +22,7 @@
 		4485B51F255D5A3B00EA0882 /* validNestedJSON_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51B255D5A3B00EA0882 /* validNestedJSON_2.json */; };
 		4485B520255D5A3B00EA0882 /* validNestedJSON_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51C255D5A3B00EA0882 /* validNestedJSON_4.json */; };
 		448B53A4256FEBF3006D730F /* VGSTextFormattersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448B53A3256FEBF3006D730F /* VGSTextFormattersCoordinator.swift */; };
+		448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */; };
 		44A79F6B255D0678009AF720 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F43255D0678009AF720 /* APIClient.swift */; };
 		44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F46255D0678009AF720 /* VGSShowRequestResult.swift */; };
 		44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F47255D0678009AF720 /* VGSShow+Network.swift */; };
@@ -82,6 +83,7 @@
 		4485B51B255D5A3B00EA0882 /* validNestedJSON_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_2.json; sourceTree = "<group>"; };
 		4485B51C255D5A3B00EA0882 /* validNestedJSON_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_4.json; sourceTree = "<group>"; };
 		448B53A3256FEBF3006D730F /* VGSTextFormattersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSTextFormattersCoordinator.swift; sourceTree = "<group>"; };
+		448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSRequestBodyPayload.swift; sourceTree = "<group>"; };
 		44A79F43255D0678009AF720 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44A79F46255D0678009AF720 /* VGSShowRequestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRequestResult.swift; sourceTree = "<group>"; };
 		44A79F47255D0678009AF720 /* VGSShow+Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSShow+Network.swift"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				44A79F43255D0678009AF720 /* APIClient.swift */,
+				448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				44A79F6B255D0678009AF720 /* APIClient.swift in Sources */,
 				447FFDE5256E62B500CDAE4E /* VGSShowDecodedContent.swift in Sources */,
 				44A79F76255D0678009AF720 /* VGSTransformationRegex.swift in Sources */,
+				448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */,
 				447FFDE4256E62B500CDAE4E /* VGSShowResponseDecodingFormat.swift in Sources */,
 				4461083525639DEE006479FB /* VGSUtils.swift in Sources */,
 				447FFDE6256E62B500CDAE4E /* VGSShowDecodingResult.swift in Sources */,

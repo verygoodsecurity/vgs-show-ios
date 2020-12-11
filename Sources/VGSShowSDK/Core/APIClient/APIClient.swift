@@ -34,58 +34,6 @@ public enum VGSHTTPMethod: String {
 
 internal class APIClient {
 
-	typealias VGSAPIEncodingSuccess = (_ data: Data?) -> ()
-	typealias VGSAPIEncodingFailure = (_ error: VGSShowError) -> ()
-
-	internal enum PayloadType {
-		case json(_ payload: VGSJSONData?)
-
-		func encodeToRequestBodyData(success: VGSAPIEncodingSuccess, failure: VGSAPIEncodingFailure) {
-			switch self {
-			case .json(let payload):
-				guard let json = payload else {
-					// No JSON to encode.
-					success(nil)
-					return
-				}
-
-				if !JSONSerialization.isValidJSONObject(json) {
-					// Cannot send request if JSON is invalid.
-					let error = VGSShowError(type: .invalidJSONPayload)
-					failure(error)
-					return
-				}
-
-				guard let data = try? JSONSerialization.data(withJSONObject: json) else {
-					// Cannot send request if JSON cannot be decoded to data.
-					let error = VGSShowError(type: .invalidJSONPayload)
-					failure(error)
-					return
-				}
-
-				success(data)
-			}
-		}
-
-		var additionalHeaders: [String: String] {
-			var additionalRequestHeaders = [String: String]()
-
-			switch self {
-			case .json:
-				additionalRequestHeaders["Content-Type"] = "application/json"
-			}
-
-			return additionalRequestHeaders
-		}
-
-		var rawPayload: Any? {
-			switch self {
-			case .json(let json):
-				return json
-			}
-		}
-	}
-
 	/// Response enum cases for SDK requests.
 	enum RequestResult {
 		/**
@@ -150,11 +98,11 @@ internal class APIClient {
 
 	func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion) {
 
-		let payload = PayloadType.json(value)
+		let payload = VGSRequestPayloadBody.json(value)
 		sendDataRequest(path: path, method: method, payload: payload, block: block)
 	}
 
-	func sendDataRequest(path: String, method: VGSHTTPMethod = .post, payload: PayloadType, block: RequestCompletion) {
+	func sendDataRequest(path: String, method: VGSHTTPMethod = .post, payload: VGSRequestPayloadBody, block: RequestCompletion) {
 		guard let apiURL = baseURL else {
 			let error = VGSShowError(type: .invalidConfigurationURL)
 			print("❗VGSShowSDK CONFIGURATION ERROR: NOT VALID ORGANIZATION PARAMETERS!!! CANNOT BUILD URL!!!")
