@@ -60,7 +60,7 @@ class CollectViewController: UIViewController {
 
 	private func setupElementsConfiguration() {
 
-		let cardConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "account_number_1")
+		let cardConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardNumber")
 		cardConfiguration.type = .cardNumber
 		cardConfiguration.isRequiredValidOnly = false
 		cardConfiguration.keyboardType = .asciiCapableNumberPad
@@ -71,7 +71,7 @@ class CollectViewController: UIViewController {
 
 		cardNumber.becomeFirstResponder()
 
-		let expDateConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "exp_date_1")
+		let expDateConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "expDate")
 		expDateConfiguration.isRequiredValidOnly = true
 		expDateConfiguration.type = .expDate
 
@@ -125,15 +125,15 @@ class CollectViewController: UIViewController {
 
 					print("SUCCESS: \(jsonData)")
 					if let aliases = jsonData["json"] as? [String: Any],
-						let cardNumber = aliases["account_number_1"],
-						let expDate = aliases["exp_date_1"] {
+						let cardNumber = aliases["cardNumber"],
+						let expDate = aliases["expDate"] {
 
 						self?.resultLabel.text =  """
 						card_namber: \(cardNumber)\n
 						expiration_date: \(expDate)
 						"""
-						let payload = ["account_number2": cardNumber,
-													 "exp_date": expDate]
+						let payload = ["payment_card_number": cardNumber,
+													 "payment_card_expiration_date": expDate]
 
 						DemoAppConfig.shared.collectPayload = payload
 						print(payload)

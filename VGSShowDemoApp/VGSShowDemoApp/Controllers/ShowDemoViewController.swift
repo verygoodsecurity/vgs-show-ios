@@ -86,7 +86,7 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.font = font
 		cardNumberLabel.backgroundColor = backgroundColor
 		cardNumberLabel.layer.cornerRadius = cornerRadius
-		cardNumberLabel.contentPath = "json.account_number2"
+		cardNumberLabel.contentPath = "json.payment_card_number"
 
 		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
 		do {
@@ -109,7 +109,7 @@ class ShowDemoViewController: UIViewController {
 		expDateLabel.backgroundColor = backgroundColor
 		expDateLabel.layer.cornerRadius = cornerRadius
 		expDateLabel.characterSpacing = 0.83
-		expDateLabel.contentPath = "json.exp_date"
+		expDateLabel.contentPath = "json.payment_card_expiration_date"
 		expDateLabel.delegate = self
 
 		stackView.addArrangedSubview(cardNumberLabel)
@@ -160,11 +160,14 @@ class ShowDemoViewController: UIViewController {
 extension ShowDemoViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
 		label.backgroundColor = .black
+		label.backgroundColor = .systemBlue
+		label.borderColor = .clear
 	}
 
 	func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError) {
 		// Set label border to red color on error. You can make typo in label field to simulate this error case.
-		label.borderColor = .red
+		label.borderColor = .systemRed
+		label.backgroundColor = .systemYellow
 	}
 
 	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {

@@ -158,8 +158,8 @@ func revealData() {
 
   /// make a reveal request
   vgsShow.request(path: "post",
-                                  method: .post,
-                payload: customPayload) { (requestResult) in
+                method: .post,
+               payload: customPayload) { (requestResult) in
 
       switch requestResult {
       case .success(let code):

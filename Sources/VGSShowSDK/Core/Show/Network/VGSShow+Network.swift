@@ -32,34 +32,24 @@ extension VGSShow {
 			print("⚠️ VGSShowSDK WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
 		}
 
+		VGSAnalyticsClient.shared.trackFormEvent(self, type: .beforeSubmit, status: .success, extraData: extraAnalyticsInfo)
+
 		// Sends request.
-		apiClient.sendRequest(path: path, method: method, value: payload ) {[weak self] (requestResult) in
+		apiClient.sendRequestWithJSON(path: path, method: method, value: payload ) {[weak self] (requestResult) in
 
 			guard let strongSelf = self else {return}
 
 			switch requestResult {
 			case .success(let code, let data, let response):
+				// Log success response.
+				VGSShowLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
+
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 			case .failure(let code, let data, let response, let error):
-				print("❗VGSShowSDK response error status code: \(code)")
-				if let httpResponse = response as? HTTPURLResponse {
-					print("❗VGSShowSDK response error headers:")
-					for erorHeader in httpResponse.allHeaderFields {
-						print("\(erorHeader.key) : \(erorHeader.value)")
-					}
-				}
-				if let errorData = data {
-					if let bodyErrorText = String(data: errorData, encoding: String.Encoding.utf8) {
-						print("❗VGSShowSDK response error: info:")
-						print("\(bodyErrorText)")
-					}
-				}
+				VGSShowLogger.logErrorResponse(response, data: data, error: error, code: code)
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
-
-				print("❗VGSShowSDK response error message: \(errorMessage)")
-
 				strongSelf.trackErrorEvent(with: code, message: errorMessage, type: .submit, extraInfo: extraAnalyticsInfo)
 
 				block(.failure(code, error))
@@ -80,6 +70,7 @@ extension VGSShow {
 			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
 			switch jsonDecodingResult {
 			case .success(let json):
+				print("VGSShow response: \(json)")
 				// Reveal data.
 				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 
