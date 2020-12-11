@@ -8,7 +8,7 @@
 import Foundation
 
 /// Specifies content mode to decode.
-public enum VGSShowDecodingContentMode {
+internal enum VGSShowDecodingContentMode {
 
 	/// Decode as text.
 	case text

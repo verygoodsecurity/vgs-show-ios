@@ -1,0 +1,24 @@
+####################
+# Comments
+# 1. pods should be installed/updated
+# 2. jazzy command should be running form framework root dir
+####################
+#names
+module: VGSShowSDK
+title: VGSShowSDK
+author: Very Good Security
+author_url: https://verygoodsecurity.com
+github_url: https://github.com/verygoodsecurity/vgs-show-ios
+github_file_prefix: https://github.com/verygoodsecurity/vgs-show-ios/tree/master
+readme: README.md
+#output folder
+output: docs
+#path to project
+framework_root: ../
+sdk: iphonesimulator
+#settings
+clean: true
+objc: false
+skip_undocumented: true
+hide_documentation_coverage: true
+theme: fullwidth

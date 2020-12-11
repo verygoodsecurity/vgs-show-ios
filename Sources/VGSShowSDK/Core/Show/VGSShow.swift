@@ -38,41 +38,14 @@ public final class VGSShow {
     return subscribedViews.map({return $0.model})
   }
   
-  /// Subscribes VGSShowSDK  view to specific `VGSShow` instance.
-  /// - Parameter view: `VGSViewProtocol` view to register.
-  public func subscribe(_ view: VGSViewProtocol) {
-		guard let vgsView = view as? VGSBaseViewProtocol else {
-			return
-		}
-		if !subscribedViews.contains(where: { return view == $0}) {
-			trackSubscribeEvent(for: view)
-			subscribedViews.append(vgsView)
-		}
-  }
-
-  /// Unsubcribes `VGSViewProtocol` view from specific `VGSShow` instance.
-  /// - Parameter view: `VGSViewProtocol` view to unregister.
-  public func unsubscribe(_ view: VGSViewProtocol) {
-		trackUnsubscribeEvent(for: view)
-		subscribedViews.removeAll(where: {$0 == view})
-  }
+  // MARK: - Get Subscribed Views
   
-  /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
-  public func unsubscribeAllViews() {
-		subscribedViews.forEach { (view) in
-			if let vgsView = view as? VGSViewProtocol {
-				trackUnsubscribeEvent(for: vgsView)
-			}
-		}
-    subscribedViews = []
-  }
-
   /// Returns an Array of `VGSLabel` objects subscribed to specific `VGSShow` instance.
 	public var subscribedLabels: [VGSLabel] {
 		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
 	}
   
-	// MARK: Custom HTTP Headers
+	// MARK: - Custom HTTP Headers
 
 	/// Set your custom HTTP headers.
 	public var customHeaders: [String: String]? {
@@ -106,5 +79,36 @@ public final class VGSShow {
   public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil) {
     let env = Self.generateRegionalEnvironmentString(environment, region: dataRegion)
     self.init(id: id, environment: env)
+  }
+  
+  // MARK: - Manage Views
+  
+  /// Subscribes VGSShowSDK  view to specific `VGSShow` instance.
+  /// - Parameter view: `VGSViewProtocol` view to register.
+  public func subscribe(_ view: VGSViewProtocol) {
+    guard let vgsView = view as? VGSBaseViewProtocol else {
+      return
+    }
+    if !subscribedViews.contains(where: { return view == $0}) {
+      trackSubscribeEvent(for: view)
+      subscribedViews.append(vgsView)
+    }
+  }
+
+  /// Unsubcribes `VGSViewProtocol` view from specific `VGSShow` instance.
+  /// - Parameter view: `VGSViewProtocol` view to unregister.
+  public func unsubscribe(_ view: VGSViewProtocol) {
+    trackUnsubscribeEvent(for: view)
+    subscribedViews.removeAll(where: {$0 == view})
+  }
+  
+  /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
+  public func unsubscribeAllViews() {
+    subscribedViews.forEach { (view) in
+      if let vgsView = view as? VGSViewProtocol {
+        trackUnsubscribeEvent(for: vgsView)
+      }
+    }
+    subscribedViews = []
   }
 }

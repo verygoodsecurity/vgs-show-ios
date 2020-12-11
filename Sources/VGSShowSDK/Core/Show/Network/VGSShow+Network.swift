@@ -8,6 +8,9 @@
 import Foundation
 
 extension VGSShow {
+  
+  // MARK: - API Request
+  
 	/**
 	Send request to reveal data on specific path. `VGSShow` instance will use all subsribed elements contentPaths to reveal data.
 
