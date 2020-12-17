@@ -90,9 +90,6 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a>
               </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a>
-              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -129,12 +126,16 @@
             <h1>VGSShow</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSShow</span></code></pre>
 
                 </div>
               </div>
             <p>An object you use for revealing and displaying data in corresponding subscribed VGS Show SDK views.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L14-L114">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -242,7 +243,7 @@
                     <code>
                     <a name="/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc"></a>
                     <a name="//apple_ref/swift/Method/init(id:environment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc">init(id:environment:)</a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc">init(id:<wbr>environment:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -303,7 +304,7 @@
                     <code>
                     <a name="/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(id:environment:dataRegion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc">init(id:environment:dataRegion:)</a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc">init(id:<wbr>environment:<wbr>dataRegion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -389,7 +390,7 @@
                     <code>
                     <a name="/s:10VGSShowSDK0A0C9subscribeyyAA15VGSViewProtocol_pF"></a>
                     <a name="//apple_ref/swift/Method/subscribe(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C9subscribeyyAA15VGSViewProtocol_pF">subscribe(_:)</a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C9subscribeyyAA15VGSViewProtocol_pF">subscribe(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -438,7 +439,7 @@
                     <code>
                     <a name="/s:10VGSShowSDK0A0C11unsubscribeyyAA15VGSViewProtocol_pF"></a>
                     <a name="//apple_ref/swift/Method/unsubscribe(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C11unsubscribeyyAA15VGSViewProtocol_pF">unsubscribe(_:)</a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C11unsubscribeyyAA15VGSViewProtocol_pF">unsubscribe(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -528,9 +529,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK0A0C7request4path6method7payload14responseFormat10completionySS_AA13VGSHTTPMethodOSDySSypGSgAA0a16ResponseDecodingH0OyAA0A13RequestResultOctF"></a>
-                    <a name="//apple_ref/swift/Method/request(path:method:payload:responseFormat:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C7request4path6method7payload14responseFormat10completionySS_AA13VGSHTTPMethodOSDySSypGSgAA0a16ResponseDecodingH0OyAA0A13RequestResultOctF">request(path:method:payload:responseFormat:completion:)</a>
+                    <a name="/s:10VGSShowSDK0A0C7request4path6method7payload10completionySS_AA13VGSHTTPMethodOSDySSypGSgyAA0A13RequestResultOctF"></a>
+                    <a name="//apple_ref/swift/Method/request(path:method:payload:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C7request4path6method7payload10completionySS_AA13VGSHTTPMethodOSDySSypGSgyAA0A13RequestResultOctF">request(path:<wbr>method:<wbr>payload:<wbr>completion:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -543,8 +544,7 @@
 <ul>
 <li>path: Inbound rout path for your organization vault.</li>
 <li>method: HTTPMethod, default is <code>.post</code>.</li>
-<li>payload: <code><a href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a></code> object, default is <code>nil</code>.</li>
-<li>responseFormat: <code>VGSResponseDecodingFormat</code> object. Response data decoding format, default is <code>.json</code>.</li>
+<li>payload: <code>VGSJSONData?</code> object, default is <code>nil</code>. Should be valid JSON.</li>
 <li><p>completion: <code>VGSResponse</code> completion block. The completion handler to call when the load request is complete.</p></li>
 </ul><div class="aside aside-note">
     <p class="aside-title">Note</p>
@@ -557,12 +557,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSHTTPMethod.html">VGSHTTPMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">responseFormat</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSShowResponseDecodingFormat.html">VGSShowResponseDecodingFormat</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">json</span><span class="p">,</span> <span class="n">completion</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSHTTPMethod.html">VGSHTTPMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">post</span><span class="p">,</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">completion</span> <span class="nv">block</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/VGSShowRequestResult.html">VGSShowRequestResult</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/Network/VGSShow+Network.swift#L27-L61">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/Network/VGSShow+Network.swift#L26-L63">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -575,8 +575,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-11)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-17)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

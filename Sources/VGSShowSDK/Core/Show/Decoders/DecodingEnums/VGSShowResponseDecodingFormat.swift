@@ -8,7 +8,7 @@
 import Foundation
 
 /// Format for raw decoded data.
-public enum VGSShowResponseDecodingFormat {
+internal enum VGSShowResponseDecodingFormat {
 
 	/**
 	 Decode raw data to JSON.
