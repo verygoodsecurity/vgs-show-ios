@@ -23,6 +23,13 @@
 		4485B520255D5A3B00EA0882 /* validNestedJSON_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 4485B51C255D5A3B00EA0882 /* validNestedJSON_4.json */; };
 		448B53A4256FEBF3006D730F /* VGSTextFormattersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448B53A3256FEBF3006D730F /* VGSTextFormattersCoordinator.swift */; };
 		448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */; };
+		448F5622258741A30024E814 /* APIRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F5621258741A30024E814 /* APIRequestResult.swift */; };
+		448F5627258742460024E814 /* APICustomHostStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F5626258742460024E814 /* APICustomHostStatus.swift */; };
+		448F562F2587429F0024E814 /* APIHostnameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F562E2587429F0024E814 /* APIHostnameValidator.swift */; };
+		448F5633258742B70024E814 /* VGSHTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F5632258742B70024E814 /* VGSHTTPMethod.swift */; };
+		448F56392587438E0024E814 /* APIHostURLPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F56382587438E0024E814 /* APIHostURLPolicy.swift */; };
+		448F564425879F640024E814 /* APIHostnameValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F564325879F640024E814 /* APIHostnameValidatorTests.swift */; };
+		44A474962588865F00534965 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A474952588865F00534965 /* URL+Extensions.swift */; };
 		44A79F6B255D0678009AF720 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F43255D0678009AF720 /* APIClient.swift */; };
 		44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F46255D0678009AF720 /* VGSShowRequestResult.swift */; };
 		44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F47255D0678009AF720 /* VGSShow+Network.swift */; };
@@ -84,6 +91,13 @@
 		4485B51C255D5A3B00EA0882 /* validNestedJSON_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validNestedJSON_4.json; sourceTree = "<group>"; };
 		448B53A3256FEBF3006D730F /* VGSTextFormattersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSTextFormattersCoordinator.swift; sourceTree = "<group>"; };
 		448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSRequestBodyPayload.swift; sourceTree = "<group>"; };
+		448F5621258741A30024E814 /* APIRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestResult.swift; sourceTree = "<group>"; };
+		448F5626258742460024E814 /* APICustomHostStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICustomHostStatus.swift; sourceTree = "<group>"; };
+		448F562E2587429F0024E814 /* APIHostnameValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHostnameValidator.swift; sourceTree = "<group>"; };
+		448F5632258742B70024E814 /* VGSHTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSHTTPMethod.swift; sourceTree = "<group>"; };
+		448F56382587438E0024E814 /* APIHostURLPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHostURLPolicy.swift; sourceTree = "<group>"; };
+		448F564325879F640024E814 /* APIHostnameValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHostnameValidatorTests.swift; sourceTree = "<group>"; };
+		44A474952588865F00534965 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		44A79F43255D0678009AF720 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44A79F46255D0678009AF720 /* VGSShowRequestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRequestResult.swift; sourceTree = "<group>"; };
 		44A79F47255D0678009AF720 /* VGSShow+Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSShow+Network.swift"; sourceTree = "<group>"; };
@@ -226,6 +240,16 @@
 			path = ValidJSONs;
 			sourceTree = "<group>";
 		};
+		448F5625258742270024E814 /* APIHostName */ = {
+			isa = PBXGroup;
+			children = (
+				448F562E2587429F0024E814 /* APIHostnameValidator.swift */,
+				448F5626258742460024E814 /* APICustomHostStatus.swift */,
+				448F56382587438E0024E814 /* APIHostURLPolicy.swift */,
+			);
+			path = APIHostName;
+			sourceTree = "<group>";
+		};
 		44A79F3F255D0678009AF720 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,8 +286,11 @@
 		44A79F42255D0678009AF720 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				448F5625258742270024E814 /* APIHostName */,
 				44A79F43255D0678009AF720 /* APIClient.swift */,
 				448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */,
+				448F5621258741A30024E814 /* APIRequestResult.swift */,
+				448F5632258742B70024E814 /* VGSHTTPMethod.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -410,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				44A79FB6255D06C6009AF720 /* VGSShowTests.swift */,
+				448F564325879F640024E814 /* APIHostnameValidatorTests.swift */,
 				44A79FB7255D06C6009AF720 /* VGSShowTest+Subscribe.swift */,
 			);
 			path = VGSShowTests;
@@ -445,6 +473,7 @@
 				44E05110256E49C400DDBE41 /* Array+Extensions.swift */,
 				44E05111256E49C400DDBE41 /* VGSJsonData+Extensions.swift */,
 				44E05112256E49C400DDBE41 /* String+Exntesions.swift */,
+				44A474952588865F00534965 /* URL+Extensions.swift */,
 			);
 			path = "Foundation+Extensions";
 			sourceTree = "<group>";
@@ -633,6 +662,7 @@
 				44A79F72255D0678009AF720 /* VGSShowRawDataDecoder.swift in Sources */,
 				44A79F83255D0678009AF720 /* VGSLabelModel.swift in Sources */,
 				44A79F7E255D0678009AF720 /* VGSErrorInfo.swift in Sources */,
+				448F5633258742B70024E814 /* VGSHTTPMethod.swift in Sources */,
 				44A79F85255D0678009AF720 /* VGSViewProtocol.swift in Sources */,
 				44A79F7F255D0678009AF720 /* VGSShowErrors.swift in Sources */,
 				44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */,
@@ -644,16 +674,21 @@
 				44A79F84255D0678009AF720 /* VGSMaskedLabel.swift in Sources */,
 				44A79F82255D0678009AF720 /* VGSLabel.swift in Sources */,
 				44A79F77255D0678009AF720 /* VGSEnvironment.swift in Sources */,
+				448F562F2587429F0024E814 /* APIHostnameValidator.swift in Sources */,
 				44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */,
 				44E0511A256E49C400DDBE41 /* UIDevice+Extensions.swift in Sources */,
+				448F56392587438E0024E814 /* APIHostURLPolicy.swift in Sources */,
 				4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */,
+				448F5627258742460024E814 /* APICustomHostStatus.swift in Sources */,
 				448B53A4256FEBF3006D730F /* VGSTextFormattersCoordinator.swift in Sources */,
 				448525C525829F8400721F73 /* VGSShowLogger.swift in Sources */,
 				447FFDE7256E62B500CDAE4E /* VGSShowTextDecoder.swift in Sources */,
 				44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */,
 				44A79F80255D0678009AF720 /* VGSLabel+Internal.swift in Sources */,
 				44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */,
+				44A474962588865F00534965 /* URL+Extensions.swift in Sources */,
 				44A79F6E255D0678009AF720 /* VGSShow+Utils.swift in Sources */,
+				448F5622258741A30024E814 /* APIRequestResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +700,7 @@
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
 				44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */,
 				44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */,
+				448F564425879F640024E814 /* APIHostnameValidatorTests.swift in Sources */,
 				44A79FC4255D06C6009AF720 /* VGSJSONContentPathsTests.swift in Sources */,
 				44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */,
 				44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */,
