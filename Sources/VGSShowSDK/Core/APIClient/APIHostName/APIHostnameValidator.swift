@@ -86,7 +86,7 @@ internal class APIHostnameValidator {
 	private static func logErrorForStatusCode(_ statusCode: Int, hostname: String) {
 		switch statusCode {
 		case 403:
-			let warningText = "❗A specified host: \(hostname) was not correct. Looks like you don't activate cname for Collect SDK on the Dashboard"
+			let warningText = "❗A specified host: \(hostname) was not correct. Looks like you don't activate cname for Show SDK on the Dashboard"
 			print(warningText)
 		default:
 			print("❗VGSShowSDK Error! Cannot resolve hostname \(hostname). Status code \(statusCode)")

@@ -44,7 +44,7 @@ internal class APIClient {
 		return self.hostURLPolicy.url
 	}
 
-	/// Host URL policy. Determinates final URL to send Collect requests.
+	/// Host URL policy. Determinates final URL to send revealing requests.
 	internal var hostURLPolicy: APIHostURLPolicy
 
 	/// Serial queue for syncing requests on resolving hostname flow.
