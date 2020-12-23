@@ -63,9 +63,9 @@ public final class VGSShow {
   /// - Parameters:
   ///   - id: `String` object, your organization vault id.
   ///   - environment: `String` object, your organization vault environment with data region.(e.g. "live", "live-eu1", "sanbox").
-  public init(id: String, environment: String) {
-    let url = Self.generateVaultURL(tenantId: id, regionalEnvironment: environment)
-    apiClient = APIClient(baseURL: url)
+	///   - hostname: Custom Hostname, if not set, data will be sent to Vault Url.
+	public init(id: String, environment: String, hostname: String? = nil) {
+		self.apiClient = APIClient(tenantId: id, regionalEnvironment: environment, hostname: hostname)
     self.tenantId = id
     self.regionalEnvironment = environment
   }
@@ -76,9 +76,10 @@ public final class VGSShow {
   ///   - id: `String` object, your organization vault id.
   ///   - environment: `VGSEnvironment` object, your organization vault environment. By default `.sandbox`.
   ///   - dataRegion: `String` object, id of data storage region (e.g. "eu-123").
-  public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil) {
+	///   - hostname: Custom Hostname, if not set, data will be sent to Vault Url.
+	public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil, hostname: String? = nil) {
     let env = Self.generateRegionalEnvironmentString(environment, region: dataRegion)
-    self.init(id: id, environment: env)
+    self.init(id: id, environment: env, hostname: hostname)
   }
   
   // MARK: - Manage Views

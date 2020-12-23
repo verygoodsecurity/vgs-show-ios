@@ -36,7 +36,7 @@ public enum VGSErrorType: Int {
 		case .unexpectedResponseDataFormat:
 			return "Unexpected Response Data Format"
 		case .responseIsInvalidJSON:
-			return "Response cannot be decoded to JSON"
+			return "URL error: not valid organization parameters"
 		case .fieldNotFound:
 			return "Field not found in specified path"
 		case .invalidJSONPayload:
