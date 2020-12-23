@@ -72,7 +72,7 @@ internal class APIHostnameValidator {
 				completion(URL(string: responseText))
 				return
 			} else {
-				print("❗VGSShowSDK Error! sCannot find hostname: \(hostname) in list: \(responseText)")
+				print("❗VGSShowSDK Error! Cannot find hostname: \(hostname) in list: \(responseText)")
 				completion(nil)
 				return
 			}
