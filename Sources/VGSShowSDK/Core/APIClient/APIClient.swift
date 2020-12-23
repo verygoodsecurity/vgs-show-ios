@@ -222,6 +222,8 @@ internal class APIClient {
 					self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
 					completion?(validUrl)
 
+					print("✅ Success! VGSShowSDK hostname \(hostname) has been resolved!")
+
 					// Exit sync zone.
 					self?.syncSemaphore.signal()
 					return
