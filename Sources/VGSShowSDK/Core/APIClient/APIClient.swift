@@ -64,6 +64,11 @@ internal class APIClient {
 		}
 
 		guard let hostnameToResolve = hostname, !hostnameToResolve.isEmpty else {
+
+			if let name = hostname, name.isEmpty {
+				print("⚠️ VGSShowSDK warning! Hostname is invalid (empty) and will be ignored. Default Vault URL will be used.")
+			}
+
 			// Use vault URL.
 			self.hostURLPolicy = .vaultURL(validVaultURL)
 			return
