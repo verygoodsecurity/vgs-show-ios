@@ -7,57 +7,9 @@
 
 import Foundation
 
-/// Key-value data type, usually used for response format.
-public typealias VGSJSONData = [String: Any]
-
-/// Key-value data type, used in http request headers.
-public typealias VGSHTTPHeaders = [String: String]
-
-/// HTTP request methods.
-public enum VGSHTTPMethod: String {
-	/// GET method.
-	case get = "GET"
-
-	/// POST method.
-	case post = "POST"
-
-	/// PUT method.
-	case put = "PUT"
-
-	/// PATCH method.
-	case patch = "PATCH"
-
-	/// DELETE method.
-	case delete = "DELETE"
-}
-
 internal class APIClient {
 
-	/// Response enum cases for SDK requests.
-	enum RequestResult {
-		/**
-		Success response case.
-
-		- Parameters:
-		- code: response status code.
-		- data: response **data** object.
-		- response: URLResponse object represents a URL load response.
-		*/
-		case success(_ code: Int, _ data: Data?, _ response: URLResponse?)
-
-		/**
-		Failed response case.
-
-		- Parameters:
-		- code: response status code.
-		- data: response **Data** object.
-		- response: `URLResponse` object represents a URL load response.
-		- error: `Error` object.
-		*/
-		case failure(_ code: Int, _ data: Data?, _ response: URLResponse?, _ error: Error?)
-	}
-
-	typealias RequestCompletion = ((_ response: APIClient.RequestResult) -> Void)?
+	typealias RequestCompletion = ((_ response: APIRequestResult) -> Void)?
 
 	// MARK: - Constants
 
@@ -66,8 +18,6 @@ internal class APIClient {
 	}
 
 	// MARK: - Vars
-
-	let baseURL: URL?
 
 	var customHeader: VGSHTTPHeaders?
 
@@ -87,10 +37,46 @@ internal class APIClient {
 	/// URLSession object.
 	internal let urlSession = URLSession(configuration: .ephemeral)
 
+	private let vaultId: String
+	private let vaultUrl: URL?
+
+	internal var baseURL: URL? {
+		return self.hostURLPolicy.url
+	}
+
+	/// Host URL policy. Determinates final URL to send reveal requests.
+	internal var hostURLPolicy: APIHostURLPolicy
+
+	/// Serial queue for syncing requests on resolving hostname flow.
+	private let dataSyncQueue: DispatchQueue = .init(label: "iOS.VGSShowSDK.ResolveHostNameRequestsQueue")
+	private let syncSemaphore: DispatchSemaphore = .init(value: 1)
+
 	// MARK: - Initialization
 
-	init(baseURL url: URL?) {
-		baseURL = url
+	required init(tenantId: String, regionalEnvironment: String, hostname: String?) {
+		self.vaultUrl = VGSShow.generateVaultURL(tenantId: tenantId, regionalEnvironment: regionalEnvironment)
+		self.vaultId = tenantId
+
+		guard let validVaultURL = vaultUrl else {
+			// Cannot resolve hostname with invalid Vault URL.
+			self.hostURLPolicy = .invalidVaultURL
+			return
+		}
+
+		guard let hostnameToResolve = hostname, !hostnameToResolve.isEmpty else {
+
+			if let name = hostname, name.isEmpty {
+				print("⚠️ VGSShowSDK warning! Hostname is invalid (empty) and will be ignored. Default Vault URL will be used.")
+			}
+
+			// Use vault URL.
+			self.hostURLPolicy = .vaultURL(validVaultURL)
+			return
+		}
+
+		// Try to resolve hostname.
+		self.hostURLPolicy = .customHostURL(.isResolving(hostnameToResolve))
+		updateHost(with: hostnameToResolve)
 	}
 
 	// MARK: - Public
@@ -98,44 +84,78 @@ internal class APIClient {
 	func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion) {
 
 		let payload = VGSRequestPayloadBody.json(value)
-		sendDataRequest(path: path, method: method, payload: payload, block: block)
+		resolveURLForRequest(path: path, method: method, payload: payload, block: block)
 	}
 
-	func sendDataRequest(path: String, method: VGSHTTPMethod = .post, payload: VGSRequestPayloadBody, block: RequestCompletion) {
-		guard let apiURL = baseURL else {
-			let error = VGSShowError(type: .invalidConfigurationURL)
+	// MARK: - Private
+
+	/// Resolve URL for specific request. Send request if URL is resolved, otherwise enqueue request until hostname will be resolved.
+	/// - Parameters:
+	///   - path: `String` object, request path.
+	///   - method: `VGSHTTPMethod` object, default is `.post`.
+	///   - payload: `VGSRequestPayloadBody` object.
+	///   - block: `RequestCompletion` completion block.
+	private func resolveURLForRequest(path: String, method: VGSHTTPMethod = .post, payload: VGSRequestPayloadBody, block: RequestCompletion) {
+
+		let url: URL?
+
+		switch hostURLPolicy {
+		case .invalidVaultURL:
+			url = nil
+		case .vaultURL(let vaultURL):
+			url = vaultURL
+		case .customHostURL(let status):
+			switch status {
+			case .resolved(let resolvedURL):
+				url = resolvedURL
+			case .useDefaultVault(let defaultVaultURL):
+				url = defaultVaultURL
+			case .isResolving(let hostnameToResolve):
+				// URL is not resolved yet. Queue request.
+				updateHost(with: hostnameToResolve) { (url) in
+					self.sendDataRequestWithURL(url, path: path, method: method, payload: payload, block: block)
+				}
+				return
+			}
+		}
+
+		guard let requestURL = url else {
+			let invalidURLError = VGSShowError(type: .invalidConfigurationURL)
 			print("❗VGSShowSDK CONFIGURATION ERROR: NOT VALID ORGANIZATION PARAMETERS!!! CANNOT BUILD URL!!!")
-			block?(.failure(error.code, nil, nil, error))
+			block?(.failure(invalidURLError.code, nil, nil, invalidURLError))
 			return
 		}
+
+		sendDataRequestWithURL(requestURL, path: path, payload: payload, block: block)
+	}
+
+	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod = .post, payload: VGSRequestPayloadBody, block: RequestCompletion) {
 
 		let encodingResult = payload.encodeToRequestBodyData()
 
 		switch encodingResult {
 		case .success(let data):
-		      // Setup headers.
-					let headers = provideHeaders(with: payload.additionalHeaders)
+			// Setup headers.
+			let headers = self.provideHeaders(with: payload.additionalHeaders)
 
-					// Setup URLRequest.
-					let url = apiURL.appendingPathComponent(path)
+			// Setup URLRequest with resolved URL.
+			let url = requestURL.appendingPathComponent(path)
 
-					var request = URLRequest(url: url)
-					request.httpBody = data
-					request.httpMethod = method.rawValue
-					request.allHTTPHeaderFields = headers
+			var request = URLRequest(url: url)
+			request.httpBody = data
+			request.httpMethod = method.rawValue
+			request.allHTTPHeaderFields = headers
 
-					// Log request.
-					VGSShowLogger.logRequest(request, payload: payload)
+			// Log request.
+			VGSShowLogger.logRequest(request, payload: payload)
 
-					// Perform request.
-					self.performRequest(request: request, completion: block)
+			// Perform request.
+			self.performRequest(request: request, completion: block)
 		case .failure(let error):
-					print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload), error: \(error)")
-					block?(.failure(error.code, nil, nil, error))
+			print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload ?? "Uknown payload format"), error: \(error)")
+			block?(.failure(error.code, nil, nil, error))
 		}
 	}
-
-	// MARK: - Private
 
 	private func performRequest(request: URLRequest, completion block: RequestCompletion) {
 		// Send data
@@ -176,5 +196,55 @@ internal class APIClient {
 		})
 
 		return headers
+	}
+
+	// MARK: - Custom Host Name
+
+	private func updateHost(with hostname: String, completion: ((URL) -> Void)? = nil) {
+
+		dataSyncQueue.async {
+
+			// Enter sync zone.
+			self.syncSemaphore.wait()
+
+			// Check if we already have URL. If yes, don't fetch it the same time.
+			if let url = self.hostURLPolicy.url {
+				completion?(url)
+				// Exit sync zone.
+				self.syncSemaphore.signal()
+				return
+			}
+
+			// Resolve hostname.
+			APIHostnameValidator.validateCustomHostname(hostname, tenantId: self.vaultId) {[weak self](url) in
+				if var validUrl = url {
+
+					// Update url scheme if needed.
+					if !validUrl.hasSecureScheme(), let secureURL = URL.urlWithSecureScheme(from: validUrl) {
+						validUrl = secureURL
+					}
+
+					self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
+					completion?(validUrl)
+
+					print("✅ Success! VGSShowSDK hostname \(hostname) has been resolved!")
+
+					// Exit sync zone.
+					self?.syncSemaphore.signal()
+					return
+				} else {
+					guard let strongSelf = self, let validVaultURL = self?.vaultUrl else {
+						return
+					}
+					strongSelf.hostURLPolicy = .customHostURL(.useDefaultVault(validVaultURL))
+					print("⚠️ VGSShowSDK warning! Vault URL will be used!")
+					completion?(validVaultURL)
+
+					// Exit sync zone.
+					strongSelf.syncSemaphore.signal()
+					return
+				}
+			}
+		}
 	}
 }
