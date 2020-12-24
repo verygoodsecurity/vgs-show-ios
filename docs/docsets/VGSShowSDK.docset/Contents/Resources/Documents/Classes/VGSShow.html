@@ -134,7 +134,7 @@
             <p>An object you use for revealing and displaying data in corresponding subscribed VGS Show SDK views.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L14-L114">Show on GitHub</a>
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L14-L115">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -241,9 +241,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(id:environment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environmentACSS_SStcfc">init(id:<wbr>environment:<wbr>)</a>
+                    <a name="/s:10VGSShowSDK0A0C2id11environment8hostnameACSS_S2SSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:environment:hostname:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environment8hostnameACSS_S2SSgtcfc">init(id:<wbr>environment:<wbr>hostname:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,7 +258,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">hostname</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -290,11 +290,23 @@
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostname</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Custom Hostname, if not set, data will be sent to Vault Url.</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L66-L71">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L67-L71">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -302,9 +314,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(id:environment:dataRegion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environment10dataRegionACSS_AA14VGSEnvironmentOSSSgtcfc">init(id:<wbr>environment:<wbr>dataRegion:<wbr>)</a>
+                    <a name="/s:10VGSShowSDK0A0C2id11environment10dataRegion8hostnameACSS_AA14VGSEnvironmentOSSSgAJtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:environment:dataRegion:hostname:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK0A0C2id11environment10dataRegion8hostnameACSS_AA14VGSEnvironmentOSSSgAJtcfc">init(id:<wbr>environment:<wbr>dataRegion:<wbr>hostname:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -319,7 +331,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSEnvironment.html">VGSEnvironment</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">,</span> <span class="nv">dataRegion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSEnvironment.html">VGSEnvironment</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">sandbox</span><span class="p">,</span> <span class="nv">dataRegion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">hostname</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -363,11 +375,23 @@
                                 </div>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostname</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Custom Hostname, if not set, data will be sent to Vault Url.</p>
+                                </div>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L79-L82">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L80-L83">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -429,7 +453,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L88-L96">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L89-L97">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -478,7 +502,7 @@
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L100-L103">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L101-L104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -508,7 +532,7 @@
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L106-L113">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Core/Show/VGSShow.swift#L107-L114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -575,7 +599,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-17)</p>
+      <p>&copy; 2020 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external">Very Good Security</a>. All rights reserved. (Last updated: 2020-12-24)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
