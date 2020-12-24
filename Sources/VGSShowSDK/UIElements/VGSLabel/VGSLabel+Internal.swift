@@ -42,6 +42,12 @@ internal extension VGSLabel {
       label.translatesAutoresizingMaskIntoConstraints = false
       addSubview(label)
       setPaddings()
+
+			placholderLabel.translatesAutoresizingMaskIntoConstraints = false
+			addSubview(placholderLabel)
+			setPlaceholderPaddings()
+
+			placholderLabel.isHidden = true
   }
 
 	/// Set paddings.
@@ -69,6 +75,38 @@ internal extension VGSLabel {
     NSLayoutConstraint.activate(verticalConstraint)
     self.layoutIfNeeded()
   }
+
+	func setPlaceholderPaddings() {
+		var placeholderPaddings = paddings
+		
+		// Use custom placehoder paddings if needed.
+		if let customPlaceholderPaddings = self.placeholderPaddings {
+			placeholderPaddings = customPlaceholderPaddings
+		}
+
+		NSLayoutConstraint.deactivate(verticalPlaceholderConstraint)
+		NSLayoutConstraint.deactivate(horizontalPlaceholderConstraints)
+
+		if placeholderPaddings.hasNegativeValue {
+			print("⚠️ VGSShowSDK WARNING! Cannot set placholder paddings \(placeholderPaddings) with negative values")
+			return
+		}
+
+		let views = ["view": self, "label": placholderLabel]
+
+		horizontalPlaceholderConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(placeholderPaddings.left)-[label]-\(placeholderPaddings.right)-|",
+																																 options: .alignAllCenterY,
+																																 metrics: nil,
+																																 views: views)
+		NSLayoutConstraint.activate(horizontalPlaceholderConstraints)
+
+		verticalPlaceholderConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(placeholderPaddings.top)-[label]-\(placeholderPaddings.bottom)-|",
+																															options: .alignAllCenterX,
+																															metrics: nil,
+																															views: views)
+		NSLayoutConstraint.activate(verticalPlaceholderConstraint)
+		self.layoutIfNeeded()
+	}
 
 	/// Copy to pasteboard text.
 	/// - Parameter format: `VGSLabelCopyTextFormat` object, format to copy text.
@@ -106,7 +144,21 @@ internal extension VGSLabel {
 
 	/// Update text and apply transformation regex if available.
   func updateTextAndMaskIfNeeded() {
-    guard let text = revealedRawText else {return}
+		// Mask only normal text.
+		guard let text = revealedRawText else {
+
+			// No revealed text - show hint in placeholder label.
+      // Hide masked label.
+			label.isHidden = true
+			updateHint()
+			return
+		}
+
+		// Hide placeholder.
+		placholderLabel.isHidden = true
+
+		// Unhide masked label.
+		label.isHidden = false
 
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
@@ -129,5 +181,11 @@ internal extension VGSLabel {
 	/// Reset all masks. For internal use now.
 	func resetToRawText() {
 		textFormattersContainer.resetAllFormatters()
+	}
+
+	/// Update hint.
+	func updateHint() {
+			placholderLabel.text = placeholder
+			placholderLabel.isHidden = false
 	}
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		32010B3A256EACEC00E19C71 /* VGSShowSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 32010B39256EACEC00E19C71 /* VGSShowSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3211D9712542E2B4009BB381 /* VGSShowSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShowSDK.framework */; };
+		441963C12590C36100CAFBB3 /* VGSPlaceholderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441963C02590C36100CAFBB3 /* VGSPlaceholderLabel.swift */; };
+		441963E12592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */; };
 		4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083125639CDF006479FB /* VGSAnalyticsClient.swift */; };
 		4461083525639DEE006479FB /* VGSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083425639DEE006479FB /* VGSUtils.swift */; };
 		4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479E7812567A9720056350F /* VGSShow+Analytics.swift */; };
@@ -77,6 +79,8 @@
 		32010B39256EACEC00E19C71 /* VGSShowSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSShowSDK.h; sourceTree = "<group>"; };
 		3211D9672542E2B4009BB381 /* VGSShowSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGSShowSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D9702542E2B4009BB381 /* VGSShowSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		441963C02590C36100CAFBB3 /* VGSPlaceholderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPlaceholderLabel.swift; sourceTree = "<group>"; };
+		441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPlaceholderLabelStyle.swift; sourceTree = "<group>"; };
 		4461083125639CDF006479FB /* VGSAnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSAnalyticsClient.swift; sourceTree = "<group>"; };
 		4461083425639DEE006479FB /* VGSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUtils.swift; sourceTree = "<group>"; };
 		4479E7812567A9720056350F /* VGSShow+Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Analytics.swift"; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 			children = (
 				44A79F63255D0678009AF720 /* VGSLabel */,
 				44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */,
+				441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */,
+				441963C02590C36100CAFBB3 /* VGSPlaceholderLabel.swift */,
 				44A79F69255D0678009AF720 /* VGSViewProtocols */,
 			);
 			path = UIElements;
@@ -670,6 +676,7 @@
 				44E05119256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift in Sources */,
 				44A79F70255D0678009AF720 /* VGSShowDecodingContentMode.swift in Sources */,
 				44A79F75255D0678009AF720 /* VGSDataDecoderFactory.swift in Sources */,
+				441963E12592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift in Sources */,
 				44A79F81255D0678009AF720 /* VGSLabelDelegate.swift in Sources */,
 				44A79F84255D0678009AF720 /* VGSMaskedLabel.swift in Sources */,
 				44A79F82255D0678009AF720 /* VGSLabel.swift in Sources */,
@@ -680,6 +687,7 @@
 				448F56392587438E0024E814 /* APIHostURLPolicy.swift in Sources */,
 				4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */,
 				448F5627258742460024E814 /* APICustomHostStatus.swift in Sources */,
+				441963C12590C36100CAFBB3 /* VGSPlaceholderLabel.swift in Sources */,
 				448B53A4256FEBF3006D730F /* VGSTextFormattersCoordinator.swift in Sources */,
 				448525C525829F8400721F73 /* VGSShowLogger.swift in Sources */,
 				447FFDE7256E62B500CDAE4E /* VGSShowTextDecoder.swift in Sources */,
@@ -861,7 +869,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -892,7 +900,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

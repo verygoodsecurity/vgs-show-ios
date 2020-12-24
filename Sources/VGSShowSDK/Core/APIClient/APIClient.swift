@@ -49,6 +49,7 @@ internal class APIClient {
 
 	/// Serial queue for syncing requests on resolving hostname flow.
 	private let dataSyncQueue: DispatchQueue = .init(label: "iOS.VGSShowSDK.ResolveHostNameRequestsQueue")
+
 	private let syncSemaphore: DispatchSemaphore = .init(value: 1)
 
 	// MARK: - Initialization

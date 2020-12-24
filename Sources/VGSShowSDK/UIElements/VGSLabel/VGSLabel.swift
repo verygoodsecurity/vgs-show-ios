@@ -41,6 +41,9 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Masked label.
   internal var label = VGSMaskedLabel(frame: .zero)
 
+	/// Placeholder label.
+	internal let placholderLabel = VGSCustomLabel(frame: .zero)
+
 	/// Field content type (will be used for decoding).
 	internal let fieldType: VGSShowDecodingContentMode = .text
 
@@ -49,6 +52,12 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
 	/// Vertical constraints.
   internal var verticalConstraint = [NSLayoutConstraint]()
+
+	/// Horizontal placeholder constraints.
+	internal var horizontalPlaceholderConstraints = [NSLayoutConstraint]()
+
+	/// Vertical placeholder constraints.
+	internal var verticalPlaceholderConstraint = [NSLayoutConstraint]()
 
   /// View model, hodls business logic.
 	internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
@@ -102,7 +111,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
       return model.decodingContentPath
     }
   }
-  
+
   /// A Boolean value indicating whether `VGSLabel` string is empty.
   public var isEmpty: Bool {
     return label.isEmpty
@@ -113,6 +122,25 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		return revealedRawText?.count ?? 0
   }
 
+	// Hint text.
+	public var placeholder: String? {
+		didSet {
+			updateTextAndMaskIfNeeded()
+		}
+	}
+
+	/// Placeholder text styles.
+	public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
+		didSet {
+			placholderLabel.applyPlaceholderStyle(placeholderStyle)
+		}
+	}
+
+	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to reveal data.
+	public func clearRevealedText() {
+		revealedRawText = nil
+	}
+
 	/// Copy text to pasteboard with format.
 	/// - Parameter format: `VGSLabel.CopyTextFormat` object, text format to copy. Default is `.raw`.
 	public func copyTextToClipboard(format: CopyTextFormat = .raw) {
@@ -121,10 +149,18 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
   // MARK: - UI Attribute
 
-  /// `UIEdgeInsets` for text inside `VGSLabel`. **IMPORTANT!** Paddings should be non-negative.
+  /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
   public var paddings = UIEdgeInsets.zero {
-    didSet { setPaddings() }
+    didSet {
+			setPaddings()
+			setPlaceholderPaddings()
+		}
   }
+
+	/// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
+	public var placeholderPaddings: UIEdgeInsets? = nil {
+		didSet { setPlaceholderPaddings() }
+	}
 
   /// `VGSLabel` text font.
 	public var font: UIFont? {
