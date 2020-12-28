@@ -1,5 +1,5 @@
 //
-//  VGSCustomLabel.swift
+//  VGSAttributedLabel.swift
 //  VGSShowSDK
 //
 
@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 #endif
 
-internal class VGSCustomLabel: UILabel {
+internal class VGSAttributedLabel: UILabel {
 
 	/// Minimum text line height. Default is 0 (ignored on styling).
 	internal var textMinLineHeight: CGFloat = 0

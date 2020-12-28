@@ -41,17 +41,17 @@ internal extension VGSLabel {
   func buildUI() {
       label.translatesAutoresizingMaskIntoConstraints = false
       addSubview(label)
-      setPaddings()
+      setTextPaddings()
 
-			placholderLabel.translatesAutoresizingMaskIntoConstraints = false
-			addSubview(placholderLabel)
+			placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+			addSubview(placeholderLabel)
 			setPlaceholderPaddings()
 
-			placholderLabel.isHidden = true
+			placeholderLabel.isHidden = true
   }
 
 	/// Set paddings.
-  func setPaddings() {
+  func setTextPaddings() {
     NSLayoutConstraint.deactivate(verticalConstraint)
     NSLayoutConstraint.deactivate(horizontalConstraints)
 
@@ -92,7 +92,7 @@ internal extension VGSLabel {
 			return
 		}
 
-		let views = ["view": self, "label": placholderLabel]
+		let views = ["view": self, "label": placeholderLabel]
 
 		horizontalPlaceholderConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(placeholderPaddings.left)-[label]-\(placeholderPaddings.right)-|",
 																																 options: .alignAllCenterY,
@@ -147,6 +147,7 @@ internal extension VGSLabel {
 		// Mask only normal text.
 		guard let text = revealedRawText else {
 
+			label.secureText = nil
 			// No revealed text - show placeholder, hide main text label.
 			label.isHidden = true
 			updatePlaceholder()
@@ -154,7 +155,7 @@ internal extension VGSLabel {
 		}
 
 		// Hide placeholder.
-		placholderLabel.isHidden = true
+		placeholderLabel.isHidden = true
 
 		// Unhide main label.
 		label.isHidden = false
@@ -178,13 +179,13 @@ internal extension VGSLabel {
   }
 
 	/// Reset all masks. For internal use now.
-	func resetToRawText() {
+	func resetAllMasks() {
 		textFormattersContainer.resetAllFormatters()
 	}
 
 	/// Update placeholder.
 	func updatePlaceholder() {
-			placholderLabel.text = placeholder
-			placholderLabel.isHidden = false
+			placeholderLabel.text = placeholder
+			placeholderLabel.isHidden = false
 	}
 }

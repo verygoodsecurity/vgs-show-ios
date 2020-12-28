@@ -42,7 +42,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   internal var label = VGSMaskedLabel(frame: .zero)
 
 	/// Placeholder label.
-	internal let placholderLabel = VGSCustomLabel(frame: .zero)
+	internal let placeholderLabel = VGSAttributedLabel(frame: .zero)
 
 	/// Field content type (will be used for decoding).
 	internal let fieldType: VGSShowDecodingContentMode = .text
@@ -132,7 +132,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Placeholder text styles.
 	public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
 		didSet {
-			placholderLabel.applyPlaceholderStyle(placeholderStyle)
+			placeholderLabel.applyPlaceholderStyle(placeholderStyle)
 		}
 	}
 
@@ -152,7 +152,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
   public var paddings = UIEdgeInsets.zero {
     didSet {
-			setPaddings()
+			setTextPaddings()
 			setPlaceholderPaddings()
 		}
   }

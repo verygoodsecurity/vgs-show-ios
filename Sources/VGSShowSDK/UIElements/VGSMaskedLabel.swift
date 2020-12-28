@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 #endif
 
-internal class VGSMaskedLabel: VGSCustomLabel {
+internal class VGSMaskedLabel: VGSAttributedLabel {
 
 	// MARK: - Override
 	@available(*, deprecated, message: "Deprecated attribute.")
