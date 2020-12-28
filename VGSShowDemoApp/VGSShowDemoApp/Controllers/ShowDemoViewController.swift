@@ -79,7 +79,11 @@ class ShowDemoViewController: UIViewController {
 		let font = UIFont.systemFont(ofSize: 20)
 		let backgroundColor = UIColor.systemBlue
 		let cornerRadius: CGFloat = 0
+		let textAlignment = NSTextAlignment.center
 
+		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
+
+		cardNumberLabel.textAlignment = textAlignment
 		cardNumberLabel.textColor = textColor
 		cardNumberLabel.paddings = paddings
 		cardNumberLabel.borderColor = borderColor
@@ -87,6 +91,10 @@ class ShowDemoViewController: UIViewController {
 		cardNumberLabel.backgroundColor = backgroundColor
 		cardNumberLabel.layer.cornerRadius = cornerRadius
 		cardNumberLabel.contentPath = "json.payment_card_number"
+
+		cardNumberLabel.placeholder = "Card number"
+		cardNumberLabel.placeholderStyle.color = placeholderColor
+		cardNumberLabel.placeholderStyle.textAlignment = textAlignment
 
 		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
 		do {
@@ -102,6 +110,7 @@ class ShowDemoViewController: UIViewController {
 
 		cardNumberLabel.delegate = self
 
+		expDateLabel.textAlignment = textAlignment
 		expDateLabel.textColor = textColor
 		expDateLabel.paddings = paddings
 		expDateLabel.borderColor = borderColor
@@ -111,6 +120,10 @@ class ShowDemoViewController: UIViewController {
 		expDateLabel.characterSpacing = 0.83
 		expDateLabel.contentPath = "json.payment_card_expiration_date"
 		expDateLabel.delegate = self
+
+		expDateLabel.placeholder = "Expiration date"
+		expDateLabel.placeholderStyle.color = placeholderColor
+		expDateLabel.placeholderStyle.textAlignment = textAlignment
 
 		stackView.addArrangedSubview(cardNumberLabel)
 		stackView.addArrangedSubview(expDateLabel)
