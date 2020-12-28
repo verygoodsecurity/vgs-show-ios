@@ -136,7 +136,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		}
 	}
 
-	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to reveal data.
+	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to populate label with reveal data.
 	public func clearRevealedText() {
 		revealedRawText = nil
 	}
