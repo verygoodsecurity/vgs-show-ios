@@ -88,7 +88,7 @@ internal extension VGSLabel {
 		NSLayoutConstraint.deactivate(horizontalPlaceholderConstraints)
 
 		if placeholderPaddings.hasNegativeValue {
-			print("⚠️ VGSShowSDK WARNING! Cannot set placholder paddings \(placeholderPaddings) with negative values")
+			print("⚠️ VGSShowSDK WARNING! Cannot set placeholder paddings \(placeholderPaddings) with negative values")
 			return
 		}
 
