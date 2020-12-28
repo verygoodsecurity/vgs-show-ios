@@ -147,17 +147,16 @@ internal extension VGSLabel {
 		// Mask only normal text.
 		guard let text = revealedRawText else {
 
-			// No revealed text - show hint in placeholder label.
-      // Hide masked label.
+			// No revealed text - show placeholder, hide main text label.
 			label.isHidden = true
-			updateHint()
+			updatePlaceholder()
 			return
 		}
 
 		// Hide placeholder.
 		placholderLabel.isHidden = true
 
-		// Unhide masked label.
+		// Unhide main label.
 		label.isHidden = false
 
     // No mask: set revealed text.
@@ -183,8 +182,8 @@ internal extension VGSLabel {
 		textFormattersContainer.resetAllFormatters()
 	}
 
-	/// Update hint.
-	func updateHint() {
+	/// Update placeholder.
+	func updatePlaceholder() {
 			placholderLabel.text = placeholder
 			placholderLabel.isHidden = false
 	}

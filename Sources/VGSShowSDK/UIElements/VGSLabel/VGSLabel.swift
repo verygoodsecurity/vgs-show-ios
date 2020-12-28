@@ -122,7 +122,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		return revealedRawText?.count ?? 0
   }
 
-	// Hint text.
+	// Placeholder text.
 	public var placeholder: String? {
 		didSet {
 			updateTextAndMaskIfNeeded()

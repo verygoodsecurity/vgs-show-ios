@@ -53,6 +53,8 @@ internal class VGSCustomLabel: UILabel {
 
 	// MARK: - Public
 
+	/// Apply styles for placeholder.
+	/// - Parameter style: `VGSPlaceholderLabelStyle` object.
 	func applyPlaceholderStyle(_ style: VGSPlaceholderLabelStyle) {
 		textColor = style.color
 		font = style.font
