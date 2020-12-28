@@ -119,11 +119,12 @@ class ShowDemoViewController: UIViewController {
 		expDateLabel.layer.cornerRadius = cornerRadius
 		expDateLabel.characterSpacing = 0.83
 		expDateLabel.contentPath = "json.payment_card_expiration_date"
-		expDateLabel.delegate = self
 
 		expDateLabel.placeholder = "Expiration date"
 		expDateLabel.placeholderStyle.color = placeholderColor
 		expDateLabel.placeholderStyle.textAlignment = textAlignment
+
+		expDateLabel.delegate = self
 
 		stackView.addArrangedSubview(cardNumberLabel)
 		stackView.addArrangedSubview(expDateLabel)
