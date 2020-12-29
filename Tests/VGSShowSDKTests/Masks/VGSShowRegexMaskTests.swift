@@ -25,7 +25,7 @@ final class VGSShowRegexMaskTests: XCTestCase {
 
 		for index in 0..<templates.count {
       // Reset previous regex.
-			vgsLabel.resetToRawText()
+			vgsLabel.resetAllMasks()
 
 			do {
 				let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
@@ -39,7 +39,7 @@ final class VGSShowRegexMaskTests: XCTestCase {
 		}
 
 		// Test reset to raw text.
-		vgsLabel.resetToRawText()
+		vgsLabel.resetAllMasks()
 		XCTAssert(vgsLabel.label.secureText == cardNumber)
 
 		// Test multiple formatters.
