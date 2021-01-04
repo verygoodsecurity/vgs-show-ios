@@ -83,6 +83,12 @@ class ShowDemoViewController: UIViewController {
 
 		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
 
+//    cardNumberLabel.setSecureText()
+//    cardNumberLabel.setSecureText(start: nil, end: 15)
+//    cardNumberLabel.setSecureTextRanges(ranges: [VGSTextRange(start: 4, end: 15)])
+//    cardNumberLabel.setSecureTextRanges(ranges: [VGSTextRange(start: 5, end: 9),
+//                                                 VGSTextRange(start: 10, end: 14)])
+    
 		cardNumberLabel.textAlignment = textAlignment
 		cardNumberLabel.textColor = textColor
 		cardNumberLabel.paddings = paddings
@@ -185,7 +191,7 @@ extension ShowDemoViewController: VGSLabelDelegate {
 	}
 
 	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
-
+    cardNumberLabel.isSecureText = !cardNumberLabel.isSecureText
 		if !label.isEmpty {
 			var textFormat = "Transformed"
 			switch format {

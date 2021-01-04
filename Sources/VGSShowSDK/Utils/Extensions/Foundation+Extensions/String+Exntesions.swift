@@ -197,3 +197,25 @@ internal extension String {
 		return path
 	}
 }
+internal extension String {
+  
+  func secure(in range: VGSTextRange, secureSymbol: String? = "*") -> String {
+    guard !self.isEmpty else {
+      return ""
+    }
+    
+    let securedString: String
+    if range.start == nil, range.end == nil {
+      securedString = String(describing: Array(repeating: secureSymbol, count: self.count))
+    } else {
+      let first = range.start ?? 0
+      let last = range.end ?? self.count - 1
+      let startIndex = self.index(self.startIndex, offsetBy: first)
+      let endtIndex = self.index(self.startIndex, offsetBy: last)
+      let replaceRange = startIndex..<endtIndex
+      let replaceString = String.init(repeating: "*", count: last - first)
+      securedString = self.replacingCharacters(in: replaceRange, with: replaceString)
+    }
+    return securedString
+  }
+}

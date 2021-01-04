@@ -14,6 +14,8 @@ internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
   var labelModel: VGSLabelViewModelProtocol { get }
 }
 
+public typealias VGSTextRange = (start: Int?, end: Int?)
+
 /// A view that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
@@ -136,6 +138,15 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		}
 	}
 
+  public var isSecureText: Bool = false {
+    didSet {
+      updateTextAndMaskIfNeeded()
+    }
+  }
+  
+  /// Text Symbol that will replace visible label text character when securing String
+  public var secureTextSymbol = "*"
+
 	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to populate label with revealed data.
 	public func clearText() {
 		revealedRawText = nil
@@ -147,6 +158,25 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		copyText(format: format)
 	}
 
+  /// An array of `VGSTextRanges`, where `VGSLabel.secureTextSymbol` should replace text character
+  internal var secureTextRanges: [VGSTextRange]?
+
+  /// Set `VGSLabel.secureTextSymbol` in label text
+  public func setSecureText(start: Int? = nil, end: Int? = nil) {
+    let ranges = [VGSTextRange(start: start, end: end)]
+    setSecureTextRanges(ranges: ranges)
+  }
+  
+  /// Set `VGSLabel.secureTextSymbol` in specific ranges in label text
+  public func setSecureTextRanges(ranges: [VGSTextRange]) {
+    self.secureTextRanges = ranges
+    
+    /// Apply secure range if needed
+    if isSecureText {
+      updateTextAndMaskIfNeeded()
+    }
+  }
+  
   // MARK: - UI Attribute
 
   /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.

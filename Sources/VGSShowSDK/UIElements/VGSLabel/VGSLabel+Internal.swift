@@ -146,7 +146,6 @@ internal extension VGSLabel {
   func updateTextAndMaskIfNeeded() {
 		// Mask only normal text.
 		guard let text = revealedRawText else {
-
 			label.secureText = nil
 			// No revealed text - show placeholder, hide main text label.
 			label.isHidden = true
@@ -162,13 +161,40 @@ internal extension VGSLabel {
 
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
+      /// Check if text should be secured
+      if isSecureText {
+        let securedText = secureTextInRanges(text, ranges: secureTextRanges)
+        updateMaskedLabel(with: securedText)
+        return
+      }
       updateMaskedLabel(with: text)
       return
     }
-
+    
     // Set masked text to label.
     let maskedText = textFormattersContainer.formatText(text)
+    if isSecureText {
+      let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
+      updateMaskedLabel(with: securedText)
+      return
+    }
     updateMaskedLabel(with: maskedText)
+  }
+  
+  func secureTextInRanges(_ text: String, ranges: [VGSTextRange]?) -> String {
+    var securedText = text
+    
+    let secureTextRanges: [VGSTextRange]
+    if let ranges = ranges {
+      secureTextRanges = ranges
+    } else {
+      secureTextRanges = [VGSTextRange(start: 0, end: text.count - 1)]
+    }
+    
+    secureTextRanges.forEach { (range) in
+      securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
+    }
+    return securedText
   }
 
 	/// Set text to internal label, notify delegate about changing text.

@@ -83,6 +83,7 @@ class CollectViewController: UIViewController {
 			VGSValidationRuleCardExpirationDate(dateFormat: .longYear, error: VGSValidationErrorType.expDate.rawValue)
 		])
 
+    expCardDate.isSecureTextEntry = true
 		expCardDate.configuration = expDateConfiguration
 		expCardDate.placeholder = "MM/YYYY"
 		expCardDate.monthPickerFormat = .longSymbols
@@ -127,7 +128,7 @@ class CollectViewController: UIViewController {
 					if let aliases = jsonData["json"] as? [String: Any],
 						let cardNumber = aliases["cardNumber"],
 						let expDate = aliases["expDate"] {
-
+          
 						self?.resultLabel.text =  """
 						card_namber: \(cardNumber)\n
 						expiration_date: \(expDate)
