@@ -10,12 +10,17 @@ import Foundation
 import UIKit
 #endif
 
-/// An object representing text range with boundaries.
+/// An object representing text range with closed  boundaries.
 public struct VGSTextRange {
   /// Range start index
   var start: Int?
   /// Range end index
   var end: Int?
+  
+  init(start: Int? = nil, end: Int? = nil) {
+    self.start = start
+    self.end = end
+  }
 }
 
 /// A view that displays revealed text data.
@@ -170,11 +175,11 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Set `VGSLabel.secureTextSymbol` in label text
   public func setSecureText(start: Int? = nil, end: Int? = nil) {
     let ranges = [VGSTextRange(start: start, end: end)]
-    setSecureTextRanges(ranges: ranges)
+    setSecureText(ranges: ranges)
   }
   
   /// Set `VGSLabel.secureTextSymbol` in specific ranges in label text
-  public func setSecureTextRanges(ranges: [VGSTextRange]) {
+  public func setSecureText(ranges: [VGSTextRange]) {
     self.secureTextRanges = ranges
     
     /// Apply secure range if needed
