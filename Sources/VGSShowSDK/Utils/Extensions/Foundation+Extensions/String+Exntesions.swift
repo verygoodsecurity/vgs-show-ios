@@ -278,17 +278,12 @@ internal extension String {
 			replacementStartIndex = startIndex
 		}
 
-		print("replacementStartIndex.encodedOffset: \(replacementStartIndex.encodedOffset)")
-
 		// Get end index considering endIndex as a limit.
 		if let index = self.index(self.startIndex, offsetBy: last, limitedBy: endIndex) {
 			replacementEndIndex = index
 		} else {
 			replacementEndIndex = endIndex
 		}
-
-		print(replacementEndIndex.encodedOffset)
-		print("replacementEndIndex.encodedOffset: \(replacementEndIndex.encodedOffset)")
 
 		// Return Closed Swift ClosedRange<String.Index> from start and end to include both.
 		return replacementStartIndex...replacementEndIndex

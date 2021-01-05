@@ -92,7 +92,7 @@ final class VGSShowPasswordRangesTests: XCTestCase {
 
 		let testData: [VGSPasswordRangeTestData] = [
 			// [nil, nil] Start and end nil - mask everything.
-			VGSPasswordRangeTestData(textRange: (start: nil, end: nil), maskedText: "****"),
+			VGSPasswordRangeTestData(textRange: (start: nil, end: nil), maskedText: "****")
 		]
 
 		for index in 0..<testData.count {
