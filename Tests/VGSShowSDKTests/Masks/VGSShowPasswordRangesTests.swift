@@ -24,23 +24,32 @@ final class VGSShowPasswordRangesTests: XCTestCase {
 		let transformedText = "4111-1111-1111-1111"
 
 		let testData: [VGSPasswordRangeTestData] = [
-			// Start and end nil - mask everything.
+			// [nil, nil] Start and end nil - mask everything.
 			VGSPasswordRangeTestData(textRange: (start: nil, end: nil), maskedText: "*******************"),
 
-			// Start is nil, end is 4 - set 0 for start.
+			// [nil, 3] Start is nil, end is 3 - set 0 for start.
 			VGSPasswordRangeTestData(textRange: (start: nil, end: 3), maskedText: "****-1111-1111-1111"),
 
-			// Start is -1, end is 5 - ignore invalid range.
+			// [-1, 3] Start is -1, end is 5 - ignore invalid range.
 			VGSPasswordRangeTestData(textRange: (start: -1, end: 5), maskedText: "4111-1111-1111-1111"),
 
-			// Start is 0, end is -1 - ignore invalid range.
+			// [0, -1] Start is 0, end is -1 - ignore invalid range.
 			VGSPasswordRangeTestData(textRange: (start: 0, end: -1), maskedText: "4111-1111-1111-1111"),
 
-			// Start > end - ignore invalid range.
+			// [5, 4] Start > end - ignore invalid range.
 			VGSPasswordRangeTestData(textRange: (start: 5, end: 4), maskedText: "4111-1111-1111-1111"),
 
-			// Start is 0, end is nil - mask everything.
-			VGSPasswordRangeTestData(textRange: (start: 0, end: nil), maskedText: "*******************")
+			// [0, nil] Start is 0, end is nil - mask everything.
+			VGSPasswordRangeTestData(textRange: (start: 0, end: nil), maskedText: "*******************"),
+
+			// [0, nil] Start is 0, end is nil - mask everything.
+			VGSPasswordRangeTestData(textRange: (start: 0, end: nil), maskedText: "*******************"),
+
+			// [5, 8] Start is 5, end is 8 - apply secure mask.
+			VGSPasswordRangeTestData(textRange: (start: 5, end: 8), maskedText: "4111-****-1111-1111"),
+
+			// [15, 18] Start is 15, end is 18 - apply secure mask.
+			VGSPasswordRangeTestData(textRange: (start: 15, end: 18), maskedText: "4111-1111-1111-****")
 		]
 
 		for index in 0..<testData.count {
