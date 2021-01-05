@@ -140,15 +140,9 @@ internal extension String {
 	func transformWithRegex(_ regexMask: VGSTransformationRegex) -> String {
 		let initalString = self
 
-		let range: NSRange
-		if let customRange = regexMask.customRange {
-			range = customRange
-		} else {
-			let fullLengthRange = NSRange(location: 0, length: initalString.count)
-			range = fullLengthRange
-		}
+		let fullLengthRange = NSRange(location: 0, length: initalString.count)
 
-		let maskedString = regexMask.regex.stringByReplacingMatches(in: initalString, options: [], range: range, withTemplate: regexMask.template)
+		let maskedString = regexMask.regex.stringByReplacingMatches(in: initalString, options: [], range: fullLengthRange, withTemplate: regexMask.template)
 
 		return maskedString
 	}
