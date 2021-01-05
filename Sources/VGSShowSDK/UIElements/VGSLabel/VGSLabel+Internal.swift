@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 #endif
 
+internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
+  var labelModel: VGSLabelViewModelProtocol { get }
+}
+
 internal extension VGSLabel {
 
 	/// Basic initialization & view setup.

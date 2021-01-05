@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 #endif
 
-internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
-  var labelModel: VGSLabelViewModelProtocol { get }
+/// An object representing text range with boundaries.
+public struct VGSTextRange {
+  /// Range start index
+  var start: Int?
+  /// Range end index
+  var end: Int?
 }
-
-public typealias VGSTextRange = (start: Int?, end: Int?)
 
 /// A view that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
@@ -144,8 +146,12 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     }
   }
   
-  /// Text Symbol that will replace visible label text character when securing String
-  public var secureTextSymbol = "*"
+  /// Text Symbol that will replace visible label text character when securing String. Should be one charcter only.
+  public var secureTextSymbol = "*" {
+    didSet {
+      if isSecureText { updateTextAndMaskIfNeeded() }
+    }
+  }
 
 	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to populate label with revealed data.
 	public func clearText() {
