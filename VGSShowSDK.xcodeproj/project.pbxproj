@@ -57,7 +57,7 @@
 		44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB9255D06C6009AF720 /* VGSJSONData+Bundle.swift */; };
 		44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */; };
 		44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */; };
-		44CC283825A48FA4009B1480 /* VGSShowPasswordRangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CC283725A48FA4009B1480 /* VGSShowPasswordRangesTests.swift */; };
+		44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CC283725A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift */; };
 		44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05110256E49C400DDBE41 /* Array+Extensions.swift */; };
 		44E05117256E49C400DDBE41 /* VGSJsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05111256E49C400DDBE41 /* VGSJsonData+Extensions.swift */; };
 		44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05112256E49C400DDBE41 /* String+Exntesions.swift */; };
@@ -130,7 +130,7 @@
 		44A79FBA255D06C6009AF720 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMaskTests.swift; sourceTree = "<group>"; };
 		44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabelTest.swift; sourceTree = "<group>"; };
-		44CC283725A48FA4009B1480 /* VGSShowPasswordRangesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowPasswordRangesTests.swift; sourceTree = "<group>"; };
+		44CC283725A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowSecureTextRangesTests.swift; sourceTree = "<group>"; };
 		44E05110256E49C400DDBE41 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		44E05111256E49C400DDBE41 /* VGSJsonData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSJsonData+Extensions.swift"; sourceTree = "<group>"; };
 		44E05112256E49C400DDBE41 /* String+Exntesions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Exntesions.swift"; sourceTree = "<group>"; };
@@ -463,7 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */,
-				44CC283725A48FA4009B1480 /* VGSShowPasswordRangesTests.swift */,
+				44CC283725A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift */,
 			);
 			path = Masks;
 			sourceTree = "<group>";
@@ -707,7 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44CC283825A48FA4009B1480 /* VGSShowPasswordRangesTests.swift in Sources */,
+				44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */,
 				44A79FC6255D06C6009AF720 /* VGSShowTest+Subscribe.swift in Sources */,
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
 				44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */,
