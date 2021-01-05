@@ -84,4 +84,39 @@ final class VGSShowPasswordRangesTests: XCTestCase {
 			}
 		}
 	}
+
+	/// Test regex mask formatting.
+	func testFormattedRangesWithEmojis() {
+
+		let rawText = "🇺🇸123"
+
+		let testData: [VGSPasswordRangeTestData] = [
+			// [nil, nil] Start and end nil - mask everything.
+			VGSPasswordRangeTestData(textRange: (start: nil, end: nil), maskedText: "****"),
+		]
+
+		for index in 0..<testData.count {
+
+			print("index: \(index)")
+
+			// Reset previous regex.
+			let vgsLabel = VGSLabel()
+			vgsLabel.revealedRawText = rawText
+
+			XCTAssert(vgsLabel.label.secureText == rawText)
+
+			let testItem = testData[index]
+			vgsLabel.isSecureText = true
+
+			let textRange = testItem.textRange
+			vgsLabel.setSecureText(start: textRange.start, end: textRange.end)
+			print("label.text: \(vgsLabel.label.secureText!)")
+			print("range: \(textRange)")
+			print("valid masked text: \(testItem.maskedText)")
+
+			if vgsLabel.label.secureText != testItem.maskedText {
+				assertionFailure("Failed!")
+			}
+		}
+	}
 }
