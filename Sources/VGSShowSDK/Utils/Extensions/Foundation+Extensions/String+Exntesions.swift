@@ -316,6 +316,11 @@ internal extension String {
 		guard !self.isEmpty else {
 			return ""
 		}
+    
+    // Don't mask when secure symbol is empty
+    guard !secureSymbol.isEmpty else {
+      return self
+    }
 
 		let securedString: String
 
