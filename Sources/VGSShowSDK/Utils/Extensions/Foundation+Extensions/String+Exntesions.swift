@@ -221,7 +221,12 @@ internal extension String {
 	func endTextRangeIndex(from range: VGSTextRange) -> Int {
 		let end: Int
 		if let last = range.end {
-			end = last
+			// Use last char if end overlaps string length.
+			if last > count - 1 {
+				end = count - 1
+			} else {
+				end = last
+			}
 		} else {
 			// Last index will be text length - 1 for non-empty string.
 			if !isEmpty {
@@ -244,8 +249,8 @@ internal extension String {
 		// Ignore start > length.
 		if start > count {return false}
 
-		// Ignore range if start > end.
-		return start < end
+		// Ignore range if start > end. Start can match end.
+		return start <= end
 	}
 
 	/// Characters count to replace.

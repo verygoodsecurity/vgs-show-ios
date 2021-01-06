@@ -13,11 +13,11 @@ import UIKit
 /// An object representing text range with closed  boundaries.
 public struct VGSTextRange {
   /// Range start index
-  var start: Int?
+  public let start: Int?
   /// Range end index
-  var end: Int?
+	public let end: Int?
   
-  init(start: Int? = nil, end: Int? = nil) {
+  public init(start: Int? = nil, end: Int? = nil) {
     self.start = start
     self.end = end
   }
