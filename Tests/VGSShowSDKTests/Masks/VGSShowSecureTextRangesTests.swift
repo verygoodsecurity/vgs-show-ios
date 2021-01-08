@@ -35,7 +35,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
       VGSSecureTextTestData(textRange: VGSTextRange(start: nil, end: 3), maskedText: "****-1111-1111-1111"),
 
 			// Case 2.
-			// [-1, 3] Start is -1, end is 5 - ignore invalid range.
+			// [-1, 5] Start is -1, end is 5 - ignore invalid range.
       VGSSecureTextTestData(textRange: VGSTextRange(start: -1, end: 5), maskedText: "4111-1111-1111-1111"),
 
 			// Case 3.
@@ -67,7 +67,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
       VGSSecureTextTestData(textRange: VGSTextRange(start: 0, end: 0), maskedText: "*111-1111-1111-1111"),
 
 			// Case 10.
-      // [18, nil] Start is 19, end is nil - apply secure mask.
+      // [18, nil] Start is 18, end is nil - apply secure mask.
       VGSSecureTextTestData(textRange: VGSTextRange(start: 18, end: nil), maskedText: "4111-1111-1111-111*"),
 
 			// Case 11.
@@ -75,7 +75,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 			VGSSecureTextTestData(textRange: VGSTextRange(start: 0, end: 100), maskedText: "*******************"),
 
 			// Case 12.
-			// [18, 100] Start is 18, end is 100 (bigger than text length) - mask remaining text from 18.
+			// [0, 100] Start is 0, end is 100 (bigger than text length) - mask remaining text from 18.
 			VGSSecureTextTestData(textRange: VGSTextRange(start: 0, end: 100), maskedText: "*******************"),
 
 			// Case 13.
@@ -83,11 +83,11 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 			VGSSecureTextTestData(textRange: VGSTextRange(start: 1, end: 1), maskedText: "4*11-1111-1111-1111"),
 
 			// Case 14.
-			// [11, 18] Start is 11, end is 18 - apply secure mask.
+			// [10, 18] Start is 10, end is 18 - apply secure mask.
 			VGSSecureTextTestData(textRange: VGSTextRange(start: 10, end: 18), maskedText: "4111-1111-*********"),
 
 			// Case 15.
-			// [4, 15] Start is 4, end is 15 - apply secure mask.
+			// [4, 14] Start is 4, end is 14 - apply secure mask.
 			VGSSecureTextTestData(textRange: VGSTextRange(start: 4, end: 14), maskedText: "4111***********1111"),
 
 			// Case 16.
@@ -96,7 +96,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 
 			// Case 17.
 			// [3, 3] Start is 3, end is 3 (mask 1 digit) - apply secure mask.
-			VGSSecureTextTestData(textRange: VGSTextRange(start: 3, end: 3), maskedText: "411*-1111-1111-1111"),
+			VGSSecureTextTestData(textRange: VGSTextRange(start: 3, end: 3), maskedText: "411*-1111-1111-1111")
 		]
 
 		for index in 0..<testData.count {
