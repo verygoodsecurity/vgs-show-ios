@@ -145,6 +145,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		}
 	}
 
+	/// `Bool` flag. Apply secure mask if `true`. If secure range is not defined mask all text. Default is `false`.
   public var isSecureText: Bool = false {
     didSet {
       updateTextAndMaskIfNeeded()
@@ -169,16 +170,16 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		copyText(format: format)
 	}
 
-  /// An array of `VGSTextRanges`, where `VGSLabel.secureTextSymbol` should replace text character
+  /// An array of `VGSTextRanges`, where `VGSLabel.secureTextSymbol` should replace text character.
   internal var secureTextRanges: [VGSTextRange]?
 
-  /// Set `VGSLabel.secureTextSymbol` in label text
+  /// Set `VGSLabel.secureTextSymbol` in label text.
   public func setSecureText(start: Int? = nil, end: Int? = nil) {
     let ranges = [VGSTextRange(start: start, end: end)]
     setSecureText(ranges: ranges)
   }
   
-  /// Set `VGSLabel.secureTextSymbol` in specific ranges in label text
+  /// Set `VGSLabel.secureTextSymbol` in specific ranges in label text.
   public func setSecureText(ranges: [VGSTextRange]) {
     self.secureTextRanges = ranges
     

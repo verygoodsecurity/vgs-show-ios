@@ -165,7 +165,7 @@ internal extension VGSLabel {
 
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
-      /// Check if text should be secured
+      // Check if text should be secured.
       if isSecureText {
         let securedText = secureTextInRanges(text, ranges: secureTextRanges)
         updateMaskedLabel(with: securedText)
@@ -184,7 +184,12 @@ internal extension VGSLabel {
     }
     updateMaskedLabel(with: maskedText)
   }
-  
+
+	/// Apply secure mask with specified ranges. If range is not defined secure all text.
+	/// - Parameters:
+	///   - text: String `object`, text to secure.
+	///   - ranges: `[VGSTextRange]` an array of `VGSTextRange` to apply. Should be valid ranges.
+	/// - Returns: `String` object, secured string.
   func secureTextInRanges(_ text: String, ranges: [VGSTextRange]?) -> String {
     var securedText = text
     
@@ -192,7 +197,8 @@ internal extension VGSLabel {
     if let ranges = ranges {
       secureTextRanges = ranges
     } else {
-      secureTextRanges = [VGSTextRange(start: 0, end: text.count - 1)]
+			// Mask everything since range is not defined.
+      secureTextRanges = [VGSTextRange(start: nil, end: nil)]
     }
     
     secureTextRanges.forEach { (range) in
