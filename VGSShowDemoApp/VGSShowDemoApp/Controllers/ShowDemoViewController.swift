@@ -14,13 +14,13 @@ class ShowDemoViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
-	@IBOutlet fileprivate weak var copyCardNumberButton: UIButton!
 	@IBOutlet fileprivate weak var titleLabel: UILabel!
 	@IBOutlet fileprivate weak var showButton: UIButton!
 
 	// MARK: - Constants
 
 	let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
+  let cardHolderNameLabel = VGSLabel()
 	let cardNumberLabel = VGSLabel()
 	let expDateLabel = VGSLabel()
 
@@ -32,13 +32,14 @@ class ShowDemoViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 
-    // Setup VGSLabels.
-		configureUI()
+    // Subscribe VGSLabels.
 		vgsShow.subscribe(cardNumberLabel)
 		vgsShow.subscribe(expDateLabel)
-
-		// Setup demo copy button UI and title.
-		setupCopyButtonUI()
+    vgsShow.subscribe(cardHolderNameLabel)
+    
+    // Configure UI for VGSLabels.
+    configureUI()
+    
 		setupShowButtonUI()
 		setupTitleUI()
 
@@ -59,11 +60,7 @@ class ShowDemoViewController: UIViewController {
 	}
 
 	@IBAction private func copyCardAction(_ sender: UIButton) {
-		if !isTransformedCardNumber {
-			cardNumberLabel.copyTextToClipboard(format: .raw)
-		} else {
-			cardNumberLabel.copyTextToClipboard(format: .transformed)
-		}
+		
 	}
 
 	@IBAction private func switchChangeAction(_ sender: UISwitch) {
@@ -77,35 +74,25 @@ class ShowDemoViewController: UIViewController {
 		let textColor = UIColor.white
 		let borderColor = UIColor.clear
 		let font = UIFont.systemFont(ofSize: 20)
-		let backgroundColor = UIColor.systemBlue
-		let cornerRadius: CGFloat = 0
-		let textAlignment = NSTextAlignment.center
+		let backgroundColor = UIColor.clear
+		let cornerRadius: CGFloat = 6
+		let textAlignment = NSTextAlignment.right
 
 		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
 
-//    cardNumberLabel.setSecureText()
-//    cardNumberLabel.setSecureText(start: nil, end: 15)
-//    cardNumberLabel.setSecureTextRanges(ranges: [VGSTextRange(start: 4, end: 15)])
-//    cardNumberLabel.setSecureTextRanges(ranges: [VGSTextRange(start: 5, end: 9),
-//                                                 VGSTextRange(start: 10, end: 14)])
+    // Secure revealed data with mask in ranges
+    cardNumberLabel.isSecureText = true
+    cardNumberLabel.setSecureText(ranges: [VGSTextRange(start: 5, end: 8),
+                                           VGSTextRange(start: 10, end: 13)])
     
-		cardNumberLabel.textAlignment = textAlignment
-		cardNumberLabel.textColor = textColor
-		cardNumberLabel.paddings = paddings
-		cardNumberLabel.borderColor = borderColor
-		cardNumberLabel.font = font
-		cardNumberLabel.backgroundColor = backgroundColor
-		cardNumberLabel.layer.cornerRadius = cornerRadius
+    // Set placeholder text. Placeholder will appear until revealed text will be set in VGSLabel
+    cardNumberLabel.placeholder = "XXXX XXXX XXXX XXXX"
 		cardNumberLabel.contentPath = "json.payment_card_number"
-
-		cardNumberLabel.placeholder = "Card number"
-		cardNumberLabel.placeholderStyle.color = placeholderColor
-		cardNumberLabel.placeholderStyle.textAlignment = textAlignment
 
 		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
 		do {
 			let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
-			let template = "$1-$2-$3-$4"
+			let template = "$1 $2 $3 $4"
 			let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
 
 			// Add transformation regex to your label.
@@ -114,25 +101,31 @@ class ShowDemoViewController: UIViewController {
 			assertionFailure("invalid regex, error: \(error)")
 		}
 
-		cardNumberLabel.delegate = self
+    expDateLabel.placeholder = "XX/XX"
+    expDateLabel.contentPath = "json.payment_card_expiration_date"
+    
+    cardHolderNameLabel.placeholder = "XXXXXXXXXXXXXXXXXXX"
+    cardHolderNameLabel.contentPath = "json.payment_card_holder_name"
+    
+    // Set default VGSLabel UI style
+    vgsShow.subscribedLabels.forEach {
+      $0.textAlignment = textAlignment
+      $0.textColor = textColor
+      $0.paddings = paddings
+      $0.borderColor = borderColor
+      $0.font = font
+      $0.backgroundColor = backgroundColor
+      $0.layer.cornerRadius = cornerRadius
+      $0.characterSpacing = 0.83
+      $0.placeholderStyle.color = placeholderColor
+      $0.placeholderStyle.textAlignment = textAlignment
 
-		expDateLabel.textAlignment = textAlignment
-		expDateLabel.textColor = textColor
-		expDateLabel.paddings = paddings
-		expDateLabel.borderColor = borderColor
-		expDateLabel.font = font
-		expDateLabel.backgroundColor = backgroundColor
-		expDateLabel.layer.cornerRadius = cornerRadius
-		expDateLabel.characterSpacing = 0.83
-		expDateLabel.contentPath = "json.payment_card_expiration_date"
-
-		expDateLabel.placeholder = "Expiration date"
-		expDateLabel.placeholderStyle.color = placeholderColor
-		expDateLabel.placeholderStyle.textAlignment = textAlignment
-
-		expDateLabel.delegate = self
-
-		stackView.addArrangedSubview(cardNumberLabel)
+      // set delegate to follow the updates in VGSLabel
+      $0.delegate = self
+    }
+    
+    stackView.addArrangedSubview(cardHolderNameLabel)
+    stackView.addArrangedSubview(cardNumberLabel)
 		stackView.addArrangedSubview(expDateLabel)
 	}
 
@@ -145,21 +138,12 @@ class ShowDemoViewController: UIViewController {
 			switch requestResult {
 			case .success(let code):
 				self.showButton.isEnabled = true
-				self.copyCardNumberButton.isEnabled = true
 				print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
 				self.showButton.isEnabled = true
 				print("vgsshow failed, code: \(code), error: \(error)")
 			}
 		}
-	}
-
-	private func setupCopyButtonUI() {
-		copyCardNumberButton.setTitleColor(UIColor.white.withAlphaComponent(0.7), for: .disabled)
-		copyCardNumberButton.setTitleColor(UIColor.white, for: .normal)
-		copyCardNumberButton.isEnabled = false
-		copyCardNumberButton.layer.cornerRadius = 6
-		copyCardNumberButton.layer.masksToBounds = true
 	}
 
 	private func setupShowButtonUI() {
@@ -172,26 +156,34 @@ class ShowDemoViewController: UIViewController {
 
 	private func setupTitleUI() {
 		titleLabel.font = UIFont.demoAppLargeTitleFont
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(copyCardNumber))
+    stackView.addGestureRecognizer(tapGesture)
 	}
+
+  @objc func copyCardNumber() {
+    if !isTransformedCardNumber {
+      cardNumberLabel.copyTextToClipboard(format: .raw)
+    } else {
+      cardNumberLabel.copyTextToClipboard(format: .transformed)
+    }
+  }
 }
 
 // MARK: - VGSLabelDelegate
 
 extension ShowDemoViewController: VGSLabelDelegate {
 	func labelTextDidChange(_ label: VGSLabel) {
-		label.backgroundColor = .black
-		label.backgroundColor = .systemBlue
-		label.borderColor = .clear
+		label.textColor = .white
 	}
 
 	func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError) {
 		// Set label border to red color on error. You can make typo in label field to simulate this error case.
-		label.borderColor = .systemRed
-		label.backgroundColor = .systemYellow
+		label.textColor = .red
 	}
 
 	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
-    cardNumberLabel.isSecureText = !cardNumberLabel.isSecureText
+    cardNumberLabel.isSecureText = false
 		if !label.isEmpty {
 			var textFormat = "Transformed"
 			switch format {

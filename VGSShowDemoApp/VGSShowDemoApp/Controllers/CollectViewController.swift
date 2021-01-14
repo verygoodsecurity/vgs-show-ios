@@ -24,6 +24,7 @@ class CollectViewController: UIViewController {
 	var vgsCollect = VGSCollect(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
 
 	// VGS UI Elements
+  var cardHolderName = VGSTextField()
 	var cardNumber = VGSCardTextField()
 	var expCardDate = VGSExpDateTextField()
 
@@ -45,6 +46,7 @@ class CollectViewController: UIViewController {
 		titleLabel.font = UIFont.demoAppLargeTitleFont
 
 		// Add fields.
+    stackView.addArrangedSubview(cardHolderName)
 		stackView.addArrangedSubview(cardNumber)
 		stackView.addArrangedSubview(expCardDate)
 
@@ -60,6 +62,16 @@ class CollectViewController: UIViewController {
 
 	private func setupElementsConfiguration() {
 
+    let cardHolderNameConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardHolderName")
+    cardHolderNameConfiguration.type = .cardHolderName
+    cardHolderNameConfiguration.isRequiredValidOnly = false
+    cardHolderNameConfiguration.keyboardType = .asciiCapableNumberPad
+    cardHolderName.configuration = cardHolderNameConfiguration
+    cardHolderName.placeholder = "Joe Business"
+    cardHolderName.textAlignment = .natural
+
+    cardHolderName.becomeFirstResponder()
+    
 		let cardConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardNumber")
 		cardConfiguration.type = .cardNumber
 		cardConfiguration.isRequiredValidOnly = false
@@ -68,8 +80,6 @@ class CollectViewController: UIViewController {
 		cardNumber.placeholder = "4111 1111 1111 1111"
 		cardNumber.textAlignment = .natural
 		cardNumber.cardIconLocation = .right
-
-		cardNumber.becomeFirstResponder()
 
 		let expDateConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "expDate")
 		expDateConfiguration.isRequiredValidOnly = true
@@ -127,13 +137,15 @@ class CollectViewController: UIViewController {
 					print("SUCCESS: \(jsonData)")
 					if let aliases = jsonData["json"] as? [String: Any],
 						let cardNumber = aliases["cardNumber"],
-						let expDate = aliases["expDate"] {
+            let expDate = aliases["expDate"],
+            let cardHolderName = aliases["cardHolderName"] {
           
 						self?.resultLabel.text =  """
 						card_namber: \(cardNumber)\n
 						expiration_date: \(expDate)
 						"""
-						let payload = ["payment_card_number": cardNumber,
+            let payload = ["payment_card_holder_name": cardHolderName,
+                          "payment_card_number": cardNumber,
 													 "payment_card_expiration_date": expDate]
 
 						DemoAppConfig.shared.collectPayload = payload
