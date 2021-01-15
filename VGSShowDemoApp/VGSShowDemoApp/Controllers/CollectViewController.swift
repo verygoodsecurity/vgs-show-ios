@@ -93,7 +93,7 @@ class CollectViewController: UIViewController {
 			VGSValidationRuleCardExpirationDate(dateFormat: .longYear, error: VGSValidationErrorType.expDate.rawValue)
 		])
 
-    expCardDate.isSecureTextEntry = true
+    expCardDate.isSecureTextEntry = false
 		expCardDate.configuration = expDateConfiguration
 		expCardDate.placeholder = "MM/YYYY"
 		expCardDate.monthPickerFormat = .longSymbols

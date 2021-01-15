@@ -178,8 +178,9 @@ extension ShowDemoViewController: VGSLabelDelegate {
 	}
 
 	func labelRevealDataDidFail(_ label: VGSLabel, error: VGSShowError) {
-		// Set label border to red color on error. You can make typo in label field to simulate this error case.
+		// Set label text placeholder to red color on error. You can make typo in label field to simulate this error case.
 		label.textColor = .red
+		label.placeholderStyle.color = UIColor.red
 	}
 
 	func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
