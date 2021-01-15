@@ -202,6 +202,11 @@ internal extension VGSLabel {
     }
     
     secureTextRanges.forEach { (range) in
+
+			if !securedText.isTextRangeValid(range) {
+				print("⚠️ A specified range [\(range.start), \(range.end)] was not correct. It will be skipped.")
+			}
+
       securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
     }
     return securedText
