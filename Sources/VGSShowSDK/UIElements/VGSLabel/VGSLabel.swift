@@ -21,6 +21,26 @@ public struct VGSTextRange {
     self.start = start
     self.end = end
   }
+
+	internal var startText: String {
+		guard let startValue = start else {
+			return "nil"
+		}
+
+		return String(startValue)
+	}
+
+	internal var endText: String {
+		guard let endValue = end else {
+			return "nil"
+		}
+
+		return String(endValue)
+	}
+
+	internal var debugText: String {
+		return "[\(startText), \(endText)]"
+	}
 }
 
 /// A view that displays revealed text data.
