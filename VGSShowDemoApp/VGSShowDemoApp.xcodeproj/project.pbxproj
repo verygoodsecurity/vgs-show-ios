@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44014793256641A500A3627B /* UIFont+Extensions.swift */; };
+		4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */; };
 		440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */; };
+		442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 442F80B125ADB4BD00CC04A2 /* UITestsMockedData.plist */; };
 		44415FB3255D36FA0012D107 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FB2255D36FA0012D107 /* VGSShowDemoAppTests.swift */; };
 		44415FBE255D36FB0012D107 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FBD255D36FB0012D107 /* VGSShowDemoAppUITests.swift */; };
 		44415FDB255D37540012D107 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FD5255D37540012D107 /* Helpers.swift */; };
@@ -20,7 +22,13 @@
 		4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */; };
 		4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF6255E6467002C9215 /* CollectViewController.swift */; };
 		446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */; };
-		44F3B17025B156F600F62A45 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3B16F25B156F600F62A45 /* UIColor+Extensions.swift */; };
+		44A15B74259B4D7000CB6654 /* VGSUITestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B73259B4D7000CB6654 /* VGSUITestElement.swift */; };
+		44A15B7C259B4DDD00CB6654 /* VGSUITestElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B7B259B4DDD00CB6654 /* VGSUITestElementType.swift */; };
+		44A15B81259B4F0400CB6654 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B80259B4F0400CB6654 /* XCTestCase+Extensions.swift */; };
+		44A15B87259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B86259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift */; };
+		44A15B8C259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */; };
+		44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B91259C669200CB6654 /* XCUIElement+Extensions.swift */; };
+		44A15BA3259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +64,9 @@
 
 /* Begin PBXFileReference section */
 		44014793256641A500A3627B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		442F80B125ADB4BD00CC04A2 /* UITestsMockedData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UITestsMockedData.plist; sourceTree = "<group>"; };
 		44415F98255D36F90012D107 /* VGSShowDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGSShowDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44415FA9255D36FA0012D107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44415FAE255D36FA0012D107 /* VGSShowDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +84,13 @@
 		4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
 		4444EEF6255E6467002C9215 /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
 		446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		44F3B16F25B156F600F62A45 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		44A15B73259B4D7000CB6654 /* VGSUITestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSUITestElement.swift; sourceTree = "<group>"; };
+		44A15B7B259B4DDD00CB6654 /* VGSUITestElementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUITestElementType.swift; sourceTree = "<group>"; };
+		44A15B80259B4F0400CB6654 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		44A15B86259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppBaseTestCase.swift; sourceTree = "<group>"; };
+		44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppNormalFlowTest.swift; sourceTree = "<group>"; };
+		44A15B91259C669200CB6654 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
+		44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSBaseRegularFlowTestCase.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,8 +170,12 @@
 		44415FBC255D36FB0012D107 /* VGSShowDemoAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				44A15B8A259C648400CB6654 /* UseCases */,
+				44A15B7F259B4EEF00CB6654 /* Extensions */,
+				44A15B72259B4D7000CB6654 /* UITestUtils */,
 				44415FBD255D36FB0012D107 /* VGSShowDemoAppUITests.swift */,
 				44415FBF255D36FB0012D107 /* Info.plist */,
+				44A15B86259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift */,
 			);
 			path = VGSShowDemoAppUITests;
 			sourceTree = "<group>";
@@ -163,11 +183,11 @@
 		44415FD4255D37540012D107 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */,
 				44415FD5255D37540012D107 /* Helpers.swift */,
 				446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */,
 				44014793256641A500A3627B /* UIFont+Extensions.swift */,
 				440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */,
-				44F3B16F25B156F600F62A45 /* UIColor+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				4444EEF2255E645D002C9215 /* Assets.xcassets */,
+				442F80B125ADB4BD00CC04A2 /* UITestsMockedData.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -212,6 +233,33 @@
 				4444EEF6255E6467002C9215 /* CollectViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		44A15B72259B4D7000CB6654 /* UITestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				44A15B73259B4D7000CB6654 /* VGSUITestElement.swift */,
+				44A15B7B259B4DDD00CB6654 /* VGSUITestElementType.swift */,
+			);
+			path = UITestUtils;
+			sourceTree = "<group>";
+		};
+		44A15B7F259B4EEF00CB6654 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44A15B80259B4F0400CB6654 /* XCTestCase+Extensions.swift */,
+				44A15B91259C669200CB6654 /* XCUIElement+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		44A15B8A259C648400CB6654 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */,
+				44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		6B6C3F3E71A2627BBDD0889D /* Pods */ = {
@@ -341,6 +389,7 @@
 			files = (
 				4444EEEF255E6452002C9215 /* LaunchScreen.storyboard in Resources */,
 				4444EEF3255E645D002C9215 /* Assets.xcassets in Resources */,
+				442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */,
 				4444EEF0255E6452002C9215 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +482,7 @@
 				4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */,
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
-				44F3B17025B156F600F62A45 /* UIColor+Extensions.swift in Sources */,
+				4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */,
 				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,7 +499,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44A15BA3259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift in Sources */,
+				44A15B74259B4D7000CB6654 /* VGSUITestElement.swift in Sources */,
+				44A15B81259B4F0400CB6654 /* XCTestCase+Extensions.swift in Sources */,
+				44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */,
+				44A15B7C259B4DDD00CB6654 /* VGSUITestElementType.swift in Sources */,
+				44A15B8C259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift in Sources */,
 				44415FBE255D36FB0012D107 /* VGSShowDemoAppUITests.swift in Sources */,
+				44A15B87259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +576,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -574,7 +630,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

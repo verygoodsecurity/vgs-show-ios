@@ -18,6 +18,20 @@ internal class VGSMaskedLabel: VGSAttributedLabel {
 		set {
 			secureText = newValue
 		}
+		get {
+			if UIApplication.isRunningUITest {
+				return super.text
+			} else {
+				return nil
+			}
+		}
+	}
+
+	@available(*, deprecated, message: "Deprecated attribute.")
+	override var attributedText: NSAttributedString? {
+		set {
+			secureAttributedText = newValue
+		}
 		get { return nil }
 	}
 
@@ -29,6 +43,16 @@ internal class VGSMaskedLabel: VGSAttributedLabel {
 		}
 		get {
 			return super.text
+		}
+	}
+
+	/// set/get attribute text just for internal using
+	internal var secureAttributedText: NSAttributedString? {
+		set {
+			super.attributedText = newValue
+		}
+		get {
+			return super.attributedText
 		}
 	}
 
