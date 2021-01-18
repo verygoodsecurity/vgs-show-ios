@@ -202,13 +202,8 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Set `VGSLabel.secureTextSymbol` in specific ranges in label text.
   public func setSecureText(ranges: [VGSTextRange]) {
     self.secureTextRanges = ranges
+    vgsShow?.trackSubscribedViewConfigurationEvent(for: self)
     
-    let path = contentPath ?? ""
-    if let form = vgsShow {
-      VGSAnalyticsClient.shared.trackFormEvent(form, type: .setSecureTextRange, extraData: ["contentPath": path])
-    } else {
-      VGSAnalyticsClient.shared.trackEvent(.setSecureTextRange, extraData: ["contentPath": path])
-    }
     /// Apply secure range if needed
     if isSecureText {
       updateTextAndMaskIfNeeded()

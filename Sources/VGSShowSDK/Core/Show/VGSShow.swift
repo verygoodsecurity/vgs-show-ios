@@ -92,6 +92,7 @@ public final class VGSShow {
     }
     if !subscribedViews.contains(where: { return view == $0}) {
       trackSubscribeEvent(for: view)
+      trackSubscribedViewConfigurationEvent(for: view)
       subscribedViews.append(vgsView)
     }
   }
