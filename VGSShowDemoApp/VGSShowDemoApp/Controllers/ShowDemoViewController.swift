@@ -17,7 +17,7 @@ class ShowDemoViewController: UIViewController {
 	@IBOutlet fileprivate weak var titleLabel: UILabel!
 	@IBOutlet fileprivate weak var showButton: UIButton!
   @IBOutlet weak var cardView: UIView!
-  
+  @IBOutlet weak var copyCardButton: UIButton!
   // MARK: - Constants
 
 	let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
@@ -45,6 +45,7 @@ class ShowDemoViewController: UIViewController {
 		setupTitleUI()
 
 		inputLabel.font = UIFont.demoAppTextOutputFont
+    copyCardButton.isHidden = true
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +62,7 @@ class ShowDemoViewController: UIViewController {
 	}
 
 	@IBAction private func copyCardAction(_ sender: UIButton) {
-		
+    copyCardNumber()
 	}
 
 	@IBAction private func switchChangeAction(_ sender: UISwitch) {
@@ -139,6 +140,7 @@ class ShowDemoViewController: UIViewController {
 			switch requestResult {
 			case .success(let code):
 				self.showButton.isEnabled = true
+        self.copyCardButton.isHidden = false
 				print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
 				self.showButton.isEnabled = true

@@ -197,23 +197,49 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5d-5E-TfU">
+                                <rect key="frame" x="122" y="449" width="170" height="50"/>
+                                <color key="backgroundColor" red="0.27216926219999998" green="0.34727090599999999" blue="0.41961821910000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Copy Card Number">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="copyCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4l4-Wd-pbu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="s5d-5E-TfU" firstAttribute="width" secondItem="tvs-Vg-7bc" secondAttribute="width" id="0oo-K8-b8l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wm9-aW-GUZ" secondAttribute="trailing" constant="20" id="5vf-KA-RRr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tvs-Vg-7bc" secondAttribute="bottom" constant="20" id="GG8-hB-YAm"/>
                             <constraint firstItem="syh-5q-JME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Gq4-Fi-OxA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ds-QC-Jhm" secondAttribute="trailing" constant="20" id="HtA-52-z4S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJE-1q-Fl5" secondAttribute="trailing" constant="20" id="HvI-KU-R6R"/>
+                            <constraint firstItem="s5d-5E-TfU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LWa-PU-5xW"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PIk-AS-hQC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="syh-5q-JME" secondAttribute="trailing" constant="30" id="UYI-sO-6PS"/>
+                            <constraint firstItem="s5d-5E-TfU" firstAttribute="top" secondItem="syh-5q-JME" secondAttribute="bottom" constant="50" id="WHS-uE-ywz"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="fLF-45-5UG"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="top" secondItem="hJE-1q-Fl5" secondAttribute="bottom" constant="20" id="gXH-f5-wwW"/>
                             <constraint firstItem="tvs-Vg-7bc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="heQ-T6-J5h"/>
                             <constraint firstItem="hJE-1q-Fl5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hvX-UE-pxg"/>
                             <constraint firstItem="tvs-Vg-7bc" firstAttribute="top" secondItem="wm9-aW-GUZ" secondAttribute="bottom" constant="20" id="izE-xM-9l7"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mM2-U8-x9g"/>
+                            <constraint firstItem="s5d-5E-TfU" firstAttribute="height" secondItem="tvs-Vg-7bc" secondAttribute="height" id="oIC-0m-lQ3">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
                             <constraint firstItem="syh-5q-JME" firstAttribute="top" secondItem="5ds-QC-Jhm" secondAttribute="bottom" constant="40" id="rAy-zb-bet"/>
                         </constraints>
                     </view>
@@ -221,6 +247,7 @@
                     <navigationItem key="navigationItem" id="TZA-Qm-sbu"/>
                     <connections>
                         <outlet property="cardView" destination="syh-5q-JME" id="HTf-ED-hrc"/>
+                        <outlet property="copyCardButton" destination="s5d-5E-TfU" id="Fo0-Sp-gPu"/>
                         <outlet property="inputLabel" destination="wm9-aW-GUZ" id="dhJ-pG-j4e"/>
                         <outlet property="showButton" destination="tvs-Vg-7bc" id="026-qq-mhK"/>
                         <outlet property="stackView" destination="FeV-F5-4Dp" id="4SF-x9-CTM"/>
