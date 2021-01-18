@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 #endif
 
+internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
+  var labelModel: VGSLabelViewModelProtocol { get }
+}
+
 internal extension VGSLabel {
 
 	/// Basic initialization & view setup.
@@ -146,7 +150,6 @@ internal extension VGSLabel {
   func updateTextAndMaskIfNeeded() {
 		// Mask only normal text.
 		guard let text = revealedRawText else {
-
 			label.secureText = nil
 			// No revealed text - show placeholder, hide main text label.
 			label.isHidden = true
@@ -162,13 +165,51 @@ internal extension VGSLabel {
 
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
+      // Check if text should be secured.
+      if isSecureText {
+        let securedText = secureTextInRanges(text, ranges: secureTextRanges)
+        updateMaskedLabel(with: securedText)
+        return
+      }
       updateMaskedLabel(with: text)
       return
     }
-
+    
     // Set masked text to label.
     let maskedText = textFormattersContainer.formatText(text)
+    if isSecureText {
+      let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
+      updateMaskedLabel(with: securedText)
+      return
+    }
     updateMaskedLabel(with: maskedText)
+  }
+
+	/// Apply secure mask with specified ranges. If range is not defined secure all text.
+	/// - Parameters:
+	///   - text: String `object`, text to secure.
+	///   - ranges: `[VGSTextRange]` an array of `VGSTextRange` to apply. Should be valid ranges.
+	/// - Returns: `String` object, secured string.
+  func secureTextInRanges(_ text: String, ranges: [VGSTextRange]?) -> String {
+    var securedText = text
+    
+    let secureTextRanges: [VGSTextRange]
+    if let ranges = ranges {
+      secureTextRanges = ranges
+    } else {
+			// Mask everything since range is not defined.
+      secureTextRanges = [VGSTextRange(start: nil, end: nil)]
+    }
+    
+    secureTextRanges.forEach { (range) in
+
+			if !securedText.isTextRangeValid(range) {
+				print("⚠️ A specified range \(range.debugText) was not correct. It will be skipped.")
+			}
+
+      securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
+    }
+    return securedText
   }
 
 	/// Set text to internal label, notify delegate about changing text.

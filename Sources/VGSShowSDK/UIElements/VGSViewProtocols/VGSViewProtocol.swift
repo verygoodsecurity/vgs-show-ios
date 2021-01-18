@@ -18,4 +18,5 @@ public protocol VGSViewProtocol: UIView {
 
 internal protocol VGSBaseViewProtocol: UIView {
 	var model: VGSViewModelProtocol { get }
+	var vgsShow: VGSShow? {get set}
 }

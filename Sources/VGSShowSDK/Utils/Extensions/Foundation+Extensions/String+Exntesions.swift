@@ -197,3 +197,156 @@ internal extension String {
 		return path
 	}
 }
+
+internal extension String {
+
+	/// Start index from text range. `0` if start is `nil`.
+	/// - Parameter range: `VGSTextRange` object.
+	/// - Returns: `Int` object, index of start position.
+	func startTextRangeIndex(from range: VGSTextRange) -> Int {
+		let first: Int
+		if let start = range.start {
+			first = start
+		} else {
+			// Take 0 as start index.
+			first = 0
+		}
+
+		return first
+	}
+
+	/// End index from text range. Will be equal to string (length - 1) if text range `end` is `nil`.
+	/// - Parameter range: `VGSTextRange` object.
+	/// - Returns: `Int` object, index of end position.
+	func endTextRangeIndex(from range: VGSTextRange) -> Int {
+		let end: Int
+		if let last = range.end {
+			// Use last char if end overlaps string length.
+			if last > count - 1 {
+				end = count - 1
+			} else {
+				end = last
+			}
+		} else {
+			// Last index will be text length - 1 for non-empty string.
+			if !isEmpty {
+				end = count - 1
+			} else {
+				end = 0
+			}
+		}
+
+		return end
+	}
+
+	func isTextRangeValid(_ range: VGSTextRange) -> Bool {
+		let start = startTextRangeIndex(from: range)
+		let end = endTextRangeIndex(from: range)
+
+		// Ignore negative ranges.
+		if start < 0 || end < 0 {return false}
+
+		// Ignore start > length.
+		if start > count {return false}
+
+		// Ignore range if start > end. Start can match end.
+		return start <= end
+	}
+
+	/// Characters count to replace.
+	/// - Parameter range: `VGSTextRange` object.
+	/// - Returns: `Int` object. Characters count to replace.
+	func charactersCountToReplace(from range: VGSTextRange) -> Int {
+
+		let start = startTextRangeIndex(from: range)
+		let end = endTextRangeIndex(from: range)
+
+		// Add 1 since we consider closed ranges: [3,3] => 1 string character to replace, [0,1] => 2 string characters to replace.
+		return (end - start) + 1
+	}
+
+	/// Convert `VGSTextRange` range to Swift String index range. If start or end are beyond the string boundaries, default `startIndex` and `endIndex` will be used.
+	/// - Parameter range: `VGSTextRange` object.
+	/// - Returns: `Range<String.Index>` object.
+	func stringRangeFromIntRange(range: VGSTextRange) -> ClosedRange<String.Index> {
+
+		let first = startTextRangeIndex(from: range)
+		let last = endTextRangeIndex(from: range)
+
+		let replacementStartIndex: Index
+		let replacementEndIndex: Index
+
+		// Get start index considering endIndex as a limit.
+		if let index = self.index(self.startIndex, offsetBy: first, limitedBy: endIndex) {
+			replacementStartIndex = index
+		} else {
+			replacementStartIndex = startIndex
+		}
+
+		// Get end index considering endIndex as a limit.
+		if let index = self.index(self.startIndex, offsetBy: last, limitedBy: endIndex) {
+			replacementEndIndex = index
+		} else {
+			replacementEndIndex = endIndex
+		}
+
+		// Return Closed Swift ClosedRange<String.Index> from start and end to include both.
+		return replacementStartIndex...replacementEndIndex
+	}
+
+	/// Return replacement string from secure range and secureSymbol.
+	/// - Parameters:
+	///   - range: `VGSTextRange` object.
+	///   - secureSymbol: `String` object, default is `*`.
+	/// - Returns: `String` object. Replacement secured string.
+	func replacementStringFromSecureRange(_ range: VGSTextRange, secureSymbol: String = "*") -> String {
+		let replaceCount = charactersCountToReplace(from: range)
+
+		/// Replace all if negative valur or range is bigger that string length.
+		if replaceCount <= 0 || replaceCount > self.count {
+			return String(repeating: secureSymbol, count: count)
+		}
+
+		return String(repeating: secureSymbol, count: replaceCount)
+	}
+
+	/// Return new secured string from range and secureSymbol.
+	/// - Parameters:
+	///   - range: `VGSTextRange` object.
+	///   - secureSymbol: `String` object, default is `*`.
+	/// - Returns: `String` object, secured string.
+	func secure(in range: VGSTextRange, secureSymbol: String = "*") -> String {
+
+		// Don't mask empty text.
+		guard !self.isEmpty else {
+			return ""
+		}
+    
+    // Don't mask when secure symbol is empty
+    guard !secureSymbol.isEmpty else {
+      return self
+    }
+
+		let securedString: String
+
+		// If start and end are nil mask all text.
+		if range.start == nil, range.end == nil {
+			securedString = String(repeating: secureSymbol, count: count)
+		} else {
+
+			// Don't mask text if range is invalid.
+			if !isTextRangeValid(range) {
+				return self
+			}
+
+			// Get replacement range.
+			let replacementRange = stringRangeFromIntRange(range: range)
+
+			// Replacement string.
+			let replacementString = replacementStringFromSecureRange(range, secureSymbol: secureSymbol)
+
+			securedString = self.replacingCharacters(in: replacementRange, with: replacementString)
+		}
+		return securedString
+	}
+}
