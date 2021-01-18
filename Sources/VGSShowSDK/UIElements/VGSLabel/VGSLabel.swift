@@ -16,7 +16,11 @@ public struct VGSTextRange {
   public let start: Int?
   /// Range end index
 	public let end: Int?
-  
+
+	/// Initialization.
+	/// - Parameters:
+	///   - start: `Int` object. Defines range start, should be less or equal to `end` and string length. Default is `nil`.
+	///   - end: `Int` object. Defines range end, should be greater or equal to `end` and string length. Default is `nil`.
   public init(start: Int? = nil, end: Int? = nil) {
     self.start = start
     self.end = end
@@ -151,7 +155,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		return revealedRawText?.count ?? 0
   }
 
-	// Placeholder text.
+	/// Placeholder text.
 	public var placeholder: String? {
 		didSet {
 			updateTextAndMaskIfNeeded()
@@ -193,13 +197,17 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// An array of `VGSTextRanges`, where `VGSLabel.secureTextSymbol` should replace text character.
   internal var secureTextRanges: [VGSTextRange]?
 
-  /// Set `VGSLabel.secureTextSymbol` in label text.
-  public func setSecureText(start: Int? = nil, end: Int? = nil) {
+	/// Set text range to be replaced with `VGSLabel.secureTextSymbol`.
+	/// - Parameters:
+	///   - start: `Int` object. Defines range start, should be less or equal to `end` and string length. Default is `nil`.
+	///   - end: `Int` object. Defines range end, should be greater or equal to `end` and string length. Default is `nil`.
+	public func setSecureText(start: Int? = nil, end: Int? = nil) {
     let ranges = [VGSTextRange(start: start, end: end)]
     setSecureText(ranges: ranges)
   }
-  
-  /// Set `VGSLabel.secureTextSymbol` in specific ranges in label text.
+
+	/// Set array of text ranges to be replaced with `VGSLabel.secureTextSymbol`.
+	/// - Parameter ranges: `[VGSTextRange]` object, an array of `VGSTextRange` objects to be applied subsequently.
   public func setSecureText(ranges: [VGSTextRange]) {
     self.secureTextRanges = ranges
     vgsShow?.trackSubscribedViewConfigurationEvent(for: self)
