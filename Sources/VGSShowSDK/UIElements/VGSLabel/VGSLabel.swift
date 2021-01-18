@@ -99,7 +99,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   // MARK: - Functional Attribute
   
   /// Show form that will be assiciated with `VGSLabel`.
-  private(set) weak var vgsShow: VGSShow?
+	internal weak var vgsShow: VGSShow?
 
 	/// Text formatters container, holds different formatters.
 	internal var textFormattersContainer = VGSTextFormattersCoordinator() {
