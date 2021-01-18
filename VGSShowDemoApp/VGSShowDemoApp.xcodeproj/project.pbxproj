@@ -20,6 +20,7 @@
 		4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */; };
 		4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF6255E6467002C9215 /* CollectViewController.swift */; };
 		446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */; };
+		44F3B17025B156F600F62A45 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F3B16F25B156F600F62A45 /* UIColor+Extensions.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
 		4444EEF6255E6467002C9215 /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
 		446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		44F3B16F25B156F600F62A45 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */,
 				44014793256641A500A3627B /* UIFont+Extensions.swift */,
 				440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */,
+				44F3B16F25B156F600F62A45 /* UIColor+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */,
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
+				44F3B17025B156F600F62A45 /* UIColor+Extensions.swift in Sources */,
 				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

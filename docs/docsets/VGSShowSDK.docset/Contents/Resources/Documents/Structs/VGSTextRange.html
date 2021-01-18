@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSErrorType Enumeration Reference</title>
+    <title>VGSTextRange Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/VGSErrorType" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/VGSTextRange" class="dashAnchor"></a>
 
-    <a title="VGSErrorType Enumeration Reference"></a>
+    <a title="VGSTextRange Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">VGSShowSDK Reference</a>
       <img class="carat" src="../img/carat.png" />
-      VGSErrorType Enumeration Reference
+      VGSTextRange Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -134,18 +134,18 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>VGSErrorType</h1>
+            <h1>VGSTextRange</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VGSTextRange</span></code></pre>
 
                 </div>
               </div>
-            <p>Type of <code>VGSError</code> and it status code.</p>
+            <p>An object representing text range with closed  boundaries.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L11-L65">Show on GitHub</a>
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L14-L48">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -157,9 +157,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO018unexpectedResponseD0yA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/unexpectedResponseType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO018unexpectedResponseD0yA2CmF">unexpectedResponseType</a>
+                    <a name="/s:10VGSShowSDK12VGSTextRangeV5startSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/start" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSTextRangeV5startSiSgvp">start</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -167,19 +167,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When response type is not supported.</p>
+                        <p>Range start index</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedResponseType</span> <span class="o">=</span> <span class="mi">1400</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">start</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L14">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L16">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -187,9 +187,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO28unexpectedResponseDataFormatyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/unexpectedResponseDataFormat" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO28unexpectedResponseDataFormatyA2CmF">unexpectedResponseDataFormat</a>
+                    <a name="/s:10VGSShowSDK12VGSTextRangeV3endSiSgvp"></a>
+                    <a name="//apple_ref/swift/Property/end" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSTextRangeV3endSiSgvp">end</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -197,19 +197,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When reponse data format is not supported.</p>
+                        <p>Range end index</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedResponseDataFormat</span> <span class="o">=</span> <span class="mi">1401</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">end</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L17">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L18">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -217,9 +217,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO21responseIsInvalidJSONyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/responseIsInvalidJSON" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO21responseIsInvalidJSONyA2CmF">responseIsInvalidJSON</a>
+                    <a name="/s:10VGSShowSDK12VGSTextRangeV5start3endACSiSg_AFtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(start:end:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSTextRangeV5start3endACSiSg_AFtcfc">init(start:<wbr>end:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -227,109 +227,50 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When response cannot be decoded to json.</p>
+                        <p>Initialization.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">responseIsInvalidJSON</span> <span class="o">=</span> <span class="mi">1402</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">start</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">end</span><span class="p">:</span> <span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L20">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO13fieldNotFoundyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/fieldNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO13fieldNotFoundyA2CmF">fieldNotFound</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When field cannot be found in specified path.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fieldNotFound</span> <span class="o">=</span> <span class="mi">1403</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L23">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO18invalidJSONPayloadyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidJSONPayload" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO18invalidJSONPayloadyA2CmF">invalidJSONPayload</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When payload is invalid JSON.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidJSONPayload</span> <span class="o">=</span> <span class="mi">1404</span></code></pre>
-
-                        </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>start</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> object. Defines range start, should be less or equal to <code><a href="../Structs/VGSTextRange.html#/s:10VGSShowSDK12VGSTextRangeV3endSiSgvp">end</a></code> and string length. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>end</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Int</code> object. Defines range end, should be greater or equal to <code><a href="../Structs/VGSTextRange.html#/s:10VGSShowSDK12VGSTextRangeV3endSiSgvp">end</a></code> and string length. Default is <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L26">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO23invalidConfigurationURLyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidConfigurationURL" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO23invalidConfigurationURLyA2CmF">invalidConfigurationURL</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When VGS config URL is not valid.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidConfigurationURL</span> <span class="o">=</span> <span class="mi">1480</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L29">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabel.swift#L24-L27">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

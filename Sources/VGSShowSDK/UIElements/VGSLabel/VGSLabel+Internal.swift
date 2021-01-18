@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 #endif
 
+internal protocol VGSLabelProtocol: VGSViewProtocol, VGSBaseViewProtocol {
+  var labelModel: VGSLabelViewModelProtocol { get }
+}
+
 internal extension VGSLabel {
 
 	/// Basic initialization & view setup.
@@ -41,11 +45,17 @@ internal extension VGSLabel {
   func buildUI() {
       label.translatesAutoresizingMaskIntoConstraints = false
       addSubview(label)
-      setPaddings()
+      setTextPaddings()
+
+			placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+			addSubview(placeholderLabel)
+			setPlaceholderPaddings()
+
+			placeholderLabel.isHidden = true
   }
 
 	/// Set paddings.
-  func setPaddings() {
+  func setTextPaddings() {
     NSLayoutConstraint.deactivate(verticalConstraint)
     NSLayoutConstraint.deactivate(horizontalConstraints)
 
@@ -69,6 +79,38 @@ internal extension VGSLabel {
     NSLayoutConstraint.activate(verticalConstraint)
     self.layoutIfNeeded()
   }
+
+	func setPlaceholderPaddings() {
+		var placeholderPaddings = paddings
+		
+		// Use custom placehoder paddings if needed.
+		if let customPlaceholderPaddings = self.placeholderPaddings {
+			placeholderPaddings = customPlaceholderPaddings
+		}
+
+		NSLayoutConstraint.deactivate(verticalPlaceholderConstraint)
+		NSLayoutConstraint.deactivate(horizontalPlaceholderConstraints)
+
+		if placeholderPaddings.hasNegativeValue {
+			print("⚠️ VGSShowSDK WARNING! Cannot set placeholder paddings \(placeholderPaddings) with negative values")
+			return
+		}
+
+		let views = ["view": self, "label": placeholderLabel]
+
+		horizontalPlaceholderConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(placeholderPaddings.left)-[label]-\(placeholderPaddings.right)-|",
+																																 options: .alignAllCenterY,
+																																 metrics: nil,
+																																 views: views)
+		NSLayoutConstraint.activate(horizontalPlaceholderConstraints)
+
+		verticalPlaceholderConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(placeholderPaddings.top)-[label]-\(placeholderPaddings.bottom)-|",
+																															options: .alignAllCenterX,
+																															metrics: nil,
+																															views: views)
+		NSLayoutConstraint.activate(verticalPlaceholderConstraint)
+		self.layoutIfNeeded()
+	}
 
 	/// Copy to pasteboard text.
 	/// - Parameter format: `VGSLabelCopyTextFormat` object, format to copy text.
@@ -106,17 +148,68 @@ internal extension VGSLabel {
 
 	/// Update text and apply transformation regex if available.
   func updateTextAndMaskIfNeeded() {
-    guard let text = revealedRawText else {return}
+		// Mask only normal text.
+		guard let text = revealedRawText else {
+			label.secureText = nil
+			// No revealed text - show placeholder, hide main text label.
+			label.isHidden = true
+			updatePlaceholder()
+			return
+		}
+
+		// Hide placeholder.
+		placeholderLabel.isHidden = true
+
+		// Unhide main label.
+		label.isHidden = false
 
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
+      // Check if text should be secured.
+      if isSecureText {
+        let securedText = secureTextInRanges(text, ranges: secureTextRanges)
+        updateMaskedLabel(with: securedText)
+        return
+      }
       updateMaskedLabel(with: text)
       return
     }
-
+    
     // Set masked text to label.
     let maskedText = textFormattersContainer.formatText(text)
+    if isSecureText {
+      let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
+      updateMaskedLabel(with: securedText)
+      return
+    }
     updateMaskedLabel(with: maskedText)
+  }
+
+	/// Apply secure mask with specified ranges. If range is not defined secure all text.
+	/// - Parameters:
+	///   - text: String `object`, text to secure.
+	///   - ranges: `[VGSTextRange]` an array of `VGSTextRange` to apply. Should be valid ranges.
+	/// - Returns: `String` object, secured string.
+  func secureTextInRanges(_ text: String, ranges: [VGSTextRange]?) -> String {
+    var securedText = text
+    
+    let secureTextRanges: [VGSTextRange]
+    if let ranges = ranges {
+      secureTextRanges = ranges
+    } else {
+			// Mask everything since range is not defined.
+      secureTextRanges = [VGSTextRange(start: nil, end: nil)]
+    }
+    
+    secureTextRanges.forEach { (range) in
+
+			if !securedText.isTextRangeValid(range) {
+				print("⚠️ A specified range \(range.debugText) was not correct. It will be skipped.")
+			}
+
+      securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
+    }
+    return securedText
   }
 
 	/// Set text to internal label, notify delegate about changing text.
@@ -127,7 +220,13 @@ internal extension VGSLabel {
   }
 
 	/// Reset all masks. For internal use now.
-	func resetToRawText() {
+	func resetAllMasks() {
 		textFormattersContainer.resetAllFormatters()
+	}
+
+	/// Update placeholder.
+	func updatePlaceholder() {
+			placeholderLabel.text = placeholder
+			placeholderLabel.isHidden = false
 	}
 }

@@ -15,6 +15,7 @@ public enum VGSAnalyticsEventType: String {
   case submit = "Submit"
   case copy = "Copy to clipboard click"
 	case fieldUnsubscibe = "UnsubscribeField"
+  case setSecureTextRange = "SetSecureTextRange"
 }
 
 /// Client responsably for managing and sending VGS Show SDK analytics events.
