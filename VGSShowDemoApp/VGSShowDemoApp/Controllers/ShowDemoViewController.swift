@@ -16,8 +16,9 @@ class ShowDemoViewController: UIViewController {
 	@IBOutlet fileprivate weak var inputLabel: UILabel!
 	@IBOutlet fileprivate weak var titleLabel: UILabel!
 	@IBOutlet fileprivate weak var showButton: UIButton!
-
-	// MARK: - Constants
+  @IBOutlet weak var cardView: UIView!
+  
+  // MARK: - Constants
 
 	let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
   let cardHolderNameLabel = VGSLabel()
@@ -76,7 +77,7 @@ class ShowDemoViewController: UIViewController {
 		let font = UIFont.systemFont(ofSize: 20)
 		let backgroundColor = UIColor.clear
 		let cornerRadius: CGFloat = 6
-		let textAlignment = NSTextAlignment.right
+		let textAlignment = NSTextAlignment.left
 
 		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
 

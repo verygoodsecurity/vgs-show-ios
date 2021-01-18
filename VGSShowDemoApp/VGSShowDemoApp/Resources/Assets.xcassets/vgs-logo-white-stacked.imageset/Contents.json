@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "credit_card.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "vgs-logo-white-stacked.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
