@@ -186,6 +186,8 @@ class ShowDemoViewController: UIViewController {
 			enforceLoadView()
 			tabBarItem.accessibilityIdentifier = "VGSShowDemoApp.TabBar.TabButton.Show"
 			showButton.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.ShowButton"
+			copyCardButton.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.CopyCardButton"
+			cardHolderNameLabel.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.CardHolderNameLabel"
 			cardNumberLabel.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.CardNumberLabel"
 			expDateLabel.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.ExpirationDateLabel"
 		}
