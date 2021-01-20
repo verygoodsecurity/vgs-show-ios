@@ -37,8 +37,7 @@
       </CommandLineArguments>
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "44415FB8255D36FB0012D107"
