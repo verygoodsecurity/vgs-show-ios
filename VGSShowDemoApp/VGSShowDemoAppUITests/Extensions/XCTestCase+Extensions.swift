@@ -8,6 +8,7 @@ import XCTest
 
 extension XCTestCase {
 
+	/// Test wait action.
 	enum TestWaitAction {
 		/// Element exists in view hierarchy but can be invisible.
 		case exists(Bool)
@@ -49,14 +50,24 @@ extension XCTestCase {
 		XCTAssert(result == .completed)
 	}
 
+	/// Wait element to exist in specified time interval.
+	/// - Parameters:
+	///   - element: `XCUIElement` object to check.
+	///   - timeout: `TimeInterval` object, time to wait, default is `5`.
 	func wait( forElement element: XCUIElement, timeout: TimeInterval = 5) {
 		wait(for: element, action: .exists(true), timeout: timeout)
 	}
 
+	/// Wait element to be hidden in specified time interval.
+	/// - Parameters:
+	///   - element: `XCUIElement` object to check.
+	///   - timeout: `TimeInterval` object, time to wait, default is `5`.
 	func wait( elementToHide element: XCUIElement, timeout: TimeInterval = 5) {
-		wait(for: element, action: .exists(true), timeout: timeout)
+		wait(for: element, action: .exists(false), timeout: timeout)
 	}
 
+	/// Wait for specified time.
+	/// - Parameter forTimeInterval: `TimeInterval` object, time to wait.
 	func wait(forTimeInterval: TimeInterval) {
 		Thread.sleep(forTimeInterval: forTimeInterval)
 	}

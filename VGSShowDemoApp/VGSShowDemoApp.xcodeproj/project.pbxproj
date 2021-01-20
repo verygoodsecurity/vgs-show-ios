@@ -12,7 +12,6 @@
 		440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */; };
 		442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 442F80B125ADB4BD00CC04A2 /* UITestsMockedData.plist */; };
 		44415FB3255D36FA0012D107 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FB2255D36FA0012D107 /* VGSShowDemoAppTests.swift */; };
-		44415FBE255D36FB0012D107 /* VGSShowDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FBD255D36FB0012D107 /* VGSShowDemoAppUITests.swift */; };
 		44415FDB255D37540012D107 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FD5255D37540012D107 /* Helpers.swift */; };
 		44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FDD255D37610012D107 /* DemoAppConfig.swift */; };
 		4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEEA255E6446002C9215 /* AppDelegate.swift */; };
@@ -73,7 +72,6 @@
 		44415FB2255D36FA0012D107 /* VGSShowDemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppTests.swift; sourceTree = "<group>"; };
 		44415FB4255D36FA0012D107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44415FB9255D36FB0012D107 /* VGSShowDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		44415FBD255D36FB0012D107 /* VGSShowDemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppUITests.swift; sourceTree = "<group>"; };
 		44415FBF255D36FB0012D107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44415FD5255D37540012D107 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		44415FDD255D37610012D107 /* DemoAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppConfig.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 				44A15B8A259C648400CB6654 /* UseCases */,
 				44A15B7F259B4EEF00CB6654 /* Extensions */,
 				44A15B72259B4D7000CB6654 /* UITestUtils */,
-				44415FBD255D36FB0012D107 /* VGSShowDemoAppUITests.swift */,
 				44415FBF255D36FB0012D107 /* Info.plist */,
 				44A15B86259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift */,
 			);
@@ -505,7 +502,6 @@
 				44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */,
 				44A15B7C259B4DDD00CB6654 /* VGSUITestElementType.swift in Sources */,
 				44A15B8C259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift in Sources */,
-				44415FBE255D36FB0012D107 /* VGSShowDemoAppUITests.swift in Sources */,
 				44A15B87259C5F4500CB6654 /* VGSShowDemoAppBaseTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

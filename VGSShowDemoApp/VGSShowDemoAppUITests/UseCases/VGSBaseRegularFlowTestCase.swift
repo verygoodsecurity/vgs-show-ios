@@ -8,6 +8,7 @@ import XCTest
 
 class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 
+	/// VGSTextFields.
 	enum VGSTextField {
 		/// Card holder name.
 		static let cardHolderName: VGSUITestElement = .init(type: .textField, identifier: "Joe Business")
@@ -19,11 +20,13 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		static let expirationDate: VGSUITestElement = .init(type: .textField, identifier: "MM/YYYY")
 	}
 
+	/// Screens.
 	enum Screens {
 		/// Collect view.
 		static let collect: VGSUITestElement = .init(type: .other, identifier: "VGSDemoApp.Screens.CollectViewController")
 	}
 
+	/// Buttons.
 	enum Buttons {
 		/// Collect button.
 		static let collect: VGSUITestElement = .init(type: .button, identifier: "VGSShowDemoApp.CollectScreen.CollectButton")
@@ -31,12 +34,14 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		/// Show button.
 		static let show: VGSUITestElement = .init(type: .button, identifier: "VGSShowDemoApp.ShowScreen.ShowButton")
 
-		/// Copy button.
+		/// Copy card number button.
 		static let copyCard: VGSUITestElement = .init(type: .button, identifier: "VGSShowDemoApp.ShowScreen.CopyCardButton")
 	}
 
+	/// Labels.
 	enum Labels {
 
+		/// VGSLabel views.
 		enum VGSLabels {
 			/// Card holder VGSLabel.
 			static let cardHolderName: VGSUITestElement = .init(type: .other, identifier: "VGSShowDemoApp.ShowScreen.CardHolderNameLabel")
@@ -48,6 +53,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 			static let expirationDate: VGSUITestElement = .init(type: .other, identifier: "VGSShowDemoApp.ShowScreen.ExpirationDateLabel")
 		}
 
+		/// Masked labels.
 		enum MaskedLabels {
 			/// Card holder name with revealed data.
 			static let cardHolderName: VGSUITestElement = .init(type: .label, identifier: "Joe Business")
@@ -62,8 +68,9 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 			static let expirationDate: VGSUITestElement = .init(type: .label, identifier: "10/2025")
 		}
 
+		/// Placeholder labels.
 		enum PlaceholderLabels {
-			/// Card number placeholder label.
+			/// Card name holder placeholder label.
 			static let cardHolderName: VGSUITestElement = .init(type: .label, identifier: "XXXXXXXXXXXXXXXXXXX")
 
 			/// Card number placeholder label.
@@ -74,6 +81,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		}
 	}
 
+	/// Fill in correct data.
 	func fillInCorrectCardData() {
 		VGSTextField.cardHolderName.find(in: app).type("Joe Business")
 		wait(forTimeInterval: 0.2)
@@ -85,6 +93,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		Screens.collect.find(in: app).tap()
 	}
 
+	/// Fill in wrong data to be ignored by VGSCollectSDK (wrong card number).
 	func fillInWrongCardData() {
 		VGSTextField.cardNumber.find(in: app).type("123456789")
 		VGSTextField.expirationDate.find(in: app).type("10")
@@ -94,6 +103,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		Screens.collect.find(in: app).tap()
 	}
 
+	/// Tap to collect data.
 	func tapToCollectData() {
 		// Tap on collect button to send data.
 		Buttons.collect.find(in: app).tap()
@@ -102,6 +112,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		wait(forTimeInterval: 3)
 	}
 
+	/// Tap to reveal data.
 	func tapToShowData() {
 		// Tap on show button to reveal data.
 		Buttons.show.find(in: app).tap()
@@ -110,6 +121,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		wait(forTimeInterval: 3)
 	}
 
+	/// Tap to copy card number and reset isSecureText masks.
 	func tapToCopyCardNumber() {
 		// Tap on copy card number button to hide secure mask.
 		Buttons.copyCard.find(in: app).tap()
@@ -140,6 +152,10 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		}
 	}
 
+	/// Test VGSShow for specific state.
+	/// - Parameters:
+	///   - state: `VGSShowState` object, state to test.
+	///   - isSecuredCardNumber: `Bool` object, if `true` card number should be secured.
 	func testVGSShowState(_ state: VGSShowState, isSecuredCardNumber: Bool) {
 		// Verify VGS labels exist.
 		XCTAssert(Labels.VGSLabels.cardHolderName.find(in: app).exists)
@@ -161,7 +177,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 			XCTAssert(Labels.MaskedLabels.cardHolderName.find(in: app).exists)
 			XCTAssert(Labels.MaskedLabels.expirationDate.find(in: app).exists)
 
-			// Test revealed state depending on isSecureText.
+			// Test revealed state depending on `isSecureText`.
 			testSecuredCardNumber(isSecured: isSecuredCardNumber)
 
 			// Verify VGS placeholders are hidden.
