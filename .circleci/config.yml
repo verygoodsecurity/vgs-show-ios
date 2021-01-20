@@ -50,10 +50,10 @@ jobs:
             plutil -insert path -string ${path} UITestsMockedData.plist &&
             cd .. &&
             cd .. &&
-            pod install && xcrun simctl list &&  xcrun instruments -w "iPhone SE (11.4) [" || true &&
+            pod install && xcrun simctl list &&  xcrun instruments -w "iPhone X (11.4) [" || true &&
             xcodebuild test -workspace VGSShowDemoApp.xcworkspace -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone SE,OS=11.4'
+            -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4'
 
 
 workflows:
