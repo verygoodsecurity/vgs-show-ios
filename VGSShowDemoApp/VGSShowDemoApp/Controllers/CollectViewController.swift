@@ -57,7 +57,6 @@ class CollectViewController: UIViewController {
 		stackView.addArrangedSubview(expCardDate)
 
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-		navigationController?.navigationBar.addGestureRecognizer(tapGesture)
 		view.addGestureRecognizer(tapGesture)
 	}
 
