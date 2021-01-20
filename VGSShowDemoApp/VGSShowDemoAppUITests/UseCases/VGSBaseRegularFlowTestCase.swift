@@ -128,6 +128,8 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		case revealed
 	}
 
+	/// Test card number secured/unsecured correctly.
+	/// - Parameter isSecured: `Bool` flag, if `true` checked applied masks.
 	func testSecuredCardNumber(isSecured: Bool) {
 		if isSecured {
 			XCTAssert(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists)
