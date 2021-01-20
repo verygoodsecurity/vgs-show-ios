@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 final class DemoAppConfig {
   
-  let vaultId = "VGS_TEST_VAULT_ID"
-  let path = "VGS_TEST_PATH"
+  var vaultId = "VGS_TEST_VAULT_ID"
+  var path = "VGS_TEST_PATH"
   let payloadKey = "VGS_TEST_PAYLOAD_KEY"
   let payloadValue = "VGS_TEST_PAYLOAD_VALUE"
   
@@ -22,5 +23,25 @@ final class DemoAppConfig {
 
 	var collectPayload: [String: Any] = [:]
   
-  private init() {}
+  private init() {
+		// Setup test data for UITests only!
+		setupMockedTestDataIfNeeded()
+	}
+
+	private func setupMockedTestDataIfNeeded() {
+		if UIApplication.isRunningUITest {
+			guard let path = Bundle.main.path(forResource: "UITestsMockedData", ofType: "plist") else {
+					print("Path not found")
+					return
+			}
+
+			guard let dictionary = NSDictionary(contentsOfFile: path) else {
+					print("Unable to get dictionary from path")
+					return
+			}
+
+			self.vaultId = dictionary["vaultID"] as? String ?? ""
+			self.path =  dictionary["path"] as? String ?? ""
+		}
+	}
 }
