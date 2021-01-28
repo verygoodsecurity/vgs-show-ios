@@ -8,12 +8,14 @@ import Foundation
 internal class VGSShowLogger {
 
 	internal static func logRequest(_ request: URLRequest, payload: VGSRequestPayloadBody) {
-		print("⬆️ VGSShowSDK request url: \(stringFromURL(request.url))")
+		print("⬆️ Send VGSShowSDK request url: \(stringFromURL(request.url))")
 		if let headers = request.allHTTPHeaderFields {
-			print("⬆️ VGSShowSDK request headers: \(headers)")
+			print("⬆️ Send VGSShowSDK request headers:")
+			print(normalizeRequestHeadersForLogs(headers))
 		}
 		if let payloadValue = payload.rawPayload {
-			print("⬆️ VGSShowSDK request payload: \(payloadValue)")
+			print("⬆️ Send VGSShowSDK request payload:")
+			print(stringifyRawRequestPayloadForLogs(payloadValue))
 		}
 	}
 
@@ -24,9 +26,7 @@ internal class VGSShowLogger {
 		print("❗Failed ⬇️ VGSShowSDK response status code: \(code)")
 		if let httpResponse = response as? HTTPURLResponse {
 			print("❗Failed ⬇️ VGSShowSDK response headers:")
-			for erorHeader in httpResponse.allHeaderFields {
-				print("\(erorHeader.key) : \(erorHeader.value)")
-			}
+			print(normalizeHeadersForLogs(httpResponse.allHeaderFields))
 		}
 		if let errorData = data {
 			if let bodyErrorText = String(data: errorData, encoding: String.Encoding.utf8) {
@@ -47,9 +47,7 @@ internal class VGSShowLogger {
 
 		if let httpResponse = response as? HTTPURLResponse {
 			print("✅ Success ⬇️ VGSShowSDK response headers:")
-			for erorHeader in httpResponse.allHeaderFields {
-				print("\(erorHeader.key) : \(erorHeader.value)")
-			}
+			print(normalizeHeadersForLogs(httpResponse.allHeaderFields))
 		}
 
 		if let rawData = data {
@@ -57,7 +55,7 @@ internal class VGSShowLogger {
 			case .json:
 				if case .success(let json) = VGSShowRawDataDecoder().decodeRawDataToJSON(rawData) {
 					print("✅ Success ⬇️ VGSShowSDK response JSON:")
-					print(json)
+					print(stringifyJSONForLogs(json))
 				}
 			}
 		}
@@ -66,5 +64,33 @@ internal class VGSShowLogger {
 	private static func stringFromURL(_ url: URL?) -> String {
 		guard let requestURL = url else {return ""}
 		return requestURL.absoluteString
+	}
+
+	private static func normalizeRequestHeadersForLogs(_ headers: [String : String]) -> String {
+		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator:"\n  ")
+
+		return "[\n  \(stringifiedHeaders) \n]"
+	}
+
+	private static func normalizeHeadersForLogs(_ headers: [AnyHashable : Any]) -> String {
+		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator:"\n  ")
+
+		return "[\n  \(stringifiedHeaders) \n]"
+	}
+
+	private static func stringifyJSONForLogs(_ vgsJSON: VGSJSONData) -> String {
+		if let json = try? JSONSerialization.data(withJSONObject: vgsJSON, options: .prettyPrinted) {
+			return String(decoding: json, as: UTF8.self)
+		} else {
+				return ""
+		}
+	}
+
+	private static func stringifyRawRequestPayloadForLogs(_ payload: Any) -> String {
+		if let json = payload as? VGSJSONData {
+			return stringifyJSONForLogs(json)
+		}
+
+		return ""
 	}
 }
