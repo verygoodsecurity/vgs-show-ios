@@ -72,11 +72,14 @@ extension VGSShow {
 	// swiftlint:disable:next function_parameter_count line_length
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
-		let contentPaths = revealModels.map({return $0.decodingContentPath})
+		if !revealModels.isEmpty {
+			let contentPaths = revealModels.map({return $0.decodingContentPath})
+			let infoMessage = "Start decoding revealed data for contentPaths:\n \(VGSShow.formatDecodingContentPaths(contentPaths)) \n"
+			let event = VGSLogEvent(level: .info, text: infoMessage)
+			logEvent(event)
+		}
 
-		let infoMessage = "Start decoding revealed data for contentPaths:\n \(VGSShow.formatDecodingContentPaths(contentPaths)) \n"
-		let event = VGSLogEvent(level: .info, text: infoMessage)
-		logEvent(event)
+		logRevealModelsWithoutContentPath(revealModels)
 
 		switch responseFormat {
 
@@ -118,7 +121,7 @@ extension VGSShow {
 			}
 		}
 
-		if unrevealedContentPaths.isEmpty {
+		if unrevealedContentPaths.isEmpty && !revealModels.isEmpty  {
 			let contentPaths = revealModels.map({return $0.decodingContentPath})
 			let infoMessage = "All content paths have been successfully decoded:\n \(VGSShow.formatDecodingContentPaths(contentPaths))\n"
 			let event = VGSLogEvent(level: .info, text: infoMessage)
@@ -179,9 +182,30 @@ extension VGSShow {
 	/// - Parameter contentPaths: `[String]`, array of contentPaths.
 	/// - Returns: `String` object, formatted contentPaths.
 	static private func formatDecodingContentPaths(_ contentPaths: [String]) -> String {
-		let formattedContentPaths = contentPaths.map({return "  \($0)"}).joined(separator: "\n  ")
+		let formattedContentPaths = contentPaths.map { (path) -> String in
+			var formatttedPath = path
+			if path.isEmpty {
+				formatttedPath = "⚠️ CONTENT PATH NOT SET!"
+			}
+
+			return " \(formatttedPath)"
+		}.joined(separator: "\n  ")
 
 		return "[\n  \(formattedContentPaths) \n]"
+	}
+
+	/// Log warning if some reveal models has empty contentPath.
+	/// - Parameter revealModels: `[VGSViewModelProtocol]` models.
+	private func logRevealModelsWithoutContentPath(_ revealModels: [VGSViewModelProtocol]) {
+		guard !revealModels.isEmpty else {return}
+
+		let revealModelsWithoutContentPath = revealModels.filter({return $0.decodingContentPath.isEmpty})
+
+		guard !revealModelsWithoutContentPath.isEmpty else {return}
+
+		let warningMessage = "Some subscribed views has empty content path. Verify `contentPath` property is set for view."
+		let event = VGSLogEvent(level: .warning, text: warningMessage, severityLevel: .warning)
+		logEvent(event)
 	}
 }
 
