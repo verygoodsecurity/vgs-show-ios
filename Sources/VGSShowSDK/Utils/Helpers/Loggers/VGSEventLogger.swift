@@ -7,7 +7,6 @@ import Foundation
 
 internal final class VGSEventLogger {
 		private static var loggers = [VGSLogging]()
-		private static var enabledLevels = Set<VGSLogLevel>()
 		private static let readWriteContainer: VGSReadWriteSafeContainer = VGSReadWriteSafeContainer(label: "VGSShowSDK.Utils.EventLogger")
 
 		/// Add `VGSLogging` object.
@@ -17,20 +16,7 @@ internal final class VGSEventLogger {
 				}
 		}
 
-		/// Enable specific `VGSLogLevel`.
-		class func enableLevel(_ level: VGSLogLevel) {
-			readWriteContainer.write {
-						enabledLevels.insert(level)
-				}
-		}
-
-		/// Disable specific `VGSLogLevel`.
-		class func disableLevel(_ level: VGSLogLevel) {
-			readWriteContainer.write {
-						enabledLevels.remove(level)
-				}
-		}
-
+	static func forwarndLogEvent(_ event: VGSLogEvent)
 	   /*
 
 		/// debug: Adds a debug message to the Mixpanel log

@@ -6,7 +6,7 @@
 import Foundation
 
 /// Holds logging data.
-internal struct VGSShowLogEvent {
+internal struct VGSLogEvent {
 
 	/// Event log level.
 	internal let level: VGSLogLevel
@@ -40,5 +40,5 @@ internal struct VGSShowLogEvent {
 
 /// Interface for event logging.
 internal protocol VGSLogging {
-		func addEvent(event: VGSShowLogEvent)
+		func addEvent(event: VGSLogEvent)
 }
