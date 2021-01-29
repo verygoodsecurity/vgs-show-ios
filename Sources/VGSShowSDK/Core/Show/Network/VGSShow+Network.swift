@@ -74,7 +74,7 @@ extension VGSShow {
 
 		if !revealModels.isEmpty {
 			let contentPaths = revealModels.map({return $0.decodingContentPath})
-			let infoMessage = "Start decoding revealed data for contentPaths:\n \(VGSShow.formatDecodingContentPaths(contentPaths)) \n"
+			let infoMessage = "Start decoding revealed data for contentPaths:\n\(VGSShow.formatDecodingContentPaths(contentPaths))\n"
 			let event = VGSLogEvent(level: .info, text: infoMessage)
 			logEvent(event)
 		}
@@ -123,7 +123,7 @@ extension VGSShow {
 
 		if unrevealedContentPaths.isEmpty && !revealModels.isEmpty  {
 			let contentPaths = revealModels.map({return $0.decodingContentPath})
-			let infoMessage = "All content paths have been successfully decoded:\n \(VGSShow.formatDecodingContentPaths(contentPaths))\n"
+			let infoMessage = "All content paths have been successfully decoded:\n\(VGSShow.formatDecodingContentPaths(contentPaths))\n"
 			let event = VGSLogEvent(level: .info, text: infoMessage)
 			logEvent(event)
 		}
@@ -135,7 +135,7 @@ extension VGSShow {
 	private func handleUnrevealedContentPaths(_ unrevealedContentPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		if !unrevealedContentPaths.isEmpty {
-			let warningMessage = "Cannat reveal data for contentPaths:\n \(VGSShow.formatDecodingContentPaths(unrevealedContentPaths))\n"
+			let warningMessage = "Cannot reveal data for contentPaths:\n\(VGSShow.formatDecodingContentPaths(unrevealedContentPaths))\n"
 			let event = VGSLogEvent(level: .warning, text: warningMessage, severityLevel: .warning)
 			logEvent(event)
 		}
