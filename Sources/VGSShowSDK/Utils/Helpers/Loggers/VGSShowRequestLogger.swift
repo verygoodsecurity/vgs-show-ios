@@ -1,12 +1,17 @@
 //
-//  VGSShowLogger.swift
+//  VGSShowRequestLogger.swift
 //  VGSShowSDK
 //
 
 import Foundation
 
-internal class VGSShowLogger {
+/// Utilities to log network requests.
+internal class VGSShowRequestLogger {
 
+	/// Log sending request.
+	/// - Parameters:
+	///   - request: `URLRequest` object, request to send.
+	///   - payload: `VGSRequestPayloadBody` object, request payload.
 	internal static func logRequest(_ request: URLRequest, payload: VGSRequestPayloadBody) {
 		print("⬆️ Send VGSShowSDK request url: \(stringFromURL(request.url))")
 		if let headers = request.allHTTPHeaderFields {
@@ -17,8 +22,15 @@ internal class VGSShowLogger {
 			print("⬆️ Send VGSShowSDK request payload:")
 			print(stringifyRawRequestPayloadForLogs(payloadValue))
 		}
+		print("************************************")
 	}
 
+	/// Log failed request.
+	/// - Parameters:
+	///   - response: `URLResponse?` object.
+	///   - data: `Data?` object of failed request.
+	///   - error: `Error?` object, request error.
+	///   - code: `Int` object, status code.
 	internal static func logErrorResponse(_ response: URLResponse?, data: Data?, error: Error?, code: Int) {
 		if let url = response?.url {
 			print("❗Failed ⬇️ VGSShowSDK request url: \(stringFromURL(url))")
@@ -39,8 +51,14 @@ internal class VGSShowLogger {
 		let errorMessage = (error as NSError?)?.localizedDescription ?? ""
 
 		print("❗Failed ⬇️ VGSShowSDK response error message: \(errorMessage)")
+		print("************************************")
 	}
 
+	/// Log success request.
+	/// - Parameters:
+	///   - response: `URLResponse?` object.
+	///   - data: `Data?` object of success request.
+	///   - code: `Int` object, status code.
 	internal static func logSuccessResponse(_ response: URLResponse?, data: Data?, code: Int, responseFormat: VGSShowResponseDecodingFormat) {
 		print("✅ Success ⬇️ VGSShowSDK request url: \(stringFromURL(response?.url))")
 		print("✅ Success ⬇️ VGSShowSDK response code: \(code)")
@@ -59,25 +77,38 @@ internal class VGSShowLogger {
 				}
 			}
 		}
+		print("************************************")
 	}
 
+	/// Stringify URL.
+	/// - Parameter url: `URL?` to stringify.
+	/// - Returns: String representation of `URL` string or "".
 	private static func stringFromURL(_ url: URL?) -> String {
 		guard let requestURL = url else {return ""}
 		return requestURL.absoluteString
 	}
 
+	/// Utility function to normalize request headers for logging.
+	/// - Parameter headers: `[String : String]`, request headers.
+	/// - Returns: `String` object, normalized headers string.
 	private static func normalizeRequestHeadersForLogs(_ headers: [String : String]) -> String {
 		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator:"\n  ")
 
 		return "[\n  \(stringifiedHeaders) \n]"
 	}
 
+	/// Utility function to normalize response headers for logging.
+	/// - Parameter headers: `[AnyHashable : Any]`, response headers.
+	/// - Returns: `String` object, normalized headers string.
 	private static func normalizeHeadersForLogs(_ headers: [AnyHashable : Any]) -> String {
 		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator:"\n  ")
 
 		return "[\n  \(stringifiedHeaders) \n]"
 	}
 
+	/// Stringify `JSON` for logging.
+	/// - Parameter vgsJSON: `VGSJSONData` object.
+	/// - Returns: `String` object, pretty printed `JSON`.
 	private static func stringifyJSONForLogs(_ vgsJSON: VGSJSONData) -> String {
 		if let json = try? JSONSerialization.data(withJSONObject: vgsJSON, options: .prettyPrinted) {
 			return String(decoding: json, as: UTF8.self)
@@ -86,6 +117,9 @@ internal class VGSShowLogger {
 		}
 	}
 
+	/// Stringify payload of `Any` type for logging.
+	/// - Parameter payload: `Any` paylod.
+	/// - Returns: `String` object, formatted stringified payload.
 	private static func stringifyRawRequestPayloadForLogs(_ payload: Any) -> String {
 		if let json = payload as? VGSJSONData {
 			return stringifyJSONForLogs(json)

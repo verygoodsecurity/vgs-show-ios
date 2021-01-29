@@ -7,15 +7,12 @@ import Foundation
 
 /// Defines levels of logging.
 public enum VGSLogLevel: String {
-		/// Log all messages including some debug information.
-		case debug
-
-		/// Log all messages informative for users.
+		/// Log *all* events including errors and warnings.
 		case info
 
-		/// Log warning messages.
+		/// Log *only* events indicating warnings and errors.
 		case warning
 
-		/// Log errors.
-		case error
+		/// Log *no* events.
+		case none
 }

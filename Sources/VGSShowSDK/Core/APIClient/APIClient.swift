@@ -148,7 +148,7 @@ internal class APIClient {
 			request.allHTTPHeaderFields = headers
 
 			// Log request.
-			VGSShowLogger.logRequest(request, payload: payload)
+			VGSShowRequestLogger.logRequest(request, payload: payload)
 
 			// Perform request.
 			self.performRequest(request: request, completion: block)

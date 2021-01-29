@@ -47,11 +47,11 @@ extension VGSShow {
 
 				let responseFormat = VGSShowResponseDecodingFormat.json
 
-				VGSShowLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
+				VGSShowRequestLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
 
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 			case .failure(let code, let data, let response, let error):
-				VGSShowLogger.logErrorResponse(response, data: data, error: error, code: code)
+				VGSShowRequestLogger.logErrorResponse(response, data: data, error: error, code: code)
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
