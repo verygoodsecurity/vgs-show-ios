@@ -12,7 +12,7 @@ public struct VGSLoggingConfiguration {
 	public var level: VGSLogLevel = .info
 
 	/// `Bool` flag. Specify `true` to record VGSShowSDK network session with success/failed requests. Default is `true`.
-	public var isNetworkDebugEnabled: Bool
+	public var isNetworkDebugEnabled: Bool = true
 
 	/// `Bool` flag. Specify `true` to enable extensive debugging. Default is `false`.
 	public var isExtensiveDebugEnabled: Bool = false

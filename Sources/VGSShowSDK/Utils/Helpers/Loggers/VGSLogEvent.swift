@@ -1,5 +1,5 @@
 //
-//  VGSShowLogMessage.swift
+//  VGSLogEvent.swift
 //  VGSShowSDK
 //
 
@@ -40,5 +40,5 @@ internal struct VGSLogEvent {
 
 /// Interface for event logging.
 internal protocol VGSLogging {
-		func addEvent(event: VGSLogEvent)
+		func logEvent(_ event: VGSLogEvent)
 }

@@ -91,8 +91,8 @@ internal class VGSShowRequestLogger {
 	/// Utility function to normalize request headers for logging.
 	/// - Parameter headers: `[String : String]`, request headers.
 	/// - Returns: `String` object, normalized headers string.
-	private static func normalizeRequestHeadersForLogs(_ headers: [String : String]) -> String {
-		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator:"\n  ")
+	private static func normalizeRequestHeadersForLogs(_ headers: [String: String]) -> String {
+		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator: "\n  ")
 
 		return "[\n  \(stringifiedHeaders) \n]"
 	}
@@ -100,8 +100,8 @@ internal class VGSShowRequestLogger {
 	/// Utility function to normalize response headers for logging.
 	/// - Parameter headers: `[AnyHashable : Any]`, response headers.
 	/// - Returns: `String` object, normalized headers string.
-	private static func normalizeHeadersForLogs(_ headers: [AnyHashable : Any]) -> String {
-		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator:"\n  ")
+	private static func normalizeHeadersForLogs(_ headers: [AnyHashable: Any]) -> String {
+		let stringifiedHeaders = headers.map({return "  \($0.key) : \($0.value)"}).joined(separator: "\n  ")
 
 		return "[\n  \(stringifiedHeaders) \n]"
 	}
