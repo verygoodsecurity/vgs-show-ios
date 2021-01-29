@@ -17,23 +17,28 @@ internal struct VGSLogEvent {
 	/// File where the event is used.
 	internal let file: String
 
-	/// Function where log event was triggered.
+	/// Function where log event is triggered.
 	internal let functionName: String
+
+	/// Line where log event is triggered.
+	internal let lineNumber: Int
 
 	/// Initializer.
 	/// - Parameters:
 	///   - level: `VGSLogLevel` object, log level.
 	///   - text: `String` object, raw text to log.
-	///   - functionName: `String` object, function name.
-	///   - path: `String` object, path to file where event is used.
-	internal init(level: VGSLogLevel, text: String, functionName: String, path: String) {
+	///   - file: `String` object, refers to filename of calling function.
+	///   - functionName: `String` object, refers to filename of calling function.
+	///   - lineNumber: `Int` object, refers to line number of calling function.
+	internal init(level: VGSLogLevel, text: String, file: String = #file, functionName: String = #function, lineNumber: Int = #line) {
 		self.text = text
 		self.level = level
 		self.functionName = functionName
-		if let outputFile = path.components(separatedBy: "/").last {
+		self.lineNumber = lineNumber
+		if let outputFile = file.components(separatedBy: "/").last {
 				self.file = outputFile
 		} else {
-				self.file = path
+				self.file = file
 		}
 	}
 }
