@@ -164,7 +164,9 @@ internal extension String {
 			// Clear all queries.
 			component.query = nil
 
-			print("WARNING! YOUR HOSTNAME HAS QUERIES AND WILL BE NORMALIZED!")
+		 let eventText = "Your custom hostname has queries and will be normalized!"
+		 let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
+		 VGSLogger.shared.forwardLogEvent(event)
 		}
 
 		var path: String
@@ -319,6 +321,10 @@ internal extension String {
 
 		// Don't mask empty text.
 		guard !self.isEmpty else {
+			let eventText = "Text is empty. Cannot apply range to empty text."
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
+			VGSLogger.shared.forwardLogEvent(event)
+
 			return ""
 		}
     
