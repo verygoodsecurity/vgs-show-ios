@@ -22,7 +22,7 @@ internal class VGSShowRequestLogger {
 			print("⬆️ Send VGSShowSDK request payload:")
 			print(stringifyRawRequestPayloadForLogs(payloadValue))
 		}
-		print("************************************")
+		print("------------------------------------")
 	}
 
 	/// Log failed request.
@@ -51,7 +51,7 @@ internal class VGSShowRequestLogger {
 		let errorMessage = (error as NSError?)?.localizedDescription ?? ""
 
 		print("❗Failed ⬇️ VGSShowSDK response error message: \(errorMessage)")
-		print("************************************")
+		print("------------------------------------")
 	}
 
 	/// Log success request.
@@ -77,7 +77,7 @@ internal class VGSShowRequestLogger {
 				}
 			}
 		}
-		print("************************************")
+		print("------------------------------------")
 	}
 
 	/// Stringify URL.

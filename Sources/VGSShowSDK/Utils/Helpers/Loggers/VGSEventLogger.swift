@@ -16,7 +16,9 @@ internal final class VGSEventLogger {
 				}
 		}
 
-	static func forwarndLogEvent(_ event: VGSLogEvent)
+	static func forwarndLogEvent(_ event: VGSLogEvent) {
+		
+	}
 	   /*
 
 		/// debug: Adds a debug message to the Mixpanel log

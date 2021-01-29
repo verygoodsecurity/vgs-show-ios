@@ -8,16 +8,16 @@ import Foundation
 /// Holds logging data.
 internal struct VGSLogEvent {
 
-	/// Event log level.
+	/// Log level.
 	internal let level: VGSLogLevel
 
-	/// Log event text.
+	/// Text to log.
 	internal let text: String
 
 	/// File where the event is used.
 	internal let file: String
 
-	/// Function where this log event was triggered.
+	/// Function where log event was triggered.
 	internal let functionName: String
 
 	/// Initializer.
