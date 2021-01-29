@@ -1,7 +1,7 @@
 [![UT](https://img.shields.io/badge/Unit_Test-pass-green)]()
 [![license](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![swift](https://img.shields.io/badge/swift-5-orange)]()
-<img src="./ZeroData.png" high="20" hspace="8">
+<img src="./VGSZeroData.png" high="20" hspace="8">
 
 
 # VGS Show iOS SDK
