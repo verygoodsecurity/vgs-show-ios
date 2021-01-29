@@ -72,6 +72,12 @@ extension VGSShow {
 	// swiftlint:disable:next function_parameter_count line_length
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
+		let contentPaths = revealModels.map({return $0.decodingContentPath})
+
+		let infoMessage = "Start decoding revealed data for contentPaths:\n \(VGSShow.formatDecodingContentPaths(contentPaths)) \n"
+		let event = VGSLogEvent(level: .info, text: infoMessage)
+		logEvent(event)
+
 		switch responseFormat {
 
 		// Handle `.json` response format.
@@ -80,13 +86,15 @@ extension VGSShow {
 			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
 			switch jsonDecodingResult {
 			case .success(let json):
-				print("VGSShow response: \(json)")
 				// Reveal data.
 				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 
 			case .failure(let error):
 				// Mark reveal request as failed with error - cannot decode response.
-				print("❗VGSShowSDK decoding error \(error)")
+
+				let event = VGSLogEvent(level: .warning, text: "Cannot decode request response: \(error)", severityLevel: .error)
+				logEvent(event)
+
 				trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
 				block(.failure(error.code, error))
 			}
@@ -116,7 +124,9 @@ extension VGSShow {
 	private func handleUnrevealedContentPaths(_ unrevealedContentPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		if !unrevealedContentPaths.isEmpty {
-			print("⚠️ VGSShowSDK WARNING! Cannot reveal data for contentPaths: \(unrevealedContentPaths)")
+			let warningMessage = "Cannat reveal data for contentPaths:\n \(VGSShow.formatDecodingContentPaths(unrevealedContentPaths))\n"
+			let event = VGSLogEvent(level: .warning, text: warningMessage, severityLevel: .warning)
+			logEvent(event)
 		}
 
 		// Track success.
@@ -155,6 +165,15 @@ extension VGSShow {
 		}
 
 		return content
+	}
+
+	/// Format contentPaths for suitable debugging output.
+	/// - Parameter contentPaths: `[String]`, array of contentPaths.
+	/// - Returns: `String` object, formatted contentPaths.
+	static private func formatDecodingContentPaths(_ contentPaths: [String]) -> String {
+		let formattedContentPaths = contentPaths.map({return "  \($0)"}).joined(separator: "\n  ")
+
+		return "[\n  \(formattedContentPaths) \n]"
 	}
 }
 
