@@ -8,16 +8,22 @@ import Foundation
 /// Holds logging data.
 internal struct VGSLogEvent {
 
+	/// Severity level of event.
 	internal enum SeverityLevel {
+
+		/// Warning, indicates problem in normal flow but not critical.
 		case warning
+
+		/// Error, indicates error.
 		case error
 
+		/// Text for debug output.
 		var debugText: String {
 			switch self {
-			case .error:
-				return "❌"
 			case .warning:
 				return "⚠️"
+			case .error:
+				return "❌"
 			}
 		}
 	}
@@ -28,15 +34,16 @@ internal struct VGSLogEvent {
 	/// Text to log.
 	internal let text: String
 
-	/// File where the event is used.
+	/// Filename of calling function.
 	internal let file: String
 
 	/// Function where log event is triggered.
 	internal let functionName: String
 
-	/// Line where log event is triggered.
+	/// Line number of calling function where event is triggered.
 	internal let lineNumber: Int
 
+	/// Severity level.
 	internal let severityLevel: SeverityLevel?
 
 	/// Initializer.
@@ -60,15 +67,18 @@ internal struct VGSLogEvent {
 		}
 	}
 
+	/// Convert log event to debug string.
+	/// - Parameter isExtensiveDebugEnabled: `Bool` flag, specify `true` to set extensive format.
+	/// - Returns: `String` object, formatted log event.
 	internal func convertToDebugString(isExtensiveDebugEnabled: Bool) -> String {
 		var severityText = ""
 		if let severity = severityLevel?.debugText {
 			severityText = severity
 		}
 		if isExtensiveDebugEnabled {
-			return "[VGShowSDK - \(file) - func \(functionName) - line \(lineNumber) logLevel - \(level.rawValue)] \(severityText) \(text)"
+			return "[VGShowSDK - \(severityText) \(text) - logLevel: \(level) - file: \(file) - func: \(functionName) - line: \(lineNumber)]"
 		} else {
-			return "[VGShowSDK - \(file) - func \(functionName) - line \(lineNumber)] \(severityText) \(text)"
+			return "[VGShowSDK - \(severityText) \(text) - logLevel: \(level)]"
 		}
 	}
 }

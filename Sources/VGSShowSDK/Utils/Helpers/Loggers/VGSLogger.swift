@@ -11,7 +11,7 @@ public final class VGSLogger {
   // MARK: - Public vars
 
 	/// Shared instance.
-	public var shared = VGSLogger()
+	public static var shared = VGSLogger()
 
 	/// Logging configuration.
 	public var configuration: VGSLoggingConfiguration = VGSLoggingConfiguration()
@@ -26,6 +26,7 @@ public final class VGSLogger {
 
 	// MARK: - Initialization
 
+	/// Private init for `VGSLogger`.
 	private init() {
 		addLogger(VGSPrintingLogger())
 	}
@@ -47,7 +48,7 @@ public final class VGSLogger {
 		let isExtensiveDebugEnabled = configuration.isExtensiveDebugEnabled
 
 		// Skip forward logs if logLevel is `none`, event level should mismatch log level.
-		guard currentLogLevel != .none, event.level == configuration.level else {
+		guard currentLogLevel != .none, shouldForwardMessageLevel(event.level, currentLevel: currentLogLevel) else {
 			return
 		}
 
@@ -57,6 +58,17 @@ public final class VGSLogger {
 		}
 		readWriteContainer.write {
 			loggers.forEach {$0.logEvent(event, isExtensiveDebugEnabled: isExtensiveDebugEnabled)}
+		}
+	}
+
+	internal func shouldForwardMessageLevel(_ messageLevel: VGSLogLevel, currentLevel: VGSLogLevel) -> Bool {
+		switch currentLevel {
+		case .none:
+			return false
+		case .info:
+			return true
+		case .warning:
+			return messageLevel == currentLevel
 		}
 	}
 }

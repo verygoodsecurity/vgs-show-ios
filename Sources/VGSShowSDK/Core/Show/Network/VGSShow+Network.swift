@@ -31,12 +31,17 @@ extension VGSShow {
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
-			print("⚠️ VGSShowSDK WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
+			let event = VGSLogEvent(level: .warning, text: "No subscribed views to reveal data", severityLevel: .warning)
+			logEvent(event)
 		}
 
 		VGSAnalyticsClient.shared.trackFormEvent(self, type: .beforeSubmit, status: .success, extraData: extraAnalyticsInfo)
 
 		// Sends request.
+
+		let event = VGSLogEvent(level: .info, text: "Start json request")
+		logEvent(event)
+
 		apiClient.sendRequestWithJSON(path: path, method: method, value: payload ) {[weak self] (requestResult) in
 
 			guard let strongSelf = self else {return}
@@ -150,5 +155,11 @@ extension VGSShow {
 		}
 
 		return content
+	}
+}
+
+internal extension VGSShow {
+	func logEvent(_ event: VGSLogEvent) {
+		VGSLogger.shared.forwarndLogEvent(event)
 	}
 }
