@@ -7,6 +7,8 @@ import Foundation
 
 internal extension VGSShow {
 
+	/// Log event.
+	/// - Parameter event: `VGSLogEvent` object, event to log.
 	func logEvent(_ event: VGSLogEvent) {
 		VGSLogger.shared.forwardLogEvent(event)
 	}
