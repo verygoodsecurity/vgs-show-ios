@@ -43,7 +43,7 @@ public final class VGSLogger {
 
 	/// Forward event to all registered loggers.
 	/// - Parameter event: `VGSLogEvent` object, event to log.
-	internal func forwarndLogEvent(_ event: VGSLogEvent) {
+	internal func forwardLogEvent(_ event: VGSLogEvent) {
 		let currentLogLevel = configuration.level
 		let isExtensiveDebugEnabled = configuration.isExtensiveDebugEnabled
 

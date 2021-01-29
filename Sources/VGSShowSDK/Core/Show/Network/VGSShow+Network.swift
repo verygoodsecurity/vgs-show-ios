@@ -117,6 +117,14 @@ extension VGSShow {
 				unrevealedContentPaths.append(model.decodingContentPath)
 			}
 		}
+
+		if unrevealedContentPaths.isEmpty {
+			let contentPaths = revealModels.map({return $0.decodingContentPath})
+			let infoMessage = "All content paths have been successfully decoded:\n \(VGSShow.formatDecodingContentPaths(contentPaths))\n"
+			let event = VGSLogEvent(level: .info, text: infoMessage)
+			logEvent(event)
+		}
+
 		// Handle unrevealed keys.
 		handleUnrevealedContentPaths(unrevealedContentPaths, code, completion: block)
 	}
@@ -179,6 +187,6 @@ extension VGSShow {
 
 internal extension VGSShow {
 	func logEvent(_ event: VGSLogEvent) {
-		VGSLogger.shared.forwarndLogEvent(event)
+		VGSLogger.shared.forwardLogEvent(event)
 	}
 }

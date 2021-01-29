@@ -18,7 +18,7 @@ public struct VGSLoggingConfiguration {
 	public var isExtensiveDebugEnabled: Bool = false
 
 	/// Stop logging all activities.
-	mutating func disableAllLogging() {
+	public mutating func disableAllLogging() {
 		level = .none
 		isNetworkDebugEnabled = false
 		isExtensiveDebugEnabled = false
