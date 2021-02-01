@@ -10,43 +10,6 @@ import Foundation
 import UIKit
 #endif
 
-/// An object representing text range with closed  boundaries.
-public struct VGSTextRange {
-  /// Range start index
-  public let start: Int?
-  /// Range end index
-	public let end: Int?
-
-	/// Initialization.
-	/// - Parameters:
-	///   - start: `Int` object. Defines range start, should be less or equal to `end` and string length. Default is `nil`.
-	///   - end: `Int` object. Defines range end, should be greater or equal to `end` and string length. Default is `nil`.
-  public init(start: Int? = nil, end: Int? = nil) {
-    self.start = start
-    self.end = end
-  }
-
-	internal var startText: String {
-		guard let startValue = start else {
-			return "nil"
-		}
-
-		return String(startValue)
-	}
-
-	internal var endText: String {
-		guard let endValue = end else {
-			return "nil"
-		}
-
-		return String(endValue)
-	}
-
-	internal var debugText: String {
-		return "[\(startText), \(endText)]"
-	}
-}
-
 /// A view that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
@@ -139,6 +102,9 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   public var contentPath: String! {
     set {
       labelModel.decodingContentPath = newValue
+			
+			let eventText = "Set content path: \(newValue ?? "*nil*")"
+			logInfoEventWithText(eventText)
     }
     get {
       return model.decodingContentPath
@@ -159,8 +125,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	public var placeholder: String? {
 		didSet {
 			let eventText = "Set placeholder: \(placeholder ?? "*nil*")"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			VGSLogger.shared.forwardLogEvent(event)
+			logInfoEventWithText(eventText)
 
 			updateTextAndMaskIfNeeded()
 		}
@@ -170,8 +135,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
 		didSet {
 			let eventText = "Update placeholder styles"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			VGSLogger.shared.forwardLogEvent(event)
+			logInfoEventWithText(eventText)
 
 			placeholderLabel.applyPlaceholderStyle(placeholderStyle)
 		}
@@ -180,6 +144,9 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// `Bool` flag. Apply secure mask if `true`. If secure range is not defined mask all text. Default is `false`.
   public var isSecureText: Bool = false {
     didSet {
+			let eventText = "isSecureText did change: \(isSecureText). Update text."
+			logInfoEventWithText(eventText)
+
       updateTextAndMaskIfNeeded()
     }
   }
@@ -188,13 +155,11 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   public var secureTextSymbol = "*" {
     didSet {
 			let eventText = "Set new secure sybmol: \(secureTextSymbol)"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			VGSLogger.shared.forwardLogEvent(event)
+			logInfoEventWithText(eventText)
 
 			if secureTextSymbol.count > 1 {
 				let eventText = "Secure sybmol: \(secureTextSymbol) should be one characted only!"
-				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-				VGSLogger.shared.forwardLogEvent(event)
+				logWarningEventWithText(eventText)
 			}
 
       if isSecureText { updateTextAndMaskIfNeeded() }
@@ -205,9 +170,8 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	public func clearText() {
 		revealedRawText = nil
 
-		let eventText = "Revealed text has been cleared. New request is required to populate label with revealed data"
-		let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-		VGSLogger.shared.forwardLogEvent(event)
+		let eventText = "Previous revealed text has been cleared! New request is required to populate label with revealed data"
+		logWarningEventWithText(eventText)
 	}
 
 	/// Copy text to pasteboard with format.
@@ -231,7 +195,10 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Set array of text ranges to be replaced with `VGSLabel.secureTextSymbol`.
 	/// - Parameter ranges: `[VGSTextRange]` object, an array of `VGSTextRange` objects to be applied subsequently.
   public func setSecureText(ranges: [VGSTextRange]) {
-    self.secureTextRanges = ranges
+		let eventText = "Set secure ranges: \(ranges.debugText)"
+		logInfoEventWithText(eventText)
+
+		self.secureTextRanges = ranges
     vgsShow?.trackSubscribedViewConfigurationEvent(for: self)
     
     /// Apply secure range if needed

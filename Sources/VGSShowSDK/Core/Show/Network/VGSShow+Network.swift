@@ -121,7 +121,7 @@ extension VGSShow {
 			}
 		}
 
-		if unrevealedContentPaths.isEmpty && !revealModels.isEmpty  {
+		if unrevealedContentPaths.isEmpty && !revealModels.isEmpty {
 			let contentPaths = revealModels.map({return $0.decodingContentPath})
 			let infoMessage = "All content paths have been successfully decoded:\n\(VGSShow.formatDecodingContentPaths(contentPaths))\n"
 			let event = VGSLogEvent(level: .info, text: infoMessage)
@@ -178,4 +178,3 @@ extension VGSShow {
 		return content
 	}
 }
-

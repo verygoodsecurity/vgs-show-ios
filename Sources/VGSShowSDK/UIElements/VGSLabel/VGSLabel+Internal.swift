@@ -61,8 +61,7 @@ internal extension VGSLabel {
 
 		if paddings.hasNegativeValue {
 			let eventText = "Cannot set paddings \(paddings) with negative values. Will ignore negative paddings."
-			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-			logEvent(event)
+			logWarningEventWithText(eventText)
 			return
 		}
     
@@ -95,8 +94,7 @@ internal extension VGSLabel {
 
 		if placeholderPaddings.hasNegativeValue {
 			let eventText =  "Cannot set placeholder paddings \(placeholderPaddings) with negative values. Will ignore negative paddings."
-			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-			logEvent(event)
+			logWarningEventWithText(eventText)
 			return
 		}
 
@@ -281,6 +279,13 @@ internal extension VGSLabel {
 	/// - Parameter text: `String` object, event text.
 	func logInfoEventWithText(_ text: String) {
 		let event = VGSLogEvent(level: .info, text: text)
+		logEvent(event)
+	}
+
+	/// Log info event. Should be used for `.warning` level and severityLevel `.warning` only.
+	/// - Parameter text: `String` object, event text.
+	func logWarningEventWithText(_ text: String) {
+		let event = VGSLogEvent(level: .warning, text: text, severityLevel: .warning)
 		logEvent(event)
 	}
 

@@ -66,6 +66,7 @@
 		44BAD71325C3DF140060A170 /* VGSLoggingConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAD71225C3DF140060A170 /* VGSLoggingConfiguration.swift */; };
 		44BAD72425C3F93A0060A170 /* VGSPrintingLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAD72325C3F93A0060A170 /* VGSPrintingLogger.swift */; };
 		44BAD76425C445A70060A170 /* VGSShow+Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAD76325C445A70060A170 /* VGSShow+Logging.swift */; };
+		44BAD78025C7EA520060A170 /* VGSTextRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BAD77F25C7EA520060A170 /* VGSTextRange.swift */; };
 		44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CC283725A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift */; };
 		44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05110256E49C400DDBE41 /* Array+Extensions.swift */; };
 		44E05117256E49C400DDBE41 /* VGSJsonData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05111256E49C400DDBE41 /* VGSJsonData+Extensions.swift */; };
@@ -148,6 +149,7 @@
 		44BAD71225C3DF140060A170 /* VGSLoggingConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLoggingConfiguration.swift; sourceTree = "<group>"; };
 		44BAD72325C3F93A0060A170 /* VGSPrintingLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPrintingLogger.swift; sourceTree = "<group>"; };
 		44BAD76325C445A70060A170 /* VGSShow+Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VGSShow+Logging.swift"; sourceTree = "<group>"; };
+		44BAD77F25C7EA520060A170 /* VGSTextRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSTextRange.swift; sourceTree = "<group>"; };
 		44CC283725A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowSecureTextRangesTests.swift; sourceTree = "<group>"; };
 		44E05110256E49C400DDBE41 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		44E05111256E49C400DDBE41 /* VGSJsonData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSJsonData+Extensions.swift"; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				44A79F52255D0678009AF720 /* VGSTransformationRegex.swift */,
 				448B53A3256FEBF3006D730F /* VGSTextFormattersCoordinator.swift */,
+				44BAD77F25C7EA520060A170 /* VGSTextRange.swift */,
 			);
 			path = Masks;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */,
 				4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */,
 				44A79F6B255D0678009AF720 /* APIClient.swift in Sources */,
+				44BAD78025C7EA520060A170 /* VGSTextRange.swift in Sources */,
 				447FFDE5256E62B500CDAE4E /* VGSShowDecodedContent.swift in Sources */,
 				44A79F76255D0678009AF720 /* VGSTransformationRegex.swift in Sources */,
 				448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */,

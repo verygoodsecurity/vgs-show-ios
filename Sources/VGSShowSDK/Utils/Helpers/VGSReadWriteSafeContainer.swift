@@ -19,7 +19,7 @@ internal class VGSReadWriteSafeContainer {
 
 	/// Execute closure to read some data.
 	/// - Parameter closure: `() -> ()` closure.
-		func read(closure: () -> ()) {
+		func read(closure: () -> Void) {
 				concurentQueue.sync {
 						closure()
 				}
@@ -27,7 +27,7 @@ internal class VGSReadWriteSafeContainer {
 
 	/// Execute closure to write some data in thead-safe way.
 	/// - Parameter closure: `() -> ()` closure.
-		func write(closure: () -> ()) {
+		func write(closure: () -> Void) {
 				concurentQueue.sync(flags: .barrier, execute: {
 						closure()
 				})
