@@ -213,7 +213,7 @@ internal extension String {
 			// Take 0 as start index.
 			first = 0
 
-			let eventText = "Range start is *nil*. Will be replaced with `0`"
+			let eventText = "Range start is *nil*. Will be replaced with *0*"
 			let event = VGSLogEvent(level: .info, text: eventText)
 			VGSLogger.shared.forwardLogEvent(event)
 		}
@@ -231,7 +231,7 @@ internal extension String {
 			if last > count - 1 {
 				end = count - 1
 
-				let eventText = "Range end is \(last)) exceedes string.length (\(count)). Will be replaced with string.endIndex \(end)"
+				let eventText = "Range end is \(last)) exceedes string.length (\(count)). Will be replaced with string.endIndex *\(end)*"
 				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
 				VGSLogger.shared.forwardLogEvent(event)
 			} else {
@@ -242,7 +242,7 @@ internal extension String {
 			if !isEmpty {
 				end = count - 1
 
-				let eventText = "Range end is *nil*. Will be replaced to `string.endIndex: \(end)`"
+				let eventText = "Range end is *nil*. Will be replaced to `string.endIndex: *\(end)*`"
 				let event = VGSLogEvent(level: .info, text: eventText)
 				VGSLogger.shared.forwardLogEvent(event)
 			} else {
@@ -269,7 +269,7 @@ internal extension String {
 
 		// Ignore start > length.
 		if start > count {
-			let eventText = "Range \(range.debugText) start is greater than string length (\(count)) and cannot be applied"
+			let eventText = "Range \(range.debugText) start (\(start)) is greater than string length (\(count)) and cannot be applied"
 			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 
@@ -277,7 +277,7 @@ internal extension String {
 		}
 
 		if start > end {
-			let eventText = "Range \(range.debugText) start *\(range.startText)* is greater than end *\(range.endText)* and cannot be applied"
+			let eventText = "Range \(range.debugText) start (\(range.startText)) is greater than end (\(range.endText)) and cannot be applied"
 			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 		}
@@ -361,6 +361,10 @@ internal extension String {
     
     // Don't mask when secure symbol is empty
     guard !secureSymbol.isEmpty else {
+			let eventText = "Secure text symbol is empty. Cannot mask text."
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
+			VGSLogger.shared.forwardLogEvent(event)
+
       return self
     }
 
