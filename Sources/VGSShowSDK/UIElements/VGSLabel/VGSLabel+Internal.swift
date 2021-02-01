@@ -185,13 +185,13 @@ internal extension VGSLabel {
         let securedText = secureTextInRanges(text, ranges: secureTextRanges)
         updateMaskedLabel(with: securedText)
 
-				let eventText = "No custom formatting. Apply secure mask for revealed data"
+				let eventText = "No custom formatting. Apply secure mask for revealed data."
 				logInfoEventWithText(eventText)
 
         return
       }
 
-			let eventText = "No custom formatting. No secure masks. Show raw revealed data"
+			let eventText = "No custom formatting. No secure masks. Show raw revealed data."
 			logInfoEventWithText(eventText)
 
       updateMaskedLabel(with: text)
@@ -201,7 +201,7 @@ internal extension VGSLabel {
     // Set masked text to label.
     let maskedText = textFormattersContainer.formatText(text)
 
-		let formattingEvent = "Text before formatting: \(text), text after formatting: \(maskedText)"
+		let formattingEvent = "Text before formatting: \"\(text)\", text after formatting: \"\(maskedText)\" ."
 		logInfoEventWithText(formattingEvent)
 
     if isSecureText {
@@ -244,7 +244,7 @@ internal extension VGSLabel {
 	/// Set text to internal label, notify delegate about changing text.
 	/// - Parameter text: `String` object, raw text to set.
   func updateMaskedLabel(with text: String) {
-		let finalFormttedText = "Set secure text to label: \(text)"
+		let finalFormttedText = "Set secure text to label: \"\(text)\""
 		logInfoEventWithText(finalFormttedText)
 
     label.secureText = text
@@ -268,7 +268,7 @@ internal extension VGSLabel {
 		var eventText = "Has revealed data to display. Hide placeholder"
 
 		if isShown {
-			eventText = "No revealed data to display. Show placeholder"
+			eventText = "No revealed data to display. Show placeholder."
 		}
 
 		let event = VGSLogEvent(level: .info, text: eventText)
