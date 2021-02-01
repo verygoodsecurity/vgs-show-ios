@@ -61,7 +61,7 @@ internal extension VGSLabel {
 
 		if paddings.hasNegativeValue {
 			let eventText = "Cannot set paddings \(paddings) with negative values. Will ignore negative paddings."
-			let event = VGSLogEvent(level: .warning, text: eventText)
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
 			VGSLogger.shared.forwardLogEvent(event)
 			return
 		}
@@ -95,7 +95,7 @@ internal extension VGSLabel {
 
 		if placeholderPaddings.hasNegativeValue {
 			let eventText =  "Cannot set placeholder paddings \(placeholderPaddings) with negative values. Will ignore negative paddings."
-			let event = VGSLogEvent(level: .warning, text: eventText)
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
 			VGSLogger.shared.forwardLogEvent(event)
 			return
 		}
@@ -137,16 +137,28 @@ internal extension VGSLabel {
 		switch format {
 		case .raw:
 			pasteBoard.string = rawText
+
+			let eventText = "Raw text has been copied to clipboard!"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
 		case .transformed:
 			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
 			guard textFormattersContainer.hasFormatting else {
 				pasteBoard.string = rawText
+
+				let eventText = "Copy option is *formatted*, but no *formatted* is available. Raw text has been copied to clipboard!"
+				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
+				VGSLogger.shared.forwardLogEvent(event)
 				return
 			}
 
 			// Copy transformed text.
 			let formattedText = textFormattersContainer.formatText(rawText)
 			pasteBoard.string = formattedText
+
+			let eventText = "Formatted text has been copied to clipboard!"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
 		}
 	}
 

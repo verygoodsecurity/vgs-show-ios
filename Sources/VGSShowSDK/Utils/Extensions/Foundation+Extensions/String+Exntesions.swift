@@ -232,7 +232,7 @@ internal extension String {
 				end = count - 1
 
 				let eventText = "Range end is \(last)) exceedes string.length (\(count)). Will be replaced with string.endIndex \(end)"
-				let event = VGSLogEvent(level: .info, text: eventText)
+				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
 				VGSLogger.shared.forwardLogEvent(event)
 			} else {
 				end = last
@@ -261,7 +261,7 @@ internal extension String {
 		if start < 0 || end < 0 {
 
 			let eventText = "Range \(range.debugText) with negative start/end cannot be applied"
-			let event = VGSLogEvent(level: .warning, text: eventText)
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 
 			return false
@@ -270,7 +270,7 @@ internal extension String {
 		// Ignore start > length.
 		if start > count {
 			let eventText = "Range \(range.debugText) start is greater than string length (\(count)) and cannot be applied"
-			let event = VGSLogEvent(level: .warning, text: eventText)
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 
 			return false
@@ -278,7 +278,7 @@ internal extension String {
 
 		if start > end {
 			let eventText = "Range \(range.debugText) start *\(range.startText)* is greater than end *\(range.endText)* and cannot be applied"
-			let event = VGSLogEvent(level: .warning, text: eventText)
+			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 		}
 
