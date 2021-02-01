@@ -139,16 +139,14 @@ internal extension VGSLabel {
 			pasteBoard.string = rawText
 
 			let eventText = "Raw text has been copied to clipboard!"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			logEvent(event)
+			logInfoEventWithText(eventText)
 		case .transformed:
 			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
 			guard textFormattersContainer.hasFormatting else {
 				pasteBoard.string = rawText
 
 				let eventText = "Copy option is *formatted*, but no *formatted* is available. Raw text has been copied to clipboard!"
-				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-				logEvent(event)
+				logInfoEventWithText(eventText)
 				return
 			}
 
@@ -157,8 +155,7 @@ internal extension VGSLabel {
 			pasteBoard.string = formattedText
 
 			let eventText = "Formatted text has been copied to clipboard!"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			logEvent(event)
+			logInfoEventWithText(eventText)
 		}
 	}
 
@@ -171,9 +168,7 @@ internal extension VGSLabel {
 			label.isHidden = true
 			updatePlaceholder()
 
-			let eventText = "No revealed data to display. Show placeholder"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			logEvent(event)
+			logPlaceholderEvent(isShown: true)
 			return
 		}
 
@@ -183,9 +178,7 @@ internal extension VGSLabel {
 		// Unhide main label.
 		label.isHidden = false
 
-		let eventText = "Has revealed data to display. Hide placeholder"
-		let event = VGSLogEvent(level: .info, text: eventText)
-		logEvent(event)
+		logPlaceholderEvent(isShown: false)
 
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
@@ -195,36 +188,36 @@ internal extension VGSLabel {
         updateMaskedLabel(with: securedText)
 
 				let eventText = "No custom formatting. Apply secure mask for revealed data"
-				let event = VGSLogEvent(level: .info, text: eventText)
-				logEvent(event)
+				logInfoEventWithText(eventText)
 
         return
       }
 
 			let eventText = "No custom formatting. No secure masks. Show raw revealed data"
-			let event = VGSLogEvent(level: .info, text: eventText)
-			logEvent(event)
+			logInfoEventWithText(eventText)
 
       updateMaskedLabel(with: text)
       return
     }
-    
+
     // Set masked text to label.
     let maskedText = textFormattersContainer.formatText(text)
+
+		let formattingEvent = "Text before formatting: \(text), text after formatting: \(maskedText)"
+		logInfoEventWithText(formattingEvent)
+
     if isSecureText {
       let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
       updateMaskedLabel(with: securedText)
 
 			let eventText = "Apply custom formatting. Apply secure masks."
-			let event = VGSLogEvent(level: .info, text: eventText)
-			logEvent(event)
+			logInfoEventWithText(eventText)
       return
     }
 
 		let eventText = "Apply custom formatting. No secure masks."
-		let event = VGSLogEvent(level: .info, text: eventText)
-		logEvent(event)
-		
+		logInfoEventWithText(eventText)
+
     updateMaskedLabel(with: maskedText)
   }
 
@@ -253,6 +246,9 @@ internal extension VGSLabel {
 	/// Set text to internal label, notify delegate about changing text.
 	/// - Parameter text: `String` object, raw text to set.
   func updateMaskedLabel(with text: String) {
+		let finalFormttedText = "Set secure text to label: \(text)"
+		logInfoEventWithText(finalFormttedText)
+
     label.secureText = text
     delegate?.labelTextDidChange?(self)
   }
@@ -266,6 +262,26 @@ internal extension VGSLabel {
 	func updatePlaceholder() {
 			placeholderLabel.text = placeholder
 			placeholderLabel.isHidden = false
+	}
+
+	/// Log event for is placeholder displayed.
+	/// - Parameter isShown: `Bool` flag, `true`if placeholder label is displayed.
+	func logPlaceholderEvent(isShown: Bool) {
+		var eventText = "Has revealed data to display. Hide placeholder"
+
+		if isShown {
+			eventText = "No revealed data to display. Show placeholder"
+		}
+
+		let event = VGSLogEvent(level: .info, text: eventText)
+		logEvent(event)
+	}
+
+	/// Log info event. Should be used for `.info` level events only.
+	/// - Parameter text: `String` object, event text.
+	func logInfoEventWithText(_ text: String) {
+		let event = VGSLogEvent(level: .info, text: text)
+		logEvent(event)
 	}
 
 	/// Log event.
