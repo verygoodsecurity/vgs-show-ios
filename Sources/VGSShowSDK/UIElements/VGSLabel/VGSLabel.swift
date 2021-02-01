@@ -158,6 +158,10 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Placeholder text.
 	public var placeholder: String? {
 		didSet {
+			let eventText = "Set placeholder: \(placeholder ?? "*nil*")"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
+
 			updateTextAndMaskIfNeeded()
 		}
 	}
@@ -165,6 +169,10 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Placeholder text styles.
 	public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
 		didSet {
+			let eventText = "Update placeholder styles"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
+
 			placeholderLabel.applyPlaceholderStyle(placeholderStyle)
 		}
 	}
@@ -179,6 +187,16 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Text Symbol that will replace visible label text character when securing String. Should be one charcter only.
   public var secureTextSymbol = "*" {
     didSet {
+			let eventText = "Set new secure sybmol: \(secureTextSymbol)"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
+
+			if secureTextSymbol.count > 1 {
+				let eventText = "Secure sybmol: \(secureTextSymbol) should be one characted only!"
+				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
+				VGSLogger.shared.forwardLogEvent(event)
+			}
+
       if isSecureText { updateTextAndMaskIfNeeded() }
     }
   }
@@ -186,6 +204,10 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to populate label with revealed data.
 	public func clearText() {
 		revealedRawText = nil
+
+		let eventText = "Revealed text has been cleared. New request is required to populate label with revealed data"
+		let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
+		VGSLogger.shared.forwardLogEvent(event)
 	}
 
 	/// Copy text to pasteboard with format.
