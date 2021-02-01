@@ -60,7 +60,9 @@ internal extension VGSLabel {
     NSLayoutConstraint.deactivate(horizontalConstraints)
 
 		if paddings.hasNegativeValue {
-			print("⚠️ VGSShowSDK WARNING! Cannot set paddings \(paddings) with negative values")
+			let eventText = "Cannot set paddings \(paddings) with negative values. Will ignore negative paddings."
+			let event = VGSLogEvent(level: .warning, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
 			return
 		}
     
@@ -92,7 +94,9 @@ internal extension VGSLabel {
 		NSLayoutConstraint.deactivate(horizontalPlaceholderConstraints)
 
 		if placeholderPaddings.hasNegativeValue {
-			print("⚠️ VGSShowSDK WARNING! Cannot set placeholder paddings \(placeholderPaddings) with negative values")
+			let eventText =  "Cannot set placeholder paddings \(placeholderPaddings) with negative values. Will ignore negative paddings."
+			let event = VGSLogEvent(level: .warning, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
 			return
 		}
 
@@ -202,11 +206,6 @@ internal extension VGSLabel {
     }
     
     secureTextRanges.forEach { (range) in
-
-			if !securedText.isTextRangeValid(range) {
-				print("⚠️ A specified range \(range.debugText) was not correct. It will be skipped.")
-			}
-
       securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
     }
     return securedText
