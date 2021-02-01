@@ -62,7 +62,7 @@ internal extension VGSLabel {
 		if paddings.hasNegativeValue {
 			let eventText = "Cannot set paddings \(paddings) with negative values. Will ignore negative paddings."
 			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-			VGSLogger.shared.forwardLogEvent(event)
+			logEvent(event)
 			return
 		}
     
@@ -96,7 +96,7 @@ internal extension VGSLabel {
 		if placeholderPaddings.hasNegativeValue {
 			let eventText =  "Cannot set placeholder paddings \(placeholderPaddings) with negative values. Will ignore negative paddings."
 			let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-			VGSLogger.shared.forwardLogEvent(event)
+			logEvent(event)
 			return
 		}
 
@@ -140,7 +140,7 @@ internal extension VGSLabel {
 
 			let eventText = "Raw text has been copied to clipboard!"
 			let event = VGSLogEvent(level: .info, text: eventText)
-			VGSLogger.shared.forwardLogEvent(event)
+			logEvent(event)
 		case .transformed:
 			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
 			guard textFormattersContainer.hasFormatting else {
@@ -148,7 +148,7 @@ internal extension VGSLabel {
 
 				let eventText = "Copy option is *formatted*, but no *formatted* is available. Raw text has been copied to clipboard!"
 				let event = VGSLogEvent(level: .warning, text: eventText, severityLevel: .warning)
-				VGSLogger.shared.forwardLogEvent(event)
+				logEvent(event)
 				return
 			}
 
@@ -158,7 +158,7 @@ internal extension VGSLabel {
 
 			let eventText = "Formatted text has been copied to clipboard!"
 			let event = VGSLogEvent(level: .info, text: eventText)
-			VGSLogger.shared.forwardLogEvent(event)
+			logEvent(event)
 		}
 	}
 
@@ -170,6 +170,10 @@ internal extension VGSLabel {
 			// No revealed text - show placeholder, hide main text label.
 			label.isHidden = true
 			updatePlaceholder()
+
+			let eventText = "No revealed data to display. Show placeholder"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			logEvent(event)
 			return
 		}
 
@@ -179,14 +183,28 @@ internal extension VGSLabel {
 		// Unhide main label.
 		label.isHidden = false
 
+		let eventText = "Has revealed data to display. Hide placeholder"
+		let event = VGSLogEvent(level: .info, text: eventText)
+		logEvent(event)
+
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
       // Check if text should be secured.
       if isSecureText {
         let securedText = secureTextInRanges(text, ranges: secureTextRanges)
         updateMaskedLabel(with: securedText)
+
+				let eventText = "No custom formatting. Apply secure mask for revealed data"
+				let event = VGSLogEvent(level: .info, text: eventText)
+				logEvent(event)
+
         return
       }
+
+			let eventText = "No custom formatting. No secure masks. Show raw revealed data"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			logEvent(event)
+
       updateMaskedLabel(with: text)
       return
     }
@@ -196,8 +214,17 @@ internal extension VGSLabel {
     if isSecureText {
       let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
       updateMaskedLabel(with: securedText)
+
+			let eventText = "Apply custom formatting. Apply secure masks."
+			let event = VGSLogEvent(level: .info, text: eventText)
+			logEvent(event)
       return
     }
+
+		let eventText = "Apply custom formatting. No secure masks."
+		let event = VGSLogEvent(level: .info, text: eventText)
+		logEvent(event)
+		
     updateMaskedLabel(with: maskedText)
   }
 
@@ -239,5 +266,11 @@ internal extension VGSLabel {
 	func updatePlaceholder() {
 			placeholderLabel.text = placeholder
 			placeholderLabel.isHidden = false
+	}
+
+	/// Log event.
+	/// - Parameter event: `VGSLogEvent` event object.
+	func logEvent(_ event: VGSLogEvent) {
+		VGSLogger.shared.forwardLogEvent(event)
 	}
 }
