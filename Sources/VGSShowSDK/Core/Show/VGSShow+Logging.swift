@@ -20,7 +20,7 @@ internal extension VGSShow {
 		let formattedContentPaths = contentPaths.map { (path) -> String in
 			var formatttedPath = path
 			if path.isEmpty {
-				formatttedPath = "⚠️ CONTENT PATH NOT SET!"
+				formatttedPath = "⚠️ CONTENT PATH NOT SET OR EMPTY!"
 			}
 
 			return " \(formatttedPath)"
@@ -38,7 +38,7 @@ internal extension VGSShow {
 
 		guard !revealModelsWithoutContentPath.isEmpty else {return}
 
-		let warningMessage = "Some subscribed views has empty content path. Verify `contentPath` property is set for view."
+		let warningMessage = "Some subscribed views have empty content path. Verify `contentPath` property is set for each view."
 		let event = VGSLogEvent(level: .warning, text: warningMessage, severityLevel: .warning)
 		logEvent(event)
 	}

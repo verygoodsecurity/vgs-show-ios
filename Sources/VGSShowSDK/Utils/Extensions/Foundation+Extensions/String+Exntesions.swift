@@ -212,6 +212,10 @@ internal extension String {
 		} else {
 			// Take 0 as start index.
 			first = 0
+
+			let eventText = "Range start is *nil*. Will be replaced with `0`"
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
 		}
 
 		return first
@@ -226,6 +230,10 @@ internal extension String {
 			// Use last char if end overlaps string length.
 			if last > count - 1 {
 				end = count - 1
+
+				let eventText = "Range end is \(last)) exceedes string.length (\(count)). Will be replaced with string.endIndex \(end)"
+				let event = VGSLogEvent(level: .info, text: eventText)
+				VGSLogger.shared.forwardLogEvent(event)
 			} else {
 				end = last
 			}
@@ -233,6 +241,10 @@ internal extension String {
 			// Last index will be text length - 1 for non-empty string.
 			if !isEmpty {
 				end = count - 1
+
+				let eventText = "Range end is *nil*. Will be replaced to `string.endIndex: \(end)`"
+				let event = VGSLogEvent(level: .info, text: eventText)
+				VGSLogger.shared.forwardLogEvent(event)
 			} else {
 				end = 0
 			}
@@ -246,10 +258,29 @@ internal extension String {
 		let end = endTextRangeIndex(from: range)
 
 		// Ignore negative ranges.
-		if start < 0 || end < 0 {return false}
+		if start < 0 || end < 0 {
+
+			let eventText = "Range \(range.debugText) with negative start/end cannot be applied"
+			let event = VGSLogEvent(level: .warning, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
+
+			return false
+		}
 
 		// Ignore start > length.
-		if start > count {return false}
+		if start > count {
+			let eventText = "Range \(range.debugText) start is greater than string length (\(count)) and cannot be applied"
+			let event = VGSLogEvent(level: .warning, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
+
+			return false
+		}
+
+		if start > end {
+			let eventText = "Range \(range.debugText) start *\(range.startText)* is greater than end *\(range.endText)* and cannot be applied"
+			let event = VGSLogEvent(level: .warning, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
+		}
 
 		// Ignore range if start > end. Start can match end.
 		return start <= end
