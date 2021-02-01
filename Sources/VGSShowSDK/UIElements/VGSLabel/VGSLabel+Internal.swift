@@ -291,7 +291,10 @@ internal extension VGSLabel {
 
 	/// Log event.
 	/// - Parameter event: `VGSLogEvent` event object.
-	func logEvent(_ event: VGSLogEvent) {
+	func logEvent(_ event: VGSLogEvent, addSeparatorText: Bool = true) {
 		VGSLogger.shared.forwardLogEvent(event)
+		if addSeparatorText {
+			print("------------------------------------")
+		}
 	}
 }

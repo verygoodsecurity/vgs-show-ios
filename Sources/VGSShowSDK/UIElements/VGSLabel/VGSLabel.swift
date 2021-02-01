@@ -134,9 +134,6 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	/// Placeholder text styles.
 	public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
 		didSet {
-			let eventText = "Update placeholder styles"
-			logInfoEventWithText(eventText)
-
 			placeholderLabel.applyPlaceholderStyle(placeholderStyle)
 		}
 	}
