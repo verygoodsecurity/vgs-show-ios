@@ -38,7 +38,7 @@ internal extension VGSShow {
 
 		guard !revealModelsWithoutContentPath.isEmpty else {return}
 
-		let warningMessage = "Some subscribed views have empty content path. Verify `contentPath` property is set for each view."
+		let warningMessage = "Some subscribed views seems to habe empty content path. Verify `contentPath` property is set for each view."
 		let event = VGSLogEvent(level: .warning, text: warningMessage, severityLevel: .warning)
 		logEvent(event)
 	}

@@ -13,6 +13,9 @@ internal class VGSShowRequestLogger {
 	///   - request: `URLRequest` object, request to send.
 	///   - payload: `VGSRequestPayloadBody` object, request payload.
 	internal static func logRequest(_ request: URLRequest, payload: VGSRequestPayloadBody) {
+
+		if !VGSLogger.shared.configuration.isNetworkDebugEnabled {return}
+
 		print("⬆️ Send VGSShowSDK request url: \(stringFromURL(request.url))")
 		if let headers = request.allHTTPHeaderFields {
 			print("⬆️ Send VGSShowSDK request headers:")
@@ -32,6 +35,9 @@ internal class VGSShowRequestLogger {
 	///   - error: `Error?` object, request error.
 	///   - code: `Int` object, status code.
 	internal static func logErrorResponse(_ response: URLResponse?, data: Data?, error: Error?, code: Int) {
+
+		if !VGSLogger.shared.configuration.isNetworkDebugEnabled {return}
+
 		if let url = response?.url {
 			print("❗Failed ⬇️ VGSShowSDK request url: \(stringFromURL(url))")
 		}
@@ -60,6 +66,9 @@ internal class VGSShowRequestLogger {
 	///   - data: `Data?` object of success request.
 	///   - code: `Int` object, status code.
 	internal static func logSuccessResponse(_ response: URLResponse?, data: Data?, code: Int, responseFormat: VGSShowResponseDecodingFormat) {
+
+		if !VGSLogger.shared.configuration.isNetworkDebugEnabled {return}
+
 		print("✅ Success ⬇️ VGSShowSDK request url: \(stringFromURL(response?.url))")
 		print("✅ Success ⬇️ VGSShowSDK response code: \(code)")
 
