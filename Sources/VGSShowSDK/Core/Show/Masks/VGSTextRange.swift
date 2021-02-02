@@ -7,9 +7,9 @@ import Foundation
 
 /// An object representing text range with closed  boundaries.
 public struct VGSTextRange {
-	/// Range start index
+	/// Range start index.
 	public let start: Int?
-	/// Range end index
+	/// Range end index.
 	public let end: Int?
 
 	/// Initialization.
@@ -21,6 +21,7 @@ public struct VGSTextRange {
 		self.end = end
 	}
 
+	/// Debug string for `.start`.
 	internal var startText: String {
 		guard let startValue = start else {
 			return "nil"
@@ -29,6 +30,7 @@ public struct VGSTextRange {
 		return String(startValue)
 	}
 
+	/// Debug string for `.end`.
 	internal var endText: String {
 		guard let endValue = end else {
 			return "nil"
@@ -37,12 +39,15 @@ public struct VGSTextRange {
 		return String(endValue)
 	}
 
+	/// Debug string for `range`.
 	internal var debugText: String {
 		return "[\(startText), \(endText)]"
 	}
 }
 
 internal extension Array where Element == VGSTextRange {
+
+	/// Debug string for formatted `[VGSTextRange]`.
 	var debugText: String {
 		return map({return $0.debugText}).joined(separator: ", ")
 	}

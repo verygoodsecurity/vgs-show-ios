@@ -155,7 +155,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 			logInfoEventWithText(eventText)
 
 			if secureTextSymbol.count > 1 {
-				let eventText = "Secure sybmol: \(secureTextSymbol) should be one characted only!"
+				let eventText = "Secure sybmol: \(secureTextSymbol) should be one character only!"
 				logWarningEventWithText(eventText)
 			}
 
@@ -167,7 +167,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	public func clearText() {
 		revealedRawText = nil
 
-		let eventText = "Previous revealed text has been cleared! New request is required to populate label with revealed data"
+		let eventText = "Previous revealed text has been cleared! New request is required to populate label with revealed data."
 		logWarningEventWithText(eventText)
 	}
 
