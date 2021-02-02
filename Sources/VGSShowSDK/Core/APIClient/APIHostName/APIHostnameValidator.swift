@@ -29,7 +29,7 @@ internal class APIHostnameValidator {
 
     guard let url = buildHostValidationURL(with: hostname, tenantId: tenantId), let normalizedHostName = hostname.normalizedHostname() else {
 
-			let text = "Cannot build validation URL with tenantId: \(tenantId), hostname: \(hostname)"
+			let text = "Cannot build validation URL with tenantId: \"\(tenantId)\", hostname: \"\(hostname)\""
 			let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 			completion(nil)
@@ -49,7 +49,7 @@ internal class APIHostnameValidator {
 		let task = URLRequest(url: validationURL)
 		session.dataTask(with: task) { (responseData, response, error) in
 			guard let httpResponse = response as? HTTPURLResponse, let data = responseData else {
-				let text = "Error ❗ Cannot resolve hostname \(hostname). Invalid response type!"
+				let text = "Error ❗ Cannot resolve hostname \"\(hostname)\". Invalid response type!"
 				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
 				VGSLogger.shared.forwardLogEvent(event)
 
@@ -76,7 +76,7 @@ internal class APIHostnameValidator {
 
 			let responseText = String(decoding: data, as: UTF8.self)
 
-			let eventText = "response text: \(responseText)"
+			let eventText = "response text: \"\(responseText)\""
 			let event = VGSLogEvent(level: .info, text: eventText)
 			VGSLogger.shared.forwardLogEvent(event)
 
@@ -84,7 +84,7 @@ internal class APIHostnameValidator {
 				completion(URL(string: responseText))
 				return
 			} else {
-				let text = "Error❗Cannot find hostname: \(hostname) in list: \(responseText)"
+				let text = "Error❗Cannot find hostname: \"\(hostname)\" in list: \"\(responseText)\""
 				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
 				VGSLogger.shared.forwardLogEvent(event)
 
@@ -101,7 +101,7 @@ internal class APIHostnameValidator {
 	private static func logErrorForStatusCode(_ statusCode: Int, hostname: String) {
 		switch statusCode {
 		case 403:
-			let warningText = "A specified host: \(hostname) was not correct❗Looks like you don't activate cname for Show SDK on the Dashboard"
+			let warningText = "A specified host: \"\(hostname)\" was not correct❗Looks like you don't activate cname for Show SDK on the Dashboard"
 			let event = VGSLogEvent(level: .warning, text: warningText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 		default:
