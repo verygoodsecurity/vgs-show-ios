@@ -16,11 +16,4 @@ public struct VGSLoggingConfiguration {
 
 	/// `Bool` flag. Specify `true` to enable extensive debugging. Default is `false`.
 	public var isExtensiveDebugEnabled: Bool = false
-
-	/// Stop logging all activities.
-	public mutating func disableAllLogging() {
-		level = .none
-		isNetworkDebugEnabled = false
-		isExtensiveDebugEnabled = false
-	}
 }

@@ -31,7 +31,7 @@ extension VGSShow {
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
-			let event = VGSLogEvent(level: .warning, text: "No subscribed views to reveal data", severityLevel: .warning)
+			let event = VGSLogEvent(level: .warning, text: "No subscribed views to reveal data.", severityLevel: .warning)
 			logEvent(event)
 		}
 

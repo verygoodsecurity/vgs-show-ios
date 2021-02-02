@@ -13,7 +13,7 @@ public final class VGSLogger {
 	/// Shared instance.
 	public static var shared = VGSLogger()
 
-	/// Logging configuration.
+	/// Logging configuration. Check `VGSLoggingConfiguration` for logging options.
 	public var configuration: VGSLoggingConfiguration = VGSLoggingConfiguration()
 
 	// MARK: - Private vars
@@ -29,6 +29,15 @@ public final class VGSLogger {
 	/// Private init for `VGSLogger`.
 	private init() {
 		addLogger(VGSPrintingLogger())
+	}
+
+	// MARK: - Public
+
+	/// Stop logging *all* activities.
+	public func disableAllLoggers() {
+		configuration.level = .none
+		configuration.isNetworkDebugEnabled = false
+		configuration.isExtensiveDebugEnabled = false
 	}
 
 	// MARK: - Private
@@ -48,7 +57,7 @@ public final class VGSLogger {
 		let isExtensiveDebugEnabled = configuration.isExtensiveDebugEnabled
 
 		// Skip forward logs if logLevel is `none`, event level should mismatch log level.
-		guard currentLogLevel != .none, shouldForwardMessageLevel(event.level, currentLevel: currentLogLevel) else {
+		guard currentLogLevel != .none, shouldForwardEvent(with: event.level, currentLevel: currentLogLevel) else {
 			return
 		}
 
@@ -61,14 +70,21 @@ public final class VGSLogger {
 		}
 	}
 
-	internal func shouldForwardMessageLevel(_ messageLevel: VGSLogLevel, currentLevel: VGSLogLevel) -> Bool {
+	/// Verify if event level should be forwarded to registered loggers.
+	/// - Parameters:
+	///   - level: `VGSLogLevel` object, should be event `level`.
+	///   - currentLevel: `VGSLogLevel` object, current logging level.
+	/// - Returns: `true` if event should be logged.
+	internal func shouldForwardEvent(with level: VGSLogLevel, currentLevel: VGSLogLevel) -> Bool {
 		switch currentLevel {
 		case .none:
 			return false
 		case .info:
+			/// For `.info` level forward *all* events.
 			return true
 		case .warning:
-			return messageLevel == currentLevel
+			/// For `.warning` level forward *only* `.warning` events.
+			return level == currentLevel
 		}
 	}
 }
