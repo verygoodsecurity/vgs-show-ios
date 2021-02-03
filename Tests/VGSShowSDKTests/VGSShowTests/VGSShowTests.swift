@@ -110,4 +110,25 @@ class VGSShowTests: XCTestCase {
         XCTAssertNotNil(vgsShow.customHeaders)
         XCTAssert(vgsShow.customHeaders![headerKey] == headerValue)
     }
+
+		func testCustomHTTPMethod() {
+			vgsShow.request(path: "post",
+											method: .get, payload: nil) { (requestResult) in
+
+				switch requestResult {
+				case .success:
+					break
+				case .failure:
+					break
+				}
+			}
+
+			vgsShow.apiClient.urlSession.getAllTasks { (tasks) in
+				for task in tasks {
+					XCTAssertTrue(tasks.count == 1)
+					XCTAssert(task.currentRequest?.httpMethod == "GET")
+					XCTAssertFalse(task.currentRequest?.httpMethod == "POST")
+				}
+			}
+		}
 }
