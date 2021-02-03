@@ -30,6 +30,12 @@ class CollectViewController: UIViewController {
 
 	// MARK: - Lifecycle
 
+	override func awakeFromNib() {
+		super.awakeFromNib()
+
+		setupAccessabilityIdentifiers()
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -51,7 +57,6 @@ class CollectViewController: UIViewController {
 		stackView.addArrangedSubview(expCardDate)
 
 		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-		navigationController?.navigationBar.addGestureRecognizer(tapGesture)
 		view.addGestureRecognizer(tapGesture)
 	}
 
@@ -74,7 +79,7 @@ class CollectViewController: UIViewController {
     
 		let cardConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardNumber")
 		cardConfiguration.type = .cardNumber
-		cardConfiguration.isRequiredValidOnly = false
+		cardConfiguration.isRequiredValidOnly = true
 		cardConfiguration.keyboardType = .asciiCapableNumberPad
 		cardNumber.configuration = cardConfiguration
 		cardNumber.placeholder = "4111 1111 1111 1111"
@@ -126,6 +131,7 @@ class CollectViewController: UIViewController {
 		collectButton.isEnabled = false
 
 		// New sendRequest func
+
 		vgsCollect.sendData(path: "/post", extraData: extraData) { [weak self](response) in
 
 			self?.collectButton.isEnabled = true
@@ -168,6 +174,16 @@ class CollectViewController: UIViewController {
 				print("Submit request error: \(code), \(String(describing: error))")
 				return
 			}
+		}
+	}
+
+	// *For UITests only.
+	private func setupAccessabilityIdentifiers() {
+		if UIApplication.isRunningUITest {
+			enforceLoadView()
+			collectButton.accessibilityIdentifier = "VGSShowDemoApp.CollectScreen.CollectButton"
+			view.accessibilityIdentifier = "VGSDemoApp.Screens.CollectViewController"
+			tabBarItem.accessibilityIdentifier = "VGSShowDemoApp.TabBar.TabButton.Collect"
 		}
 	}
 }

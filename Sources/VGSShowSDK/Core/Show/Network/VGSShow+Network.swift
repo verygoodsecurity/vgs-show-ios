@@ -31,12 +31,17 @@ extension VGSShow {
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
-			print("⚠️ VGSShowSDK WARNING! NO SUBSCRIBED VIEWS TO REVEAL DATA!")
+			let event = VGSLogEvent(level: .warning, text: "No subscribed views to reveal data.", severityLevel: .warning)
+			logEvent(event)
 		}
 
 		VGSAnalyticsClient.shared.trackFormEvent(self, type: .beforeSubmit, status: .success, extraData: extraAnalyticsInfo)
 
 		// Sends request.
+
+		let event = VGSLogEvent(level: .info, text: "Start json request")
+		logEvent(event)
+
 		apiClient.sendRequestWithJSON(path: path, method: method, value: payload ) {[weak self] (requestResult) in
 
 			guard let strongSelf = self else {return}
@@ -47,11 +52,11 @@ extension VGSShow {
 
 				let responseFormat = VGSShowResponseDecodingFormat.json
 
-				VGSShowLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
+				VGSShowRequestLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
 
 				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 			case .failure(let code, let data, let response, let error):
-				VGSShowLogger.logErrorResponse(response, data: data, error: error, code: code)
+				VGSShowRequestLogger.logErrorResponse(response, data: data, error: error, code: code)
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
@@ -67,6 +72,15 @@ extension VGSShow {
 	// swiftlint:disable:next function_parameter_count line_length
 	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
+		if !revealModels.isEmpty {
+			let contentPaths = revealModels.map({return $0.decodingContentPath})
+			let infoMessage = "Start decoding revealed data for contentPaths:\n\(VGSShow.formatDecodingContentPaths(contentPaths))\n"
+			let event = VGSLogEvent(level: .info, text: infoMessage)
+			logEvent(event)
+		}
+
+		logRevealModelsWithoutContentPath(revealModels)
+
 		switch responseFormat {
 
 		// Handle `.json` response format.
@@ -75,13 +89,15 @@ extension VGSShow {
 			let jsonDecodingResult = VGSShowRawDataDecoder().decodeRawDataToJSON(data)
 			switch jsonDecodingResult {
 			case .success(let json):
-				print("VGSShow response: \(json)")
 				// Reveal data.
 				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
 
 			case .failure(let error):
 				// Mark reveal request as failed with error - cannot decode response.
-				print("❗VGSShowSDK decoding error \(error)")
+
+				let event = VGSLogEvent(level: .warning, text: "Cannot decode request response: \(error)", severityLevel: .error)
+				logEvent(event)
+
 				trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
 				block(.failure(error.code, error))
 			}
@@ -104,6 +120,14 @@ extension VGSShow {
 				unrevealedContentPaths.append(model.decodingContentPath)
 			}
 		}
+
+		if unrevealedContentPaths.isEmpty && !revealModels.isEmpty {
+			let contentPaths = revealModels.map({return $0.decodingContentPath})
+			let infoMessage = "All content paths have been successfully decoded:\n\(VGSShow.formatDecodingContentPaths(contentPaths))\n"
+			let event = VGSLogEvent(level: .info, text: infoMessage)
+			logEvent(event)
+		}
+
 		// Handle unrevealed keys.
 		handleUnrevealedContentPaths(unrevealedContentPaths, code, completion: block)
 	}
@@ -111,7 +135,9 @@ extension VGSShow {
 	private func handleUnrevealedContentPaths(_ unrevealedContentPaths: [String], _ code: Int, extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		if !unrevealedContentPaths.isEmpty {
-			print("⚠️ VGSShowSDK WARNING! Cannot reveal data for contentPaths: \(unrevealedContentPaths)")
+			let warningMessage = "Cannot reveal data for contentPaths:\n\(VGSShow.formatDecodingContentPaths(unrevealedContentPaths))\n"
+			let event = VGSLogEvent(level: .warning, text: warningMessage, severityLevel: .warning)
+			logEvent(event)
 		}
 
 		// Track success.

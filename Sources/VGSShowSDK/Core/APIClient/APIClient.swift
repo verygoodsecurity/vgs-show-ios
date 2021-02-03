@@ -67,7 +67,9 @@ internal class APIClient {
 		guard let hostnameToResolve = hostname, !hostnameToResolve.isEmpty else {
 
 			if let name = hostname, name.isEmpty {
-				print("⚠️ VGSShowSDK warning! Hostname is invalid (empty) and will be ignored. Default Vault URL will be used.")
+				let message = "Hostname is invalid (empty) and will be ignored. Default Vault URL will be used."
+				let event = VGSLogEvent(level: .warning, text: message, severityLevel: .error)
+				VGSLogger.shared.forwardLogEvent(event)
 			}
 
 			// Use vault URL.
@@ -121,8 +123,11 @@ internal class APIClient {
 		}
 
 		guard let requestURL = url else {
+			let message = "CONFIGURATION ERROR: NOT VALID ORGANIZATION PARAMETERS!!! CANNOT BUILD URL!!!"
+			let event = VGSLogEvent(level: .warning, text: message, severityLevel: .error)
+			VGSLogger.shared.forwardLogEvent(event)
+
 			let invalidURLError = VGSShowError(type: .invalidConfigurationURL)
-			print("❗VGSShowSDK CONFIGURATION ERROR: NOT VALID ORGANIZATION PARAMETERS!!! CANNOT BUILD URL!!!")
 			block?(.failure(invalidURLError.code, nil, nil, invalidURLError))
 			return
 		}
@@ -148,12 +153,15 @@ internal class APIClient {
 			request.allHTTPHeaderFields = headers
 
 			// Log request.
-			VGSShowLogger.logRequest(request, payload: payload)
+			VGSShowRequestLogger.logRequest(request, payload: payload)
 
 			// Perform request.
 			self.performRequest(request: request, completion: block)
 		case .failure(let error):
-			print("❗VGSShowSDK ERROR: cannot encode payload \(payload.rawPayload ?? "Uknown payload format"), error: \(error)")
+			let text = "cannot encode payload \(payload.rawPayload ?? "Uknown payload format"), error: \(error)"
+			let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+			VGSLogger.shared.forwardLogEvent(event)
+
 			block?(.failure(error.code, nil, nil, error))
 		}
 	}
@@ -228,7 +236,9 @@ internal class APIClient {
 					self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
 					completion?(validUrl)
 
-					print("✅ Success! VGSShowSDK hostname \(hostname) has been resolved!")
+					let text = "✅ Success! VGSShowSDK hostname \(hostname) has been successfully resolved and will be used for requests!"
+					let event = VGSLogEvent(level: .info, text: text)
+					VGSLogger.shared.forwardLogEvent(event)
 
 					// Exit sync zone.
 					self?.syncSemaphore.signal()
@@ -238,7 +248,11 @@ internal class APIClient {
 						return
 					}
 					strongSelf.hostURLPolicy = .customHostURL(.useDefaultVault(validVaultURL))
-					print("⚠️ VGSShowSDK warning! Vault URL will be used!")
+
+					let text = "Vault URL will be used!"
+					let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+					VGSLogger.shared.forwardLogEvent(event)
+
 					completion?(validVaultURL)
 
 					// Exit sync zone.

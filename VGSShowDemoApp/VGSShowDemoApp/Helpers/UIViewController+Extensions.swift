@@ -57,4 +57,8 @@ extension UIViewController {
 			})
 		})
 	}
+
+	func enforceLoadView() {
+		_ = self.view
+	}
 }

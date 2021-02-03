@@ -28,7 +28,10 @@ internal class APIHostnameValidator {
     }
 
     guard let url = buildHostValidationURL(with: hostname, tenantId: tenantId), let normalizedHostName = hostname.normalizedHostname() else {
-			print("❗VGSShowSDK Error! Cannot build validation URL with tenantId: \(tenantId), hostname: \(hostname)")
+
+			let text = "Cannot build validation URL with tenantId: \"\(tenantId)\", hostname: \"\(hostname)\""
+			let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+			VGSLogger.shared.forwardLogEvent(event)
 			completion(nil)
 			return
 		}
@@ -46,13 +49,19 @@ internal class APIHostnameValidator {
 		let task = URLRequest(url: validationURL)
 		session.dataTask(with: task) { (responseData, response, error) in
 			guard let httpResponse = response as? HTTPURLResponse, let data = responseData else {
-				print("❗VGSShowSDK Error! Cannot resolve hostname \(hostname). Invalid response type!")
+				let text = "Error ❗ Cannot resolve hostname \"\(hostname)\". Invalid response type!"
+				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+				VGSLogger.shared.forwardLogEvent(event)
+
 				completion(nil)
 				return
 			}
 
 			if let error = error as NSError? {
-				print("❗VGSShowSDK Error! Cannot resolve hostname \(hostname) Error: \(error)!")
+				let text = "Error❗Cannot resolve hostname \(hostname) Error: \(error)!"
+				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+				VGSLogger.shared.forwardLogEvent(event)
+
 				completion(nil)
 				return
 			}
@@ -66,13 +75,19 @@ internal class APIHostnameValidator {
 			}
 
 			let responseText = String(decoding: data, as: UTF8.self)
-			print("response text: \(responseText)")
+
+			let eventText = "response text: \"\(responseText)\""
+			let event = VGSLogEvent(level: .info, text: eventText)
+			VGSLogger.shared.forwardLogEvent(event)
 
 			if responseText.contains(normalizedHostName) {
 				completion(URL(string: responseText))
 				return
 			} else {
-				print("❗VGSShowSDK Error! Cannot find hostname: \(hostname) in list: \(responseText)")
+				let text = "Error❗Cannot find hostname: \"\(hostname)\" in list: \"\(responseText)\""
+				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+				VGSLogger.shared.forwardLogEvent(event)
+
 				completion(nil)
 				return
 			}
@@ -86,10 +101,13 @@ internal class APIHostnameValidator {
 	private static func logErrorForStatusCode(_ statusCode: Int, hostname: String) {
 		switch statusCode {
 		case 403:
-			let warningText = "❗A specified host: \(hostname) was not correct. Looks like you don't activate cname for Show SDK on the Dashboard"
-			print(warningText)
+			let warningText = "A specified host: \"\(hostname)\" was not correct❗Looks like you don't activate cname for Show SDK on the Dashboard"
+			let event = VGSLogEvent(level: .warning, text: warningText, severityLevel: .error)
+			VGSLogger.shared.forwardLogEvent(event)
 		default:
-			print("❗VGSShowSDK Error! Cannot resolve hostname \(hostname). Status code \(statusCode)")
+			let text = "Error❗Cannot resolve hostname \(hostname). Status code \(statusCode)"
+			let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+			VGSLogger.shared.forwardLogEvent(event)
 		}
 	}
 
@@ -105,7 +123,11 @@ internal class APIHostnameValidator {
     let hostPath = "\(normalizedHostname)__\(tenantId).txt"
 
     let  url = hostValidatorBaseURL.appendingPathComponent(hostPath)
-    print("final url: \(url)")
+
+		let eventText = "Final URL to validate custom hostname: \(url.absoluteString)"
+		let event = VGSLogEvent(level: .info, text: eventText)
+		VGSLogger.shared.forwardLogEvent(event)
+
     return url
   }
 }

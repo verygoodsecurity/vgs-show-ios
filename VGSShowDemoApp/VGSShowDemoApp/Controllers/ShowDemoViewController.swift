@@ -29,8 +29,15 @@ class ShowDemoViewController: UIViewController {
 
 	// MARK: - Lifecycle
 
+	override func awakeFromNib() {
+		super.awakeFromNib()
+
+		setupAccessabilityIdentifiers()
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		// Do any additional setup after loading the view.
 
     // Subscribe VGSLabels.
@@ -81,6 +88,15 @@ class ShowDemoViewController: UIViewController {
 		let textAlignment = NSTextAlignment.left
 
 		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
+
+		// Log only warnings and errors.
+		VGSLogger.shared.configuration.level = .warning
+
+		// Log network requests.
+		VGSLogger.shared.configuration.isNetworkDebugEnabled = true
+
+		// *You can stop all loggers in app:
+		// VGSLogger.shared.disableAllLoggers()
 
     // Secure revealed data with mask in ranges
     cardNumberLabel.isSecureText = true
@@ -171,6 +187,20 @@ class ShowDemoViewController: UIViewController {
       cardNumberLabel.copyTextToClipboard(format: .transformed)
     }
   }
+
+	// *For UITests only.
+	private func setupAccessabilityIdentifiers() {
+		if UIApplication.isRunningUITest {
+			// Force to load view.
+			enforceLoadView()
+			tabBarItem.accessibilityIdentifier = "VGSShowDemoApp.TabBar.TabButton.Show"
+			showButton.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.ShowButton"
+			copyCardButton.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.CopyCardButton"
+			cardHolderNameLabel.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.CardHolderNameLabel"
+			cardNumberLabel.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.CardNumberLabel"
+			expDateLabel.accessibilityIdentifier = "VGSShowDemoApp.ShowScreen.ExpirationDateLabel"
+		}
+	}
 }
 
 // MARK: - VGSLabelDelegate
