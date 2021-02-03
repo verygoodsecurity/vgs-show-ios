@@ -95,10 +95,10 @@ internal class APIClient {
 	/// Resolve URL for specific request. Send request if URL is resolved, otherwise enqueue request until hostname will be resolved.
 	/// - Parameters:
 	///   - path: `String` object, request path.
-	///   - method: `VGSHTTPMethod` object, default is `.post`.
+	///   - method: `VGSHTTPMethod` object.
 	///   - payload: `VGSRequestPayloadBody` object.
 	///   - block: `RequestCompletion` completion block.
-	private func resolveURLForRequest(path: String, method: VGSHTTPMethod = .post, payload: VGSRequestPayloadBody, block: RequestCompletion) {
+	private func resolveURLForRequest(path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, block: RequestCompletion) {
 
 		let url: URL?
 
@@ -132,10 +132,10 @@ internal class APIClient {
 			return
 		}
 
-		sendDataRequestWithURL(requestURL, path: path, payload: payload, block: block)
+		sendDataRequestWithURL(requestURL, path: path, method: method, payload: payload, block: block)
 	}
 
-	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod = .post, payload: VGSRequestPayloadBody, block: RequestCompletion) {
+	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, block: RequestCompletion) {
 
 		let encodingResult = payload.encodeToRequestBodyData()
 
