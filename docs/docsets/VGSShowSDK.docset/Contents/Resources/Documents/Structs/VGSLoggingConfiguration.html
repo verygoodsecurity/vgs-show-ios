@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSViewProtocol Protocol Reference</title>
+    <title>VGSLoggingConfiguration Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/VGSViewProtocol" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Struct/VGSLoggingConfiguration" class="dashAnchor"></a>
 
-    <a title="VGSViewProtocol Protocol Reference"></a>
+    <a title="VGSLoggingConfiguration Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">VGSShowSDK Reference</a>
       <img class="carat" src="../img/carat.png" />
-      VGSViewProtocol Protocol Reference
+      VGSLoggingConfiguration Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -143,18 +143,18 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>VGSViewProtocol</h1>
+            <h1>VGSLoggingConfiguration</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">VGSViewProtocol</span> <span class="p">:</span> <span class="kt">UIView</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VGSLoggingConfiguration</span></code></pre>
 
                 </div>
               </div>
-            <p>Protocol describing VGS View.</p>
+            <p>Holds configuration for VGSShowSDK logging.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSViewProtocols/VGSViewProtocol.swift#L14-L17">Show on GitHub</a>
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L9-L19">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -166,9 +166,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK15VGSViewProtocolP11contentPathSSSgvp"></a>
-                    <a name="//apple_ref/swift/Property/contentPath" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK15VGSViewProtocolP11contentPathSSSgvp">contentPath</a>
+                    <a name="/s:10VGSShowSDK23VGSLoggingConfigurationV5levelAA11VGSLogLevelOvp"></a>
+                    <a name="//apple_ref/swift/Property/level" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK23VGSLoggingConfigurationV5levelAA11VGSLogLevelOvp">level</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -176,19 +176,79 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decoding content path.</p>
+                        <p>Log level. Default is <code>.none</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentPath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSLogLevel.html">VGSLogLevel</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSViewProtocols/VGSViewProtocol.swift#L16">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L12">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK23VGSLoggingConfigurationV21isNetworkDebugEnabledSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isNetworkDebugEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK23VGSLoggingConfigurationV21isNetworkDebugEnabledSbvp">isNetworkDebugEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Bool</code> flag. Specify <code>true</code> to record VGSShowSDK network session with success/failed requests. Default is <code>false</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isNetworkDebugEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L15">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK23VGSLoggingConfigurationV23isExtensiveDebugEnabledSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isExtensiveDebugEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK23VGSLoggingConfigurationV23isExtensiveDebugEnabledSbvp">isExtensiveDebugEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Bool</code> flag. Specify <code>true</code> to enable extensive debugging. Default is <code>false</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isExtensiveDebugEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L18">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
