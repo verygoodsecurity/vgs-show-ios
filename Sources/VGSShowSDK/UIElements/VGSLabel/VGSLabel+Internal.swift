@@ -60,7 +60,8 @@ internal extension VGSLabel {
     NSLayoutConstraint.deactivate(horizontalConstraints)
 
 		if paddings.hasNegativeValue {
-			print("⚠️ VGSShowSDK WARNING! Cannot set paddings \(paddings) with negative values")
+			let eventText = "Cannot set paddings \(paddings) with negative values. Will ignore negative paddings."
+			logWarningEventWithText(eventText)
 			return
 		}
     
@@ -92,7 +93,8 @@ internal extension VGSLabel {
 		NSLayoutConstraint.deactivate(horizontalPlaceholderConstraints)
 
 		if placeholderPaddings.hasNegativeValue {
-			print("⚠️ VGSShowSDK WARNING! Cannot set placeholder paddings \(placeholderPaddings) with negative values")
+			let eventText =  "Cannot set placeholder paddings \(placeholderPaddings) with negative values. Will ignore negative paddings."
+			logWarningEventWithText(eventText)
 			return
 		}
 
@@ -133,16 +135,25 @@ internal extension VGSLabel {
 		switch format {
 		case .raw:
 			pasteBoard.string = rawText
+
+			let eventText = "Raw text has been copied to clipboard!"
+			logInfoEventWithText(eventText)
 		case .transformed:
 			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
 			guard textFormattersContainer.hasFormatting else {
 				pasteBoard.string = rawText
+
+				let eventText = "Copy option is *formatted*, but no *formatted* is available. Raw text has been copied to clipboard!"
+				logInfoEventWithText(eventText)
 				return
 			}
 
 			// Copy transformed text.
 			let formattedText = textFormattersContainer.formatText(rawText)
 			pasteBoard.string = formattedText
+
+			let eventText = "Formatted text has been copied to clipboard!"
+			logInfoEventWithText(eventText)
 		}
 	}
 
@@ -154,6 +165,8 @@ internal extension VGSLabel {
 			// No revealed text - show placeholder, hide main text label.
 			label.isHidden = true
 			updatePlaceholder()
+
+			logPlaceholderEvent(isShown: true)
 			return
 		}
 
@@ -163,25 +176,46 @@ internal extension VGSLabel {
 		// Unhide main label.
 		label.isHidden = false
 
+		logPlaceholderEvent(isShown: false)
+
     // No mask: set revealed text.
 		guard textFormattersContainer.hasFormatting else {
       // Check if text should be secured.
       if isSecureText {
         let securedText = secureTextInRanges(text, ranges: secureTextRanges)
         updateMaskedLabel(with: securedText)
+
+				let eventText = "No custom formatting. Apply secure mask for revealed data."
+				logInfoEventWithText(eventText)
+
         return
       }
+
+			let eventText = "No custom formatting. No secure masks. Show raw revealed data."
+			logInfoEventWithText(eventText)
+
       updateMaskedLabel(with: text)
       return
     }
-    
+
     // Set masked text to label.
     let maskedText = textFormattersContainer.formatText(text)
+
+		let formattingEvent = "Text before formatting: \"\(text)\", text after formatting: \"\(maskedText)\" ."
+		logInfoEventWithText(formattingEvent)
+
     if isSecureText {
       let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
       updateMaskedLabel(with: securedText)
+
+			let eventText = "Apply custom formatting. Apply secure masks."
+			logInfoEventWithText(eventText)
       return
     }
+
+		let eventText = "Apply custom formatting. No secure masks."
+		logInfoEventWithText(eventText)
+
     updateMaskedLabel(with: maskedText)
   }
 
@@ -202,11 +236,6 @@ internal extension VGSLabel {
     }
     
     secureTextRanges.forEach { (range) in
-
-			if !securedText.isTextRangeValid(range) {
-				print("⚠️ A specified range \(range.debugText) was not correct. It will be skipped.")
-			}
-
       securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
     }
     return securedText
@@ -215,6 +244,9 @@ internal extension VGSLabel {
 	/// Set text to internal label, notify delegate about changing text.
 	/// - Parameter text: `String` object, raw text to set.
   func updateMaskedLabel(with text: String) {
+		let finalFormttedText = "Set secure text to label: \"\(text)\""
+		logInfoEventWithText(finalFormttedText)
+
     label.secureText = text
     delegate?.labelTextDidChange?(self)
   }
@@ -228,5 +260,38 @@ internal extension VGSLabel {
 	func updatePlaceholder() {
 			placeholderLabel.text = placeholder
 			placeholderLabel.isHidden = false
+	}
+
+	/// Log event for is placeholder displayed.
+	/// - Parameter isShown: `Bool` flag, `true`if placeholder label is displayed.
+	func logPlaceholderEvent(isShown: Bool) {
+		var eventText = "Has revealed data to display. Hide placeholder"
+
+		if isShown {
+			eventText = "No revealed data to display. Show placeholder."
+		}
+
+		let event = VGSLogEvent(level: .info, text: eventText)
+		logEvent(event)
+	}
+
+	/// Log info event. Should be used for `.info` level events only.
+	/// - Parameter text: `String` object, event text.
+	func logInfoEventWithText(_ text: String) {
+		let event = VGSLogEvent(level: .info, text: text)
+		logEvent(event)
+	}
+
+	/// Log info event. Should be used for `.warning` level and severityLevel `.warning` only.
+	/// - Parameter text: `String` object, event text.
+	func logWarningEventWithText(_ text: String) {
+		let event = VGSLogEvent(level: .warning, text: text, severityLevel: .warning)
+		logEvent(event)
+	}
+
+	/// Log event.
+	/// - Parameter event: `VGSLogEvent` event object.
+	func logEvent(_ event: VGSLogEvent, addSeparatorText: Bool = true) {
+		VGSLogger.shared.forwardLogEvent(event)
 	}
 }

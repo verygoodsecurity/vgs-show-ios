@@ -57,12 +57,18 @@ public class VGSAnalyticsClient {
 	internal static let userAgentData: [String: Any] = {
 		let version = ProcessInfo.processInfo.operatingSystemVersion
 		let osVersion = "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
-		return [
+		var defaultUserAgentData = [
 			"platform": UIDevice.current.systemName,
 			"device": UIDevice.current.model,
 			"deviceModel": UIDevice.current.modelIdentifier,
 			"osVersion": osVersion,
 		  "dependencyManager": sdkIntegration]
+
+			if let locale = Locale.preferredLanguages.first {
+				defaultUserAgentData["deviceLocale"] = locale
+			}
+
+			return defaultUserAgentData
 	}()
 
 	/// :nodoc: Track events related to specific VGSShow instance
@@ -93,6 +99,7 @@ public class VGSAnalyticsClient {
 		data["version"] = Utils.vgsShowVersion
 		data["source"] = Constants.Metadata.source
 		data["localTimestamp"] = Int(Date().timeIntervalSince1970 * 1000)
+
 		sendAnalyticsRequest(data: data)
 	}
 
