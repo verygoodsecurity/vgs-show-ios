@@ -17,6 +17,7 @@ internal class VGSShowRequestLogger {
 		if !VGSLogger.shared.configuration.isNetworkDebugEnabled {return}
 
 		print("⬆️ Send VGSShowSDK request url: \(stringFromURL(request.url))")
+		print("⬆️ Send VGSShowSDK request method: \(request.httpMethod ?? "")")
 		if let headers = request.allHTTPHeaderFields {
 			print("⬆️ Send VGSShowSDK request headers:")
 			print(normalizeRequestHeadersForLogs(headers))
@@ -41,6 +42,7 @@ internal class VGSShowRequestLogger {
 		if let url = response?.url {
 			print("❗Failed ⬇️ VGSShowSDK request url: \(stringFromURL(url))")
 		}
+
 		print("❗Failed ⬇️ VGSShowSDK response status code: \(code)")
 		if let httpResponse = response as? HTTPURLResponse {
 			print("❗Failed ⬇️ VGSShowSDK response headers:")
