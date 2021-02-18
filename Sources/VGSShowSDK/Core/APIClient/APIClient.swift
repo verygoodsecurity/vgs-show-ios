@@ -28,9 +28,10 @@ internal class APIClient {
 
 		let source = VGSAnalyticsClient.Constants.Metadata.source
 		let medium = VGSAnalyticsClient.Constants.Metadata.medium
+    let trStatus = VGSAnalyticsClient.shared.shouldCollectAnalytics ? "default" : "none"
 
 		return [
-			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsShowSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)"
+			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsShowSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)&tr=\(trStatus)"
 		]
 	}()
 
