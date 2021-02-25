@@ -8,14 +8,18 @@
 import XCTest
 @testable import VGSShowSDK
 
-class VGSShowTests: XCTestCase {
+class VGSShowTests: VGSShowBaseTestCase {
     var vgsShow: VGSShow!
     
     override func setUp() {
+			super.setUp()
+
       vgsShow = VGSShow(id: "test")
     }
 
     override func tearDown() {
+			super.tearDown()
+
       vgsShow = nil
     }
 

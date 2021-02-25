@@ -26,6 +26,7 @@ Table of contents
       * [Import SDK](#import-sdk)
       * [Create VGSShow instance and VGS UI Elements](#create-vgsshow-instance-and-vgs-ui-elements)
       * [Make reveal data request](#make-reveal-data-request)
+      * [Local Testing](#local-testing)
       * [Demo Application](#demo-application)
       * [Releases](#releases)
       * [Metrics](#metrics)
@@ -173,6 +174,9 @@ func revealData() {
   }
 }
 ```
+## Local Testing
+To test and verify your integration with VGS directly from your local machine you can use [VGS Satellite](https://github.com/verygoodsecurity/vgs-satellite).
+Check our Satellite [integration  guide](https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk/vgs-satellite-integration).
 
 ## Demo Application
 Demo application for collecting card data on iOS is <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/main/VGSShowDemoApp">here</a>.

@@ -7,20 +7,24 @@
 
 import Foundation
 
+/// Holds base API client logic.
 internal class APIClient {
 
 	typealias RequestCompletion = ((_ response: APIRequestResult) -> Void)?
 
 	// MARK: - Constants
 
-	enum Constants {
+	/// Constants.
+	internal enum Constants {
 		static let validStatuses: Range<Int> = 200..<300
 	}
 
 	// MARK: - Vars
 
-	var customHeader: VGSHTTPHeaders?
+	/// Custom headers.
+	internal var customHeader: VGSHTTPHeaders?
 
+	/// Default request headers with vgs client info.
 	internal static let defaultHttpHeaders: VGSHTTPHeaders = {
 			// Add Headers
 		let version = ProcessInfo.processInfo.operatingSystemVersion
@@ -28,18 +32,23 @@ internal class APIClient {
 
 		let source = VGSAnalyticsClient.Constants.Metadata.source
 		let medium = VGSAnalyticsClient.Constants.Metadata.medium
+    let trStatus = VGSAnalyticsClient.shared.shouldCollectAnalytics ? "default" : "none"
 
 		return [
-			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsShowSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)"
+			"vgs-client": "source=\(source)&medium=\(medium)&content=\(Utils.vgsShowVersion)&osVersion=\(versionString)&vgsShowSessionId=\(VGSShowAnalyticsSession.shared.vgsShowSessionId)&tr=\(trStatus)"
 		]
 	}()
 
 	/// URLSession object.
 	internal let urlSession = URLSession(configuration: .ephemeral)
 
+	/// Vault ID.
 	private let vaultId: String
+
+	/// Vault URL.
 	private let vaultUrl: URL?
 
+	/// Base URL depends on current api policy.
 	internal var baseURL: URL? {
 		return self.hostURLPolicy.url
 	}
@@ -50,17 +59,44 @@ internal class APIClient {
 	/// Serial queue for syncing requests on resolving hostname flow.
 	private let dataSyncQueue: DispatchQueue = .init(label: "iOS.VGSShowSDK.ResolveHostNameRequestsQueue")
 
+	/// Sync semaphore.
 	private let syncSemaphore: DispatchSemaphore = .init(value: 1)
 
 	// MARK: - Initialization
 
-	required init(tenantId: String, regionalEnvironment: String, hostname: String?) {
+	/// Initialization.
+	/// - Parameters:
+	///   - tenantId: `String` object, should be valid tenant id.
+	///   - regionalEnvironment: `String` object, should be valid environment.
+	///   - hostname: `String?` object, should be valid hostname or `nil`.
+	///   - satellitePort: `Int?` object, custom port for satellite configuration. **IMPORTANT! Use only with .sandbox environment!**.
+	required internal init(tenantId: String, regionalEnvironment: String, hostname: String?, satellitePort: Int?) {
 		self.vaultUrl = VGSShow.generateVaultURL(tenantId: tenantId, regionalEnvironment: regionalEnvironment)
 		self.vaultId = tenantId
 
 		guard let validVaultURL = vaultUrl else {
 			// Cannot resolve hostname with invalid Vault URL.
 			self.hostURLPolicy = .invalidVaultURL
+			return
+		}
+
+		// Check satellite port is *nil* for regular API flow.
+		guard satellitePort == nil else {
+			// Try to build satellite URL.
+			guard let port = satellitePort, let satelliteURL = VGSShowSatelliteUtils.buildSatelliteURL(with: regionalEnvironment, hostname: hostname, satellitePort: port) else {
+
+				// Use vault URL as fallback if cannot resolve satellite flow.
+				self.hostURLPolicy = .vaultURL(validVaultURL)
+				return
+			}
+
+			// Use satellite URL and return.
+			self.hostURLPolicy = .satelliteURL(satelliteURL)
+
+			let message = "Satellite has been configured successfully! Satellite URL is: \(satelliteURL.absoluteString)"
+			let event = VGSLogEvent(level: .info, text: message)
+			VGSLogger.shared.forwardLogEvent(event)
+
 			return
 		}
 
@@ -84,7 +120,7 @@ internal class APIClient {
 
 	// MARK: - Public
 
-	func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion) {
+	internal func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion) {
 
 		let payload = VGSRequestPayloadBody.json(value)
 		resolveURLForRequest(path: path, method: method, payload: payload, block: block)
@@ -102,9 +138,15 @@ internal class APIClient {
 
 		let url: URL?
 
+		let infoEventText = "API will start request with current URL policy: \(hostURLPolicy.description)"
+		let infoEvent = VGSLogEvent(level: .info, text: infoEventText)
+		VGSLogger.shared.forwardLogEvent(infoEvent)
+
 		switch hostURLPolicy {
 		case .invalidVaultURL:
 			url = nil
+		case .satelliteURL(let satelliteURL):
+			url = satelliteURL
 		case .vaultURL(let vaultURL):
 			url = vaultURL
 		case .customHostURL(let status):

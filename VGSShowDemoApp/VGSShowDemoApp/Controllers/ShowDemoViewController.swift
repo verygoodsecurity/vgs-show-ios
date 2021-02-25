@@ -89,15 +89,6 @@ class ShowDemoViewController: UIViewController {
 
 		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
 
-		// Log only warnings and errors.
-		VGSLogger.shared.configuration.level = .warning
-
-		// Log network requests.
-		VGSLogger.shared.configuration.isNetworkDebugEnabled = true
-
-		// *You can stop all loggers in app:
-		// VGSLogger.shared.disableAllLoggers()
-
     // Secure revealed data with mask in ranges
     cardNumberLabel.isSecureText = true
     cardNumberLabel.setSecureText(ranges: [VGSTextRange(start: 5, end: 8),

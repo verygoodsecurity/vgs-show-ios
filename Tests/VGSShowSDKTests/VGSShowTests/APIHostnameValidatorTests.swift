@@ -29,7 +29,7 @@ class APIHostnameValidatorTests: XCTestCase {
 				print("test hostname: \(hostname)")
 				XCTAssertTrue(url == validURL)
 			} else {
-				assertionFailure("Cannot build url with hostname: \(hostname)")
+				XCTFail("Cannot build url with hostname: \(hostname)")
 			}
 		}
 	}
@@ -53,7 +53,7 @@ class APIHostnameValidatorTests: XCTestCase {
 				print("test hostname: \(hostname)")
 				XCTAssertTrue(url == validURL)
 			} else {
-				assertionFailure("Cannot build url with hostname: \(hostname)")
+				XCTFail("Cannot build url with hostname: \(hostname)")
 			}
 		}
 	}
@@ -76,7 +76,7 @@ class APIHostnameValidatorTests: XCTestCase {
 				print("test hostname: \(hostname)")
 				XCTAssertTrue(url == validURL)
 			} else {
-				assertionFailure("Cannot build url with hostname: \(hostname)")
+				XCTFail("Cannot build url with hostname: \(hostname)")
 			}
 		}
 	}
@@ -90,7 +90,7 @@ class APIHostnameValidatorTests: XCTestCase {
 		XCTAssertFalse(insecureURL.hasSecureScheme())
 
 		guard let updatedURL = URL.urlWithSecureScheme(from: insecureURL) else {
-			assertionFailure("Failed. Cannot change URL scheme from \(insecureURL)")
+			XCTFail("Failed. Cannot change URL scheme from \(insecureURL)")
 			return
 		}
 
