@@ -70,7 +70,7 @@ class CollectViewController: UIViewController {
     let cardHolderNameConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardHolderName")
     cardHolderNameConfiguration.type = .cardHolderName
     cardHolderNameConfiguration.isRequiredValidOnly = false
-    cardHolderNameConfiguration.keyboardType = .asciiCapableNumberPad
+    cardHolderNameConfiguration.keyboardType = .asciiCapable
     cardHolderName.configuration = cardHolderNameConfiguration
     cardHolderName.placeholder = "Joe Business"
     cardHolderName.textAlignment = .natural

@@ -31,7 +31,8 @@ internal enum APICustomHostStatus {
 	*/
 	case useDefaultVault(_ vaultURL: URL)
 
-	var url: URL? {
+	/// `URL` inferred from custom hostname status flow.
+	internal var url: URL? {
 		switch self {
 		case .isResolving:
 			return nil
@@ -41,4 +42,21 @@ internal enum APICustomHostStatus {
 			return resolvedURL
 		}
 	}
+}
+
+// MARK: - CustomStringConvertible
+
+extension APICustomHostStatus: CustomStringConvertible {
+
+	  /// Custom description.
+		var description: String {
+			switch self {
+			case .useDefaultVault(let url):
+				return ".useDefaultVault, default Vault url: \(url.absoluteString)"
+			case .resolved(let url):
+			  return ".resolved, custom host url: \(url.absoluteString)"
+			case .isResolving(let hostnameToResolve):
+				return ".isResolving hostname in progress for \(hostnameToResolve)"
+			}
+		}
 }
