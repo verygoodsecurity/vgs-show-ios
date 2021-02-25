@@ -31,16 +31,15 @@ final class VGSShowRegexMaskTests: XCTestCase {
 				let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
 				vgsLabel.addTransformationRegex(regex, template: templates[index])
 			} catch {
-				assertionFailure("invalid regex")
+				XCTFail("invalid regex at index: \(index)")
 			}
 
-			print("label.text: \(vgsLabel.label.secureText)")
-			XCTAssert(vgsLabel.label.secureText == transformedTexts[index])
+			XCTAssert(vgsLabel.label.secureText == transformedTexts[index], "label.text: \(vgsLabel.label.secureText ?? "*nil*") should match \(transformedTexts[index])")
 		}
 
 		// Test reset to raw text.
 		vgsLabel.resetAllMasks()
-		XCTAssert(vgsLabel.label.secureText == cardNumber)
+		XCTAssert(vgsLabel.label.secureText == cardNumber, "label.text: \(vgsLabel.label.secureText ?? "*nil*") after reset should match unformatted \(cardNumber)")
 
 		// Test multiple formatters.
 		for index in 0..<templates.count {
@@ -48,7 +47,7 @@ final class VGSShowRegexMaskTests: XCTestCase {
 				let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
 				vgsLabel.addTransformationRegex(regex, template: templates[index])
 			} catch {
-				assertionFailure("invalid regex")
+				XCTFail("invalid regex")
 			}
 		}
 

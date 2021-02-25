@@ -5,7 +5,8 @@
 
 import Foundation
 
-/// `VGSLogger` encapsulates logging logic and debugging options for VGSShowSDK. Use `.configuration` property to setup these options. `VGSLogger` logging implies only printing logs to Xcode console. It doesn't save logs to persistent store/local file, also it doesn't send debugging logs to backend services.
+/// `VGSLogger` encapsulates logging logic and debugging options for VGSShowSDK. Use `.configuration` property to setup these options.
+/// `VGSLogger` logging implies only printing logs to Xcode console. It doesn't save logs to persistent store/local file, also it doesn't send debugging logs to backend services.
 /// **IMPORTANT** You should NOT use logging in your production configuration for live apps.
 public final class VGSLogger {
 

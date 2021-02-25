@@ -64,8 +64,9 @@ public final class VGSShow {
   ///   - id: `String` object, your organization vault id.
   ///   - environment: `String` object, your organization vault environment with data region.(e.g. "live", "live-eu1", "sanbox").
 	///   - hostname: `String` object. Custom Hostname, if not set, data will be sent to Vault Url. Default is `nil`.
-	public init(id: String, environment: String, hostname: String? = nil) {
-		self.apiClient = APIClient(tenantId: id, regionalEnvironment: environment, hostname: hostname)
+	///   - satellitePort: `Int?` object, custom port for satellite configuration.  Default is `nil`. **IMPORTANT! Use only with .sandbox environment! Hostname should be specified for valid http://localhost (for simulator) or in local IP format  http://192.168.X.X (for real device connected to the same local network as Mac)**.
+	public init(id: String, environment: String, hostname: String? = nil, satellitePort: Int? = nil) {
+		self.apiClient = APIClient(tenantId: id, regionalEnvironment: environment, hostname: hostname, satellitePort: satellitePort)
     self.tenantId = id
     self.regionalEnvironment = environment
   }
@@ -77,9 +78,10 @@ public final class VGSShow {
   ///   - environment: `VGSEnvironment` object, your organization vault environment. By default `.sandbox`.
   ///   - dataRegion: `String` object, id of data storage region (e.g. "eu-123").
 	///   - hostname: `String` object. Custom Hostname, if not set, data will be sent to Vault Url. Default is `nil`.
-	public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil, hostname: String? = nil) {
+	///   - satellitePort: `Int?` object, custom port for satellite configuration.  Default is `nil`. **IMPORTANT! Use only with .sandbox environment! Hostname should be specified for valid http://localhost (for simulator) or in local IP format  http://192.168.X.X (for real device connected to the same local network as Mac)** .
+	public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil, hostname: String? = nil, satellitePort: Int? = nil) {
     let env = Self.generateRegionalEnvironmentString(environment, region: dataRegion)
-    self.init(id: id, environment: env, hostname: hostname)
+    self.init(id: id, environment: env, hostname: hostname, satellitePort: satellitePort)
   }
   
   // MARK: - Manage Views
