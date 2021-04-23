@@ -7,7 +7,7 @@
 
 import Foundation
 
-final internal class VGSShowTextDecoder: VGSShowDecoderProtocol {
+final internal class VGSShowTextDecoder: VGSShowJSONDecoderProtocol {
 
 	func decodeJSONForContentPath(_ contentPath: String, json: VGSJSONData) -> VGSShowDecodingResult {
 

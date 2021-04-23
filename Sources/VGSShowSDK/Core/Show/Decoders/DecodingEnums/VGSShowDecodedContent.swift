@@ -17,4 +17,12 @@ internal enum VGSShowDecodedContent {
 		- text: `String` object.
 	*/
 	case text(_ text: String)
+
+	/**
+	 Raw data.
+
+	 - Parameters:
+		- data: `Data` object.
+	*/
+	case rawData(_ data: Data)
 }

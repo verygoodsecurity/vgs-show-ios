@@ -108,15 +108,18 @@ extension VGSShow {
 
 		var unrevealedContentPaths = [String]()
 		revealModels.forEach { model in
-			// Reveal data.
-			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-			let decodingResult = decoder.decodeJSONForContentPath(model.decodingContentPath, json: json)
+			if let decoder = VGSDataDecoderFactory.provideJSONDecorder(for: model.decodingContentMode) {
+				let decodingResult = decoder.decodeJSONForContentPath(model.decodingContentPath, json: json)
 
-			// Update models with decoding result.
-			model.handleDecodingResult(decodingResult)
+				// Update models with decoding result.
+				model.handleDecodingResult(decodingResult)
 
-			// Collect unrevealed contentPaths.
-			if decodingResult.error != nil {
+				// Collect unrevealed contentPaths.
+				if decodingResult.error != nil {
+					unrevealedContentPaths.append(model.decodingContentPath)
+				}
+			} else {
+				// Log! Cannot provide JSON decoder for model!
 				unrevealedContentPaths.append(model.decodingContentPath)
 			}
 		}

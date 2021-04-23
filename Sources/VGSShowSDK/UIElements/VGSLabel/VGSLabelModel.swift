@@ -62,6 +62,8 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 			switch content {
 			case .text(let text):
 				self.value = text
+			case .rawData(_):
+				break
 			}
 		case .failure(let error):
 			onError?(error)
