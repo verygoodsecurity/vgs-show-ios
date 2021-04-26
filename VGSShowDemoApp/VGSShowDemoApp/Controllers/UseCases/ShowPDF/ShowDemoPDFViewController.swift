@@ -13,7 +13,9 @@ class ShowDemoPDFViewController: UIViewController {
 
 	@IBOutlet fileprivate weak var stackView: UIStackView!
 	@IBOutlet fileprivate weak var revealButton: UIButton!
+	@IBOutlet fileprivate weak var innerTitleLabel: UILabel!
 	@IBOutlet fileprivate weak var innerLabel: UILabel!
+	@IBOutlet fileprivate weak var shareButton: UIButton!
 
 	// MARK: - Vars
 
@@ -22,34 +24,37 @@ class ShowDemoPDFViewController: UIViewController {
 
 	let tapGestureRecognizer = UITapGestureRecognizer()
 
-		lazy var blurEffectView: UIVisualEffectView = {
-			let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.prominent)
-			let blurEffectView = UIVisualEffectView(effect: blurEffect)
-
-			return blurEffectView
-		}()
-
-//		fileprivate let tapGesture = UITapGestureRecognizer()
-
-		fileprivate func addBlurView() {
-			blurEffectView.frame = pdfView.bounds
-			blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-			pdfView.addSubview(blurEffectView)
-		}
-
-		fileprivate func removeBlurView() {
-			blurEffectView.removeFromSuperview()
-		}
+	lazy var blurEffectView: UIVisualEffectView = {
+		let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.prominent)
+		let blurEffectView = UIVisualEffectView(effect: blurEffect)
+		
+		return blurEffectView
+	}()
+	
+	fileprivate func addBlurView() {
+		blurEffectView.frame = pdfView.bounds
+		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		pdfView.addSubview(blurEffectView)
+	}
+	
+	fileprivate func removeBlurView() {
+		blurEffectView.removeFromSuperview()
+	}
 
 	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		shareButton.isHidden = true
 		setupRevealButtonUI()
 		setupPdfView()
 
 		vgsShow.subscribe(pdfView)
+
+		if UIApplication.isRunningUITest {
+			setupIdentifiers()
+		}
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -65,7 +70,6 @@ class ShowDemoPDFViewController: UIViewController {
 	fileprivate func setupPdfView() {
 		stackView.addArrangedSubview(pdfView)
 		pdfView.contentPath = "json.pdf_file"
-		//pdfView.placeholder = UIImage(named: "invoice-placeholder")
 		pdfView.delegate = self
 	}
 
@@ -80,10 +84,19 @@ class ShowDemoPDFViewController: UIViewController {
 		tapGestureRecognizer.addTarget(self, action: #selector(handleTap))
 	}
 
+	fileprivate func setupIdentifiers() {
+		revealButton.accessibilityIdentifier = "VGSShowDemoApp.ShowPDFScreen.ShowButton"
+		pdfView.accessibilityIdentifier = "VGSShowDemoApp.ShowPDFScreen.VGSPDFView"
+		shareButton.accessibilityIdentifier = "VGSShowDemoApp.ShowPDFScreen.SharePDFButton"
+	}
+
 	// MARK: - Actions
 
 	@objc fileprivate func handleTap() {
 		removeBlurView()
+	}
+
+	@IBAction fileprivate func sharePDF(_ sender: UIButton) {
 		pdfView.sharePDF(from: self)
 	}
 
@@ -107,6 +120,8 @@ class ShowDemoPDFViewController: UIViewController {
 extension ShowDemoPDFViewController: VGSPDFViewDelegate {
 	func documentDidChange(in pdfView: VGSPDFView) {
 		if self.pdfView === pdfView {
+			innerTitleLabel.text = "REVEALED"
+			shareButton.isHidden = false
 			addBlurView()
 		}
 	}

@@ -37,13 +37,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="csW-KV-AfD">
-                                <rect key="frame" x="8" y="130" width="398" height="350"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="etN-xA-3ef"/>
-                                </constraints>
+                                <rect key="frame" x="8" y="140" width="398" height="489"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW SDK DEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHg-Kf-0V9">
-                                <rect key="frame" x="20" y="89" width="374" height="41"/>
+                                <rect key="frame" x="20" y="99" width="374" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
@@ -88,12 +85,34 @@
                                     <constraint firstAttribute="height" constant="50" id="Qz3-YM-YPP"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQX-gh-yCP">
+                                <rect key="frame" x="290" y="50" width="100" height="38"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2Pc-Nt-RmI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="sharePDF:" destination="Mio-zp-quw" eventType="touchUpInside" id="IIO-Qv-jSc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="feE-zr-xdB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eHW-eL-bdw" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="20" id="5M1-3U-Kvr"/>
                             <constraint firstItem="tZY-wX-9fd" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="20" id="5kP-rg-Plh"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="pQX-gh-yCP" secondAttribute="trailing" constant="24" id="5sy-Ub-AWJ"/>
+                            <constraint firstItem="tZY-wX-9fd" firstAttribute="top" secondItem="csW-KV-AfD" secondAttribute="bottom" constant="20" id="DNy-0P-lpI"/>
                             <constraint firstItem="F4j-PS-Nif" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="16" id="DTj-QG-6ik"/>
                             <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="F4j-PS-Nif" secondAttribute="trailing" constant="16" id="PLm-Bb-yUR"/>
                             <constraint firstItem="csW-KV-AfD" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="8" id="RVE-NT-qNC"/>
@@ -103,9 +122,10 @@
                             <constraint firstItem="F4j-PS-Nif" firstAttribute="top" secondItem="eHW-eL-bdw" secondAttribute="bottom" constant="20" id="YJX-b9-w2p"/>
                             <constraint firstItem="F4j-PS-Nif" firstAttribute="centerX" secondItem="N5h-et-zF6" secondAttribute="centerX" id="dpe-7S-qJX"/>
                             <constraint firstItem="csW-KV-AfD" firstAttribute="top" secondItem="fHg-Kf-0V9" secondAttribute="bottom" id="f6F-To-ROz"/>
-                            <constraint firstItem="fHg-Kf-0V9" firstAttribute="top" secondItem="feE-zr-xdB" secondAttribute="top" constant="45" id="hfM-Pr-tK4"/>
+                            <constraint firstItem="fHg-Kf-0V9" firstAttribute="top" secondItem="feE-zr-xdB" secondAttribute="top" constant="55" id="hfM-Pr-tK4"/>
                             <constraint firstItem="feE-zr-xdB" firstAttribute="bottom" secondItem="F4j-PS-Nif" secondAttribute="bottom" constant="20" id="iVt-F6-f7W"/>
                             <constraint firstItem="fHg-Kf-0V9" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="20" id="nHc-Rm-FEm"/>
+                            <constraint firstItem="pQX-gh-yCP" firstAttribute="top" secondItem="feE-zr-xdB" secondAttribute="top" constant="6" id="pmu-im-lMM"/>
                             <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="tZY-wX-9fd" secondAttribute="trailing" constant="20" id="rzD-jc-qMl"/>
                             <constraint firstItem="eHW-eL-bdw" firstAttribute="top" secondItem="tZY-wX-9fd" secondAttribute="bottom" constant="20" id="vZU-Sf-IE2"/>
                         </constraints>
@@ -114,13 +134,15 @@
                     <navigationItem key="navigationItem" id="mjD-3Y-80M"/>
                     <connections>
                         <outlet property="innerLabel" destination="eHW-eL-bdw" id="Pj5-GZ-oc2"/>
+                        <outlet property="innerTitleLabel" destination="eHW-eL-bdw" id="smh-yg-lNe"/>
                         <outlet property="revealButton" destination="8EX-vX-NbI" id="6Y9-0F-rFM"/>
+                        <outlet property="shareButton" destination="pQX-gh-yCP" id="jIa-tL-0AG"/>
                         <outlet property="stackView" destination="csW-KV-AfD" id="0Wz-Lr-XE8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9n9-mH-ZDL" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1019" y="-596"/>
+            <point key="canvasLocation" x="1018.840579710145" y="-596.65178571428567"/>
         </scene>
         <!--Collect Files-->
         <scene sceneID="6od-Uv-bch">
@@ -202,6 +224,9 @@
         <image name="cloud-upload" width="25" height="25"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

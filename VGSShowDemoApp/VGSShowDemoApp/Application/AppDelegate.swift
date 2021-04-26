@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		VGSLogger.shared.configuration.level = .info
 
 		// Show network session for reveal requests.
-		VGSLogger.shared.configuration.isNetworkDebugEnabled = true
+		VGSLogger.shared.configuration.isNetworkDebugEnabled = false
 
 		// *You can stop all VGS Show loggers in app:
 		// VGSLogger.shared.disableAllLoggers()
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		VGSCollectLogger.shared.configuration.level = .info
 
 		// Show network session for collect requests.
-		VGSCollectLogger.shared.configuration.isNetworkDebugEnabled = true
+		VGSCollectLogger.shared.configuration.isNetworkDebugEnabled = false
 
 		// *You can stop all VGS Collect loggers in app:
 		// VGSCollectLogger.shared.disableAllLoggers()
