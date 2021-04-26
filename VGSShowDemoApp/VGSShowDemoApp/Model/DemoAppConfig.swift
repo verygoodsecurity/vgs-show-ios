@@ -18,6 +18,9 @@ final class DemoAppConfig {
   var payload: [String: Any] {
     return [payloadKey: payloadValue]
   }
+
+	var pdfFilePayload: [String: Any] = [:]
+
   /// Shared instance
   static let shared = DemoAppConfig()
 

@@ -64,7 +64,6 @@
 		44A79F82255D0678009AF720 /* VGSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F66255D0678009AF720 /* VGSLabel.swift */; };
 		44A79F83255D0678009AF720 /* VGSLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F67255D0678009AF720 /* VGSLabelModel.swift */; };
 		44A79F84255D0678009AF720 /* VGSMaskedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */; };
-		44A79F85255D0678009AF720 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */; };
 		44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift */; };
 		44A79FC4255D06C6009AF720 /* VGSJSONContentPathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB4255D06C6009AF720 /* VGSJSONContentPathsTests.swift */; };
 		44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A79FB6255D06C6009AF720 /* VGSShowTests.swift */; };
@@ -87,6 +86,7 @@
 		44E05119256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05114256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift */; };
 		44E0511A256E49C400DDBE41 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */; };
 		44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */; };
+		44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +159,6 @@
 		44A79F66255D0678009AF720 /* VGSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabel.swift; sourceTree = "<group>"; };
 		44A79F67255D0678009AF720 /* VGSLabelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabelModel.swift; sourceTree = "<group>"; };
 		44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSMaskedLabel.swift; sourceTree = "<group>"; };
-		44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
 		44A79FB3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowNestedDictionaryTests.swift; sourceTree = "<group>"; };
 		44A79FB4255D06C6009AF720 /* VGSJSONContentPathsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSJSONContentPathsTests.swift; sourceTree = "<group>"; };
 		44A79FB6255D06C6009AF720 /* VGSShowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowTests.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		44E05114256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowAnalyticsSession.swift; sourceTree = "<group>"; };
+		44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -502,12 +502,12 @@
 		44A79F62255D0678009AF720 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				44F534E4263697D100ECEA77 /* VGSViewProtocols */,
 				44168FD326329FAE0088E515 /* VGSPDFView */,
 				44A79F63255D0678009AF720 /* VGSLabel */,
 				44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */,
 				441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */,
 				441963C02590C36100CAFBB3 /* VGSPlaceholderLabel.swift */,
-				44A79F69255D0678009AF720 /* VGSViewProtocols */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -521,14 +521,6 @@
 				44A79F67255D0678009AF720 /* VGSLabelModel.swift */,
 			);
 			path = VGSLabel;
-			sourceTree = "<group>";
-		};
-		44A79F69255D0678009AF720 /* VGSViewProtocols */ = {
-			isa = PBXGroup;
-			children = (
-				44A79F6A255D0678009AF720 /* VGSViewProtocol.swift */,
-			);
-			path = VGSViewProtocols;
 			sourceTree = "<group>";
 		};
 		44A79FAA255D06C6009AF720 /* Tests */ = {
@@ -627,6 +619,14 @@
 				44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		44F534E4263697D100ECEA77 /* VGSViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */,
+			);
+			path = VGSViewProtocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -803,7 +803,6 @@
 				441690022632A4480088E515 /* VGSShowDecodedContent.swift in Sources */,
 				448F5633258742B70024E814 /* VGSHTTPMethod.swift in Sources */,
 				4416900E2632A6630088E515 /* VGSShowBase64Decoder.swift in Sources */,
-				44A79F85255D0678009AF720 /* VGSViewProtocol.swift in Sources */,
 				44BAD6EA25C28E6D0060A170 /* VGSReadWriteSafeContainer.swift in Sources */,
 				44A79F7F255D0678009AF720 /* VGSShowErrors.swift in Sources */,
 				44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */,
@@ -841,6 +840,7 @@
 				4409318925B6B8FC00CAF065 /* UIApplication+Extensions.swift in Sources */,
 				44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */,
 				44A474962588865F00534965 /* URL+Extensions.swift in Sources */,
+				44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */,
 				44A79F6E255D0678009AF720 /* VGSShow+Utils.swift in Sources */,
 				448F5622258741A30024E814 /* APIRequestResult.swift in Sources */,
 			);

@@ -34,6 +34,10 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 		static let collect: VGSUITestElement = .init(type: .button, identifier: "VGSShowDemoApp.TabBar.TabButton.Collect")
 	}
 
+	enum UseCase {
+		
+	}
+
 	/// Start app and navigate to specific tab.
 	func navigateToTab(identifier tabAccessebilityIdentifier: String) {
 		let tabItem = VGSUITestElement(type: .button, identifier: tabAccessebilityIdentifier)
