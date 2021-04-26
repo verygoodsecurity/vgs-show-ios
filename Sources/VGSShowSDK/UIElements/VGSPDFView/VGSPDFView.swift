@@ -15,7 +15,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	// MARK: - Public Vars
 
 	/// The object that acts as the delegate of the `VGSPDFView`.
-	public var delegate: VGSPDFViewDelegate?
+	public weak var delegate: VGSPDFViewDelegate?
 
   /// Pdf display mode, default is `.singlePageContinuous`.
 	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePageContinuous {
@@ -34,7 +34,32 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	/// A boolean value indicating whether pdf is autoscaling, default is `true`.
 	public var isPdfAutoScales: Bool = true {
 		didSet {
-			maskedPdfView.autoScales = true
+			maskedPdfView.autoScales = isPdfAutoScales
+		}
+	}
+
+	/// A Boolean value determines whether the view will display the first page as a book cover (meaningful only when the document is in two-up or two-up continuous display mode).
+	public var displayAsBook: Bool = true {
+		didSet {
+			maskedPdfView.displaysAsBook = displayAsBook
+		}
+	}
+
+	/// Background color of pdf viewer.
+	public var pdfBackgroundColor: UIColor? {
+		didSet {
+			maskedPdfView.backgroundColor = pdfBackgroundColor ?? UIColor.gray.withAlphaComponent(0)
+		}
+	}
+
+	/// Determines if shadows should be drawn around page borders in a pdfView, default is `true`.
+	public var pageShadowsEnabled: Bool = true {
+		didSet {
+			if #available(iOS 12.0, *) {
+				maskedPdfView.pageShadowsEnabled = pageShadowsEnabled
+			} else {
+				print("pageShadowsEnabled avaliable only in iOS 12.")
+			}
 		}
 	}
 
