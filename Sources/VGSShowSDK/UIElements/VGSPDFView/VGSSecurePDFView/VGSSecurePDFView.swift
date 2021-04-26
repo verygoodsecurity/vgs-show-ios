@@ -31,8 +31,8 @@ internal class VGSSecurePDFView: PDFView {
 		switch content {
 		case .rawData(let rawData):
 			secureDocument = PDFDocument(data: rawData)
-		case .url(let url):
-			secureDocument = PDFDocument(url: url)
+//		case .url(let url):
+//			secureDocument = PDFDocument(url: url)
 		}
 	}
 

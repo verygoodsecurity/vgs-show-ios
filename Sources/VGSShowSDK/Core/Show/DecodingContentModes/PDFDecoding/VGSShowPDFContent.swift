@@ -21,6 +21,6 @@ internal enum VGSShowPDFContent {
 
 	 - Parameters:
 		- url: `URL` object.
-	*/
-	case url(_ url: URL)
+//	*/
+//	case url(_ url: URL)
 }
