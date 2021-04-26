@@ -31,6 +31,8 @@
 		44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D42636962D00ECEA77 /* CollectViewController.swift */; };
 		44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */; };
 		44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F534DE2636965E00ECEA77 /* Main.storyboard */; };
+		44F534F42636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */; };
+		44F534FB2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534FA2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,8 @@
 		44F534D42636962D00ECEA77 /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
 		44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
 		44F534DE2636965E00ECEA77 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppPDFFileTest.swift; sourceTree = "<group>"; };
+		44F534FA2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPDFFlowTestCase.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 		44A15B8A259C648400CB6654 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				44F534F72636C25900ECEA77 /* PDFFileUseCase */,
 				44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */,
 				44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */,
 			);
@@ -290,6 +295,15 @@
 				44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */,
 			);
 			path = ShowCard;
+			sourceTree = "<group>";
+		};
+		44F534F72636C25900ECEA77 /* PDFFileUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */,
+				44F534FA2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift */,
+			);
+			path = PDFFileUseCase;
 			sourceTree = "<group>";
 		};
 		6B6C3F3E71A2627BBDD0889D /* Pods */ = {
@@ -535,6 +549,8 @@
 				44A15BA3259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift in Sources */,
 				44A15B74259B4D7000CB6654 /* VGSUITestElement.swift in Sources */,
 				44A15B81259B4F0400CB6654 /* XCTestCase+Extensions.swift in Sources */,
+				44F534FB2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift in Sources */,
+				44F534F42636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */,
 				44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */,
 				44A15B7C259B4DDD00CB6654 /* VGSUITestElementType.swift in Sources */,
 				44A15B8C259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift in Sources */,
