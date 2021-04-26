@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CyU-TI-c8u">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="pb3-Pr-XIX">
+            <objects>
+                <tabBarController id="CyU-TI-c8u" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Dl3-RW-KHd"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8UO-VD-jo7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Mio-zp-quw" kind="relationship" relationship="viewControllers" id="52W-jc-oPi"/>
+                        <segue destination="hyz-Oa-rPJ" kind="relationship" relationship="viewControllers" id="Cys-T9-QZU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snA-GS-W5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104" y="90"/>
+        </scene>
+        <!--Show-->
+        <scene sceneID="kNZ-cc-eQa">
+            <objects>
+                <viewController id="Mio-zp-quw" customClass="ShowDemoPDFViewController" customModule="VGSShowDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N5h-et-zF6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="csW-KV-AfD">
+                                <rect key="frame" x="8" y="130" width="398" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="etN-xA-3ef"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHOW SDK DEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHg-Kf-0V9">
+                                <rect key="frame" x="20" y="89" width="374" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INPUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZY-wX-9fd">
+                                <rect key="frame" x="20" y="649" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing to Reveal..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eHW-eL-bdw">
+                                <rect key="frame" x="20" y="702.5" width="374" height="20.5"/>
+                                <color key="backgroundColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="F4j-PS-Nif">
+                                <rect key="frame" x="16" y="743" width="382" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EX-vX-NbI">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="c7V-8w-sJ5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Show PDF">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="revealPdf:" destination="Mio-zp-quw" eventType="touchUpInside" id="oJV-ow-kdJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Qz3-YM-YPP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="feE-zr-xdB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eHW-eL-bdw" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="20" id="5M1-3U-Kvr"/>
+                            <constraint firstItem="tZY-wX-9fd" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="20" id="5kP-rg-Plh"/>
+                            <constraint firstItem="F4j-PS-Nif" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="16" id="DTj-QG-6ik"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="F4j-PS-Nif" secondAttribute="trailing" constant="16" id="PLm-Bb-yUR"/>
+                            <constraint firstItem="csW-KV-AfD" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="8" id="RVE-NT-qNC"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="csW-KV-AfD" secondAttribute="trailing" constant="8" id="Uln-c5-3de"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="fHg-Kf-0V9" secondAttribute="trailing" constant="20" id="Wxe-At-HQq"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="eHW-eL-bdw" secondAttribute="trailing" constant="20" id="XjS-EL-8cl"/>
+                            <constraint firstItem="F4j-PS-Nif" firstAttribute="top" secondItem="eHW-eL-bdw" secondAttribute="bottom" constant="20" id="YJX-b9-w2p"/>
+                            <constraint firstItem="F4j-PS-Nif" firstAttribute="centerX" secondItem="N5h-et-zF6" secondAttribute="centerX" id="dpe-7S-qJX"/>
+                            <constraint firstItem="csW-KV-AfD" firstAttribute="top" secondItem="fHg-Kf-0V9" secondAttribute="bottom" id="f6F-To-ROz"/>
+                            <constraint firstItem="fHg-Kf-0V9" firstAttribute="top" secondItem="feE-zr-xdB" secondAttribute="top" constant="45" id="hfM-Pr-tK4"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="bottom" secondItem="F4j-PS-Nif" secondAttribute="bottom" constant="20" id="iVt-F6-f7W"/>
+                            <constraint firstItem="fHg-Kf-0V9" firstAttribute="leading" secondItem="feE-zr-xdB" secondAttribute="leading" constant="20" id="nHc-Rm-FEm"/>
+                            <constraint firstItem="feE-zr-xdB" firstAttribute="trailing" secondItem="tZY-wX-9fd" secondAttribute="trailing" constant="20" id="rzD-jc-qMl"/>
+                            <constraint firstItem="eHW-eL-bdw" firstAttribute="top" secondItem="tZY-wX-9fd" secondAttribute="bottom" constant="20" id="vZU-Sf-IE2"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Show" id="OOj-aM-HCs"/>
+                    <navigationItem key="navigationItem" id="mjD-3Y-80M"/>
+                    <connections>
+                        <outlet property="innerLabel" destination="eHW-eL-bdw" id="Pj5-GZ-oc2"/>
+                        <outlet property="revealButton" destination="8EX-vX-NbI" id="6Y9-0F-rFM"/>
+                        <outlet property="stackView" destination="csW-KV-AfD" id="0Wz-Lr-XE8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9n9-mH-ZDL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="-596"/>
+        </scene>
+        <!--Collect Files-->
+        <scene sceneID="6od-Uv-bch">
+            <objects>
+                <viewController id="hyz-Oa-rPJ" customClass="CollectPDFDemoViewController" customModule="VGSShowDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QcG-Yg-BHS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-8y-SAK">
+                                <rect key="frame" x="40" y="124" width="334" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Yt-U9-KyV">
+                                <rect key="frame" x="20" y="703" width="374" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyN-sX-agh">
+                                        <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="SELECT FILE">
+                                            <color key="titleColor" systemColor="systemGroupedBackgroundColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectFileAction:" destination="hyz-Oa-rPJ" eventType="touchUpInside" id="WyI-TM-XIz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ky-d1-zFe">
+                                        <rect key="frame" x="197" y="0.0" width="177" height="60"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
+                                        <state key="normal" title="UPLOAD"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="submitAction:" destination="hyz-Oa-rPJ" eventType="touchUpInside" id="UpV-0Z-JEl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="FAG-M7-Z8H"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Xg-hl-gAQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Yt-U9-KyV" firstAttribute="leading" secondItem="1Xg-hl-gAQ" secondAttribute="leading" constant="20" id="EhU-4P-jxP"/>
+                            <constraint firstItem="dqm-8y-SAK" firstAttribute="top" secondItem="1Xg-hl-gAQ" secondAttribute="top" constant="80" id="SDz-HD-mcb"/>
+                            <constraint firstItem="dqm-8y-SAK" firstAttribute="leading" secondItem="1Xg-hl-gAQ" secondAttribute="leading" constant="40" id="U4U-7d-WGK"/>
+                            <constraint firstItem="1Xg-hl-gAQ" firstAttribute="bottom" secondItem="7Yt-U9-KyV" secondAttribute="bottom" constant="50" id="bxa-iW-yjs"/>
+                            <constraint firstItem="1Xg-hl-gAQ" firstAttribute="trailing" secondItem="7Yt-U9-KyV" secondAttribute="trailing" constant="20" id="f23-kN-0LO"/>
+                            <constraint firstItem="1Xg-hl-gAQ" firstAttribute="trailing" secondItem="dqm-8y-SAK" secondAttribute="trailing" constant="40" id="xIa-dv-qXe"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="File" image="cloud-upload" id="ZuH-Yk-LGs"/>
+                    <navigationItem key="navigationItem" title="Collect Files" id="jpW-nM-oTj"/>
+                    <connections>
+                        <outlet property="stateLabel" destination="dqm-8y-SAK" id="jWr-CY-u1w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZo-j5-HQA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="383"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cloud-upload" width="25" height="25"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -16,10 +16,7 @@
 		44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FDD255D37610012D107 /* DemoAppConfig.swift */; };
 		4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEEA255E6446002C9215 /* AppDelegate.swift */; };
 		4444EEEF255E6452002C9215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444EEED255E6452002C9215 /* LaunchScreen.storyboard */; };
-		4444EEF0255E6452002C9215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4444EEEE255E6452002C9215 /* Main.storyboard */; };
 		4444EEF3255E645D002C9215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4444EEF2255E645D002C9215 /* Assets.xcassets */; };
-		4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */; };
-		4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4444EEF6255E6467002C9215 /* CollectViewController.swift */; };
 		446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */; };
 		44A15B74259B4D7000CB6654 /* VGSUITestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B73259B4D7000CB6654 /* VGSUITestElement.swift */; };
 		44A15B7C259B4DDD00CB6654 /* VGSUITestElementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B7B259B4DDD00CB6654 /* VGSUITestElementType.swift */; };
@@ -28,6 +25,12 @@
 		44A15B8C259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */; };
 		44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15B91259C669200CB6654 /* XCUIElement+Extensions.swift */; };
 		44A15BA3259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */; };
+		44F534CC263695D300ECEA77 /* ShowFile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F534CB263695D300ECEA77 /* ShowFile.storyboard */; };
+		44F534D62636962D00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D12636962D00ECEA77 /* ShowDemoPDFViewController.swift */; };
+		44F534D72636962D00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D22636962D00ECEA77 /* CollectPDFDemoViewController.swift */; };
+		44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D42636962D00ECEA77 /* CollectViewController.swift */; };
+		44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */; };
+		44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F534DE2636965E00ECEA77 /* Main.storyboard */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,10 +80,7 @@
 		44415FDD255D37610012D107 /* DemoAppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppConfig.swift; sourceTree = "<group>"; };
 		4444EEEA255E6446002C9215 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4444EEED255E6452002C9215 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4444EEEE255E6452002C9215 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4444EEF2255E645D002C9215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
-		4444EEF6255E6467002C9215 /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
 		446CB7ED25626D5700E770F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		44A15B73259B4D7000CB6654 /* VGSUITestElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSUITestElement.swift; sourceTree = "<group>"; };
 		44A15B7B259B4DDD00CB6654 /* VGSUITestElementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUITestElementType.swift; sourceTree = "<group>"; };
@@ -89,6 +89,12 @@
 		44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppNormalFlowTest.swift; sourceTree = "<group>"; };
 		44A15B91259C669200CB6654 /* XCUIElement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extensions.swift"; sourceTree = "<group>"; };
 		44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSBaseRegularFlowTestCase.swift; sourceTree = "<group>"; };
+		44F534CB263695D300ECEA77 /* ShowFile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowFile.storyboard; sourceTree = "<group>"; };
+		44F534D12636962D00ECEA77 /* ShowDemoPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoPDFViewController.swift; sourceTree = "<group>"; };
+		44F534D22636962D00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
+		44F534D42636962D00ECEA77 /* CollectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectViewController.swift; sourceTree = "<group>"; };
+		44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
+		44F534DE2636965E00ECEA77 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,8 +214,9 @@
 		4444EEEC255E6452002C9215 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				44F534DE2636965E00ECEA77 /* Main.storyboard */,
 				4444EEED255E6452002C9215 /* LaunchScreen.storyboard */,
-				4444EEEE255E6452002C9215 /* Main.storyboard */,
+				44F534CB263695D300ECEA77 /* ShowFile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -226,8 +233,7 @@
 		4444EEF4255E6467002C9215 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4444EEF5255E6467002C9215 /* ShowDemoViewController.swift */,
-				4444EEF6255E6467002C9215 /* CollectViewController.swift */,
+				44F534CF2636962D00ECEA77 /* UseCases */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -257,6 +263,33 @@
 				44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		44F534CF2636962D00ECEA77 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				44F534D32636962D00ECEA77 /* ShowCard */,
+				44F534D02636962D00ECEA77 /* ShowFile */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		44F534D02636962D00ECEA77 /* ShowFile */ = {
+			isa = PBXGroup;
+			children = (
+				44F534D12636962D00ECEA77 /* ShowDemoPDFViewController.swift */,
+				44F534D22636962D00ECEA77 /* CollectPDFDemoViewController.swift */,
+			);
+			path = ShowFile;
+			sourceTree = "<group>";
+		};
+		44F534D32636962D00ECEA77 /* ShowCard */ = {
+			isa = PBXGroup;
+			children = (
+				44F534D42636962D00ECEA77 /* CollectViewController.swift */,
+				44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */,
+			);
+			path = ShowCard;
 			sourceTree = "<group>";
 		};
 		6B6C3F3E71A2627BBDD0889D /* Pods */ = {
@@ -386,8 +419,9 @@
 			files = (
 				4444EEEF255E6452002C9215 /* LaunchScreen.storyboard in Resources */,
 				4444EEF3255E645D002C9215 /* Assets.xcassets in Resources */,
+				44F534CC263695D300ECEA77 /* ShowFile.storyboard in Resources */,
+				44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */,
 				442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */,
-				4444EEF0255E6452002C9215 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,14 +507,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */,
+				44F534D62636962D00ECEA77 /* ShowDemoPDFViewController.swift in Sources */,
 				4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */,
-				4444EEF8255E6467002C9215 /* CollectViewController.swift in Sources */,
+				44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */,
 				44415FDB255D37540012D107 /* Helpers.swift in Sources */,
-				4444EEF7255E6467002C9215 /* ShowDemoViewController.swift in Sources */,
+				44F534D72636962D00ECEA77 /* CollectPDFDemoViewController.swift in Sources */,
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
 				4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */,
 				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
+				44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
