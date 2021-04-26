@@ -57,7 +57,14 @@ internal class VGSSecurePDFView: PDFView {
 		}
 	}
 
+	/// :nodoc:
 	override var documentView: UIView? {
 		return nil
+	}
+
+	/// :nodoc:
+	override public weak var delegate: PDFViewDelegate? {
+			get { return nil }
+			set {}
 	}
 }
