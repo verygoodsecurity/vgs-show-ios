@@ -72,7 +72,7 @@
                                 <rect key="frame" x="16" y="747" width="382" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crd-EA-9X0">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                         <color key="backgroundColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="nby-dN-SLM"/>
@@ -90,23 +90,6 @@
                                         <connections>
                                             <action selector="uploadButtonAction:" destination="vcT-Il-nFL" eventType="touchUpInside" id="c7e-fD-FXb"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-9u-5qy">
-                                        <rect key="frame" x="195" y="0.0" width="187" height="50"/>
-                                        <color key="backgroundColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="00R-Wc-mDX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="tintColor" red="0.34774258730000002" green="0.68026369809999998" blue="0.57646107670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Select file">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -224,27 +207,11 @@
                                     <action selector="copyCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4l4-Wd-pbu"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxd-aG-Dvx" customClass="VGSImageView" customModule="VGSShowSDK">
-                                <rect key="frame" x="82" y="473" width="250" height="160"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="OTF-Jj-oUz"/>
-                                    <constraint firstAttribute="height" constant="160" id="gb0-db-zl2"/>
-                                </constraints>
-                            </view>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jds-1T-Niq" customClass="VGSImageView" customModule="VGSShowSDK">
-                                <rect key="frame" x="57" y="568" width="300" height="160"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="6Wx-W8-AJY"/>
-                                    <constraint firstAttribute="width" constant="300" id="MPb-Mn-kAi"/>
-                                </constraints>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="J4i-H6-tS1">
                                 <rect key="frame" x="16" y="743" width="382" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bj-BS-2vl">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                         <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="CEZ-Qs-z54"/>
@@ -262,22 +229,6 @@
                                             <action selector="revealButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dhk-ad-9YM"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ri2-xV-fkK">
-                                        <rect key="frame" x="195" y="0.0" width="187" height="50"/>
-                                        <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Acq-wr-rIr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <state key="normal" title="Show PDF">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <integer key="value" value="6"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="p2V-jU-SPn"/>
@@ -290,15 +241,12 @@
                             <constraint firstItem="s5d-5E-TfU" firstAttribute="trailing" secondItem="syh-5q-JME" secondAttribute="trailing" id="0aL-dx-7ga"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wm9-aW-GUZ" secondAttribute="trailing" constant="20" id="5vf-KA-RRr"/>
                             <constraint firstItem="J4i-H6-tS1" firstAttribute="top" secondItem="wm9-aW-GUZ" secondAttribute="bottom" constant="20" id="8kg-G2-oUr"/>
-                            <constraint firstItem="jds-1T-Niq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ev2-sW-3lv"/>
                             <constraint firstItem="syh-5q-JME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Gq4-Fi-OxA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5ds-QC-Jhm" secondAttribute="trailing" constant="20" id="HtA-52-z4S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hJE-1q-Fl5" secondAttribute="trailing" constant="20" id="HvI-KU-R6R"/>
                             <constraint firstItem="J4i-H6-tS1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LBO-Gt-Qy8"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PIk-AS-hQC"/>
-                            <constraint firstItem="jds-1T-Niq" firstAttribute="top" secondItem="syh-5q-JME" secondAttribute="bottom" constant="150" id="Sfg-zk-rVr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="syh-5q-JME" secondAttribute="trailing" constant="30" id="UYI-sO-6PS"/>
-                            <constraint firstItem="sxd-aG-Dvx" firstAttribute="top" secondItem="syh-5q-JME" secondAttribute="bottom" constant="55" id="dhW-qd-QU0"/>
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="fLF-45-5UG"/>
                             <constraint firstItem="wm9-aW-GUZ" firstAttribute="top" secondItem="hJE-1q-Fl5" secondAttribute="bottom" constant="20" id="gXH-f5-wwW"/>
                             <constraint firstItem="s5d-5E-TfU" firstAttribute="bottom" secondItem="5ds-QC-Jhm" secondAttribute="top" constant="-4" id="hXX-uS-7Wq"/>
@@ -307,7 +255,6 @@
                             <constraint firstItem="5ds-QC-Jhm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mM2-U8-x9g"/>
                             <constraint firstItem="J4i-H6-tS1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pD0-iH-fDq"/>
                             <constraint firstItem="syh-5q-JME" firstAttribute="top" secondItem="5ds-QC-Jhm" secondAttribute="bottom" constant="15" id="rAy-zb-bet"/>
-                            <constraint firstItem="sxd-aG-Dvx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rGr-N0-bLM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J4i-H6-tS1" secondAttribute="trailing" constant="16" id="xm3-EP-vtd"/>
                         </constraints>
                     </view>
@@ -318,8 +265,6 @@
                         <outlet property="copyCardButton" destination="s5d-5E-TfU" id="Fo0-Sp-gPu"/>
                         <outlet property="inputLabel" destination="wm9-aW-GUZ" id="dhJ-pG-j4e"/>
                         <outlet property="showButton" destination="6Bj-BS-2vl" id="Vwn-Qi-K1i"/>
-                        <outlet property="showImageView" destination="sxd-aG-Dvx" id="nuP-sm-C7A"/>
-                        <outlet property="showImageView2" destination="jds-1T-Niq" id="EJg-KC-FZd"/>
                         <outlet property="stackView" destination="FeV-F5-4Dp" id="4SF-x9-CTM"/>
                         <outlet property="titleLabel" destination="5ds-QC-Jhm" id="710-Jl-rXJ"/>
                     </connections>
@@ -355,6 +300,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="DemoNavigationScreen.TableView.Cells.CollectShowCardCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <connections>
                                             <segue destination="iSE-mf-zRH" kind="push" id="YuU-ye-eiT"/>
                                         </connections>

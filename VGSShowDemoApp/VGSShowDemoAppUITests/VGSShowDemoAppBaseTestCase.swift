@@ -34,8 +34,15 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 		static let collect: VGSUITestElement = .init(type: .button, identifier: "VGSShowDemoApp.TabBar.TabButton.Collect")
 	}
 
-	enum UseCase {
-		
+	/// Demo app use cases.
+	enum UseCases {
+		/// Show card data use case flow cell.
+		static let showCardData = "Show Collected Card Data"
+	}
+
+	/// Navigate to Card Data use case.
+	func navigateToCardDataUseCase() {
+		app.tables.staticTexts[UseCases.showCardData].tap()
 	}
 
 	/// Start app and navigate to specific tab.
