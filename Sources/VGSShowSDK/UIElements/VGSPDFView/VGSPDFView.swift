@@ -45,7 +45,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		}
 	}
 
-	/// Background color of pdf viewer.
+	/// Background color of pdf viewer. Default is `gray` with 50% opacity.
 	public var pdfBackgroundColor: UIColor? {
 		didSet {
 			maskedPdfView.backgroundColor = pdfBackgroundColor ?? UIColor.gray.withAlphaComponent(0)

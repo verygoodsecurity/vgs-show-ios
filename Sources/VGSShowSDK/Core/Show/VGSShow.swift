@@ -44,6 +44,12 @@ public final class VGSShow {
 	public var subscribedLabels: [VGSLabel] {
 		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
 	}
+
+	/// Returns an Array of `VGSPDFView` objects subscribed to specific `VGSShow` instance.
+	@available(iOS 11.0, *)
+	public var subscribedPDFViews: [VGSPDFView] {
+		return subscribedViews.compactMap({return $0.model.view as? VGSPDFView})
+	}
   
 	// MARK: - Custom HTTP Headers
 
