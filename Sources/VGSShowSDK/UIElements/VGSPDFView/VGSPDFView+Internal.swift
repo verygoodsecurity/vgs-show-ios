@@ -24,7 +24,7 @@ internal extension VGSPDFView {
 			strongSelf.delegate?.pdfView?(strongSelf, didFailWithError: error)
 		}
 
-		//maskedPdfView.placeholderImage = placeholder
+		pdfViewModel.view = self
 	}
 
 	/// Setup subviews.
