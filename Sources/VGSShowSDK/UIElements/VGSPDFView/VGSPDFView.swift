@@ -18,7 +18,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	public weak var delegate: VGSPDFViewDelegate?
 
   /// Pdf display mode, default is `.singlePageContinuous`.
-	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePageContinuous {
+	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePage {
 		didSet {
 			maskedPdfView.displayMode = pdfDisplayMode
 		}
@@ -32,14 +32,14 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	}
 
 	/// A boolean value indicating whether pdf is autoscaling, default is `true`.
-	public var isPdfAutoScales: Bool = true {
+	public var pdfAutoScales: Bool = true {
 		didSet {
-			maskedPdfView.autoScales = isPdfAutoScales
+			maskedPdfView.autoScales = pdfAutoScales
 		}
 	}
 
 	/// A Boolean value determines whether the view will display the first page as a book cover (meaningful only when the document is in two-up or two-up continuous display mode).
-	public var displayAsBook: Bool = true {
+	public var displayAsBook: Bool = false {
 		didSet {
 			maskedPdfView.displaysAsBook = displayAsBook
 		}

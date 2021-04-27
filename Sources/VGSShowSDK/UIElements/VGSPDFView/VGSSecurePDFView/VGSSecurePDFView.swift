@@ -31,18 +31,6 @@ internal class VGSSecurePDFView: PDFView {
 		switch content {
 		case .rawData(let rawData):
 			secureDocument = PDFDocument(data: rawData)
-//		case .url(let url):
-//			secureDocument = PDFDocument(url: url)
-		}
-	}
-
-	@available(*, deprecated, message: "Deprecated attribute.")
-	override var document: PDFDocument? {
-		set {
-			secureDocument = newValue
-		}
-		get {
-			return nil
 		}
 	}
 
@@ -58,13 +46,11 @@ internal class VGSSecurePDFView: PDFView {
 	}
 
 	/// :nodoc:
-	override var documentView: UIView? {
-		return nil
-	}
-
-	/// :nodoc:
 	override public weak var delegate: PDFViewDelegate? {
 			get { return nil }
 			set {}
 	}
+
+	/// :nodoc:
+	override public func perform(_ action: PDFAction) {}
 }
