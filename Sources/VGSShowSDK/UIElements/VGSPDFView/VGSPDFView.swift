@@ -80,7 +80,19 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		guard let data = maskedPdfView.secureDocument?.dataRepresentation() else { return }
 
 		let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+
+		if let popoverController = activityController.popoverPresentationController {
+			popoverController.sourceView = viewController.view //to set the source of your alert
+			popoverController.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0) // you can set this as per your requirement.
+			popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
+		}
+
 		viewController.present(activityController, animated: true)
+	}
+
+	/// A Boolean value determines whether the view has document.
+	public var hasDocument: Bool {
+		return maskedPdfView.secureDocument != nil
 	}
 
 	// MARK: - Internal Vars
