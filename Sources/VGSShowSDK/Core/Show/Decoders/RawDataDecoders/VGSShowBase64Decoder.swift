@@ -8,6 +8,8 @@ import Foundation
 /// Decodes to base64 data.
 final internal class VGSShowBase64Decoder: VGSShowJSONDecoderProtocol {
 
+	// MARK: - VGSShowJSONDecoderProtocol
+
 	func decodeJSONForContentPath(_ contentPath: String, json: VGSJSONData) -> VGSShowDecodingResult {
 
 		guard let endodedDataBase64: String = json.valueForKeyPath(keyPath: contentPath) else {
@@ -15,8 +17,7 @@ final internal class VGSShowBase64Decoder: VGSShowJSONDecoderProtocol {
 		}
 
 		guard let data = Data(base64Encoded: endodedDataBase64) else {
-			// Add base64 error!
-			return .failure(VGSShowError(type: .invalidJSONPayload))
+			return .failure(VGSShowError(type: .invalidBase64Payload))
 		}
 
 		let rawDataResult = VGSShowDecodedContent.rawData(data)

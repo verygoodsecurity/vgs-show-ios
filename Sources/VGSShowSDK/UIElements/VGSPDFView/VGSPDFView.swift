@@ -58,7 +58,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			if #available(iOS 12.0, *) {
 				maskedPdfView.pageShadowsEnabled = pageShadowsEnabled
 			} else {
-				print("pageShadowsEnabled avaliable only in iOS 12.")
+				print("pageShadowsEnabled is avaliable only in iOS 12.")
 			}
 		}
 	}
@@ -76,6 +76,8 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		}
 	}
 
+	/// Share PDF using `UIActivityViewController` from viewController.
+	/// - Parameter viewController: `UIViewController` object, controller to present sharing `UIActivityViewController` screen.
 	public func sharePDF(from viewController: UIViewController) {
 		guard let data = maskedPdfView.secureDocument?.dataRepresentation() else { return }
 
@@ -121,8 +123,17 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	/// Last revealed pdf content.
 	internal var revealedPdfContent: VGSShowPDFContent? {
 		didSet {
-			maskedPdfView.pdfContent = revealedPdfContent
-			delegate?.documentDidChange?(in: self)
+			if let content = revealedPdfContent {
+				switch content {
+				case .rawData(let pdfData):
+					if let document = PDFDocument(data: pdfData) {
+						maskedPdfView.secureDocument = document
+						delegate?.documentDidChange?(in: self)
+					} else {
+						delegate?.pdfView?(self, didFailWithError: VGSShowError(type: .invalidPDFData))
+					}
+				}
+			}
 		}
 	}
 
