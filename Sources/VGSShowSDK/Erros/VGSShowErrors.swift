@@ -25,8 +25,8 @@ public enum VGSErrorType: Int {
 	/// When payload is invalid JSON.
 	case invalidJSONPayload = 1404
 
-	/// When payload is invalid base64.
-	case invalidBase64Payload = 1405
+	/// When base64 cannot be decoded.
+	case invalidBase64Data = 1405
 
 	/// When PDF data is invalid.
 	case invalidPDFData = 1406
@@ -47,7 +47,7 @@ public enum VGSErrorType: Int {
 			return "Field not found in specified path"
 		case .invalidJSONPayload:
 			return "Payload is not valid JSON"
-		case .invalidBase64Payload:
+		case .invalidBase64Data:
 			return "Payload is not valid base64 data"
 		case .invalidPDFData:
 			return "Cannot render PDF with invalid data"
@@ -68,8 +68,8 @@ public enum VGSErrorType: Int {
 			return "VGSSDKErrorFieldNotFound"
 		case .invalidJSONPayload:
 			return "VGSSDKErrorInvalidJSONPayload"
-		case .invalidBase64Payload:
-			return "VGSSDKErrorInvalidBase64Payload"
+		case .invalidBase64Data:
+			return "VGSSDKErrorInvalidBase64Data"
 		case .invalidPDFData:
 			return "VGSSDKErrorInvalidPDFData"
 		case .invalidConfigurationURL:

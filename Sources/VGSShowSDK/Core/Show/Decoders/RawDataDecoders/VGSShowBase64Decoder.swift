@@ -17,7 +17,7 @@ final internal class VGSShowBase64Decoder: VGSShowJSONDecoderProtocol {
 		}
 
 		guard let data = Data(base64Encoded: encodedDataBase64) else {
-			return .failure(VGSShowError(type: .invalidBase64Payload))
+			return .failure(VGSShowError(type: .invalidBase64Data))
 		}
 
 		let rawDataResult = VGSShowDecodedContent.rawData(data)
