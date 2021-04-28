@@ -61,7 +61,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		Buttons.sharePDF.find(in: app).tap()
 
 		// Wait for activity view screen to appear.
-		wait(forTimeInterval: 1)
+		wait(forTimeInterval: 5)
 
 		// Check if print button is available in sharing activity screen.
 		XCTAssertTrue(Buttons.print.find(in: app).exists)
