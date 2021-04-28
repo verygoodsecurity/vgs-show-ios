@@ -19,8 +19,6 @@ class VGSPDFViewTests: XCTestCase {
 
 		pdfView.maskedPdfView.secureDocument = PDFDocument(url: URL(string: "http://www.orimi.com/pdf-test.pdf")!)
 		XCTAssertTrue(pdfView.hasDocument)
-		XCTAssertTrue( pdfView.maskedPdfView.document == nil)
-		XCTAssertTrue( pdfView.maskedPdfView.documentView == nil)
 
 		pdfView.maskedPdfView.secureDocument = nil
 		XCTAssertFalse(pdfView.hasDocument)
