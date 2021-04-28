@@ -12,11 +12,11 @@ final internal class VGSShowBase64Decoder: VGSShowJSONDecoderProtocol {
 
 	func decodeJSONForContentPath(_ contentPath: String, json: VGSJSONData) -> VGSShowDecodingResult {
 
-		guard let endodedDataBase64: String = json.valueForKeyPath(keyPath: contentPath) else {
+		guard let encodedDataBase64: String = json.valueForKeyPath(keyPath: contentPath) else {
 			return .failure(VGSShowError(type: .fieldNotFound))
 		}
 
-		guard let data = Data(base64Encoded: endodedDataBase64) else {
+		guard let data = Data(base64Encoded: encodedDataBase64) else {
 			return .failure(VGSShowError(type: .invalidBase64Payload))
 		}
 
