@@ -25,7 +25,7 @@ public enum VGSErrorType: Int {
 	/// When payload is invalid JSON.
 	case invalidJSONPayload = 1404
 
-	/// When base64 cannot be decoded.
+	/// When base64 data is invalid.
 	case invalidBase64Data = 1405
 
 	/// When PDF data is invalid.
@@ -34,6 +34,7 @@ public enum VGSErrorType: Int {
 	/// When VGS config URL is not valid.
 	case invalidConfigurationURL = 1480
 
+	/// Error messsage.
 	var message: String {
 
 		switch self {
@@ -56,6 +57,7 @@ public enum VGSErrorType: Int {
 		}
 	}
 
+	/// Error key.
 	var errorKey: String {
 		switch self {
 		case .unexpectedResponseType:

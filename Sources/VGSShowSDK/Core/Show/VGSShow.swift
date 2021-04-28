@@ -33,7 +33,7 @@ public final class VGSShow {
 		return !subscribedViews.isEmpty
 	}
   
-  ///  Returns an array of view models form subscribed vgs views.
+  /// Returns an array of view models form subscribed vgs views.
   internal var subscribedViewModels: [VGSViewModelProtocol] {
     return subscribedViews.map({return $0.model})
   }

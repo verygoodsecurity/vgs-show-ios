@@ -68,8 +68,8 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		set {
 			pdfViewModel.decodingContentPath = newValue
 
-			//let eventText = "Set content path: \(newValue ?? "*nil*")"
-			//logInfoEventWithText(eventText)
+			let eventText = "Set content path: \(newValue ?? "*nil*")"
+			logInfoEventWithText(eventText)
 		}
 		get {
 			return model.decodingContentPath
@@ -79,7 +79,11 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	/// Share PDF using `UIActivityViewController` from viewController.
 	/// - Parameter viewController: `UIViewController` object, controller to present sharing `UIActivityViewController` screen.
 	public func sharePDF(from viewController: UIViewController) {
-		guard let data = maskedPdfView.secureDocument?.dataRepresentation() else { return }
+		guard let data = maskedPdfView.secureDocument?.dataRepresentation() else {
+			let errorText = "No pdf data to share."
+			logWarningEventWithText(errorText)
+			return
+		}
 
 		let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
 
@@ -128,8 +132,12 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 				case .rawData(let pdfData):
 					if let document = PDFDocument(data: pdfData) {
 						maskedPdfView.secureDocument = document
+						let eventText = "PDF has been rendered from data."
+						logInfoEventWithText(eventText)
 						delegate?.documentDidChange?(in: self)
 					} else {
+						let eventText = "PDF rendering did failed. Invalid PDF data."
+						logWarningEventWithText(eventText, severityLevel: .error)
 						delegate?.pdfView?(self, didFailWithError: VGSShowError(type: .invalidPDFData))
 					}
 				}
