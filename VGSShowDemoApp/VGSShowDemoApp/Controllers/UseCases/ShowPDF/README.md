@@ -2,6 +2,12 @@
 
 With VGSShowSDK you can reveal and view pdf files. To redact pdf files you can use [VGSCollectSDK](https://github.com/verygoodsecurity/vgs-collect-ios) 
 
+<p align="center">
+		<img src="images/Reveal-pdf-1.png" width="200" height="450" alt="ios-show-reveal-pdf-1">    
+		<img src="images/Reveal-pdf-2.png" width="200" height="450" alt="ios-show-reveal-pdf-2">    
+		<img src="images/Reveal-pdf-3.png" width="200" height="450" alt="ios-show-reveal-pdf-3">    
+</p>
+
 #### Step 1
 
 Go to your <a href="https://dashboard.verygoodsecurity.com/" target="_blank">VGS organization</a> and establish <a href="https://www.verygoodsecurity.com/docs/getting-started/quick-integration#securing-inbound-connection" target="_blank">Inbound connection</a>. For this demo you can import pre-built route configuration:
