@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44014793256641A500A3627B /* UIFont+Extensions.swift */; };
 		4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */; };
+		440CE9F826398B7900FE6B17 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 440CE9F726398B7900FE6B17 /* README.md */; };
 		440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */; };
 		442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 442F80B125ADB4BD00CC04A2 /* UITestsMockedData.plist */; };
 		44415FB3255D36FA0012D107 /* VGSShowDemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44415FB2255D36FA0012D107 /* VGSShowDemoAppTests.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		44014793256641A500A3627B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		440CE9F726398B7900FE6B17 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		440F04D3256E748D00540D58 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		442F80B125ADB4BD00CC04A2 /* UITestsMockedData.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UITestsMockedData.plist; sourceTree = "<group>"; };
 		44415F98255D36F90012D107 /* VGSShowDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGSShowDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,6 +302,7 @@
 		44F535072636D07E00ECEA77 /* ShowPDF */ = {
 			isa = PBXGroup;
 			children = (
+				440CE9F726398B7900FE6B17 /* README.md */,
 				44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */,
 				44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */,
 			);
@@ -431,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440CE9F826398B7900FE6B17 /* README.md in Resources */,
 				4444EEEF255E6452002C9215 /* LaunchScreen.storyboard in Resources */,
 				4444EEF3255E645D002C9215 /* Assets.xcassets in Resources */,
 				44F534CC263695D300ECEA77 /* ShowFile.storyboard in Resources */,
