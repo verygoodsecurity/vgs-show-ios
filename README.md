@@ -180,7 +180,7 @@ Check our Satellite [integration  guide](https://www.verygoodsecurity.com/docs/v
 Demo application for collecting card data on iOS is <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/main/VGSShowDemoApp">here</a>.
 
 Also you can reveal PDF files with VGShow iOS SDK.
-Check our demo with redact and reveal pdf file [use case.](./VGShowDemoApp/VGShowDemoApp/Controllers/UseCases/ShowPDF/)
+Check our demo with redact and reveal pdf file [use case.](./VGSShowDemoApp/VGSShowDemoApp/Controllers/UseCases/ShowPDF/)
 
 ### Releases
 To follow `VGSShowSDK` updates and changes check the [releases](https://github.com/verygoodsecurity/vgs-show-ios/releases) page.
