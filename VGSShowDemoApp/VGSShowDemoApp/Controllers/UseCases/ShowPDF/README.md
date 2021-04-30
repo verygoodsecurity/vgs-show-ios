@@ -35,7 +35,8 @@ Find `DemoAppConfig.swift` in app and replace `vaultId` constant with your <a hr
 
 #### Step 4
 
-Drag and drop `test.pdf` file to [Files app](https://support.apple.com/en-us/HT206481) on your simulator. 
+Drag and drop `test.pdf` file to [Files app](https://support.apple.com/en-us/HT206481) to your device. 
+Testing on real device is recommended due to possible issues with iOS simulator and Files app.
 
 #### Step 5
 
