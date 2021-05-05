@@ -12,6 +12,9 @@ import PDFKit
 @available(iOS 11.0, *)
 public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
+	/// VGSPDFView sharing completion block.
+	public typealias VGSPDFViewSharingCompletion = (UIActivity.ActivityType?, Bool, Error?) -> ()
+
 	// MARK: - Public Vars
 
 	/// The object that acts as the delegate of the `VGSPDFView`.
@@ -76,9 +79,10 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		}
 	}
 
-	/// Share PDF using `UIActivityViewController` from viewController.
+	/// Share PDF using `UIActivityViewController` from view controller.
 	/// - Parameter viewController: `UIViewController` object, controller to present sharing `UIActivityViewController` screen.
-	public func sharePDF(from viewController: UIViewController) {
+	/// - Parameter completion: `VGSPDFViewSharingCompletion?` object, completion block triggered on sharing activity and holds sharing status, default is `nil`.
+	public func sharePDF(from viewController: UIViewController, completion: VGSPDFViewSharingCompletion? = nil) {
 		guard let data = maskedPdfView.secureDocument?.dataRepresentation() else {
 			let errorText = "No pdf data to share."
 			logWarningEventWithText(errorText)
@@ -91,6 +95,16 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			popoverController.sourceView = viewController.view //to set the source of your alert
 			popoverController.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0) // you can set this as per your requirement.
 			popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
+		}
+
+		activityController.completionWithItemsHandler = { activity,isCompleted, items, error in
+			if isCompleted {
+				self.logInfoEventWithText("PDF has been shared to \(activity?.rawValue ?? "Ulnown activity")")
+				completion?(activity, true, error)
+			} else {
+				self.logWarningEventWithText("PDF sharing has been failed with error \(error?.localizedDescription ?? "Uknown error") to activity: \(activity?.rawValue ?? "Activity is not specified or selected")")
+				completion?(activity, false, error)
+			}
 		}
 
 		viewController.present(activityController, animated: true)
