@@ -12,8 +12,8 @@ import PDFKit
 @available(iOS 11.0, *)
 public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
-	/// VGSPDFView sharing completion block.
-	public typealias VGSPDFViewSharingCompletion = (UIActivity.ActivityType?, Bool, Error?) -> ()
+	/// VGSPDFView sharing completion block. Holds selected activity, sharing completion status and error info.
+	public typealias VGSPDFViewSharingCompletion = (UIActivity.ActivityType?, Bool, Error?) -> Void
 
 	// MARK: - Public Vars
 
