@@ -18,12 +18,13 @@ extension VGSShow {
 	- path: Inbound rout path for your organization vault.
 	- method: HTTPMethod, default is `.post`.
 	- payload: `VGSJSONData?` object, default is `nil`. Should be valid JSON.
+	- requestOptions: `VGSShowRequestOptions?` object, additional request options, default is `nil`.
 	- completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSShowSDKErrorDomain`.
 	*/
-	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, completion block: @escaping (VGSShowRequestResult) -> Void) {
+	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, requestOptions: VGSShowRequestOptions? = nil, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		// Content analytics.
 		var extraAnalyticsInfo = [String: Any]()
@@ -42,7 +43,7 @@ extension VGSShow {
 		let event = VGSLogEvent(level: .info, text: "Start json request")
 		logEvent(event)
 
-		apiClient.sendRequestWithJSON(path: path, method: method, value: payload ) {[weak self] (requestResult) in
+		apiClient.sendRequestWithJSON(path: path, method: method, value: payload, requestOptions: requestOptions) {[weak self] (requestResult) in
 
 			guard let strongSelf = self else {return}
 

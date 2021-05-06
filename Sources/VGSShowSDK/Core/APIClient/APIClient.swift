@@ -120,10 +120,10 @@ internal class APIClient {
 
 	// MARK: - Public
 
-	internal func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, completion block: RequestCompletion) {
+	internal func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, requestOptions: VGSShowRequestOptions?, completion block: RequestCompletion) {
 
 		let payload = VGSRequestPayloadBody.json(value)
-		resolveURLForRequest(path: path, method: method, payload: payload, block: block)
+		resolveURLForRequest(path: path, method: method, payload: payload, requestOptions: requestOptions, block: block)
 	}
 
 	// MARK: - Private
@@ -133,8 +133,9 @@ internal class APIClient {
 	///   - path: `String` object, request path.
 	///   - method: `VGSHTTPMethod` object.
 	///   - payload: `VGSRequestPayloadBody` object.
+	///   - requestOptions: `VGSShowRequestOptions?` object, request options.
 	///   - block: `RequestCompletion` completion block.
-	private func resolveURLForRequest(path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, block: RequestCompletion) {
+	private func resolveURLForRequest(path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion) {
 
 		let url: URL?
 
@@ -158,7 +159,7 @@ internal class APIClient {
 			case .isResolving(let hostnameToResolve):
 				// URL is not resolved yet. Queue request.
 				updateHost(with: hostnameToResolve) { (url) in
-					self.sendDataRequestWithURL(url, path: path, method: method, payload: payload, block: block)
+					self.sendDataRequestWithURL(url, path: path, method: method, payload: payload, requestOptions: requestOptions, block: block)
 				}
 				return
 			}
@@ -174,10 +175,10 @@ internal class APIClient {
 			return
 		}
 
-		sendDataRequestWithURL(requestURL, path: path, method: method, payload: payload, block: block)
+		sendDataRequestWithURL(requestURL, path: path, method: method, payload: payload, requestOptions: requestOptions, block: block)
 	}
 
-	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, block: RequestCompletion) {
+	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion) {
 
 		let encodingResult = payload.encodeToRequestBodyData()
 
@@ -193,6 +194,10 @@ internal class APIClient {
 			request.httpBody = data
 			request.httpMethod = method.rawValue
 			request.allHTTPHeaderFields = headers
+
+			if let options = requestOptions {
+				request.timeoutInterval = options.requestTimeoutInterval ?? 60
+			}
 
 			// Log request.
 			VGSShowRequestLogger.logRequest(request, payload: payload)
