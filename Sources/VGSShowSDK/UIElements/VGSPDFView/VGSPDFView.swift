@@ -89,7 +89,23 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			return
 		}
 
-		let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+		var fileURL: URL?
+		do {
+				let filename = UUID().uuidString + ".pdf"
+				let tmpDirectory = FileManager.default.temporaryDirectory
+				fileURL = tmpDirectory.appendingPathComponent(filename)
+				try data.write(to: fileURL!)
+		} catch {
+			completion?(nil, false, error)
+			logWarningEventWithText("Cannot create tmp PDF file, error: \(error.localizedDescription).")
+			return
+		}
+
+		guard let url = fileURL else {
+			return
+		}
+
+		let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
 
 		if let popoverController = activityController.popoverPresentationController {
 			popoverController.sourceView = viewController.view //to set the source of your alert
@@ -97,14 +113,16 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
 		}
 
-		activityController.completionWithItemsHandler = { activity,isCompleted, items, error in
+		activityController.completionWithItemsHandler = { activity, isCompleted, items, error in
 			if isCompleted {
+				
 				self.logInfoEventWithText("PDF has been shared to \(activity?.rawValue ?? "Ulnown activity")")
 				completion?(activity, true, error)
 			} else {
 				self.logWarningEventWithText("PDF sharing has been failed with error \(error?.localizedDescription ?? "Uknown error") to activity: \(activity?.rawValue ?? "Activity is not specified or selected")")
 				completion?(activity, false, error)
 			}
+			VGSPDFView.deleteTempFile(pdfFile: url)
 		}
 
 		viewController.present(activityController, animated: true)
@@ -146,6 +164,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 				case .rawData(let pdfData):
 					if let document = PDFDocument(data: pdfData) {
 						maskedPdfView.secureDocument = document
+						//maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
 						let eventText = "PDF has been rendered from data."
 						logInfoEventWithText(eventText)
 						delegate?.documentDidChange?(in: self)
