@@ -8,8 +8,8 @@ import Foundation
 /// Holds additional request options.
 public struct VGSShowRequestOptions {
 
-	/// Request timeout interval, default is `60`.
-	public var requestTimeoutInterval: TimeInterval? = 60
+	/// Request timeout interval, default is `nil`.
+	public var requestTimeoutInterval: TimeInterval? = nil
 
 	/// :nodoc:
 	public init() {}

@@ -196,7 +196,9 @@ internal class APIClient {
 			request.allHTTPHeaderFields = headers
 
 			if let options = requestOptions {
-				request.timeoutInterval = options.requestTimeoutInterval ?? 60
+				if let customTimeout = options.requestTimeoutInterval {
+					request.timeoutInterval = customTimeout
+				}
 			}
 
 			// Log request.
