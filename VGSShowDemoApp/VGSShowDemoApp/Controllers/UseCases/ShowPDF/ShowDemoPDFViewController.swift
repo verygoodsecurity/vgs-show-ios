@@ -68,9 +68,11 @@ class ShowDemoPDFViewController: UIViewController {
 	// MARK: - Helpers
 
 	fileprivate func setupPdfView() {
+		pdfView.pdfDisplayDirection = .horizontal
 		stackView.addArrangedSubview(pdfView)
 		pdfView.contentPath = "json.pdf_file"
 		pdfView.delegate = self
+		pdfView.pageShadowsEnabled = true
 	}
 
 	private func setupRevealButtonUI() {
@@ -97,13 +99,22 @@ class ShowDemoPDFViewController: UIViewController {
 	}
 
 	@IBAction fileprivate func sharePDF(_ sender: UIButton) {
-		pdfView.sharePDF(from: self)
+		if pdfView.hasDocument {
+			pdfView.sharePDF(from: self, completion: {activity, isCompleted, error in
+				if isCompleted && error == nil {
+					print("PDF has been shared to activity: \(activity?.rawValue ?? "Uknown activity")")
+				}
+			})
+		}
 	}
 
 	@IBAction fileprivate func revealPdf(_ sender: UIButton) {
 		revealButton.isEnabled = false
 
-		vgsShow.request(path: "/post", method: .post, payload:  DemoAppConfig.shared.pdfFilePayload) {[weak self] result in
+		var options = VGSShowRequestOptions()
+		options.requestTimeoutInterval = 360
+
+		vgsShow.request(path: "/post", method: .post, payload:  DemoAppConfig.shared.pdfFilePayload, requestOptions: options) {[weak self] result in
 			switch result {
 			case .success(let code):
 				self?.revealButton.isEnabled = true
@@ -124,5 +135,9 @@ extension ShowDemoPDFViewController: VGSPDFViewDelegate {
 			shareButton.isHidden = false
 			addBlurView()
 		}
+	}
+
+	func pdfView(_ pdfView: VGSPDFView, didFailWithError error: VGSShowError) {
+		print(error.localizedDescription ?? "uknown error")
 	}
 }
