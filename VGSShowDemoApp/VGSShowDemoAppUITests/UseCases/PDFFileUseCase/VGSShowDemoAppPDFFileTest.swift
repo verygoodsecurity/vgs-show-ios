@@ -42,11 +42,17 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		// Check unrevealed state.
 		XCTAssert(Labels.unrevealedTitleLabel.find(in: app).exists)
 
+		print("app debug description BEFORE request!!!")
+		print(app.debugDescription)
+
 		// Tap on reveal button.
 		Buttons.show.find(in: app).tap()
 
 		// Wait for data to reveal.
-		wait(forTimeInterval: 120)
+		wait(forTimeInterval: 30)
+
+		print("app debug description AFTER request!!!")
+		print(app.debugDescription)
 
 		// Check title label for revealed state.
 		XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
