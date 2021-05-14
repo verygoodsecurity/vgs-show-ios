@@ -8,7 +8,6 @@ import XCTest
 
 class VGSShowDemoAppNormalFlowTest: VGSBaseRegularFlowTestCase {
 
-	/*
 	func testCorrectDataFlow() {
 		// Navigate to Card Data use case.
 		navigateToCardDataUseCase()
@@ -78,5 +77,4 @@ class VGSShowDemoAppNormalFlowTest: VGSBaseRegularFlowTestCase {
 		// For debug.
 		wait(forTimeInterval: 1)
 	}
-	*/
 }
