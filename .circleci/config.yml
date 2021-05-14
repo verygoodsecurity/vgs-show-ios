@@ -45,7 +45,7 @@ jobs:
           command: >
             cd VGSShowDemoApp &&
             cd VGSShowDemoApp &&
-            cd Resources &&
+            cd Resources && plutil -insert pdftoken -string ${pdftoken} UITestsMockedData.plist &&
             plutil -insert vaultID -string ${vaultID} UITestsMockedData.plist &&
             plutil -insert path -string ${path} UITestsMockedData.plist &&
             cd .. &&
