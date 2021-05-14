@@ -45,7 +45,10 @@ final class DemoAppConfig {
 
 			self.vaultId = dictionary["vaultID"] as? String ?? ""
 			self.path =  dictionary["path"] as? String ?? ""
-			self.pdfFilePayload["pdf_file"] = dictionary["pdfToken"] as? String 
+			self.pdfFilePayload["pdf_file"] = dictionary["pdfToken"] as? String
+			if self.pdfFilePayload.isEmpty {
+				fatalError("NO PDF!")
+			}
 		}
 	}
 }
