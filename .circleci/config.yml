@@ -25,6 +25,7 @@ jobs:
             cd Resources &&
             plutil -insert vaultID -string ${vaultID} UITestsMockedData.plist &&
             plutil -insert path -string ${path} UITestsMockedData.plist &&
+            plutil -insert pdfToken -string ${pdfToken} UITestsMockedData.plist &&
             cd .. &&
             cd .. &&
             pod install &&
