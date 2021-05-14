@@ -46,7 +46,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		Buttons.show.find(in: app).tap()
 
 		// Wait for data to reveal.
-		wait(forTimeInterval: 35)
+		wait(forTimeInterval: 50)
 
 		// Check title label for revealed state.
 		XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
