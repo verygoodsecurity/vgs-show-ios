@@ -114,13 +114,17 @@ class ShowDemoPDFViewController: UIViewController {
 		var options = VGSShowRequestOptions()
 		options.requestTimeoutInterval = 360
 
+		print("start request")
+
 		vgsShow.request(path: "/post", method: .post, payload:  DemoAppConfig.shared.pdfFilePayload, requestOptions: options) {[weak self] result in
 			switch result {
 			case .success(let code):
 				self?.revealButton.isEnabled = true
+				print("end request success!")
 			case .failure(let code, let error):
 				self?.revealButton.isEnabled = true
 				print("vgsshow failed, code: \(code), error: \(error)")
+				print("end request failed!")
 			}
 		}
 	}

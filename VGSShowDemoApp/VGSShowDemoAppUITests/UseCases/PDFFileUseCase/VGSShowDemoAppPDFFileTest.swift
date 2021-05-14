@@ -46,10 +46,10 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		Buttons.show.find(in: app).tap()
 
 		// Wait for data to reveal.
-		wait(forTimeInterval: 50)
+		wait(forTimeInterval: 120)
 
 		// Check title label for revealed state.
-		//XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
+		XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
 
 		// Check share button is visible.
 		XCTAssert(Buttons.sharePDF.find(in: app).exists)
