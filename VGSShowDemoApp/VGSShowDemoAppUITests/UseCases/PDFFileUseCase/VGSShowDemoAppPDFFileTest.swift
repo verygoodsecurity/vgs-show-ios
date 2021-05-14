@@ -46,7 +46,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		Buttons.show.find(in: app).tap()
 
 		// Wait for data to reveal.
-		wait(forTimeInterval: 8)
+		wait(forTimeInterval: 35)
 
 		// Check title label for revealed state.
 		XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
@@ -61,7 +61,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		Buttons.sharePDF.find(in: app).tap()
 
 		// Wait for activity view screen to appear.
-		wait(forTimeInterval: 5)
+		wait(forTimeInterval: 10)
 
 		// Check if print button is available in sharing activity screen.
 		XCTAssertTrue(Buttons.print.find(in: app).exists)
