@@ -60,14 +60,15 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		// Tap to share.
 		Buttons.sharePDF.find(in: app).tap()
 
-		// iPad displays sharing activity via pop over, cannot find access to buttons now.
+		// iPad displays sharing activity via pop over, cannot find access to pop over buttons yet.
 		guard UIDevice.current.userInterfaceIdiom == .phone else {
-			// Wait for activity view screen to appear.
-			wait(forTimeInterval: 10)
-
-			// Check if print button is available in sharing activity screen.
-			XCTAssertTrue(Buttons.print.find(in: app).exists)
 			return
 		}
+
+		// Wait for activity view screen to appear.
+		wait(forTimeInterval: 10)
+
+		// Check if print button is available in sharing activity screen.
+		XCTAssertTrue(Buttons.print.find(in: app).exists)
 	}
 }
