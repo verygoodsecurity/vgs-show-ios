@@ -162,16 +162,21 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			if let content = revealedPdfContent {
 				switch content {
 				case .rawData(let pdfData):
+					let extraData: [String: Any] = ["field" : model.viewType.analyticsName]
 					if let document = PDFDocument(data: pdfData) {
 						maskedPdfView.secureDocument = document
 						//maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
 						let eventText = "PDF has been rendered from data."
 						logInfoEventWithText(eventText)
 						delegate?.documentDidChange?(in: self)
+
+						VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .success, extraData: extraData)
 					} else {
 						let eventText = "PDF rendering did failed. Invalid PDF data."
 						logWarningEventWithText(eventText, severityLevel: .error)
 						delegate?.pdfView?(self, didFailWithError: VGSShowError(type: .invalidPDFData))
+
+						VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .failed, extraData: extraData)
 					}
 				}
 			}
