@@ -32,6 +32,14 @@ public final class VGSShow {
 	internal var hasViewModels: Bool {
 		return !subscribedViews.isEmpty
 	}
+
+	/// Array of subscribed view type analytics names.
+	internal var viewTypeAnalyticsNames: [String] {
+		let allSubscribedViewTypes = subscribedViews.map({$0.model.viewType.analyticsName})
+		let removedDuplications = Array(Set(allSubscribedViewTypes))
+
+		return removedDuplications
+	}
   
   /// Returns an array of view models form subscribed vgs views.
   internal var subscribedViewModels: [VGSViewModelProtocol] {

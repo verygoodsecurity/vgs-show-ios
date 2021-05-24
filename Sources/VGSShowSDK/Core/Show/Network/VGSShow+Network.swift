@@ -28,7 +28,13 @@ extension VGSShow {
 
 		// Content analytics.
 		var extraAnalyticsInfo = [String: Any]()
-		extraAnalyticsInfo["content"] = contentForAnalytics(from: payload)
+
+		var contentForAnalytics = contentForAnalytics(from: payload)
+		for viewTypeName in viewTypeAnalyticsNames {
+			contentForAnalytics.append(viewTypeName)
+		}
+		
+		extraAnalyticsInfo["content"] = contentForAnalytics
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {

@@ -53,18 +53,10 @@ internal extension VGSShow {
 	/// - Parameter view: `VGSViewProtocol` object, view to get type name.
 	/// - Returns: `String?`, view type name.
 	func viewTypeName(for view: VGSViewProtocol) -> String? {
-		if #available(iOS 11.0, *) {
-			if view is VGSPDFView {
-				return "pdf"
-			}
-		} else {
-			// Fallback on earlier versions
+		guard let view = view as? VGSBaseViewProtocol else {
+			return nil
 		}
 
-		if view is VGSLabel {
-			return "text"
-		}
-
-		return nil
+		return view.model.viewType.analyticsName
 	}
 }

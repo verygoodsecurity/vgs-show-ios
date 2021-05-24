@@ -27,6 +27,9 @@ internal protocol VGSShowPdfViewModelProtocol: VGSViewModelProtocol {
 /// `VGSShowPdfViewModel` holds pdf view model logic.
 internal class VGSShowPdfViewModel: VGSShowPdfViewModelProtocol {
 
+	/// View type.
+	let viewType: VGSShowViewType = .pdf
+
 	/// Reference to binded view.
 	weak var view: VGSBaseViewProtocol?
 
