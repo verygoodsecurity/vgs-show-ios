@@ -9,14 +9,14 @@ internal extension VGSShow {
 	/// Track subscribe event for view.
 	/// - Parameter view: `VGSViewProtocol` view to track.
 	func trackSubscribeEvent(for view: VGSViewProtocol) {
-		let extraData = extraData(for: view)
+		let extraData = analyticsExtraData(for: view)
 		VGSAnalyticsClient.shared.trackFormEvent(self, type: .fieldInit, extraData: extraData)
 	}
 
 	/// Track unsubscribe event for view.
 	/// - Parameter view: `VGSViewProtocol` view to track.
 	func trackUnsubscribeEvent(for view: VGSViewProtocol) {
-		let extraData = extraData(for: view)
+		let extraData = analyticsExtraData(for: view)
 		VGSAnalyticsClient.shared.trackFormEvent(self, type: .fieldUnsubscibe, extraData: extraData)
 	}
   
@@ -25,7 +25,7 @@ internal extension VGSShow {
   func trackSubscribedViewConfigurationEvent(for view: VGSViewProtocol) {
     if let label = view as? VGSLabel {
       trackSubscribedLabelConfigurationEvent(for: label)
-    }
+		}
   }
   
   /// Track subscribed label configuration settings.
@@ -40,7 +40,7 @@ internal extension VGSShow {
 	/// View analytics extra data.
 	/// - Parameter view: `VGSViewProtocol` object.
 	/// - Returns: `[String: Any]` object, view extra data analytics.
-	func extraData(for view: VGSViewProtocol) -> [String: Any] {
+	func analyticsExtraData(for view: VGSViewProtocol) -> [String: Any] {
 		var extraData: [String: Any] = ["contentPath": view.contentPath as Any]
 		if let viewTypeName = viewTypeName(for: view) {
 			extraData["field"] = viewTypeName
