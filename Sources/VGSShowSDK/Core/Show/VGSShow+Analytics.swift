@@ -53,10 +53,10 @@ internal extension VGSShow {
 	/// - Parameter view: `VGSViewProtocol` object, view to get type name.
 	/// - Returns: `String?`, view type name.
 	func viewTypeName(for view: VGSViewProtocol) -> String? {
-		guard let view = view as? VGSBaseViewProtocol else {
+		guard let baseView = view as? VGSBaseViewProtocol else {
 			return nil
 		}
 
-		return view.model.viewType.analyticsName
+		return baseView.model.viewType.analyticsName
 	}
 }
