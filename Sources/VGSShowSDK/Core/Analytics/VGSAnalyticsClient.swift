@@ -96,13 +96,15 @@ public class VGSAnalyticsClient {
 	}
 
 	/// :nodoc: Base function to Track analytics event
-	public func trackEvent(_ type: VGSAnalyticsEventType, status: AnalyticEventStatus = .success, extraData: [String: Any]? = nil) {
+	public func trackEvent(_ type: VGSAnalyticsEventType, status: AnalyticEventStatus? = .success, extraData: [String: Any]? = nil) {
 		var data = [String: Any]()
 		if let extraData = extraData {
 			data = extraData
 		}
 		data["type"] = type.rawValue
-		data["status"] = status.rawValue
+		if let eventStatus = status {
+			data["status"] = eventStatus.rawValue
+		}
 		data["ua"] = VGSAnalyticsClient.userAgentData
 		data["version"] = Utils.vgsShowVersion
 		data["source"] = Constants.Metadata.source

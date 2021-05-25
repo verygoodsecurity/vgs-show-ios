@@ -185,6 +185,18 @@ extension VGSShow {
 			content.append("custom_header")
 		}
 
+		switch apiClient.hostURLPolicy {
+		case .customHostURL(let status):
+			switch status {
+			case .resolved, .isResolving:
+				content.append("custom_hostname")
+			default:
+				break
+			}
+		default:
+			break
+		}
+
 		return content
 	}
 }

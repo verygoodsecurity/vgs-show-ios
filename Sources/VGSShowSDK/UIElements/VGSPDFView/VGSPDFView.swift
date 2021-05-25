@@ -105,6 +105,9 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			return
 		}
 
+		let extraData: [String: Any] = ["field" : model.viewType.analyticsName]
+		VGSAnalyticsClient.shared.trackEvent(.contentSharing, status: nil, extraData: extraData)
+
 		let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
 
 		if let popoverController = activityController.popoverPresentationController {
