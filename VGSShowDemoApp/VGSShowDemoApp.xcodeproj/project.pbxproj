@@ -30,7 +30,6 @@
 		44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D42636962D00ECEA77 /* CollectViewController.swift */; };
 		44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */; };
 		44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F534DE2636965E00ECEA77 /* Main.storyboard */; };
-		44F534FB2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534FA2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift */; };
 		44F535022636CC5700ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */; };
 		44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */; };
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
@@ -98,7 +97,6 @@
 		44F534D52636962D00ECEA77 /* ShowDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoViewController.swift; sourceTree = "<group>"; };
 		44F534DE2636965E00ECEA77 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppPDFFileTest.swift; sourceTree = "<group>"; };
-		44F534FA2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPDFFlowTestCase.swift; sourceTree = "<group>"; };
 		44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoPDFViewController.swift; sourceTree = "<group>"; };
 		44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -294,7 +292,6 @@
 			isa = PBXGroup;
 			children = (
 				44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */,
-				44F534FA2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift */,
 			);
 			path = PDFFileUseCase;
 			sourceTree = "<group>";
@@ -553,7 +550,6 @@
 				44A15BA3259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift in Sources */,
 				44A15B74259B4D7000CB6654 /* VGSUITestElement.swift in Sources */,
 				44A15B81259B4F0400CB6654 /* XCTestCase+Extensions.swift in Sources */,
-				44F534FB2636C2B100ECEA77 /* VGSPDFFlowTestCase.swift in Sources */,
 				44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */,
 				44F535022636CC5700ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */,
 				44A15B7C259B4DDD00CB6654 /* VGSUITestElementType.swift in Sources */,

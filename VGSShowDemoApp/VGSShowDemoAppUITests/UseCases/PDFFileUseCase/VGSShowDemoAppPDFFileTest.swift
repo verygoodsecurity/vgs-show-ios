@@ -46,7 +46,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		Buttons.show.find(in: app).tap()
 
 		// Wait for data to reveal.
-		wait(forTimeInterval: 8)
+		wait(forTimeInterval: 50)
 
 		// Check title label for revealed state.
 		XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
@@ -60,8 +60,13 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		// Tap to share.
 		Buttons.sharePDF.find(in: app).tap()
 
+		// iPad displays sharing activity via pop over, cannot find access to pop over buttons yet.
+		guard UIDevice.current.userInterfaceIdiom == .phone else {
+			return
+		}
+
 		// Wait for activity view screen to appear.
-		wait(forTimeInterval: 5)
+		wait(forTimeInterval: 10)
 
 		// Check if print button is available in sharing activity screen.
 		XCTAssertTrue(Buttons.print.find(in: app).exists)
