@@ -28,7 +28,13 @@ extension VGSShow {
 
 		// Content analytics.
 		var extraAnalyticsInfo = [String: Any]()
-		extraAnalyticsInfo["content"] = contentForAnalytics(from: payload)
+
+		var analyticsData = contentForAnalytics(from: payload)
+		for viewTypeName in viewTypeAnalyticsNames {
+			analyticsData.append(viewTypeName)
+		}
+		
+		extraAnalyticsInfo["content"] = analyticsData
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
@@ -177,6 +183,18 @@ extension VGSShow {
 		}
 		if !(customHeaders?.isEmpty ?? true) {
 			content.append("custom_header")
+		}
+
+		switch apiClient.hostURLPolicy {
+		case .customHostURL(let status):
+			switch status {
+			case .resolved, .isResolving:
+				content.append("custom_hostname")
+			default:
+				break
+			}
+		default:
+			break
 		}
 
 		return content
