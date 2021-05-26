@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Format for raw decoded data.
+/// Defines how to decode raw data.
 internal enum VGSShowResponseDecodingFormat {
 
 	/**

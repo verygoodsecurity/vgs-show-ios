@@ -16,6 +16,8 @@ public enum VGSAnalyticsEventType: String {
   case copy = "Copy to clipboard click"
 	case fieldUnsubscibe = "UnsubscribeField"
   case setSecureTextRange = "SetSecureTextRange"
+	case contentRendering = "ContentRendering"
+	case contentSharing = "ContentSharing"
 }
 
 /// Client responsably for managing and sending VGS Show SDK analytics events.
@@ -94,13 +96,15 @@ public class VGSAnalyticsClient {
 	}
 
 	/// :nodoc: Base function to Track analytics event
-	public func trackEvent(_ type: VGSAnalyticsEventType, status: AnalyticEventStatus = .success, extraData: [String: Any]? = nil) {
+	public func trackEvent(_ type: VGSAnalyticsEventType, status: AnalyticEventStatus? = .success, extraData: [String: Any]? = nil) {
 		var data = [String: Any]()
 		if let extraData = extraData {
 			data = extraData
 		}
 		data["type"] = type.rawValue
-		data["status"] = status.rawValue
+		if let eventStatus = status {
+			data["status"] = eventStatus.rawValue
+		}
 		data["ua"] = VGSAnalyticsClient.userAgentData
 		data["version"] = Utils.vgsShowVersion
 		data["source"] = Constants.Metadata.source

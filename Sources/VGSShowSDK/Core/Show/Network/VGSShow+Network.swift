@@ -18,16 +18,23 @@ extension VGSShow {
 	- path: Inbound rout path for your organization vault.
 	- method: HTTPMethod, default is `.post`.
 	- payload: `VGSJSONData?` object, default is `nil`. Should be valid JSON.
+	- requestOptions: `VGSShowRequestOptions?` object, additional request options, default is `nil`.
 	- completion: `VGSResponse` completion block. The completion handler to call when the load request is complete.
 
 	- Note:
 	Errors can be returned in the `NSURLErrorDomain` and `VGSShowSDKErrorDomain`.
 	*/
-	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, completion block: @escaping (VGSShowRequestResult) -> Void) {
+	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, requestOptions: VGSShowRequestOptions? = nil, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		// Content analytics.
 		var extraAnalyticsInfo = [String: Any]()
-		extraAnalyticsInfo["content"] = contentForAnalytics(from: payload)
+
+		var analyticsData = contentForAnalytics(from: payload)
+		for viewTypeName in viewTypeAnalyticsNames {
+			analyticsData.append(viewTypeName)
+		}
+		
+		extraAnalyticsInfo["content"] = analyticsData
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
@@ -42,7 +49,7 @@ extension VGSShow {
 		let event = VGSLogEvent(level: .info, text: "Start json request")
 		logEvent(event)
 
-		apiClient.sendRequestWithJSON(path: path, method: method, value: payload ) {[weak self] (requestResult) in
+		apiClient.sendRequestWithJSON(path: path, method: method, value: payload, requestOptions: requestOptions) {[weak self] (requestResult) in
 
 			guard let strongSelf = self else {return}
 
@@ -108,15 +115,18 @@ extension VGSShow {
 
 		var unrevealedContentPaths = [String]()
 		revealModels.forEach { model in
-			// Reveal data.
-			let decoder = VGSDataDecoderFactory.provideDecorder(for: model.decodingContentMode)
-			let decodingResult = decoder.decodeJSONForContentPath(model.decodingContentPath, json: json)
+			if let decoder = VGSDataDecoderFactory.provideJSONDecorder(for: model.decodingContentMode) {
+				let decodingResult = decoder.decodeJSONForContentPath(model.decodingContentPath, json: json)
 
-			// Update models with decoding result.
-			model.handleDecodingResult(decodingResult)
+				// Update models with decoding result.
+				model.handleDecodingResult(decodingResult)
 
-			// Collect unrevealed contentPaths.
-			if decodingResult.error != nil {
+				// Collect unrevealed contentPaths.
+				if decodingResult.error != nil {
+					unrevealedContentPaths.append(model.decodingContentPath)
+				}
+			} else {
+				// Log! Cannot provide JSON decoder for model!
 				unrevealedContentPaths.append(model.decodingContentPath)
 			}
 		}
@@ -173,6 +183,18 @@ extension VGSShow {
 		}
 		if !(customHeaders?.isEmpty ?? true) {
 			content.append("custom_header")
+		}
+
+		switch apiClient.hostURLPolicy {
+		case .customHostURL(let status):
+			switch status {
+			case .resolved, .isResolving:
+				content.append("custom_hostname")
+			default:
+				break
+			}
+		default:
+			break
 		}
 
 		return content

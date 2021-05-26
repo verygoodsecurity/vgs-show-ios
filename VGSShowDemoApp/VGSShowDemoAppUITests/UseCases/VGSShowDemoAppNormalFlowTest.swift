@@ -9,6 +9,9 @@ import XCTest
 class VGSShowDemoAppNormalFlowTest: VGSBaseRegularFlowTestCase {
 
 	func testCorrectDataFlow() {
+		// Navigate to Card Data use case.
+		navigateToCardDataUseCase()
+
 		// Open collect screen.
 		navigateToCollectScreen()
 
@@ -44,6 +47,9 @@ class VGSShowDemoAppNormalFlowTest: VGSBaseRegularFlowTestCase {
 	}
 
 	func testErrorFlow() {
+		// Navigate to Card Data use case.
+		navigateToCardDataUseCase()
+
 		// Open collect screen.
 		navigateToCollectScreen()
 

@@ -34,6 +34,25 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 		static let collect: VGSUITestElement = .init(type: .button, identifier: "VGSShowDemoApp.TabBar.TabButton.Collect")
 	}
 
+	/// Demo app use cases.
+	enum UseCases {
+		/// Show card data use case flow cell.
+		static let showCardData = "Show Collected Card Data"
+
+		/// Show pdf use case flow cell.
+		static let showPDF = "Show Collected PDF"
+	}
+
+	/// Navigate to Card Data use case.
+	func navigateToCardDataUseCase() {
+		app.tables.staticTexts[UseCases.showCardData].tap()
+	}
+
+	/// Navigate to PDF use case.
+	func navigateToPDFUseCase() {
+		app.tables.staticTexts[UseCases.showPDF].tap()
+	}
+
 	/// Start app and navigate to specific tab.
 	func navigateToTab(identifier tabAccessebilityIdentifier: String) {
 		let tabItem = VGSUITestElement(type: .button, identifier: tabAccessebilityIdentifier)

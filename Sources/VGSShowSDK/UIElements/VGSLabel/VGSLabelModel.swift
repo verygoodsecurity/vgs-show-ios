@@ -23,8 +23,11 @@ internal protocol VGSViewModelProtocol {
 	/// - Parameter result: `VGSShowDecodingResult` object.
 	func handleDecodingResult(_ result: VGSShowDecodingResult)
 
-  /// View, that should be managed by model
+  /// View, that should be managed by model.
 	var view: VGSBaseViewProtocol? { get set }
+
+	/// View type.
+	var viewType: VGSShowViewType { get }
 }
 
 /// Protocol describing VGS Show Label ViewModel.
@@ -41,6 +44,9 @@ internal protocol VGSLabelViewModelProtocol: VGSViewModelProtocol {
 
 internal class VGSLabelModel: VGSLabelViewModelProtocol {
 
+	/// View type.
+	let viewType: VGSShowViewType = .text
+
   weak var view: VGSBaseViewProtocol?
 
 	var decodingContentPath: String = ""
@@ -53,7 +59,10 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 		}
 	}
 
+	/// On change completion block.
 	var onValueChanged: ((String?) -> Void)?
+
+	/// On error completion block.
 	var onError: ((VGSShowError) -> Void)?
 
 	func handleDecodingResult(_ result: VGSShowDecodingResult) {
@@ -62,6 +71,8 @@ internal class VGSLabelModel: VGSLabelViewModelProtocol {
 			switch content {
 			case .text(let text):
 				self.value = text
+			case .rawData(_):
+				break
 			}
 		case .failure(let error):
 			onError?(error)

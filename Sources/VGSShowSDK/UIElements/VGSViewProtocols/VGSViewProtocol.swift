@@ -16,7 +16,28 @@ public protocol VGSViewProtocol: UIView {
   var contentPath: String! { get set }
 }
 
+/// Internal VGSView protocol.
 internal protocol VGSBaseViewProtocol: UIView {
 	var model: VGSViewModelProtocol { get }
 	var vgsShow: VGSShow? {get set}
+}
+
+/// Defines view type.
+internal enum VGSShowViewType {
+
+	/// Text content (VGSLabel)
+	case text
+
+	/// Pdf (VGSPdfView)
+	case pdf
+
+	/// Name for analytics.
+	internal var analyticsName: String {
+		switch self {
+		case .text:
+			return "text"
+		case .pdf:
+			return "pdf"
+		}
+	}
 }
