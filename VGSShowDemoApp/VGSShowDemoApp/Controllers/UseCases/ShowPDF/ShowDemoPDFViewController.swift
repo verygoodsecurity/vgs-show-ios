@@ -15,7 +15,6 @@ class ShowDemoPDFViewController: UIViewController {
 	@IBOutlet fileprivate weak var revealButton: UIButton!
 	@IBOutlet fileprivate weak var innerTitleLabel: UILabel!
 	@IBOutlet fileprivate weak var innerLabel: UILabel!
-	@IBOutlet fileprivate weak var shareButton: UIButton!
 
 	// MARK: - Vars
 
@@ -46,7 +45,6 @@ class ShowDemoPDFViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		shareButton.isHidden = true
 		setupRevealButtonUI()
 		setupPdfView()
 
@@ -89,23 +87,12 @@ class ShowDemoPDFViewController: UIViewController {
 	fileprivate func setupIdentifiers() {
 		revealButton.accessibilityIdentifier = "VGSShowDemoApp.ShowPDFScreen.ShowButton"
 		pdfView.accessibilityIdentifier = "VGSShowDemoApp.ShowPDFScreen.VGSPDFView"
-		shareButton.accessibilityIdentifier = "VGSShowDemoApp.ShowPDFScreen.SharePDFButton"
 	}
 
 	// MARK: - Actions
 
 	@objc fileprivate func handleTap() {
 		removeBlurView()
-	}
-
-	@IBAction fileprivate func sharePDF(_ sender: UIButton) {
-		if pdfView.hasDocument {
-			pdfView.sharePDF(from: self, completion: {activity, isCompleted, error in
-				if isCompleted && error == nil {
-					print("PDF has been shared to activity: \(activity?.rawValue ?? "Uknown activity")")
-				}
-			})
-		}
 	}
 
 	@IBAction fileprivate func revealPdf(_ sender: UIButton) {
@@ -132,7 +119,6 @@ extension ShowDemoPDFViewController: VGSPDFViewDelegate {
 	func documentDidChange(in pdfView: VGSPDFView) {
 		if self.pdfView === pdfView {
 			innerTitleLabel.text = "REVEALED"
-			shareButton.isHidden = false
 			addBlurView()
 		}
 	}
