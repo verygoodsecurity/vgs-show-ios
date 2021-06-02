@@ -12,9 +12,6 @@ import PDFKit
 @available(iOS 11.0, *)
 public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
-	/// VGSPDFView sharing completion block. Holds selected activity, sharing completion status and error info.
-	public typealias VGSPDFViewSharingCompletion = (UIActivity.ActivityType?, Bool, Error?) -> Void
-
 	// MARK: - Public Vars
 
 	/// The object that acts as the delegate of the `VGSPDFView`.
@@ -77,58 +74,6 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		get {
 			return model.decodingContentPath
 		}
-	}
-
-	/// Share PDF using `UIActivityViewController` from view controller.
-	/// - Parameter viewController: `UIViewController` object, controller to present sharing `UIActivityViewController` screen.
-	/// - Parameter completion: `VGSPDFViewSharingCompletion?` object, completion block triggered on sharing activity and holds sharing status, default is `nil`.
-	public func sharePDF(from viewController: UIViewController, completion: VGSPDFViewSharingCompletion? = nil) {
-		guard let data = maskedPdfView.secureDocument?.dataRepresentation() else {
-			let errorText = "No pdf data to share."
-			logWarningEventWithText(errorText)
-			return
-		}
-
-		var fileURL: URL?
-		do {
-				let filename = UUID().uuidString + ".pdf"
-				let tmpDirectory = FileManager.default.temporaryDirectory
-				fileURL = tmpDirectory.appendingPathComponent(filename)
-				try data.write(to: fileURL!)
-		} catch {
-			completion?(nil, false, error)
-			logWarningEventWithText("Cannot create tmp PDF file, error: \(error.localizedDescription).")
-			return
-		}
-
-		guard let url = fileURL else {
-			return
-		}
-
-		let extraData: [String: Any] = ["field" : model.viewType.analyticsName]
-		VGSAnalyticsClient.shared.trackEvent(.contentSharing, status: nil, extraData: extraData)
-
-		let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-
-		if let popoverController = activityController.popoverPresentationController {
-			popoverController.sourceView = viewController.view //to set the source of your alert
-			popoverController.sourceRect = CGRect(x: viewController.view.bounds.midX, y: viewController.view.bounds.midY, width: 0, height: 0) // you can set this as per your requirement.
-			popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
-		}
-
-		activityController.completionWithItemsHandler = { activity, isCompleted, items, error in
-			if isCompleted {
-				
-				self.logInfoEventWithText("PDF has been shared to \(activity?.rawValue ?? "Ulnown activity")")
-				completion?(activity, true, error)
-			} else {
-				self.logWarningEventWithText("PDF sharing has been failed with error \(error?.localizedDescription ?? "Uknown error") to activity: \(activity?.rawValue ?? "Activity is not specified or selected")")
-				completion?(activity, false, error)
-			}
-			VGSPDFView.deleteTempFile(pdfFile: url)
-		}
-
-		viewController.present(activityController, animated: true)
 	}
 
 	/// A Boolean value determines whether the view has document.

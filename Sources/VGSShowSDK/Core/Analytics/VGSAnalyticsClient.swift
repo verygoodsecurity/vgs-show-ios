@@ -17,7 +17,6 @@ public enum VGSAnalyticsEventType: String {
 	case fieldUnsubscibe = "UnsubscribeField"
   case setSecureTextRange = "SetSecureTextRange"
 	case contentRendering = "ContentRendering"
-	case contentSharing = "ContentSharing"
 }
 
 /// Client responsably for managing and sending VGS Show SDK analytics events.

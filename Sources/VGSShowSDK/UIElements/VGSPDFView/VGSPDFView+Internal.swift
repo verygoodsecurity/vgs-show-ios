@@ -61,26 +61,4 @@ internal extension VGSPDFView {
 	func logEvent(_ event: VGSLogEvent) {
 		VGSLogger.shared.forwardLogEvent(event)
 	}
-
-	/// Delete PDF file with specified URL in tmp directory.
-	/// - Parameter url: `URL` object, file URL to delete.
-	static func deleteTempFile(pdfFile url: URL) {
-			let predicate = NSPredicate(format: "self ENDSWITH '.pdf'")
-			let defaultFileManager = FileManager.default
-
-			do {
-					let tmpDirURL = defaultFileManager.temporaryDirectory
-					let contents = try defaultFileManager.contentsOfDirectory(atPath: tmpDirURL.path)
-					let pdfs = contents.filter { predicate.evaluate(with: $0) }
-					try pdfs.forEach { file in
-							let fileUrl = tmpDirURL.appendingPathComponent(file)
-						if fileUrl == url {
-							try defaultFileManager.removeItem(at: fileUrl)
-						}
-					}
-			} catch {
-				let event = VGSLogEvent(level: .info, text: "Failed to delete temp PDF", severityLevel: .warning)
-				VGSLogger.shared.forwardLogEvent(event)
-			}
-	}
 }
