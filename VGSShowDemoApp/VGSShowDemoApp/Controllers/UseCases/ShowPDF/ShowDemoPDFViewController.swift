@@ -24,7 +24,7 @@ class ShowDemoPDFViewController: UIViewController {
 	let tapGestureRecognizer = UITapGestureRecognizer()
 
 	lazy var blurEffectView: UIVisualEffectView = {
-		let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.prominent)
+		let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
 		let blurEffectView = UIVisualEffectView(effect: blurEffect)
 		
 		return blurEffectView
@@ -118,7 +118,8 @@ class ShowDemoPDFViewController: UIViewController {
 extension ShowDemoPDFViewController: VGSPDFViewDelegate {
 	func documentDidChange(in pdfView: VGSPDFView) {
 		if self.pdfView === pdfView {
-			innerTitleLabel.text = "REVEALED"
+			innerTitleLabel.text = "REVEALED. TAP ON VIEW TO REMOVE BLUR."
+			innerLabel.adjustsFontSizeToFitWidth = true
 			addBlurView()
 		}
 	}

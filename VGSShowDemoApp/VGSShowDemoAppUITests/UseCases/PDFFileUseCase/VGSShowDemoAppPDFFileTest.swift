@@ -31,7 +31,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		static let unrevealedTitleLabel = VGSUITestElement(type: .label, identifier: "INPUT")
 
 		/// Revealed title label.
-		static let revealedTitleLabel = VGSUITestElement(type: .label, identifier: "REVEALED")
+		static let revealedTitleLabel = VGSUITestElement(type: .label, identifier: "REVEALED. TAP ON VIEW TO REMOVE BLUR.".)
 	}
 
 	/// Test reveal PDF flow.
