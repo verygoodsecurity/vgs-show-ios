@@ -26,7 +26,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 		static let unrevealedTitleLabel = VGSUITestElement(type: .label, identifier: "INPUT")
 
 		/// Revealed title label.
-		static let revealedTitleLabel = VGSUITestElement(type: .label, identifier: "REVEALED. TAP ON VIEW TO REMOVE BLUR.".)
+		static let revealedTitleLabel = VGSUITestElement(type: .label, identifier: "REVEALED. TAP ON VIEW TO REMOVE BLUR.")
 	}
 
 	/// Test reveal PDF flow.
@@ -45,11 +45,5 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 
 		// Check title label for revealed state.
 		XCTAssert(Labels.revealedTitleLabel.find(in: app).exists)
-
-		// Check share button is visible.
-		XCTAssert(Buttons.sharePDF.find(in: app).exists)
-
-		// Tap to remove blurred view and show share pdf.
-		Views.pdfView.find(in: app).tap()
 	}
 }
