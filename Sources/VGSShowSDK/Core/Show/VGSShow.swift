@@ -32,8 +32,16 @@ public final class VGSShow {
 	internal var hasViewModels: Bool {
 		return !subscribedViews.isEmpty
 	}
+
+	/// Array of subscribed view type analytics names.
+	internal var viewTypeAnalyticsNames: [String] {
+		let allSubscribedViewTypes = subscribedViews.map({$0.model.viewType.analyticsName})
+		let removedDuplications = Array(Set(allSubscribedViewTypes))
+
+		return removedDuplications
+	}
   
-  ///  Returns an array of view models form subscribed vgs views.
+  /// Returns an array of view models form subscribed vgs views.
   internal var subscribedViewModels: [VGSViewModelProtocol] {
     return subscribedViews.map({return $0.model})
   }
@@ -43,6 +51,12 @@ public final class VGSShow {
   /// Returns an Array of `VGSLabel` objects subscribed to specific `VGSShow` instance.
 	public var subscribedLabels: [VGSLabel] {
 		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
+	}
+
+	/// Returns an Array of `VGSPDFView` objects subscribed to specific `VGSShow` instance.
+	@available(iOS 11.0, *)
+	public var subscribedPDFViews: [VGSPDFView] {
+		return subscribedViews.compactMap({return $0.model.view as? VGSPDFView})
 	}
   
 	// MARK: - Custom HTTP Headers
