@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSErrorType Enumeration Reference</title>
+    <title>VGSPDFView Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Enum/VGSErrorType" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/VGSPDFView" class="dashAnchor"></a>
 
-    <a title="VGSErrorType Enumeration Reference"></a>
+    <a title="VGSPDFView Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">VGSShowSDK Reference</a>
       <img class="carat" src="../img/carat.png" />
-      VGSErrorType Enumeration Reference
+      VGSPDFView Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -152,18 +152,19 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>VGSErrorType</h1>
+            <h1>VGSPDFView</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mf">11.0</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSPDFView</span> <span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">VGSShowPdfViewProtocol</span></code></pre>
 
                 </div>
               </div>
-            <p>Type of <code>VGSError</code> and it status code.</p>
+            <p>An object that displays revealed pdf data.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L11-L81">Show on GitHub</a>
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L13-L150">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -171,13 +172,22 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Vars"></a>
+                <a name="//apple_ref/swift/Section/Public Vars" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Vars"></a>
+                  <h3 class="section-name"><p>Public Vars</p>
+</h3>
+                </div>
+              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO018unexpectedResponseD0yA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/unexpectedResponseType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO018unexpectedResponseD0yA2CmF">unexpectedResponseType</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC8delegateAA0C8Delegate_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC8delegateAA0C8Delegate_pSgvp">delegate</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -185,19 +195,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When response type is not supported.</p>
+                        <p>The object that acts as the delegate of the <code>VGSPDFView</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedResponseType</span> <span class="o">=</span> <span class="mi">1400</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VGSPDFViewDelegate.html">VGSPDFViewDelegate</a></span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L14">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L18">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -205,9 +215,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO28unexpectedResponseDataFormatyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/unexpectedResponseDataFormat" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO28unexpectedResponseDataFormatyA2CmF">unexpectedResponseDataFormat</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC14pdfDisplayModeSo010PDFDisplayF0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/pdfDisplayMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC14pdfDisplayModeSo010PDFDisplayF0Vvp">pdfDisplayMode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,19 +225,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When reponse data format is not supported.</p>
+                        <p>Pdf display mode, default is <code>.singlePageContinuous</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedResponseDataFormat</span> <span class="o">=</span> <span class="mi">1401</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pdfDisplayMode</span><span class="p">:</span> <span class="kt">PDFDisplayMode</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L17">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L21-L25">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -235,9 +245,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO21responseIsInvalidJSONyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/responseIsInvalidJSON" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO21responseIsInvalidJSONyA2CmF">responseIsInvalidJSON</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC19pdfDisplayDirectionSo010PDFDisplayF0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/pdfDisplayDirection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC19pdfDisplayDirectionSo010PDFDisplayF0Vvp">pdfDisplayDirection</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -245,19 +255,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When response cannot be decoded to json.</p>
+                        <p>PDf layout direction, either vertical or horizontal for the given display mode, default is <code>.vertical</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">responseIsInvalidJSON</span> <span class="o">=</span> <span class="mi">1402</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pdfDisplayDirection</span><span class="p">:</span> <span class="kt">PDFDisplayDirection</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L20">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L28-L32">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -265,9 +275,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO13fieldNotFoundyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/fieldNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO13fieldNotFoundyA2CmF">fieldNotFound</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC13pdfAutoScalesSbvp"></a>
+                    <a name="//apple_ref/swift/Property/pdfAutoScales" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC13pdfAutoScalesSbvp">pdfAutoScales</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -275,19 +285,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When field cannot be found in specified path.</p>
+                        <p>A boolean value indicating whether pdf is autoscaling, default is <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fieldNotFound</span> <span class="o">=</span> <span class="mi">1403</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pdfAutoScales</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L23">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L35-L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -295,9 +305,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO18invalidJSONPayloadyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidJSONPayload" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO18invalidJSONPayloadyA2CmF">invalidJSONPayload</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC13displayAsBookSbvp"></a>
+                    <a name="//apple_ref/swift/Property/displayAsBook" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC13displayAsBookSbvp">displayAsBook</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -305,19 +315,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When payload is invalid JSON.</p>
+                        <p>A Boolean value determines whether the view will display the first page as a book cover (meaningful only when the document is in two-up or two-up continuous display mode).</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidJSONPayload</span> <span class="o">=</span> <span class="mi">1404</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">displayAsBook</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L26">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L42-L46">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -325,9 +335,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO17invalidBase64DatayA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidBase64Data" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO17invalidBase64DatayA2CmF">invalidBase64Data</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC18pdfBackgroundColorSo7UIColorCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/pdfBackgroundColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC18pdfBackgroundColorSo7UIColorCSgvp">pdfBackgroundColor</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -335,19 +345,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When base64 data is invalid.</p>
+                        <p>Background color of pdf viewer. Default is <code>gray</code> with 50% opacity.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidBase64Data</span> <span class="o">=</span> <span class="mi">1405</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pdfBackgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L29">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L49-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -355,9 +365,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO14invalidPDFDatayA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidPDFData" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO14invalidPDFDatayA2CmF">invalidPDFData</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC18pageShadowsEnabledSbvp"></a>
+                    <a name="//apple_ref/swift/Property/pageShadowsEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC18pageShadowsEnabledSbvp">pageShadowsEnabled</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -365,19 +375,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When PDF data is invalid.</p>
+                        <p>Determines if shadows should be drawn around page borders in a pdfView, default is <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidPDFData</span> <span class="o">=</span> <span class="mi">1406</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">pageShadowsEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L32">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L56-L64">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -385,9 +395,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK12VGSErrorTypeO23invalidConfigurationURLyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/invalidConfigurationURL" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO23invalidConfigurationURLyA2CmF">invalidConfigurationURL</a>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC11contentPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/contentPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC11contentPathSSSgvp">contentPath</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -395,19 +405,49 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When VGS config URL is not valid.</p>
+                        <p>Name that will be associated with <code>VGSPDFView</code> and used as a decoding contentPath on request response with revealed data from your organization vault.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidConfigurationURL</span> <span class="o">=</span> <span class="mi">1480</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">contentPath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L35">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L67-L77">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK10VGSPDFViewC11hasDocumentSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hasDocument" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK10VGSPDFViewC11hasDocumentSbvp">hasDocument</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean value determines whether the view has document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hasDocument</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFView.swift#L80-L82">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
