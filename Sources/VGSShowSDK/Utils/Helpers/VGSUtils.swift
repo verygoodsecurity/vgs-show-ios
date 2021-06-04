@@ -20,13 +20,7 @@ func deepMerge(_ d1: [String: Any], _ d2: [String: Any]) -> [String: Any] {
 
 internal class Utils {
 
-  /// VGS Show SDK Version
-  static let vgsShowVersion: String = {
-      guard let vgsInfo = Bundle(for: Utils.self).infoDictionary,
-          let build = vgsInfo["CFBundleShortVersionString"]
-          else {
-              return "Unknown"
-      }
-      return "\(build)"
-  }()
+  /// VGS Show SDK Version.
+	/// Necessary since SPM doesn't track info plist correctly: https://forums.swift.org/t/add-info-plist-on-spm-bundle/40274/5
+	static let vgsShowVersion = "1.1.0"
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 /// Interface to implement by data decoders.
-internal protocol VGSShowDecoderProtocol {
+internal protocol VGSShowJSONDecoderProtocol {
 	func decodeJSONForContentPath(_ contentPath: String, json: VGSJSONData) -> VGSShowDecodingResult
 }
 
@@ -16,11 +16,19 @@ internal protocol VGSShowDecoderProtocol {
 internal final class VGSDataDecoderFactory {
 	/// Provides decoder for specific decoding.
 	/// - Parameter decoder: `VGSShowDataDecoding` object. Decoding type.
-	/// - Returns: Decoder object implementing `VGSShowDecoderProtocol` interface.
-	static func provideDecorder( for decoder: VGSShowDecodingContentMode) -> VGSShowDecoderProtocol {
-		switch decoder {
+	/// - Returns: Decoder object implementing `provideJSONDecorder` interface.
+	internal static func provideJSONDecorder(for contentMode: VGSShowDecodingContentMode) -> VGSShowJSONDecoderProtocol? {
+		switch contentMode {
 		case .text:
 			return VGSShowTextDecoder()
+		case .pdf(let pdfFormat):
+			switch pdfFormat {
+			case .rawData(let rawDataFormat):
+				switch rawDataFormat {
+				case .base64:
+					return VGSShowBase64Decoder()
+				}
+			}
 		}
 	}
 }

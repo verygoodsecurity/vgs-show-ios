@@ -18,6 +18,9 @@ final class DemoAppConfig {
   var payload: [String: Any] {
     return [payloadKey: payloadValue]
   }
+
+	var pdfFilePayload: [String: Any] = [:]
+
   /// Shared instance
   static let shared = DemoAppConfig()
 
@@ -42,6 +45,7 @@ final class DemoAppConfig {
 
 			self.vaultId = dictionary["vaultID"] as? String ?? ""
 			self.path =  dictionary["path"] as? String ?? ""
+			self.pdfFilePayload["pdf_file"] = dictionary["pdftoken"] as? String
 		}
 	}
 }
