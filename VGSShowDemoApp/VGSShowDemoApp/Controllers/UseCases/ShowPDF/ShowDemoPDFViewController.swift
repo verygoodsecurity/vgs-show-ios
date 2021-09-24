@@ -105,9 +105,10 @@ class ShowDemoPDFViewController: UIViewController {
 			switch result {
 			case .success(let code):
 				self?.revealButton.isEnabled = true
+        print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
 				self?.revealButton.isEnabled = true
-				print("vgsshow failed, code: \(code), error: \(error)")
+        print("vgsshow failed, code: \(code), error: \(String(describing: error))")
 			}
 		}
 	}
@@ -125,6 +126,6 @@ extension ShowDemoPDFViewController: VGSPDFViewDelegate {
 	}
 
 	func pdfView(_ pdfView: VGSPDFView, didFailWithError error: VGSShowError) {
-		print(error.localizedDescription ?? "uknown error")
+    print(error.localizedDescription )
 	}
 }
