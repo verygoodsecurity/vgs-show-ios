@@ -8,7 +8,7 @@ import Foundation
 /// Delegate methods produced by `VGSPDFView`.
 @available(iOS 11.0, *)
 @objc
-public protocol VGSPDFViewDelegate: class {
+public protocol VGSPDFViewDelegate {
 
 	/// Tells the delegate the document was displayed in view.
 	/// - Parameter pdfView: `VGSPDFView` view in which document was changed.
