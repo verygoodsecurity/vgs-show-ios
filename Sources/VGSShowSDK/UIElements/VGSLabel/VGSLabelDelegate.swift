@@ -12,7 +12,7 @@ import UIKit
 
 /// Delegate methods produced by `VGSLabel`.
 @objc
-public protocol VGSLabelDelegate: class {
+public protocol VGSLabelDelegate {
   
 	/// Tells the delegate when text changes in the specified label.
 	/// - Parameter label: `VGSLabel` view in which text was changed.

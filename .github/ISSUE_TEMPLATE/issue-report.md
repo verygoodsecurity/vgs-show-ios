@@ -3,6 +3,7 @@ name: Issue report
 about: Create a report to help us improve
 title: "[ISSUE]"
 labels: ''
+assignees: EugeneIOs
 ---
 
 **Describe the bug**
