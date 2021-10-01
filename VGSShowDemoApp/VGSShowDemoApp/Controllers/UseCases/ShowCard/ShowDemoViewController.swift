@@ -151,7 +151,7 @@ class ShowDemoViewController: UIViewController {
 				print("vgsshow success, code: \(code)")
 			case .failure(let code, let error):
 				self.showButton.isEnabled = true
-				print("vgsshow failed, code: \(code), error: \(error)")
+        print("vgsshow failed, code: \(code), error: \(String(describing: error))")
 			}
 		}
 	}

@@ -23,9 +23,16 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "VGSShowSDK",
-            dependencies: []),
+            dependencies: [],
+						exclude: [
+							"Info.plist",
+							"VGSShowSDK.h"
+					]),
         .testTarget(
             name: "VGSShowSDKTests",
-            dependencies: ["VGSShowSDK"])
+            dependencies: ["VGSShowSDK"],
+						exclude: [
+							"Info.plist"
+					])
     ]
 )
