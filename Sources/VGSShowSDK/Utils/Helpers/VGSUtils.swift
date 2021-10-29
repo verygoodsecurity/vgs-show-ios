@@ -22,5 +22,5 @@ internal class Utils {
 
   /// VGS Show SDK Version.
 	/// Necessary since SPM doesn't track info plist correctly: https://forums.swift.org/t/add-info-plist-on-spm-bundle/40274/5
-	static let vgsShowVersion = "1.1.1"
+	static let vgsShowVersion = "1.1.2"
 }
