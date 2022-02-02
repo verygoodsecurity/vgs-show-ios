@@ -35,25 +35,6 @@ jobs:
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.2'
             -destination 'platform=iOS Simulator,name=iPad Air (3rd generation),OS=13.7'
-  build-and-ui-test-demo-app-ios-11:
-    macos:
-      xcode: "11.0"
-    steps:
-      - checkout
-      - run:
-          name: Run UI Tests on iOS 11
-          command: >
-            cd VGSShowDemoApp &&
-            cd VGSShowDemoApp &&
-            cd Resources && plutil -insert pdftoken -string ${pdftoken} UITestsMockedData.plist &&
-            plutil -insert vaultID -string ${vaultID} UITestsMockedData.plist &&
-            plutil -insert path -string ${path} UITestsMockedData.plist &&
-            cd .. &&
-            cd .. &&
-            pod install && xcrun simctl list &&  xcrun instruments -w "iPhone X (11.4) [" || true &&
-            xcodebuild test -workspace VGSShowDemoApp.xcworkspace -scheme VGSShowDemoAppUITests
-            -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4'
 
 
 workflows:
@@ -62,4 +43,3 @@ workflows:
     jobs:
       - build-and-test-sdk
       - build-and-ui-test-demo-app-ios-13-14
-      - build-and-ui-test-demo-app-ios-11
