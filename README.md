@@ -60,9 +60,6 @@ dependencies: [
 ]
 ```
 
-> NOTE: Swift Packange Manager support still in beta testing.
-
-
 ## Usage
 
 ### Import SDK
