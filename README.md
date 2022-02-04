@@ -20,8 +20,7 @@ Table of contents
    * [Before you start](#before-you-start)
    * [Integration](#integration)
       * [CocoaPods](#cocoapods)
-      * [Carthage](#carthage)
-      * [Swift Package Manager](#swift-package-manager-xcode-12-beta) 
+      * [Swift Package Manager](#swift-package-manager-xcode-12) 
    * [Usage](#usage)
       * [Import SDK](#import-sdk)
       * [Create VGSShow instance and VGS UI Elements](#create-vgsshow-instance-and-vgs-ui-elements)
@@ -49,19 +48,7 @@ Sandbox vault will be pre-created for you. You should use your <vault id> and ha
 pod 'VGSShowSDK'
 ```
 
-### Carthage
-
-VGCollectSDK is also available through [Carthage](https://github.com/Carthage/Carthage).
-Add the following line  to your `Cartfile`:
-
-```ruby
-github "verygoodsecurity/vgs-show-ios"
-```
-
-Don't forget to import `VGSShowSDK.framework` into your project.
-
-
-### Swift Package Manager, Xcode 12+ (beta)
+### Swift Package Manager, Xcode 12+
 
 The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
 
@@ -72,9 +59,6 @@ dependencies: [
     .package(url: "https://github.com/verygoodsecurity/vgs-show-ios", .upToNextMajor(from: "1.0.0"))
 ]
 ```
-
-> NOTE: Swift Packange Manager support still in beta testing.
-
 
 ## Usage
 
