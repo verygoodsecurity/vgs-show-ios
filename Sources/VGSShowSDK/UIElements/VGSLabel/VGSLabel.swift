@@ -219,6 +219,30 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		didSet { setPlaceholderPaddings() }
 	}
 
+  /// A succinct label in a localized string that identifies the accessibility element.
+  public var labelAccessibilityLabel: String?
+  {
+    get {
+      return label.accessibilityLabel
+    }
+
+    set {
+      label.accessibilityLabel = newValue
+    }
+  }
+
+  /// A localized string that contains a brief description of the result of performing an action on the accessibility element.
+  public var labelAccessibilityHint: String?
+  {
+    get {
+      return label.accessibilityHint
+    }
+
+    set {
+      label.accessibilityHint = newValue
+    }
+  }
+
   /// `VGSLabel` text font.
 	public var font: UIFont? {
     get {
