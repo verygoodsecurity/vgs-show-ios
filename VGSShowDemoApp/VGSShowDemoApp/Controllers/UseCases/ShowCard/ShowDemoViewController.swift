@@ -93,6 +93,11 @@ class ShowDemoViewController: UIViewController {
     cardNumberLabel.isSecureText = true
     cardNumberLabel.setSecureText(ranges: [VGSTextRange(start: 5, end: 8),
                                            VGSTextRange(start: 10, end: 13)])
+
+//    cardNumberLabel.vgsAccessibilityLabel = "Card number"
+//    cardNumberLabel.vgsAccessibilityHint = "Tap to show card number"
+//    expDateLabel.vgsAccessibilityLabel = "Expiration date"
+//    cardHolderNameLabel.vgsAccessibilityLabel = "Cardholder"
     
     // Set placeholder text. Placeholder will appear until revealed text will be set in VGSLabel
     cardNumberLabel.placeholder = "XXXX XXXX XXXX XXXX"
