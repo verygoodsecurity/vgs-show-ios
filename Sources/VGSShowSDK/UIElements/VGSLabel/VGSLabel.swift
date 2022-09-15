@@ -220,7 +220,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	}
 
   /// A succinct label in a localized string that identifies the accessibility element.
-  public var labelAccessibilityLabel: String?
+  public var vgsAccessibilityLabel: String?
   {
     get {
       return label.accessibilityLabel
@@ -232,7 +232,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
   /// A localized string that contains a brief description of the result of performing an action on the accessibility element.
-  public var labelAccessibilityHint: String?
+  public var vgsAccessibilityHint: String?
   {
     get {
       return label.accessibilityHint
