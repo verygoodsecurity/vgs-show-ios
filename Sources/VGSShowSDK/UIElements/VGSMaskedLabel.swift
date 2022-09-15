@@ -59,4 +59,19 @@ internal class VGSMaskedLabel: VGSAttributedLabel {
 	internal var isEmpty: Bool {
 		return secureText?.isEmpty ?? true
 	}
+
+  override var accessibilityValue: String? {
+    get {
+      return super.accessibilityValue
+    }
+
+    set {
+      // Don't set accessibility value in UITests since UITest manager
+      // uses current accessibility value for text which won't match with
+      // secured masked text.
+      if !UIApplication.isRunningUITest {
+        super.accessibilityValue = newValue
+      }
+    }
+  }
 }
