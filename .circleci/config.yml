@@ -6,15 +6,15 @@ version: 2
 jobs:
   build-and-test-sdk:
     macos:
-      xcode: "12.5.1"
+      xcode: "13.0"
     steps:
       - checkout
       - run:
           name: Run Tests
           command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5'
-  build-and-ui-test-demo-app-ios-13-14:
+  build-and-ui-test-demo-app-ios-16:
     macos:
-      xcode: "12.5.1"
+      xcode: "13.0"
     steps:
       - checkout
       - run:
@@ -42,4 +42,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test-sdk
-      - build-and-ui-test-demo-app-ios-13-14
+      - build-and-ui-test-demo-app-ios-16
