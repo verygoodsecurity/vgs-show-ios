@@ -148,6 +148,7 @@
 		448F5632258742B70024E814 /* VGSHTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSHTTPMethod.swift; sourceTree = "<group>"; };
 		448F56382587438E0024E814 /* APIHostURLPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHostURLPolicy.swift; sourceTree = "<group>"; };
 		448F564325879F640024E814 /* APIHostnameValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHostnameValidatorTests.swift; sourceTree = "<group>"; };
+		44913EF528EB23E6006C871D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A474952588865F00534965 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		44A79F43255D0678009AF720 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		44A79F46255D0678009AF720 /* VGSShowRequestResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRequestResult.swift; sourceTree = "<group>"; };
@@ -169,7 +170,6 @@
 		44A79FB6255D06C6009AF720 /* VGSShowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowTests.swift; sourceTree = "<group>"; };
 		44A79FB7255D06C6009AF720 /* VGSShowTest+Subscribe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSShowTest+Subscribe.swift"; sourceTree = "<group>"; };
 		44A79FB9255D06C6009AF720 /* VGSJSONData+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSJSONData+Bundle.swift"; sourceTree = "<group>"; };
-		44A79FBA255D06C6009AF720 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A79FBC255D06C6009AF720 /* VGSShowRegexMaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRegexMaskTests.swift; sourceTree = "<group>"; };
 		44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSLabelTest.swift; sourceTree = "<group>"; };
 		44BAD6DB25C289460060A170 /* VGSLogEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLogEvent.swift; sourceTree = "<group>"; };
@@ -557,11 +557,11 @@
 		44A79FAB255D06C6009AF720 /* VGSShowSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				44913EF528EB23E6006C871D /* Info.plist */,
 				4485B516255D5A3B00EA0882 /* Resources */,
 				44A79FAC255D06C6009AF720 /* ParsingTests */,
 				44A79FB5255D06C6009AF720 /* VGSShowTests */,
 				44A79FB8255D06C6009AF720 /* Helpers */,
-				44A79FBA255D06C6009AF720 /* Info.plist */,
 				44A79FBB255D06C6009AF720 /* Masks */,
 				44A79FBD255D06C6009AF720 /* UIElements */,
 			);
@@ -1097,8 +1097,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
 				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_PREPROCESS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1119,7 +1122,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
+				INFOPLIST_PREPROCESS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
