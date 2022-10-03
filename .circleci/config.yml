@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run:
           name: Run Tests
-          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5'
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
   build-and-ui-test-demo-app-ios-16:
     macos:
       xcode: "14.0"
@@ -28,13 +28,13 @@ jobs:
             cd .. &&
             cd .. &&
             pod install &&
-            xcrun instruments -w "iPhone 12 (14.5) [" || true &&
-            xcrun instruments -w "iPad Air (4th generation) (13.7) [" || true &&
+            xcrun instruments -w "iPhone 13 (15.5) [" || true &&
+            xcrun instruments -w "iPad Air (5th generation) (16.0) [" || true &&
             xcodebuild test -workspace VGSShowDemoApp.xcworkspace
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5'
-            -destination 'platform=iOS Simulator,name=iPad Air (4th generation),OS=15.0'
+            -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
+            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.0'
 
 
 workflows:
