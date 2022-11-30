@@ -131,31 +131,40 @@ internal extension VGSLabel {
 		}
 
 		let pasteBoard = UIPasteboard.general
-
-		switch format {
-		case .raw:
-			pasteBoard.string = rawText
-
-			let eventText = "Raw text has been copied to clipboard!"
-			logInfoEventWithText(eventText)
-		case .transformed:
-			// Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
-			guard textFormattersContainer.hasFormatting else {
-				pasteBoard.string = rawText
-
-				let eventText = "Copy option is *formatted*, but no *formatted* is available. Raw text has been copied to clipboard!"
-				logInfoEventWithText(eventText)
-				return
-			}
-
-			// Copy transformed text.
-			let formattedText = textFormattersContainer.formatText(rawText)
-			pasteBoard.string = formattedText
-
-			let eventText = "Formatted text has been copied to clipboard!"
-			logInfoEventWithText(eventText)
-		}
+    if let text = provideTextForPasteboard(with: format) {
+      pasteBoard.string = text
+    }
 	}
+
+  func provideTextForPasteboard(with format: VGSLabel.CopyTextFormat) -> String? {
+    // Copy only non-empty text.
+    guard !isEmpty, let rawText = revealedRawText else {
+      return nil
+    }
+
+    switch format {
+    case .raw:
+      let eventText = "Raw text has been copied to clipboard!"
+      logInfoEventWithText(eventText)
+
+      return rawText
+    case .transformed:
+      // Copy raw displayed text if no transformation regex, but mark delegate action as `.formatted`.
+      guard textFormattersContainer.hasFormatting else {
+        let eventText = "Copy option is *formatted*, but no *formatted* is available. Raw text has been copied to clipboard!"
+        logInfoEventWithText(eventText)
+        return rawText
+      }
+
+      // Copy transformed text.
+      let formattedText = textFormattersContainer.formatText(rawText)
+
+      let eventText = "Formatted text has been copied to clipboard!"
+      logInfoEventWithText(eventText)
+
+      return formattedText
+    }
+  }
 
 	/// Update text and apply transformation regex if available.
   func updateTextAndMaskIfNeeded() {

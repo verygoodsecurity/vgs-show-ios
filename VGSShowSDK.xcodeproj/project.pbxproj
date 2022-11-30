@@ -88,6 +88,7 @@
 		44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05112256E49C400DDBE41 /* String+Exntesions.swift */; };
 		44E05119256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05114256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift */; };
 		44E0511A256E49C400DDBE41 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */; };
+		44E3FE842922AA81006A5ACF /* VGSLabelCopyPasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3FE832922AA81006A5ACF /* VGSLabelCopyPasteTests.swift */; };
 		44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */; };
 		44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -187,6 +188,7 @@
 		44E05112256E49C400DDBE41 /* String+Exntesions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Exntesions.swift"; sourceTree = "<group>"; };
 		44E05114256E49C400DDBE41 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		44E3FE832922AA81006A5ACF /* VGSLabelCopyPasteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelCopyPasteTests.swift; sourceTree = "<group>"; };
 		44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowAnalyticsSession.swift; sourceTree = "<group>"; };
 		44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -610,6 +612,7 @@
 		44A79FBD255D06C6009AF720 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				44E3FE822922AA63006A5ACF /* CopyPasteTests */,
 				44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */,
 				44BD54A92637F12F00B74947 /* VGSPDFViewTests.swift */,
 			);
@@ -636,6 +639,14 @@
 				44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */,
 			);
 			path = "UIKit+Extensions";
+			sourceTree = "<group>";
+		};
+		44E3FE822922AA63006A5ACF /* CopyPasteTests */ = {
+			isa = PBXGroup;
+			children = (
+				44E3FE832922AA81006A5ACF /* VGSLabelCopyPasteTests.swift */,
+			);
+			path = CopyPasteTests;
 			sourceTree = "<group>";
 		};
 		44E5DEF4256CEEA600FF22D9 /* Session */ = {
@@ -879,6 +890,7 @@
 			files = (
 				445FD82125E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift in Sources */,
 				44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */,
+				44E3FE842922AA81006A5ACF /* VGSLabelCopyPasteTests.swift in Sources */,
 				445FD82525E38EB200B36614 /* VGSShowBaseTestCase.swift in Sources */,
 				44A79FC6255D06C6009AF720 /* VGSShowTest+Subscribe.swift in Sources */,
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
