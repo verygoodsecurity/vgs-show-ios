@@ -3,7 +3,7 @@ name: Issue report
 about: Create a report to help us improve
 title: "[ISSUE]"
 labels: ''
-assignees: EugeneIOs
+assignees: dmytrokhl
 ---
 
 **Describe the bug**
@@ -29,7 +29,6 @@ If applicable, add screenshots to help explain your problem.
  - Device: [e.g. iPhone 6]
  - Dependency manager and it's version:
     - [ ] Cocoapods: [e.g.  1.9.1]
-    - [ ] Carthage: [e.g.  0.34.0]
 
 **Additional context**
 Add any other context about the problem here.
