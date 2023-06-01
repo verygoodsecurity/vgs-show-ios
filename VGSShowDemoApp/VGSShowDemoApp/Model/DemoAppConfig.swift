@@ -25,6 +25,8 @@ final class DemoAppConfig {
   static let shared = DemoAppConfig()
 
 	var collectPayload: [String: Any] = [:]
+    
+    var imageFilePayload: [String: Any] = [:]
   
   private init() {
 		// Setup test data for UITests only!

@@ -34,6 +34,8 @@
 		44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */; };
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
+		A05F84BA2A27C6DD00D61E6B /* ShowImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05F84B92A27C6DD00D61E6B /* ShowImage.storyboard */; };
+		A05F84BC2A27C97000D61E6B /* CollectImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05F84BB2A27C97000D61E6B /* CollectImageDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoPDFViewController.swift; sourceTree = "<group>"; };
 		44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A05F84B92A27C6DD00D61E6B /* ShowImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowImage.storyboard; sourceTree = "<group>"; };
+		A05F84BB2A27C97000D61E6B /* CollectImageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectImageDemoViewController.swift; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +225,7 @@
 				44F534DE2636965E00ECEA77 /* Main.storyboard */,
 				4444EEED255E6452002C9215 /* LaunchScreen.storyboard */,
 				44F534CB263695D300ECEA77 /* ShowFile.storyboard */,
+				A05F84B92A27C6DD00D61E6B /* ShowImage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			children = (
 				44F534D32636962D00ECEA77 /* ShowCard */,
 				44F535072636D07E00ECEA77 /* ShowPDF */,
+				A05F84B82A27B85000D61E6B /* ShowImage */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -313,6 +319,14 @@
 				FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A05F84B82A27B85000D61E6B /* ShowImage */ = {
+			isa = PBXGroup;
+			children = (
+				A05F84BB2A27C97000D61E6B /* CollectImageDemoViewController.swift */,
+			);
+			path = ShowImage;
 			sourceTree = "<group>";
 		};
 		D2D807564E6A7C1CC5CD8FBC /* Frameworks */ = {
@@ -437,6 +451,7 @@
 				44F534CC263695D300ECEA77 /* ShowFile.storyboard in Resources */,
 				44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */,
 				442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */,
+				A05F84BA2A27C6DD00D61E6B /* ShowImage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +544,7 @@
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
 				4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */,
+				A05F84BC2A27C97000D61E6B /* CollectImageDemoViewController.swift in Sources */,
 				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
 				44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */,
 				44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */,
@@ -695,6 +711,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7S7622HN85;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -720,6 +737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7S7622HN85;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
