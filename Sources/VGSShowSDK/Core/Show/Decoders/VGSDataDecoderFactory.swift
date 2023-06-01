@@ -29,6 +29,14 @@ internal final class VGSDataDecoderFactory {
 					return VGSShowBase64Decoder()
 				}
 			}
+        case .image(let imageFormat):
+            switch imageFormat {
+            case .rawData(let rawDataFormat):
+                switch rawDataFormat {
+                case .base64:
+                    return VGSShowBase64Decoder()
+                }
+            }
 		}
 	}
 }

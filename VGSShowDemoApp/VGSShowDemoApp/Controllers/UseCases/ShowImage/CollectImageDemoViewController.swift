@@ -9,7 +9,7 @@ import VGSCollectSDK
 class CollectImageDemoViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet fileprivate weak var stateLabel: UILabel!
     
     // MARK: - Properties
     private var pickerController: VGSFilePickerController?
