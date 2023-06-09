@@ -35,6 +35,7 @@
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 		A0230C142A28DF480005B147 /* ShowImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0230C132A28DF480005B147 /* ShowImageDemoViewController.swift */; };
+		A039116A2A33C29D00FB2625 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A03911682A33C29700FB2625 /* README.md */; };
 		A05F84BA2A27C6DD00D61E6B /* ShowImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05F84B92A27C6DD00D61E6B /* ShowImage.storyboard */; };
 		A05F84BC2A27C97000D61E6B /* CollectImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05F84BB2A27C97000D61E6B /* CollectImageDemoViewController.swift */; };
 		A09138CF2A32A6CA008F4660 /* VGSShowImageDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09138CE2A32A6CA008F4660 /* VGSShowImageDemoTests.swift */; };
@@ -105,6 +106,7 @@
 		44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A0230C132A28DF480005B147 /* ShowImageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageDemoViewController.swift; sourceTree = "<group>"; };
+		A03911682A33C29700FB2625 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A05F84B92A27C6DD00D61E6B /* ShowImage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowImage.storyboard; sourceTree = "<group>"; };
 		A05F84BB2A27C97000D61E6B /* CollectImageDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectImageDemoViewController.swift; sourceTree = "<group>"; };
 		A09138CE2A32A6CA008F4660 /* VGSShowImageDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowImageDemoTests.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		A05F84B82A27B85000D61E6B /* ShowImage */ = {
 			isa = PBXGroup;
 			children = (
+				A03911682A33C29700FB2625 /* README.md */,
 				A05F84BB2A27C97000D61E6B /* CollectImageDemoViewController.swift */,
 				A0230C132A28DF480005B147 /* ShowImageDemoViewController.swift */,
 			);
@@ -465,6 +468,7 @@
 				44F534CC263695D300ECEA77 /* ShowFile.storyboard in Resources */,
 				44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */,
 				442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */,
+				A039116A2A33C29D00FB2625 /* README.md in Resources */,
 				A05F84BA2A27C6DD00D61E6B /* ShowImage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
