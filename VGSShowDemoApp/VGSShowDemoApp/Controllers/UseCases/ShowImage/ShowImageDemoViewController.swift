@@ -17,6 +17,12 @@ class ShowImageDemoViewController: UIViewController {
     // MARK: - Properties
     private let imageView = VGSImageView()
     private let vgsShow = VGSShow(id: DemoAppConfig.shared.vaultId, environment: .sandbox)
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+    private lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        return blurEffectView
+    }()
     
     // MARK: - View life cycle
     override func viewDidLoad() {
@@ -27,9 +33,9 @@ class ShowImageDemoViewController: UIViewController {
         
         vgsShow.subscribe(imageView)
         
-        //                if UIApplication.isRunningUITest {
-        //                    setupIdentifiers()
-        //                }
+        if UIApplication.isRunningUITest {
+            setupIdentifiers()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +68,19 @@ class ShowImageDemoViewController: UIViewController {
         }
     }
     
+    @objc fileprivate func handleTap() {
+        removeBlurView()
+    }
+    
     // MARK: - Private methods
+    private func setupImageView() {
+        imageView.imageContentMode = .scaleAspectFit
+        imageView.backgroundColor = .lightGray
+        stackView.addArrangedSubview(imageView)
+        imageView.contentPath = "json.image_file"
+        imageView.delegate = self
+    }
+    
     private func setupRevealButton() {
         revealButton.setTitle("REVEAL", for: .normal)
         revealButton.setTitleColor(.white, for: .normal)
@@ -70,14 +88,23 @@ class ShowImageDemoViewController: UIViewController {
         revealButton.setTitle("LOADING...", for: .disabled)
         revealButton.setTitleColor(UIColor.white.withAlphaComponent(0.4), for: .disabled)
         
-        //        pdfView.addGestureRecognizer(tapGestureRecognizer)
-        //        tapGestureRecognizer.addTarget(self, action: #selector(handleTap))
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        tapGestureRecognizer.addTarget(self, action: #selector(handleTap))
     }
     
-    private func setupImageView() {
-        stackView.addArrangedSubview(imageView)
-        imageView.contentPath = "json.image_file"
-        imageView.delegate = self
+    private func addBlurView() {
+        blurEffectView.frame = imageView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        imageView.addSubview(blurEffectView)
+    }
+    
+    private func removeBlurView() {
+        blurEffectView.removeFromSuperview()
+    }
+    
+    fileprivate func setupIdentifiers() {
+        revealButton.accessibilityIdentifier = "VGSShowDemoApp.ShowImageScreen.ShowButton"
+        imageView.accessibilityIdentifier = "VGSShowDemoApp.ShowImageScreen.VGSImageView"
     }
 }
 
@@ -86,13 +113,13 @@ extension ShowImageDemoViewController: VGSImageViewDelegate {
     
     func imageDidChange(in imageView: VGSImageView) {
         if self.imageView === imageView {
-            //innerTitleLabel.text = "REVEALED. TAP ON VIEW TO REMOVE BLUR."
+            innerTitleLabel.text = "REVEALED. TAP ON VIEW TO REMOVE BLUR."
             innerLabel.adjustsFontSizeToFitWidth = true
-            //addBlurView()
+            addBlurView()
         }
     }
     
     func imageView(_ imageView: VGSImageView, didFailWithError error: VGSShowError) {
-        print(error.localizedDescription )
+        print(error.localizedDescription)
     }
 }

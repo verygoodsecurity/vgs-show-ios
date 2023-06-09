@@ -90,6 +90,15 @@
 		44E0511A256E49C400DDBE41 /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */; };
 		44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */; };
 		44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */; };
+		A03911582A33955A00FB2625 /* VGSImageView+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911522A33955900FB2625 /* VGSImageView+Internal.swift */; };
+		A03911592A33955A00FB2625 /* VGSImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911532A33955900FB2625 /* VGSImageViewModel.swift */; };
+		A039115A2A33955A00FB2625 /* VGSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911542A33955900FB2625 /* VGSImageView.swift */; };
+		A039115B2A33955A00FB2625 /* VGSSecureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911552A33955900FB2625 /* VGSSecureImageView.swift */; };
+		A039115C2A33955A00FB2625 /* VGSImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911562A33955900FB2625 /* VGSImageViewDelegate.swift */; };
+		A039115D2A33955A00FB2625 /* UIView+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911572A33955A00FB2625 /* UIView+Internal.swift */; };
+		A03911612A33965F00FB2625 /* VGSShowImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039115F2A33965F00FB2625 /* VGSShowImageFormat.swift */; };
+		A03911622A33965F00FB2625 /* VGSShowImageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911602A33965F00FB2625 /* VGSShowImageContent.swift */; };
+		A03911642A33969400FB2625 /* VGSShowRawDataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911632A33969400FB2625 /* VGSShowRawDataFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +198,15 @@
 		44E05115256E49C400DDBE41 /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowAnalyticsSession.swift; sourceTree = "<group>"; };
 		44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
+		A03911522A33955900FB2625 /* VGSImageView+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSImageView+Internal.swift"; sourceTree = "<group>"; };
+		A03911532A33955900FB2625 /* VGSImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageViewModel.swift; sourceTree = "<group>"; };
+		A03911542A33955900FB2625 /* VGSImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageView.swift; sourceTree = "<group>"; };
+		A03911552A33955900FB2625 /* VGSSecureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSSecureImageView.swift; sourceTree = "<group>"; };
+		A03911562A33955900FB2625 /* VGSImageViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageViewDelegate.swift; sourceTree = "<group>"; };
+		A03911572A33955A00FB2625 /* UIView+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Internal.swift"; sourceTree = "<group>"; };
+		A039115F2A33965F00FB2625 /* VGSShowImageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageFormat.swift; sourceTree = "<group>"; };
+		A03911602A33965F00FB2625 /* VGSShowImageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageContent.swift; sourceTree = "<group>"; };
+		A03911632A33969400FB2625 /* VGSShowRawDataFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,11 +249,11 @@
 		44168FD326329FAE0088E515 /* VGSPDFView */ = {
 			isa = PBXGroup;
 			children = (
-				44168FD926329FAE0088E515 /* VGSSecurePDFView */,
-				44168FD626329FAE0088E515 /* VGSPDFViewDelegate.swift */,
 				44168FD726329FAE0088E515 /* VGSPDFView.swift */,
 				44168FD826329FAE0088E515 /* VGSPDFView+Internal.swift */,
+				44168FD626329FAE0088E515 /* VGSPDFViewDelegate.swift */,
 				44168FDB26329FAE0088E515 /* VGSPdfViewModel.swift */,
+				44168FD926329FAE0088E515 /* VGSSecurePDFView */,
 			);
 			path = VGSPDFView;
 			sourceTree = "<group>";
@@ -251,8 +269,10 @@
 		44168FE62632A4480088E515 /* DecodingContentModes */ = {
 			isa = PBXGroup;
 			children = (
-				44168FE72632A4480088E515 /* PDFDecoding */,
 				44168FEE2632A4480088E515 /* VGSShowDecodingContentMode.swift */,
+				A03911632A33969400FB2625 /* VGSShowRawDataFormat.swift */,
+				A039115E2A33965F00FB2625 /* ImageDecoding */,
+				44168FE72632A4480088E515 /* PDFDecoding */,
 			);
 			path = DecodingContentModes;
 			sourceTree = "<group>";
@@ -260,8 +280,8 @@
 		44168FE72632A4480088E515 /* PDFDecoding */ = {
 			isa = PBXGroup;
 			children = (
-				44168FE92632A4480088E515 /* VGSShowPDFFormat.swift */,
 				44168FEA2632A4480088E515 /* VGSShowPDFContent.swift */,
+				44168FE92632A4480088E515 /* VGSShowPDFFormat.swift */,
 			);
 			path = PDFDecoding;
 			sourceTree = "<group>";
@@ -525,9 +545,11 @@
 		44A79F62255D0678009AF720 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				44F534E4263697D100ECEA77 /* VGSViewProtocols */,
-				44168FD326329FAE0088E515 /* VGSPDFView */,
+				A03911572A33955A00FB2625 /* UIView+Internal.swift */,
+				A03911512A33955900FB2625 /* VGSImageView */,
 				44A79F63255D0678009AF720 /* VGSLabel */,
+				44168FD326329FAE0088E515 /* VGSPDFView */,
+				44F534E4263697D100ECEA77 /* VGSViewProtocols */,
 				44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */,
 				441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */,
 				441963C02590C36100CAFBB3 /* VGSPlaceholderLabel.swift */,
@@ -538,9 +560,9 @@
 		44A79F63255D0678009AF720 /* VGSLabel */ = {
 			isa = PBXGroup;
 			children = (
+				44A79F66255D0678009AF720 /* VGSLabel.swift */,
 				44A79F64255D0678009AF720 /* VGSLabel+Internal.swift */,
 				44A79F65255D0678009AF720 /* VGSLabelDelegate.swift */,
-				44A79F66255D0678009AF720 /* VGSLabel.swift */,
 				44A79F67255D0678009AF720 /* VGSLabelModel.swift */,
 			);
 			path = VGSLabel;
@@ -652,6 +674,27 @@
 				44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */,
 			);
 			path = VGSViewProtocols;
+			sourceTree = "<group>";
+		};
+		A03911512A33955900FB2625 /* VGSImageView */ = {
+			isa = PBXGroup;
+			children = (
+				A03911542A33955900FB2625 /* VGSImageView.swift */,
+				A03911522A33955900FB2625 /* VGSImageView+Internal.swift */,
+				A03911562A33955900FB2625 /* VGSImageViewDelegate.swift */,
+				A03911532A33955900FB2625 /* VGSImageViewModel.swift */,
+				A03911552A33955900FB2625 /* VGSSecureImageView.swift */,
+			);
+			path = VGSImageView;
+			sourceTree = "<group>";
+		};
+		A039115E2A33965F00FB2625 /* ImageDecoding */ = {
+			isa = PBXGroup;
+			children = (
+				A03911602A33965F00FB2625 /* VGSShowImageContent.swift */,
+				A039115F2A33965F00FB2625 /* VGSShowImageFormat.swift */,
+			);
+			path = ImageDecoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -819,17 +862,23 @@
 				446DA63E2644191000DDBD5E /* VGSShowRequestOptions.swift in Sources */,
 				44168FE126329FAE0088E515 /* VGSPdfViewModel.swift in Sources */,
 				44168FE026329FAE0088E515 /* VGSSecurePDFView.swift in Sources */,
+				A03911582A33955A00FB2625 /* VGSImageView+Internal.swift in Sources */,
 				44168FF92632A4480088E515 /* VGSShowPDFFormat.swift in Sources */,
 				441690012632A4480088E515 /* VGSShowResponseDecodingFormat.swift in Sources */,
 				44BAD71325C3DF140060A170 /* VGSLoggingConfiguration.swift in Sources */,
 				4461083525639DEE006479FB /* VGSUtils.swift in Sources */,
 				44E05117256E49C400DDBE41 /* VGSJsonData+Extensions.swift in Sources */,
+				A03911592A33955A00FB2625 /* VGSImageViewModel.swift in Sources */,
 				44A79F83255D0678009AF720 /* VGSLabelModel.swift in Sources */,
 				44A79F7E255D0678009AF720 /* VGSErrorInfo.swift in Sources */,
 				441690022632A4480088E515 /* VGSShowDecodedContent.swift in Sources */,
+				A03911622A33965F00FB2625 /* VGSShowImageContent.swift in Sources */,
 				448F5633258742B70024E814 /* VGSHTTPMethod.swift in Sources */,
 				4416900E2632A6630088E515 /* VGSShowBase64Decoder.swift in Sources */,
+				A039115A2A33955A00FB2625 /* VGSImageView.swift in Sources */,
 				44BAD6EA25C28E6D0060A170 /* VGSReadWriteSafeContainer.swift in Sources */,
+				A03911612A33965F00FB2625 /* VGSShowImageFormat.swift in Sources */,
+				A039115D2A33955A00FB2625 /* UIView+Internal.swift in Sources */,
 				44A79F7F255D0678009AF720 /* VGSShowErrors.swift in Sources */,
 				44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */,
 				44A79F6F255D0678009AF720 /* VGSShow.swift in Sources */,
@@ -849,6 +898,7 @@
 				44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */,
 				44E0511A256E49C400DDBE41 /* UIDevice+Extensions.swift in Sources */,
 				448F56392587438E0024E814 /* APIHostURLPolicy.swift in Sources */,
+				A03911642A33969400FB2625 /* VGSShowRawDataFormat.swift in Sources */,
 				4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */,
 				44BAD72425C3F93A0060A170 /* VGSPrintingLogger.swift in Sources */,
 				44168FFD2632A4480088E515 /* VGSShowDecodingContentMode.swift in Sources */,
@@ -861,11 +911,13 @@
 				44BAD76425C445A70060A170 /* VGSShow+Logging.swift in Sources */,
 				448525C525829F8400721F73 /* VGSShowRequestLogger.swift in Sources */,
 				44BAD6E625C28DEC0060A170 /* VGSLogger.swift in Sources */,
+				A039115B2A33955A00FB2625 /* VGSSecureImageView.swift in Sources */,
 				44416C0C2642AC150099B48F /* FileManager+Extensions.swift in Sources */,
 				44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */,
 				44A79F80255D0678009AF720 /* VGSLabel+Internal.swift in Sources */,
 				4409318925B6B8FC00CAF065 /* UIApplication+Extensions.swift in Sources */,
 				44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */,
+				A039115C2A33955A00FB2625 /* VGSImageViewDelegate.swift in Sources */,
 				44A474962588865F00534965 /* URL+Extensions.swift in Sources */,
 				44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */,
 				44A79F6E255D0678009AF720 /* VGSShow+Utils.swift in Sources */,

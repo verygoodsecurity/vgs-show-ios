@@ -12,7 +12,7 @@ internal extension VGSImageView {
     
     /// Basic initialization & view setup.
     func mainInitialization() {
-        // Add UI elements
+        /// Add UI elements
         buildUI()
         
         /// Add listeners
@@ -31,11 +31,11 @@ internal extension VGSImageView {
     
     /// Setup subviews.
     func buildUI() {
-        maskedImageView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(maskedImageView)
-        maskedImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        maskedImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        maskedImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        maskedImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        baseImageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(baseImageView)
+        baseImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        baseImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        baseImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        baseImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }

@@ -90,7 +90,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		}
 	}
 
-	/// View model, hodls business logic.
+	/// View model, holds business logic.
 	internal var pdfViewModel: VGSShowPdfViewModelProtocol = VGSShowPdfViewModel()
 
 	/// Wrapper to support internal `VGSBaseViewProtocol`.
