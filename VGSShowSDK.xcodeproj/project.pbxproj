@@ -99,6 +99,7 @@
 		A03911612A33965F00FB2625 /* VGSShowImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039115F2A33965F00FB2625 /* VGSShowImageFormat.swift */; };
 		A03911622A33965F00FB2625 /* VGSShowImageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911602A33965F00FB2625 /* VGSShowImageContent.swift */; };
 		A03911642A33969400FB2625 /* VGSShowRawDataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911632A33969400FB2625 /* VGSShowRawDataFormat.swift */; };
+		A03911672A33A3CD00FB2625 /* VGSImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03911652A33A36A00FB2625 /* VGSImageViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +208,7 @@
 		A039115F2A33965F00FB2625 /* VGSShowImageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageFormat.swift; sourceTree = "<group>"; };
 		A03911602A33965F00FB2625 /* VGSShowImageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageContent.swift; sourceTree = "<group>"; };
 		A03911632A33969400FB2625 /* VGSShowRawDataFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataFormat.swift; sourceTree = "<group>"; };
+		A03911652A33A36A00FB2625 /* VGSImageViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSImageViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,6 +636,7 @@
 			children = (
 				44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */,
 				44BD54A92637F12F00B74947 /* VGSPDFViewTests.swift */,
+				A03911652A33A36A00FB2625 /* VGSImageViewTests.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -932,6 +935,7 @@
 				445FD82125E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift in Sources */,
 				44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */,
 				445FD82525E38EB200B36614 /* VGSShowBaseTestCase.swift in Sources */,
+				A03911672A33A3CD00FB2625 /* VGSImageViewTests.swift in Sources */,
 				44A79FC6255D06C6009AF720 /* VGSShowTest+Subscribe.swift in Sources */,
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
 				442F806125A5A80000CC04A2 /* VGSTextRangeTests.swift in Sources */,
@@ -1150,7 +1154,6 @@
 				DEVELOPMENT_TEAM = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
-				"INFOPLIST_FILE[sdk=*]" = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

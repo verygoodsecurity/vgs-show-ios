@@ -18,17 +18,22 @@ public final class VGSImageView: UIView, VGSImageViewProtocol {
         }
     }
     
+    /// A Boolean value determines whether the view has image.
+    public var hasImage: Bool {
+        return baseImageView.secureImage != nil
+    }
+    
     // MARK: - VGSViewProtocol implementation
     /// Name that will be associated with `VGSImageView` and used as a decoding contentPath on request response with revealed data from your organization vault.
     public var contentPath: String! {
+        get {
+            return model.decodingContentPath
+        }
         set {
             imageViewModel.decodingContentPath = newValue
             
             let eventText = "Set content path: \(newValue ?? "*nil*")"
             logInfoEventWithText(eventText)
-        }
-        get {
-            return model.decodingContentPath
         }
     }
     
@@ -57,7 +62,7 @@ public final class VGSImageView: UIView, VGSImageViewProtocol {
             if let content = revealedImageContent {
                 switch content {
                 case .rawData(let imageData):
-                    let extraData: [String: Any] = ["field" : model.viewType.analyticsName]
+                    let extraData: [String: Any] = ["field": model.viewType.analyticsName]
                     if let image = UIImage(data: imageData) {
                         baseImageView.secureImage = image
                         let eventText = "Image has been rendered from data."
@@ -78,13 +83,13 @@ public final class VGSImageView: UIView, VGSImageViewProtocol {
     }
     
     // MARK: - Initialization
-    ///:nodoc:
+    /// :nodoc:
     override init(frame: CGRect) {
         super.init(frame: frame)
         mainInitialization()
     }
     
-    ///:nodoc:
+    /// :nodoc:
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         mainInitialization()

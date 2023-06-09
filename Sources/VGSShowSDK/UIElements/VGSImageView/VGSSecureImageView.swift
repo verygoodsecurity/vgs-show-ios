@@ -12,26 +12,25 @@ internal class VGSSecureImageView: UIImageView {
     
     /// Secure image, for internal use only
     internal var secureImage: UIImage? {
-        set {
-            super.image = newValue
-        }
-
         get {
             return super.image
+        }
+        set {
+            super.image = newValue
         }
     }
     
     @available(*, deprecated, message: "Deprecated attribute.")
     override var image: UIImage? {
-        set {
-            secureImage = newValue
-        }
         get {
             if UIApplication.isRunningUITest {
                 return super.image
             } else {
                 return nil
             }
+        }
+        set {
+            secureImage = newValue
         }
     }
 }
