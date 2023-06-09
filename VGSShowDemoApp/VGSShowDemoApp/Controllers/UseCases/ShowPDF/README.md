@@ -18,7 +18,7 @@ Go to your <a href="https://dashboard.verygoodsecurity.com/" target="_blank">VGS
 <img src="images/dashboard_routs.png" width="600">
 </p>
 
--  Find the **configuration.yaml** file inside the app repository and download it.
+-  Find the **pdf_configuration.yaml** file inside the app repository and download it.
 -  Go to the **Routes** section on the <a href="https://dashboard.verygoodsecurity.com/" target="_blank">Dashboard</a> page and select the **Inbound** tab. 
 -  Press **Manage** button at the right corner and select **Import YAML file**.
 -  Choose **pdf_configuration.yaml** file that you just downloaded and tap on **Save** button to save the route.
