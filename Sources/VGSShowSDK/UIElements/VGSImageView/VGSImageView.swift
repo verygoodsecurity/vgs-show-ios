@@ -6,7 +6,7 @@ import Foundation
 #if canImport(UIKit)
 import UIKit
 #endif
-
+ 
 /// An object that displays revealed image data.
 public final class VGSImageView: UIView, VGSImageViewProtocol {
     
