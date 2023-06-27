@@ -73,7 +73,7 @@ public final class VGSImageView: UIView, VGSImageViewProtocol {
                     } else {
                         let eventText = "Image rendering did failed. Invalid image data."
                         logWarningEventWithText(eventText, severityLevel: .error)
-                        delegate?.imageView?(self, didFailWithError: VGSShowError(type: .invalidPDFData))
+                        delegate?.imageView?(self, didFailWithError: VGSShowError(type: .invalidImageData))
                         
                         VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .failed, extraData: extraData)
                     }

@@ -30,6 +30,9 @@ public enum VGSErrorType: Int {
 
 	/// When PDF data is invalid.
 	case invalidPDFData = 1406
+    
+    /// When Image data is invalid.
+    case invalidImageData = 1407
 
 	/// When VGS config URL is not valid.
 	case invalidConfigurationURL = 1480
@@ -52,6 +55,8 @@ public enum VGSErrorType: Int {
 			return "Payload is not valid base64 data"
 		case .invalidPDFData:
 			return "Cannot render PDF with invalid data"
+        case .invalidImageData:
+            return "Cannot render Image with invalid data"
 		case .invalidConfigurationURL:
 			return "VGS configuration URL is not valid"
 		}
@@ -74,6 +79,8 @@ public enum VGSErrorType: Int {
 			return "VGSSDKErrorInvalidBase64Data"
 		case .invalidPDFData:
 			return "VGSSDKErrorInvalidPDFData"
+        case .invalidImageData:
+            return "VGSSDKErrorInvalidImageData"
 		case .invalidConfigurationURL:
 			return "VGSSDKErrorInvalidConfigurationURL"
 		}
