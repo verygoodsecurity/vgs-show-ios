@@ -219,39 +219,88 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 		didSet { setPlaceholderPaddings() }
 	}
 
-  /// A succinct label in a localized string that identifies the accessibility element.
-  public var vgsAccessibilityLabel: String?
-  {
-    get {
-      return label.accessibilityLabel
+    // MARK: - Accessibility Attributes
+    /// A succinct label in a localized string that
+    /// identifies the accessibility element.
+    public var vgsAccessibilityLabel: String? {
+        get {
+            return label.accessibilityLabel
+        }
+        set {
+            label.accessibilityLabel = newValue
+            placeholderLabel.accessibilityLabel = label.accessibilityLabel
+        }
     }
 
-    set {
-      label.accessibilityLabel = newValue
+    /// A localized string that contains a brief description of the result of
+    /// performing an action on the accessibility element.
+    public var vgsAccessibilityHint: String? {
+        get {
+            return label.accessibilityHint
+        }
+        set {
+            label.accessibilityHint = newValue
+            placeholderLabel.accessibilityHint = label.accessibilityHint
+        }
     }
-  }
-
-  /// A localized string that contains a brief description of the result of performing an action on the accessibility element.
-  public var vgsAccessibilityHint: String?
-  {
-    get {
-      return label.accessibilityHint
+    
+    /// Boolean value that determinates if the text field should be exposed as
+    /// an accesibility element.
+    public var vgsIsAccessibilityElement: Bool {
+        get {
+            return label.isAccessibilityElement
+        }
+        set {
+            label.isAccessibilityElement = newValue
+            placeholderLabel.isAccessibilityElement = label.isAccessibilityElement
+        }
     }
-
-    set {
-      label.accessibilityHint = newValue
+    
+    /// A collection of accessibility trait masks that best describes the characterize
+    /// of the element. See `UIAccessibilityConstants.h` for a list of possible traits.
+    public var vgsAccessibilityTraits: UIAccessibilityTraits {
+        get {
+            return label.accessibilityTraits
+        }
+        set {
+            label.accessibilityTraits = newValue
+            placeholderLabel.accessibilityTraits = label.accessibilityTraits
+        }
     }
-  }
-
-  /// `VGSLabel` text font.
-	public var font: UIFont? {
-    get {
-        return label.font
+    
+    /// Localized string that represents the value of the element
+    public var vgsAccessibilityValue: String? {
+        get {
+            return label.accessibilityValue
+        }
+        set {
+            label.accessibilityValue = newValue
+            placeholderLabel.accessibilityValue = label.accessibilityValue
+        }
     }
-    set {
-      label.font = newValue
+    
+    /// Indicates whether `VGSLabel ` should automatically update its font
+    /// when the device’s `UIContentSizeCategory` is changed. It only works
+    /// automatically with dynamic fonts
+    public var vgsAdjustsFontForContentSizeCategory: Bool {
+        get {
+            return label.adjustsFontForContentSizeCategory
+        }
+        set {
+            label.adjustsFontForContentSizeCategory = newValue
+        }
     }
-  }
+    
+    /// `VGSLabel` text font. By default use default dynamic font style `.body` to update its size
+    /// automatically when the device’s `UIContentSizeCategory` changed.
+    public var font: UIFont? {
+        get {
+            return label.font
+        }
+        set {
+            label.font = newValue
+        }
+    }
 
 	/// Number of lines.
 	public var numberOfLines: Int {

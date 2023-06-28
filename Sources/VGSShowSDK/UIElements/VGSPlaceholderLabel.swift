@@ -58,6 +58,7 @@ internal class VGSAttributedLabel: UILabel {
 	func applyPlaceholderStyle(_ style: VGSPlaceholderLabelStyle) {
 		textColor = style.color
 		font = style.font
+        adjustsFontForContentSizeCategory = style.adjustsFontForContentSizeCategory
 		numberOfLines = style.numberOfLines
 		if let alignment = style.textAlignment {
 			textAlignment = alignment
