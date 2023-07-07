@@ -10,8 +10,8 @@ import UIKit
 
 final class DemoAppConfig {
   
-    var vaultId = "tnt7uybydmg"
-    var path = "post"
+  var vaultId = "VGS_TEST_VAULT_ID"
+  var path = "VGS_TEST_PATH"
   let payloadKey = "VGS_TEST_PAYLOAD_KEY"
   let payloadValue = "VGS_TEST_PAYLOAD_VALUE"
   
