@@ -34,6 +34,10 @@
 		44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */; };
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
+		A0A4EEA82A57A31300172678 /* ShowImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A4EEA72A57A31300172678 /* ShowImage.storyboard */; };
+		A0A4EEB82A57A4D500172678 /* CollectImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */; };
+		A0A4EEBB2A57A4D500172678 /* ShowImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */; };
+		A0A4EED32A57A8E800172678 /* VGSShowImageDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +104,10 @@
 		44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoPDFViewController.swift; sourceTree = "<group>"; };
 		44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A0A4EEA72A57A31300172678 /* ShowImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowImage.storyboard; sourceTree = "<group>"; };
+		A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectImageDemoViewController.swift; sourceTree = "<group>"; };
+		A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageDemoViewController.swift; sourceTree = "<group>"; };
+		A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageDemoTests.swift; sourceTree = "<group>"; };
 		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,6 +229,7 @@
 				44F534DE2636965E00ECEA77 /* Main.storyboard */,
 				4444EEED255E6452002C9215 /* LaunchScreen.storyboard */,
 				44F534CB263695D300ECEA77 /* ShowFile.storyboard */,
+				A0A4EEA72A57A31300172678 /* ShowImage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -263,6 +272,7 @@
 		44A15B8A259C648400CB6654 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				A0A4EED12A57A8E800172678 /* ImageFileUseCase */,
 				44F534F72636C25900ECEA77 /* PDFFileUseCase */,
 				44A15B8B259C64E600CB6654 /* VGSShowDemoAppNormalFlowTest.swift */,
 				44A15BA2259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift */,
@@ -273,6 +283,7 @@
 		44F534CF2636962D00ECEA77 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				A0A4EEA92A57A4D500172678 /* ShowImage */,
 				44F534D32636962D00ECEA77 /* ShowCard */,
 				44F535072636D07E00ECEA77 /* ShowPDF */,
 			);
@@ -313,6 +324,23 @@
 				FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A0A4EEA92A57A4D500172678 /* ShowImage */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */,
+				A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */,
+			);
+			path = ShowImage;
+			sourceTree = "<group>";
+		};
+		A0A4EED12A57A8E800172678 /* ImageFileUseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */,
+			);
+			path = ImageFileUseCase;
 			sourceTree = "<group>";
 		};
 		D2D807564E6A7C1CC5CD8FBC /* Frameworks */ = {
@@ -437,6 +465,7 @@
 				44F534CC263695D300ECEA77 /* ShowFile.storyboard in Resources */,
 				44F534DF2636965E00ECEA77 /* Main.storyboard in Resources */,
 				442F80B225ADB4BE00CC04A2 /* UITestsMockedData.plist in Resources */,
+				A0A4EEA82A57A31300172678 /* ShowImage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +558,9 @@
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
 				4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */,
+				A0A4EEB82A57A4D500172678 /* CollectImageDemoViewController.swift in Sources */,
 				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
+				A0A4EEBB2A57A4D500172678 /* ShowImageDemoViewController.swift in Sources */,
 				44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */,
 				44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */,
 			);
@@ -549,6 +580,7 @@
 			files = (
 				44A15BA3259DE9DC00CB6654 /* VGSBaseRegularFlowTestCase.swift in Sources */,
 				44A15B74259B4D7000CB6654 /* VGSUITestElement.swift in Sources */,
+				A0A4EED32A57A8E800172678 /* VGSShowImageDemoTests.swift in Sources */,
 				44A15B81259B4F0400CB6654 /* XCTestCase+Extensions.swift in Sources */,
 				44A15B92259C669200CB6654 /* XCUIElement+Extensions.swift in Sources */,
 				44F535022636CC5700ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */,

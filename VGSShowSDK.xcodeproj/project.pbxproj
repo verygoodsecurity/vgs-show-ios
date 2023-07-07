@@ -91,6 +91,16 @@
 		44E3FE842922AA81006A5ACF /* VGSLabelCopyPasteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E3FE832922AA81006A5ACF /* VGSLabelCopyPasteTests.swift */; };
 		44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */; };
 		44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */; };
+		A0A4EEC42A57A66D00172678 /* UIView+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEBD2A57A66D00172678 /* UIView+Internal.swift */; };
+		A0A4EEC52A57A66D00172678 /* VGSImageView+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEBF2A57A66D00172678 /* VGSImageView+Internal.swift */; };
+		A0A4EEC62A57A66D00172678 /* VGSImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEC02A57A66D00172678 /* VGSImageViewModel.swift */; };
+		A0A4EEC72A57A66D00172678 /* VGSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEC12A57A66D00172678 /* VGSImageView.swift */; };
+		A0A4EEC82A57A66D00172678 /* VGSSecureImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEC22A57A66D00172678 /* VGSSecureImageView.swift */; };
+		A0A4EEC92A57A66D00172678 /* VGSImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEC32A57A66D00172678 /* VGSImageViewDelegate.swift */; };
+		A0A4EECE2A57A76900172678 /* VGSShowImageFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EECB2A57A76900172678 /* VGSShowImageFormat.swift */; };
+		A0A4EECF2A57A76900172678 /* VGSShowImageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EECC2A57A76900172678 /* VGSShowImageContent.swift */; };
+		A0A4EED02A57A76900172678 /* VGSShowRawDataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EECD2A57A76900172678 /* VGSShowRawDataFormat.swift */; };
+		A0A4EED62A57AD3800172678 /* VGSImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EED42A57AAE900172678 /* VGSImageViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,6 +201,16 @@
 		44E3FE832922AA81006A5ACF /* VGSLabelCopyPasteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelCopyPasteTests.swift; sourceTree = "<group>"; };
 		44E5DEF5256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowAnalyticsSession.swift; sourceTree = "<group>"; };
 		44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSViewProtocol.swift; sourceTree = "<group>"; };
+		A0A4EEBD2A57A66D00172678 /* UIView+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Internal.swift"; sourceTree = "<group>"; };
+		A0A4EEBF2A57A66D00172678 /* VGSImageView+Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSImageView+Internal.swift"; sourceTree = "<group>"; };
+		A0A4EEC02A57A66D00172678 /* VGSImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageViewModel.swift; sourceTree = "<group>"; };
+		A0A4EEC12A57A66D00172678 /* VGSImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageView.swift; sourceTree = "<group>"; };
+		A0A4EEC22A57A66D00172678 /* VGSSecureImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSSecureImageView.swift; sourceTree = "<group>"; };
+		A0A4EEC32A57A66D00172678 /* VGSImageViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageViewDelegate.swift; sourceTree = "<group>"; };
+		A0A4EECB2A57A76900172678 /* VGSShowImageFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageFormat.swift; sourceTree = "<group>"; };
+		A0A4EECC2A57A76900172678 /* VGSShowImageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageContent.swift; sourceTree = "<group>"; };
+		A0A4EECD2A57A76900172678 /* VGSShowRawDataFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataFormat.swift; sourceTree = "<group>"; };
+		A0A4EED42A57AAE900172678 /* VGSImageViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,8 +273,10 @@
 		44168FE62632A4480088E515 /* DecodingContentModes */ = {
 			isa = PBXGroup;
 			children = (
+				A0A4EECA2A57A76900172678 /* ImageDecoding */,
 				44168FE72632A4480088E515 /* PDFDecoding */,
 				44168FEE2632A4480088E515 /* VGSShowDecodingContentMode.swift */,
+				A0A4EECD2A57A76900172678 /* VGSShowRawDataFormat.swift */,
 			);
 			path = DecodingContentModes;
 			sourceTree = "<group>";
@@ -527,6 +549,8 @@
 		44A79F62255D0678009AF720 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				A0A4EEBD2A57A66D00172678 /* UIView+Internal.swift */,
+				A0A4EEBE2A57A66D00172678 /* VGSImageView */,
 				44F534E4263697D100ECEA77 /* VGSViewProtocols */,
 				44168FD326329FAE0088E515 /* VGSPDFView */,
 				44A79F63255D0678009AF720 /* VGSLabel */,
@@ -615,6 +639,7 @@
 				44E3FE822922AA63006A5ACF /* CopyPasteTests */,
 				44A79FBE255D06C6009AF720 /* VGSLabelTest.swift */,
 				44BD54A92637F12F00B74947 /* VGSPDFViewTests.swift */,
+				A0A4EED42A57AAE900172678 /* VGSImageViewTests.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -663,6 +688,27 @@
 				44F534E5263697D100ECEA77 /* VGSViewProtocol.swift */,
 			);
 			path = VGSViewProtocols;
+			sourceTree = "<group>";
+		};
+		A0A4EEBE2A57A66D00172678 /* VGSImageView */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4EEBF2A57A66D00172678 /* VGSImageView+Internal.swift */,
+				A0A4EEC02A57A66D00172678 /* VGSImageViewModel.swift */,
+				A0A4EEC12A57A66D00172678 /* VGSImageView.swift */,
+				A0A4EEC22A57A66D00172678 /* VGSSecureImageView.swift */,
+				A0A4EEC32A57A66D00172678 /* VGSImageViewDelegate.swift */,
+			);
+			path = VGSImageView;
+			sourceTree = "<group>";
+		};
+		A0A4EECA2A57A76900172678 /* ImageDecoding */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4EECB2A57A76900172678 /* VGSShowImageFormat.swift */,
+				A0A4EECC2A57A76900172678 /* VGSShowImageContent.swift */,
+			);
+			path = ImageDecoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -819,6 +865,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A4EEC42A57A66D00172678 /* UIView+Internal.swift in Sources */,
 				44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */,
 				4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */,
 				44A79F6B255D0678009AF720 /* APIClient.swift in Sources */,
@@ -828,8 +875,10 @@
 				448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */,
 				441690002632A4480088E515 /* VGSDataDecoderFactory.swift in Sources */,
 				446DA63E2644191000DDBD5E /* VGSShowRequestOptions.swift in Sources */,
+				A0A4EEC92A57A66D00172678 /* VGSImageViewDelegate.swift in Sources */,
 				44168FE126329FAE0088E515 /* VGSPdfViewModel.swift in Sources */,
 				44168FE026329FAE0088E515 /* VGSSecurePDFView.swift in Sources */,
+				A0A4EEC52A57A66D00172678 /* VGSImageView+Internal.swift in Sources */,
 				44168FF92632A4480088E515 /* VGSShowPDFFormat.swift in Sources */,
 				441690012632A4480088E515 /* VGSShowResponseDecodingFormat.swift in Sources */,
 				44BAD71325C3DF140060A170 /* VGSLoggingConfiguration.swift in Sources */,
@@ -837,10 +886,12 @@
 				44E05117256E49C400DDBE41 /* VGSJsonData+Extensions.swift in Sources */,
 				44A79F83255D0678009AF720 /* VGSLabelModel.swift in Sources */,
 				44A79F7E255D0678009AF720 /* VGSErrorInfo.swift in Sources */,
+				A0A4EECF2A57A76900172678 /* VGSShowImageContent.swift in Sources */,
 				441690022632A4480088E515 /* VGSShowDecodedContent.swift in Sources */,
 				448F5633258742B70024E814 /* VGSHTTPMethod.swift in Sources */,
 				4416900E2632A6630088E515 /* VGSShowBase64Decoder.swift in Sources */,
 				44BAD6EA25C28E6D0060A170 /* VGSReadWriteSafeContainer.swift in Sources */,
+				A0A4EECE2A57A76900172678 /* VGSShowImageFormat.swift in Sources */,
 				44A79F7F255D0678009AF720 /* VGSShowErrors.swift in Sources */,
 				44E05116256E49C400DDBE41 /* Array+Extensions.swift in Sources */,
 				44A79F6F255D0678009AF720 /* VGSShow.swift in Sources */,
@@ -859,9 +910,12 @@
 				448F562F2587429F0024E814 /* APIHostnameValidator.swift in Sources */,
 				44E5DEF6256CEEB400FF22D9 /* VGSShowAnalyticsSession.swift in Sources */,
 				44E0511A256E49C400DDBE41 /* UIDevice+Extensions.swift in Sources */,
+				A0A4EEC82A57A66D00172678 /* VGSSecureImageView.swift in Sources */,
 				448F56392587438E0024E814 /* APIHostURLPolicy.swift in Sources */,
+				A0A4EED02A57A76900172678 /* VGSShowRawDataFormat.swift in Sources */,
 				4479E7822567A9720056350F /* VGSShow+Analytics.swift in Sources */,
 				44BAD72425C3F93A0060A170 /* VGSPrintingLogger.swift in Sources */,
+				A0A4EEC72A57A66D00172678 /* VGSImageView.swift in Sources */,
 				44168FFD2632A4480088E515 /* VGSShowDecodingContentMode.swift in Sources */,
 				448F5627258742460024E814 /* APICustomHostStatus.swift in Sources */,
 				441963C12590C36100CAFBB3 /* VGSPlaceholderLabel.swift in Sources */,
@@ -878,6 +932,7 @@
 				4409318925B6B8FC00CAF065 /* UIApplication+Extensions.swift in Sources */,
 				44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */,
 				44A474962588865F00534965 /* URL+Extensions.swift in Sources */,
+				A0A4EEC62A57A66D00172678 /* VGSImageViewModel.swift in Sources */,
 				44F534E6263697D100ECEA77 /* VGSViewProtocol.swift in Sources */,
 				44A79F6E255D0678009AF720 /* VGSShow+Utils.swift in Sources */,
 				448F5622258741A30024E814 /* APIRequestResult.swift in Sources */,
@@ -898,6 +953,7 @@
 				44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */,
 				44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */,
 				448F564425879F640024E814 /* APIHostnameValidatorTests.swift in Sources */,
+				A0A4EED62A57AD3800172678 /* VGSImageViewTests.swift in Sources */,
 				445FD81F25E38D8300B36614 /* VGSShowAPIClientSatelliteTests.swift in Sources */,
 				44A79FC4255D06C6009AF720 /* VGSJSONContentPathsTests.swift in Sources */,
 				445FD82025E38D8300B36614 /* VGSShow+SatelliteTests.swift in Sources */,

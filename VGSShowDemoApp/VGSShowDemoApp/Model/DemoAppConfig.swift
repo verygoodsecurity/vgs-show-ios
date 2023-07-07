@@ -10,8 +10,8 @@ import UIKit
 
 final class DemoAppConfig {
   
-  var vaultId = "VGS_TEST_VAULT_ID"
-  var path = "VGS_TEST_PATH"
+    var vaultId = "tnt7uybydmg"
+    var path = "post"
   let payloadKey = "VGS_TEST_PAYLOAD_KEY"
   let payloadValue = "VGS_TEST_PAYLOAD_VALUE"
   
@@ -25,6 +25,8 @@ final class DemoAppConfig {
   static let shared = DemoAppConfig()
 
 	var collectPayload: [String: Any] = [:]
+    
+    var imageFilePayload: [String: Any] = [:]
   
   private init() {
 		// Setup test data for UITests only!
@@ -46,6 +48,7 @@ final class DemoAppConfig {
 			self.vaultId = dictionary["vaultID"] as? String ?? ""
 			self.path =  dictionary["path"] as? String ?? ""
 			self.pdfFilePayload["pdf_file"] = dictionary["pdftoken"] as? String
+            self.imageFilePayload["image_file"] = dictionary["imagetoken"] as? String
 		}
 	}
 }

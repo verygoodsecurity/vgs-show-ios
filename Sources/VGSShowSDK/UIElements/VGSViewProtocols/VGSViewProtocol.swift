@@ -31,13 +31,18 @@ internal enum VGSShowViewType {
 	/// Pdf (VGSPdfView)
 	case pdf
 
-	/// Name for analytics.
+    /// Image (VGSImageView)
+    case image
+
+    /// Name for analytics.
 	internal var analyticsName: String {
 		switch self {
 		case .text:
 			return "text"
 		case .pdf:
 			return "pdf"
+        case .image:
+            return "image"
 		}
 	}
 }
