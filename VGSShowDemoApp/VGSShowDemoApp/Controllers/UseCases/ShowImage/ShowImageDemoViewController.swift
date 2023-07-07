@@ -28,6 +28,7 @@ class ShowImageDemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        innerTitleLabel.text = ""
         setupRevealButton()
         setupImageView()
         
@@ -48,23 +49,40 @@ class ShowImageDemoViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction private func revealImage(_ sender: UIButton) {
-        revealButton.isEnabled = false
-        
-        var options = VGSShowRequestOptions()
-        options.requestTimeoutInterval = 360
-        
-        vgsShow.request(path: "/post",
-                        method: .post,
-                        payload: DemoAppConfig.shared.imageFilePayload,
-                        requestOptions: options) { [weak self] result in
-            switch result {
-            case .success(let code):
-                self?.revealButton.isEnabled = true
-                print("vgsshow success, code: \(code)")
-            case .failure(let code, let error):
-                self?.revealButton.isEnabled = true
-                print("vgsshow failed, code: \(code), error: \(String(describing: error))")
+        if imageView.hasImage {
+            imageView.clear()
+            updateRevealButton()
+            innerTitleLabel.text = nil
+            innerLabel.adjustsFontSizeToFitWidth = true
+            removeBlurView()
+        } else {
+            revealButton.isEnabled = false
+            
+            var options = VGSShowRequestOptions()
+            options.requestTimeoutInterval = 360
+            
+            vgsShow.request(path: "/post",
+                            method: .post,
+                            payload: DemoAppConfig.shared.imageFilePayload,
+                            requestOptions: options) { [weak self] result in
+                switch result {
+                case .success(let code):
+                    self?.updateRevealButton()
+                    print("vgsshow success, code: \(code)")
+                case .failure(let code, let error):
+                    self?.updateRevealButton()
+                    print("vgsshow failed, code: \(code), error: \(String(describing: error))")
+                }
             }
+        }
+    }
+    
+    private func updateRevealButton() {
+        revealButton.isEnabled = true
+        if imageView.hasImage {
+            revealButton.setTitle("CLEAR", for: .normal)
+        } else {
+            revealButton.setTitle("REVEAL", for: .normal)
         }
     }
     

@@ -23,6 +23,11 @@ public final class VGSImageView: UIView, VGSImageViewProtocol {
         return baseImageView.secureImage != nil
     }
     
+    /// Remove previously reveled image
+    public func clear() {
+        baseImageView.secureImage = nil
+    }
+    
     // MARK: - VGSViewProtocol implementation
     /// Name that will be associated with `VGSImageView` and used as a decoding contentPath on request response with revealed data from your organization vault.
     public var contentPath: String! {

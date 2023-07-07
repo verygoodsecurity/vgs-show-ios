@@ -25,6 +25,20 @@ class VGSImageViewTests: XCTestCase {
         imageView.baseImageView.secureImage = nil
         XCTAssertFalse(imageView.hasImage)
         
+        // No has image
+        XCTAssertFalse(imageView.hasImage)
+        XCTAssertNil(imageView.baseImageView.secureImage)
+        
+        // Has image
+        imageView.baseImageView.secureImage = UIImage()
+        XCTAssertTrue(imageView.hasImage)
+        XCTAssertNotNil(imageView.baseImageView.secureImage)
+        
+        // Clear
+        imageView.clear()
+        XCTAssertFalse(imageView.hasImage)
+        XCTAssertNil(imageView.baseImageView.secureImage)
+        
         // Image access from child sub views
         imageView.baseImageView.secureImage = UIImage()
         let imageViewChild = imageView.subviews.filter { child in
