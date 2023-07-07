@@ -34,6 +34,7 @@
 		44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */; };
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
 		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
+		A0060F8A2A58A2F20060CE85 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0060F892A58A2F20060CE85 /* InitialViewController.swift */; };
 		A0A4EEA82A57A31300172678 /* ShowImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A4EEA72A57A31300172678 /* ShowImage.storyboard */; };
 		A0A4EEB82A57A4D500172678 /* CollectImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */; };
 		A0A4EEBB2A57A4D500172678 /* ShowImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */; };
@@ -104,6 +105,7 @@
 		44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoPDFViewController.swift; sourceTree = "<group>"; };
 		44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
 		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A0060F892A58A2F20060CE85 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		A0A4EEA72A57A31300172678 /* ShowImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowImage.storyboard; sourceTree = "<group>"; };
 		A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectImageDemoViewController.swift; sourceTree = "<group>"; };
 		A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageDemoViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		44F534CF2636962D00ECEA77 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				A0060F892A58A2F20060CE85 /* InitialViewController.swift */,
 				A0A4EEA92A57A4D500172678 /* ShowImage */,
 				44F534D32636962D00ECEA77 /* ShowCard */,
 				44F535072636D07E00ECEA77 /* ShowPDF */,
@@ -551,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				446CB7EE25626D5700E770F1 /* UIViewController+Extensions.swift in Sources */,
+				A0060F8A2A58A2F20060CE85 /* InitialViewController.swift in Sources */,
 				44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */,
 				4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */,
 				44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */,

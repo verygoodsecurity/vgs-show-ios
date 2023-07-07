@@ -33,7 +33,7 @@ final class DemoAppConfig {
 		setupMockedTestDataIfNeeded()
 	}
 
-	private func setupMockedTestDataIfNeeded() {
+	 func setupMockedTestDataIfNeeded() {
 		if UIApplication.isRunningUITest {
 			guard let path = Bundle.main.path(forResource: "UITestsMockedData", ofType: "plist") else {
 					print("Path not found")
