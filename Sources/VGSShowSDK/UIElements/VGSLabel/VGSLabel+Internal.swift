@@ -24,8 +24,6 @@ internal extension VGSLabel {
       buildUI()
       // setup accessibility
       vgsIsAccessibilityElement = true
-      // setup default dynamic font
-      setupDynamicFont()
 
       labelModel.onValueChanged = { [weak self](text) in
           self?.revealedRawText = text
@@ -36,12 +34,6 @@ internal extension VGSLabel {
 		  }
       labelModel.view = self
   }
-    
-    /// Use default dynamic font and update it automatically for accessibility
-    func setupDynamicFont() {
-        vgsAdjustsFontForContentSizeCategory = true
-        font = UIFont.preferredFont(forTextStyle: .body)
-    }
 
 	/// Default styles setup.
   func setDefaultStyle() {

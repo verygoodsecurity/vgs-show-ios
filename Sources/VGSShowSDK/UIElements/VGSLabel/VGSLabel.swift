@@ -288,6 +288,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
         }
         set {
             label.adjustsFontForContentSizeCategory = newValue
+            placeholderLabel.adjustsFontForContentSizeCategory = label.adjustsFontForContentSizeCategory
         }
     }
     
