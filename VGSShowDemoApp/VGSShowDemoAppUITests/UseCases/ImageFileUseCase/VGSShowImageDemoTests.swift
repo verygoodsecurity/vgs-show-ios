@@ -21,7 +21,7 @@ class VGSShowImageDemoTests: VGSShowDemoAppBaseTestCase {
     /// Labels
     enum Labels {
         /// Unrevealed title label.
-        static let unrevealedTitleLabel = VGSUITestElement(type: .label, identifier: "INPUT")
+        static let revealButton = VGSUITestElement(type: .button, identifier: "REVEAL")
 
         /// Revealed title label.
         static let revealedTitleLabel = VGSUITestElement(type: .label, identifier: "REVEALED. TAP ON VIEW TO REMOVE BLUR.")
@@ -33,7 +33,7 @@ class VGSShowImageDemoTests: VGSShowDemoAppBaseTestCase {
         navigateToImageUseCase()
 
         // Check unrevealed state.
-        XCTAssert(Labels.unrevealedTitleLabel.find(in: app).exists)
+        XCTAssert(Labels.revealButton.find(in: app).exists)
 
         // Tap on reveal button.
         Buttons.show.find(in: app).tap()
