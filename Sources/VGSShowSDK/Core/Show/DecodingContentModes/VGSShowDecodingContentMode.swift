@@ -1,9 +1,6 @@
 //
 //  VGSShowDecodingContentMode.swift
 //  VGSShow
-//
-//  Created by Eugene on 26.10.2020.
-//
 
 import Foundation
 
@@ -12,12 +9,12 @@ internal enum VGSShowDecodingContentMode {
 
 	/// Decode as text.
 	case text
-
-	/**
-	 Decode as PDF.
-
-	 - Parameters:
-		- pdfFormat: `VGSShowPDFFormat` object, specifies pdf format.
-	*/
+    
+    /// Decode as PDF
+    /// - Parameter pdfFormat: `VGSShowPDFFormat` object, specifies pdf format.
 	case pdf(_ pdfFormat: VGSShowPDFFormat)
+    
+    /// Decode as IMAGE
+    /// Parameter imageFormat: `VGSShowImageFormat` object, specifies image format.
+    case image(_ imageFormat: VGSShowImageFormat)
 }

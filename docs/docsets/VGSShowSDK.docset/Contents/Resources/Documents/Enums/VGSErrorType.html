@@ -54,6 +54,9 @@
             <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSImageView.html">VGSImageView</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/VGSLabel.html">VGSLabel</a>
               </li>
               <li class="nav-group-task">
@@ -61,6 +64,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/VGSLogger.html">VGSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSPDFView.html">VGSPDFView</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/VGSShow.html">VGSShow</a>
@@ -74,7 +80,7 @@
             <a class="nav-group-name-link" href="../Global%20Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Global%20Variables.html#/VGSShowSDKErrorDomain">VGSShowSDKErrorDomain</a>
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10VGSShowSDK0A14SDKErrorDomainSSvp">VGSShowSDKErrorDomain</a>
               </li>
             </ul>
           </li>
@@ -99,21 +105,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions.html#/APICustomHostStatus">APICustomHostStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions.html#/APIHostURLPolicy">APIHostURLPolicy</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSImageViewDelegate.html">VGSImageViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSPDFViewDelegate.html">VGSPDFViewDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a>
@@ -141,13 +142,13 @@
             <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/VGSErrorInfoKey">VGSErrorInfoKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK15VGSErrorInfoKeya">VGSErrorInfoKey</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/VGSHTTPHeaders">VGSHTTPHeaders</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK14VGSHTTPHeadersa">VGSHTTPHeaders</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/VGSJSONData">VGSJSONData</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a>
               </li>
             </ul>
           </li>
@@ -158,8 +159,18 @@
         <section class="section">
           <div class="section-content top-matter">
             <h1>VGSErrorType</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                </div>
+              </div>
             <p>Type of <code>VGSError</code> and it status code.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L11-L88">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -170,9 +181,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO018unexpectedResponseD0yA2CmF"></a>
                     <a name="//apple_ref/swift/Element/unexpectedResponseType" class="dashAnchor"></a>
-                    <a class="token" href="#/">unexpectedResponseType</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO018unexpectedResponseD0yA2CmF">unexpectedResponseType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -183,15 +194,26 @@
                         <p>When response type is not supported.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedResponseType</span> <span class="o">=</span> <span class="mi">1400</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L14">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO28unexpectedResponseDataFormatyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/unexpectedResponseDataFormat" class="dashAnchor"></a>
-                    <a class="token" href="#/">unexpectedResponseDataFormat</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO28unexpectedResponseDataFormatyA2CmF">unexpectedResponseDataFormat</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -202,15 +224,26 @@
                         <p>When reponse data format is not supported.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedResponseDataFormat</span> <span class="o">=</span> <span class="mi">1401</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L17">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO21responseIsInvalidJSONyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/responseIsInvalidJSON" class="dashAnchor"></a>
-                    <a class="token" href="#/">responseIsInvalidJSON</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO21responseIsInvalidJSONyA2CmF">responseIsInvalidJSON</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -221,15 +254,26 @@
                         <p>When response cannot be decoded to json.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">responseIsInvalidJSON</span> <span class="o">=</span> <span class="mi">1402</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L20">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO13fieldNotFoundyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/fieldNotFound" class="dashAnchor"></a>
-                    <a class="token" href="#/">fieldNotFound</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO13fieldNotFoundyA2CmF">fieldNotFound</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -240,15 +284,26 @@
                         <p>When field cannot be found in specified path.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fieldNotFound</span> <span class="o">=</span> <span class="mi">1403</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L23">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO18invalidJSONPayloadyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/invalidJSONPayload" class="dashAnchor"></a>
-                    <a class="token" href="#/">invalidJSONPayload</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO18invalidJSONPayloadyA2CmF">invalidJSONPayload</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -259,15 +314,26 @@
                         <p>When payload is invalid JSON.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidJSONPayload</span> <span class="o">=</span> <span class="mi">1404</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L26">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO17invalidBase64DatayA2CmF"></a>
                     <a name="//apple_ref/swift/Element/invalidBase64Data" class="dashAnchor"></a>
-                    <a class="token" href="#/">invalidBase64Data</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO17invalidBase64DatayA2CmF">invalidBase64Data</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,15 +344,26 @@
                         <p>When base64 data is invalid.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidBase64Data</span> <span class="o">=</span> <span class="mi">1405</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L29">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO14invalidPDFDatayA2CmF"></a>
                     <a name="//apple_ref/swift/Element/invalidPDFData" class="dashAnchor"></a>
-                    <a class="token" href="#/">invalidPDFData</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO14invalidPDFDatayA2CmF">invalidPDFData</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -297,15 +374,56 @@
                         <p>When PDF data is invalid.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidPDFData</span> <span class="o">=</span> <span class="mi">1406</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L32">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO16invalidImageDatayA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/invalidImageData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO16invalidImageDatayA2CmF">invalidImageData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When Image data is invalid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidImageData</span> <span class="o">=</span> <span class="mi">1407</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L35">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK12VGSErrorTypeO23invalidConfigurationURLyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/invalidConfigurationURL" class="dashAnchor"></a>
-                    <a class="token" href="#/">invalidConfigurationURL</a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSErrorTypeO23invalidConfigurationURLyA2CmF">invalidConfigurationURL</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -315,6 +433,17 @@
                       <div class="abstract">
                         <p>When VGS config URL is not valid.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidConfigurationURL</span> <span class="o">=</span> <span class="mi">1480</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Erros/VGSShowErrors.swift#L38">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -327,8 +456,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external noopener">Very Good Security</a>. All rights reserved. (Last updated: 2022-09-15)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2023 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external noopener">Very Good Security</a>. All rights reserved. (Last updated: 2023-07-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

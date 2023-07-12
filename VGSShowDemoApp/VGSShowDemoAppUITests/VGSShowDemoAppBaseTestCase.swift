@@ -41,6 +41,9 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 
 		/// Show pdf use case flow cell.
 		static let showPDF = "Show Collected PDF"
+        
+        /// Show image use case flow cell.
+        static let showImage = "Show Collected Image"
 	}
 
 	/// Navigate to Card Data use case.
@@ -52,6 +55,11 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	func navigateToPDFUseCase() {
 		app.tables.staticTexts[UseCases.showPDF].tap()
 	}
+
+    /// Navigate to Image use case.
+    func navigateToImageUseCase() {
+        app.tables.staticTexts[UseCases.showImage].tap()
+    }
 
 	/// Start app and navigate to specific tab.
 	func navigateToTab(identifier tabAccessebilityIdentifier: String) {

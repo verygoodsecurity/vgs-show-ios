@@ -6,15 +6,15 @@ version: 2
 jobs:
   build-and-test-sdk:
     macos:
-      xcode: "12.5.1"
+      xcode: "14.0"
     steps:
       - checkout
       - run:
           name: Run Tests
-          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5'
-  build-and-ui-test-demo-app-ios-13-14:
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
+  build-and-ui-test-demo-app-ios-16:
     macos:
-      xcode: "12.5.1"
+      xcode: "14.0"
     steps:
       - checkout
       - run:
@@ -23,18 +23,19 @@ jobs:
             cd VGSShowDemoApp &&
             cd VGSShowDemoApp &&
             cd Resources && plutil -insert pdftoken -string ${pdftoken} UITestsMockedData.plist &&
+            plutil -insert imagetoken -string ${imagetoken} UITestsMockedData.plist &&
             plutil -insert vaultID -string ${vaultID} UITestsMockedData.plist &&
             plutil -insert path -string ${path} UITestsMockedData.plist &&
             cd .. &&
             cd .. &&
             pod install &&
-            xcrun instruments -w "iPhone 12 (14.5) [" || true &&
-            xcrun instruments -w "iPad Air (3rd generation) (13.7) [" || true &&
+            xcrun instruments -w "iPhone 13 (15.5) [" || true &&
+            xcrun instruments -w "iPad Air (5th generation) (16.0) [" || true &&
             xcodebuild test -workspace VGSShowDemoApp.xcworkspace
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5'
-            -destination 'platform=iOS Simulator,name=iPad Air (3rd generation),OS=13.7'
+            -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
+            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.0'
 
 
 workflows:
@@ -42,4 +43,4 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test-sdk
-      - build-and-ui-test-demo-app-ios-13-14
+      - build-and-ui-test-demo-app-ios-16
