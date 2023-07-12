@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VGSLoggingConfiguration Structure Reference</title>
+    <title>VGSImageView Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -14,9 +14,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Struct/VGSLoggingConfiguration" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Class/VGSImageView" class="dashAnchor"></a>
 
-    <a title="VGSLoggingConfiguration Structure Reference"></a>
+    <a title="VGSImageView Class Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -44,7 +44,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">VGSShowSDK Reference</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      VGSLoggingConfiguration Structure Reference
+      VGSImageView Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -158,18 +158,18 @@
 
         <section class="section">
           <div class="section-content top-matter">
-            <h1>VGSLoggingConfiguration</h1>
+            <h1>VGSImageView</h1>
               <div class="declaration">
                 <div class="language">
                   
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">VGSLoggingConfiguration</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">VGSImageView</span> <span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">VGSImageViewProtocol</span></code></pre>
 
                 </div>
               </div>
-            <p>Holds configuration for VGSShowSDK logging.</p>
+            <p>An object that displays revealed image data.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L9-L19">Show on GitHub</a>
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageView.swift#L11-L102">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -177,13 +177,22 @@
         <section class="section">
           <div class="section-content">
             <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20properties"></a>
+                <a name="//apple_ref/swift/Section/Public properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20properties"></a>
+                  <h3 class="section-name"><span>Public properties</span>
+</h3>
+                </div>
+              </div>
               <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK23VGSLoggingConfigurationV5levelAA11VGSLogLevelOvp"></a>
-                    <a name="//apple_ref/swift/Property/level" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK23VGSLoggingConfigurationV5levelAA11VGSLogLevelOvp">level</a>
+                    <a name="/s:10VGSShowSDK12VGSImageViewC16imageContentModeSo06UIViewfG0Vvp"></a>
+                    <a name="//apple_ref/swift/Property/imageContentMode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSImageViewC16imageContentModeSo06UIViewfG0Vvp">imageContentMode</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -191,19 +200,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Log level. Default is <code>.none</code>.</p>
+                        <p>Image content mode, default is <code>.scaleToFill</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">level</span><span class="p">:</span> <span class="kt"><a href="../Enums/VGSLogLevel.html">VGSLogLevel</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">imageContentMode</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">.</span><span class="kt">ContentMode</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L12">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageView.swift#L15-L19">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -211,9 +220,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK23VGSLoggingConfigurationV21isNetworkDebugEnabledSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isNetworkDebugEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK23VGSLoggingConfigurationV21isNetworkDebugEnabledSbvp">isNetworkDebugEnabled</a>
+                    <a name="/s:10VGSShowSDK12VGSImageViewC8hasImageSbvp"></a>
+                    <a name="//apple_ref/swift/Property/hasImage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSImageViewC8hasImageSbvp">hasImage</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -221,19 +230,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>Bool</code> flag. Specify <code>true</code> to record VGSShowSDK network session with success/failed requests. Default is <code>false</code>.</p>
+                        <p>A Boolean value determines whether the view has image.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isNetworkDebugEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hasImage</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L15">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageView.swift#L22-L24">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -241,9 +250,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:10VGSShowSDK23VGSLoggingConfigurationV23isExtensiveDebugEnabledSbvp"></a>
-                    <a name="//apple_ref/swift/Property/isExtensiveDebugEnabled" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10VGSShowSDK23VGSLoggingConfigurationV23isExtensiveDebugEnabledSbvp">isExtensiveDebugEnabled</a>
+                    <a name="/s:10VGSShowSDK12VGSImageViewC5clearyyF"></a>
+                    <a name="//apple_ref/swift/Method/clear()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSImageViewC5clearyyF">clear()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -251,19 +260,105 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>Bool</code> flag. Specify <code>true</code> to enable extensive debugging. Default is <code>false</code>.</p>
+                        <p>Remove previously reveled image</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isExtensiveDebugEnabled</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clear</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLoggingConfiguration.swift#L18">Show on GitHub</a>
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageView.swift#L27-L29">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/VGSViewProtocol%20implementation"></a>
+                <a name="//apple_ref/swift/Section/VGSViewProtocol implementation" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/VGSViewProtocol%20implementation"></a>
+                  <h3 class="section-name"><span>VGSViewProtocol implementation</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK12VGSImageViewC11contentPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/contentPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSImageViewC11contentPathSSSgvp">contentPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name that will be associated with <code>VGSImageView</code> and used as a decoding contentPath on request response with revealed data from your organization vault.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">contentPath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageView.swift#L33-L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/VGSImageViewProtocol%20implementation"></a>
+                <a name="//apple_ref/swift/Section/VGSImageViewProtocol implementation" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/VGSImageViewProtocol%20implementation"></a>
+                  <h3 class="section-name"><span>VGSImageViewProtocol implementation</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10VGSShowSDK12VGSImageViewC8delegateAA0cD8Delegate_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10VGSShowSDK12VGSImageViewC8delegateAA0cD8Delegate_pSgvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The object that acts as the delegate of the <code>VGSImageView</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/VGSImageViewDelegate.html">VGSImageViewDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageView.swift#L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
