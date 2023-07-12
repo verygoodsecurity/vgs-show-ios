@@ -1,0 +1,77 @@
+data:
+  - attributes:
+      created_at: '2023-05-31T17:26:59'
+      destination_override_endpoint: 'https://echo.apps.verygood.systems'
+      entries:
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - expression:
+                  field: PathInfo
+                  operator: matches
+                  type: string
+                  values:
+                    - /post
+              - expression:
+                  field: ContentType
+                  operator: equals
+                  type: string
+                  values:
+                    - application/json
+          id: f9b8ad7e-0ffa-47d2-a733-b9798b116355
+          id_selector: null
+          operation: REDACT
+          operations: null
+          phase: REQUEST
+          public_token_generator: UUID
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: JSON_PATH
+          transformer_config:
+            - $.image_file_data
+          transformer_config_map: null
+        - classifiers: {}
+          config:
+            condition: AND
+            rules:
+              - expression:
+                  field: PathInfo
+                  operator: matches
+                  type: string
+                  values:
+                    - /post
+              - expression:
+                  field: ContentType
+                  operator: equals
+                  type: string
+                  values:
+                    - application/json
+          id: f01f2d1c-e17e-4809-8556-b3065c51063e
+          id_selector: null
+          operation: ENRICH
+          operations: null
+          phase: REQUEST
+          public_token_generator: UUID
+          targets:
+            - body
+          token_manager: PERSISTENT
+          transformer: JSON_PATH
+          transformer_config:
+            - $.image_file
+          transformer_config_map: null
+          type: null
+      host_endpoint: (.*)\.verygoodproxy\.com
+      id: 80e1e9dc-af53-4da1-9932-710397505e51
+      ordinal: null
+      port: 80
+      protocol: http
+      source_endpoint: '*'
+      tags:
+        name: echo.apps.verygood.systems-fire-brick-crescent
+        source: RouteContainer
+      updated_at: '2023-05-31T20:16:39'
+    id: 80e1e9dc-af53-4da1-9932-710397505e51
+    type: rule_chain
+version: 1

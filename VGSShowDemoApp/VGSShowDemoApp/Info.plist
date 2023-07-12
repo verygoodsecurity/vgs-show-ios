@@ -22,7 +22,9 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>NSAppTransportSecurity</key>
+    <key>NSCameraUsageDescription</key>
+    <string>Usage to take pictures to upload with VGS</string>
+    <key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
