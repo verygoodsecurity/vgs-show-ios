@@ -25,13 +25,15 @@ final class DemoAppConfig {
   static let shared = DemoAppConfig()
 
 	var collectPayload: [String: Any] = [:]
+    
+    var imageFilePayload: [String: Any] = [:]
   
   private init() {
 		// Setup test data for UITests only!
 		setupMockedTestDataIfNeeded()
 	}
 
-	private func setupMockedTestDataIfNeeded() {
+	 func setupMockedTestDataIfNeeded() {
 		if UIApplication.isRunningUITest {
 			guard let path = Bundle.main.path(forResource: "UITestsMockedData", ofType: "plist") else {
 					print("Path not found")
@@ -46,6 +48,7 @@ final class DemoAppConfig {
 			self.vaultId = dictionary["vaultID"] as? String ?? ""
 			self.path =  dictionary["path"] as? String ?? ""
 			self.pdfFilePayload["pdf_file"] = dictionary["pdftoken"] as? String
+            self.imageFilePayload["image_file"] = dictionary["imagetoken"] as? String
 		}
 	}
 }

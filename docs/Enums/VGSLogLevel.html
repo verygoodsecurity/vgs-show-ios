@@ -54,6 +54,9 @@
             <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSImageView.html">VGSImageView</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/VGSLabel.html">VGSLabel</a>
               </li>
               <li class="nav-group-task">
@@ -61,6 +64,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/VGSLogger.html">VGSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VGSPDFView.html">VGSPDFView</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/VGSShow.html">VGSShow</a>
@@ -74,7 +80,7 @@
             <a class="nav-group-name-link" href="../Global%20Variables.html">Global Variables</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Global%20Variables.html#/VGSShowSDKErrorDomain">VGSShowSDKErrorDomain</a>
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:10VGSShowSDK0A14SDKErrorDomainSSvp">VGSShowSDKErrorDomain</a>
               </li>
             </ul>
           </li>
@@ -99,21 +105,16 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions.html#/APICustomHostStatus">APICustomHostStatus</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Extensions.html#/APIHostURLPolicy">APIHostURLPolicy</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
             <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSImageViewDelegate.html">VGSImageViewDelegate</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VGSLabelDelegate.html">VGSLabelDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/VGSPDFViewDelegate.html">VGSPDFViewDelegate</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VGSViewProtocol.html">VGSViewProtocol</a>
@@ -141,13 +142,13 @@
             <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/VGSErrorInfoKey">VGSErrorInfoKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK15VGSErrorInfoKeya">VGSErrorInfoKey</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/VGSHTTPHeaders">VGSHTTPHeaders</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK14VGSHTTPHeadersa">VGSHTTPHeaders</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/VGSJSONData">VGSJSONData</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10VGSShowSDK11VGSJSONDataa">VGSJSONData</a>
               </li>
             </ul>
           </li>
@@ -158,8 +159,18 @@
         <section class="section">
           <div class="section-content top-matter">
             <h1>VGSLogLevel</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">VGSLogLevel</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                </div>
+              </div>
             <p>Defines levels of logging.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLogLevel.swift#L9-L18">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -170,9 +181,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK11VGSLogLevelO4infoyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/info" class="dashAnchor"></a>
-                    <a class="token" href="#/">info</a>
+                    <a class="token" href="#/s:10VGSShowSDK11VGSLogLevelO4infoyA2CmF">info</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -183,15 +194,26 @@
                         <p>Log <em>all</em> events including errors and warnings.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">info</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLogLevel.swift#L11">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK11VGSLogLevelO7warningyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/warning" class="dashAnchor"></a>
-                    <a class="token" href="#/">warning</a>
+                    <a class="token" href="#/s:10VGSShowSDK11VGSLogLevelO7warningyA2CmF">warning</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -202,15 +224,26 @@
                         <p>Log <em>only</em> events indicating warnings and errors.</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">warning</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLogLevel.swift#L14">Show on GitHub</a>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/s:10VGSShowSDK11VGSLogLevelO4noneyA2CmF"></a>
                     <a name="//apple_ref/swift/Element/none" class="dashAnchor"></a>
-                    <a class="token" href="#/">none</a>
+                    <a class="token" href="#/s:10VGSShowSDK11VGSLogLevelO4noneyA2CmF">none</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -220,6 +253,17 @@
                       <div class="abstract">
                         <p>Log <em>no</em> events.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="k">none</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/master/Sources/VGSShowSDK/Utils/Helpers/Loggers/VGSLogLevel.swift#L17">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -232,8 +276,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2022 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external noopener">Very Good Security</a>. All rights reserved. (Last updated: 2022-09-15)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>&copy; 2023 <a class="link" href="https://verygoodsecurity.com" target="_blank" rel="external noopener">Very Good Security</a>. All rights reserved. (Last updated: 2023-07-12)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>
