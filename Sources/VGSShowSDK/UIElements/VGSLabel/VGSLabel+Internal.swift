@@ -175,7 +175,7 @@ internal extension VGSLabel {
             label.secureText = nil
             
             // Reset accessibility value.
-            vgsAccessibilityValue = nil
+            label.accessibilityValue = nil
             // No revealed text - show placeholder, hide main text label.
             label.isHidden = true
             updatePlaceholder()
@@ -196,7 +196,7 @@ internal extension VGSLabel {
         guard textFormattersContainer.hasFormatting else {
             
             // Set raw text to accessibility value (no formatting is applied)
-            vgsAccessibilityValue = revealedRawText
+            label.accessibilityValue = revealedRawText
             // Check if text should be secured.
             if isSecureText {
                 let securedText = secureTextInRanges(text, ranges: secureTextRanges)
@@ -229,12 +229,12 @@ internal extension VGSLabel {
             logInfoEventWithText(eventText)
             
             // Set masked text as accessibility value when applyting secure formatting.
-            vgsAccessibilityValue = maskedText
+            label.accessibilityValue = maskedText
             return
         }
         
         // Set masked text as accessibility value when applyting secure formatting.
-        vgsAccessibilityValue = maskedText
+        label.accessibilityValue = maskedText
         let eventText = "Apply custom formatting. No secure masks."
         logInfoEventWithText(eventText)
         

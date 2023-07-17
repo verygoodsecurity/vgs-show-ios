@@ -256,29 +256,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
         }
     }
     
-    /// A collection of accessibility trait masks that best describes the characterize
-    /// of the element. See `UIAccessibilityConstants.h` for a list of possible traits.
-    public var vgsAccessibilityTraits: UIAccessibilityTraits {
-        get {
-            return label.accessibilityTraits
-        }
-        set {
-            label.accessibilityTraits = newValue
-            placeholderLabel.accessibilityTraits = label.accessibilityTraits
-        }
-    }
-    
-    /// Localized string that represents the value of the element
-    public var vgsAccessibilityValue: String? {
-        get {
-            return nil
-        }
-        set {
-            label.accessibilityValue = newValue
-            placeholderLabel.accessibilityValue = label.accessibilityValue
-        }
-    }
-    
+    // MARK: - Font Attributes
     /// Indicates whether `VGSLabel ` should automatically update its font
     /// when the device’s `UIContentSizeCategory` is changed. It only works
     /// automatically with dynamic fonts
