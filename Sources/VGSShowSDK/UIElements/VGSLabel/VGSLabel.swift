@@ -271,7 +271,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     /// Localized string that represents the value of the element
     public var vgsAccessibilityValue: String? {
         get {
-            return label.accessibilityValue
+            return nil
         }
         set {
             label.accessibilityValue = newValue
