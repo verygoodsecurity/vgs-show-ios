@@ -50,7 +50,7 @@ class VGSLabelTests: XCTestCase {
         let accValue = "123"
         labelView.label.secureText = accValue
         XCTAssertFalse(labelView.isEmpty)
-        XCTAssertEqual(labelView.label.accessibilityValue, accValue)
+        XCTAssertNil(labelView.label.accessibilityValue)
         labelView.isSecureText = true
         XCTAssertTrue(labelView.isEmpty)
         XCTAssertNil(labelView.label.accessibilityValue)
