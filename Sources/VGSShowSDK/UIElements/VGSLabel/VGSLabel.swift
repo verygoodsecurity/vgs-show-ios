@@ -231,6 +231,17 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
             placeholderLabel.accessibilityLabel = label.accessibilityLabel
         }
     }
+    
+    /// A succinct label in a localized string that
+    /// identifies the accessibility element.
+    public override var accessibilityLabel: String? {
+        get {
+            return vgsAccessibilityLabel
+        }
+        set {
+            vgsAccessibilityLabel = newValue
+        }
+    }
 
     /// A localized string that contains a brief description of the result of
     /// performing an action on the accessibility element.
@@ -244,6 +255,17 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
         }
     }
     
+    /// A localized string that contains a brief description of the result of
+    /// performing an action on the accessibility element.
+    public override var accessibilityHint: String? {
+        get {
+            return vgsAccessibilityHint
+        }
+        set {
+            vgsAccessibilityHint = newValue
+        }
+    }
+    
     /// Boolean value that determinates if the text field should be exposed as
     /// an accesibility element.
     public var vgsIsAccessibilityElement: Bool {
@@ -253,6 +275,28 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
         set {
             label.isAccessibilityElement = newValue
             placeholderLabel.isAccessibilityElement = label.isAccessibilityElement
+        }
+    }
+    
+    /// Localized string that represents the value of the element
+    public override var accessibilityValue: String? {
+        get {
+            return nil
+        }
+        set {
+            label.accessibilityValue = newValue
+            placeholderLabel.accessibilityValue = label.accessibilityValue
+        }
+    }
+    
+    /// Boolean value that determinates if the text field should be exposed as
+    /// an accesibility element.
+    public override var isAccessibilityElement: Bool {
+        get {
+            return vgsIsAccessibilityElement
+        }
+        set {
+            vgsIsAccessibilityElement = newValue
         }
     }
     
