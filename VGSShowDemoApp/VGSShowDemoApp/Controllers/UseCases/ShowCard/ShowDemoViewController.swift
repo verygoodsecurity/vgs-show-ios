@@ -94,12 +94,6 @@ class ShowDemoViewController: UIViewController {
                      VGSTextRange(start: 10, end: 13)]
         )
         
-        // Setup accessibility
-        cardHolderNameLabel.vgsAccessibilityLabel = "Cardholder name"
-        cardNumberLabel.vgsAccessibilityLabel = "Card number"
-        cardNumberLabel.vgsAccessibilityHint = "Tap to show card number"
-        expDateLabel.vgsAccessibilityLabel = "Expiration date"
-        
         // Set placeholder text. Placeholder will appear until revealed text will be set in VGSLabel
         cardNumberLabel.placeholder = "XXXX XXXX XXXX XXXX"
         cardNumberLabel.contentPath = "json.payment_card_number"
