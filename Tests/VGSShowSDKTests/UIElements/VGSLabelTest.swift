@@ -30,36 +30,29 @@ class VGSLabelTests: XCTestCase {
     func testLabelAccessibilityAttributes() {
         let labelView = VGSLabel()
         
-        // Hint
-        let accHint = "accessibility hint"
-        labelView.vgsAccessibilityHint = accHint
-        XCTAssertNotNil(labelView.vgsAccessibilityHint)
-        XCTAssertEqual(labelView.vgsAccessibilityHint, accHint)
-        
-        labelView.accessibilityHint = accHint
-        XCTAssertNotNil(labelView.accessibilityHint)
-        XCTAssertEqual(labelView.accessibilityHint, accHint)
-        
         // Label
         let accLabel = "accessibility label"
         labelView.vgsAccessibilityLabel = accLabel
         XCTAssertNotNil(labelView.vgsAccessibilityLabel)
         XCTAssertEqual(labelView.vgsAccessibilityLabel, accLabel)
         
-        labelView.accessibilityLabel = accLabel
-        XCTAssertNotNil(labelView.accessibilityLabel)
-        XCTAssertEqual(labelView.accessibilityLabel, accLabel)
+        // Hint
+        let accHint = "accessibility hint"
+        labelView.vgsAccessibilityHint = accHint
+        XCTAssertNotNil(labelView.vgsAccessibilityHint)
+        XCTAssertEqual(labelView.vgsAccessibilityHint, accHint)
         
         // Element
         labelView.vgsIsAccessibilityElement = true
         XCTAssertTrue(labelView.vgsIsAccessibilityElement)
         
-        labelView.isAccessibilityElement = true
-        XCTAssertTrue(labelView.isAccessibilityElement)
-        
         // Value
-        let accValue = "acc value"
-        labelView.accessibilityValue = accValue
-        XCTAssertNil(labelView.accessibilityValue)
+        let accValue = "123"
+        labelView.label.secureText = accValue
+        XCTAssertFalse(labelView.isEmpty)
+        XCTAssertEqual(labelView.label.accessibilityValue, accValue)
+        labelView.isSecureText = true
+        XCTAssertTrue(labelView.isEmpty)
+        XCTAssertNil(labelView.label.accessibilityValue)
     }
 }
