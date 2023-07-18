@@ -168,78 +168,78 @@ internal extension VGSLabel {
     }
   }
 
-    /// Update text and apply transformation regex if available.
+  /// Update text and apply transformation regex if available.
   func updateTextAndMaskIfNeeded() {
-      // Mask only normal text.
-      guard let text = revealedRawText else {
-          label.secureText = nil
+    // Mask only normal text.
+    guard let text = revealedRawText else {
+      label.secureText = nil
 
-    // Reset accessibility value.
-    label.accessibilityValue = nil
-          // No revealed text - show placeholder, hide main text label.
-          label.isHidden = true
-          updatePlaceholder()
+      // Reset accessibility value.
+      label.accessibilityValue = nil
+      // No revealed text - show placeholder, hide main text label.
+      label.isHidden = true
+      updatePlaceholder()
 
-          logPlaceholderEvent(isShown: true)
-          return
-      }
+      logPlaceholderEvent(isShown: true)
+      return
+    }
 
-      // Hide placeholder.
-      placeholderLabel.isHidden = true
+    // Hide placeholder.
+    placeholderLabel.isHidden = true
 
-      // Unhide main label.
-      label.isHidden = false
+    // Unhide main label.
+    label.isHidden = false
 
-      logPlaceholderEvent(isShown: false)
+    logPlaceholderEvent(isShown: false)
 
-      // No mask: set revealed text.
-          guard textFormattersContainer.hasFormatting else {
- 
-              // Set raw text to accessibility value (no formatting is applied)
-              label.accessibilityValue = revealedRawText
-              // Check if text should be secured.
-              if isSecureText {
-                let securedText = secureTextInRanges(text, ranges: secureTextRanges)
-                updateMaskedLabel(with: securedText)
+    // No mask: set revealed text.
+    guard textFormattersContainer.hasFormatting else {
 
-                        let eventText = "No custom formatting. Apply secure mask for revealed data."
-                        logInfoEventWithText(eventText)
-
-                return
-              }
-
-                    let eventText = "No custom formatting. No secure masks. Show raw revealed data."
-                    logInfoEventWithText(eventText)
-
-              updateMaskedLabel(with: text)
-              return
-            }
-
-      // Set masked text to label.
-      let maskedText = textFormattersContainer.formatText(text)
-
-          let formattingEvent = "Text before formatting: \"\(text)\", text after formatting: \"\(maskedText)\" ."
-          logInfoEventWithText(formattingEvent)
-
+      // Set raw text to accessibility value (no formatting is applied)
+      label.accessibilityValue = revealedRawText
+      // Check if text should be secured.
       if isSecureText {
-        let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
+        let securedText = secureTextInRanges(text, ranges: secureTextRanges)
         updateMaskedLabel(with: securedText)
 
-              let eventText = "Apply custom formatting. Apply secure masks."
-              logInfoEventWithText(eventText)
+        let eventText = "No custom formatting. Apply secure mask for revealed data."
+        logInfoEventWithText(eventText)
 
-        // Set masked text as accessibility value when applyting secure formatting.
-        label.accessibilityValue = maskedText
         return
       }
 
+      let eventText = "No custom formatting. No secure masks. Show raw revealed data."
+      logInfoEventWithText(eventText)
+
+      updateMaskedLabel(with: text)
+      return
+    }
+
+    // Set masked text to label.
+    let maskedText = textFormattersContainer.formatText(text)
+
+    let formattingEvent = "Text before formatting: \"\(text)\", text after formatting: \"\(maskedText)\" ."
+    logInfoEventWithText(formattingEvent)
+
+    if isSecureText {
+      let securedText = secureTextInRanges(maskedText, ranges: secureTextRanges)
+      updateMaskedLabel(with: securedText)
+
+      let eventText = "Apply custom formatting. Apply secure masks."
+      logInfoEventWithText(eventText)
+
       // Set masked text as accessibility value when applyting secure formatting.
       label.accessibilityValue = maskedText
-          let eventText = "Apply custom formatting. No secure masks."
-          logInfoEventWithText(eventText)
-
-      updateMaskedLabel(with: maskedText)
+      return
     }
+
+    // Set masked text as accessibility value when applyting secure formatting.
+    label.accessibilityValue = maskedText
+    let eventText = "Apply custom formatting. No secure masks."
+    logInfoEventWithText(eventText)
+
+    updateMaskedLabel(with: maskedText)
+  }
 
 	/// Apply secure mask with specified ranges. If range is not defined secure all text.
 	/// - Parameters:
