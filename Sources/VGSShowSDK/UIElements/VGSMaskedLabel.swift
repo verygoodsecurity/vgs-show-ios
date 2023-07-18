@@ -58,7 +58,7 @@ internal class VGSMaskedLabel: VGSAttributedLabel {
 
 	internal var isEmpty: Bool {
 		return secureText?.isEmpty ?? true
-    }
+	}
 
   override var accessibilityValue: String? {
     get {

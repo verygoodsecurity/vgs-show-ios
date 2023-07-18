@@ -22,7 +22,8 @@ internal extension VGSLabel {
       setDefaultStyle()
       // add UI elements
       buildUI()
-
+      // setup accessibility
+      vgsIsAccessibilityElement = true
       labelModel.onValueChanged = { [weak self](text) in
           self?.revealedRawText = text
       }
