@@ -48,4 +48,31 @@ class VGSImageViewTests: XCTestCase {
         XCTAssertNil(imageViewChild?.image)
         XCTAssertNotNil(imageView.baseImageView.secureImage)
     }
+    
+    /// Test accessibility properties
+    func testPDFAccessibilityAttributes() {
+        let imageView = VGSImageView()
+        
+        // Hint
+        let accHint = "accessibility hint"
+        imageView.accessibilityHint = accHint
+        XCTAssertNotNil(imageView.accessibilityHint)
+        XCTAssertEqual(imageView.accessibilityHint, accHint)
+        
+        // Label
+        let accLabel = "accessibility label"
+        imageView.accessibilityLabel = accLabel
+        XCTAssertNotNil(imageView.accessibilityLabel)
+        XCTAssertEqual(imageView.accessibilityLabel, accLabel)
+        
+        // Element
+        imageView.isAccessibilityElement = true
+        XCTAssertTrue(imageView.isAccessibilityElement)
+        
+        // Value
+        let accValue = "acc value"
+        imageView.accessibilityValue = accValue
+        XCTAssertNotNil(imageView.accessibilityValue)
+        XCTAssertEqual(imageView.accessibilityValue, accValue)
+    }
 }
