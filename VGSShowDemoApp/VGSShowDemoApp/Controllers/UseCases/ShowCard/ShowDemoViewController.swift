@@ -78,70 +78,64 @@ class ShowDemoViewController: UIViewController {
 
 	// MARK: - Helpers
 
-	private func configureUI() {
-		let paddings = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
-		let textColor = UIColor.white
-		let borderColor = UIColor.clear
-		let font = UIFont.systemFont(ofSize: 20)
-		let backgroundColor = UIColor.clear
-		let cornerRadius: CGFloat = 6
-		let textAlignment = NSTextAlignment.left
-
-		let placeholderColor = UIColor.white.withAlphaComponent(0.7)
-
-    // Secure revealed data with mask in ranges
-    cardNumberLabel.isSecureText = true
-    cardNumberLabel.setSecureText(ranges: [VGSTextRange(start: 5, end: 8),
-                                           VGSTextRange(start: 10, end: 13)])
-
-//    cardNumberLabel.vgsAccessibilityLabel = "Card number"
-//    cardNumberLabel.vgsAccessibilityHint = "Tap to show card number"
-//    expDateLabel.vgsAccessibilityLabel = "Expiration date"
-//    cardHolderNameLabel.vgsAccessibilityLabel = "Cardholder"
-    
-    // Set placeholder text. Placeholder will appear until revealed text will be set in VGSLabel
-    cardNumberLabel.placeholder = "XXXX XXXX XXXX XXXX"
-		cardNumberLabel.contentPath = "json.payment_card_number"
-
-		// Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
-		do {
-			let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
-			let template = "$1 $2 $3 $4"
-			let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
-
-			// Add transformation regex to your label.
-			cardNumberLabel.addTransformationRegex(regex, template: template)
-		} catch {
-			assertionFailure("invalid regex, error: \(error)")
-		}
-
-    expDateLabel.placeholder = "XX/XX"
-    expDateLabel.contentPath = "json.payment_card_expiration_date"
-    
-    cardHolderNameLabel.placeholder = "XXXXXXXXXXXXXXXXXXX"
-    cardHolderNameLabel.contentPath = "json.payment_card_holder_name"
-    
-    // Set default VGSLabel UI style
-    vgsShow.subscribedLabels.forEach {
-      $0.textAlignment = textAlignment
-      $0.textColor = textColor
-      $0.paddings = paddings
-      $0.borderColor = borderColor
-      $0.font = font
-      $0.backgroundColor = backgroundColor
-      $0.layer.cornerRadius = cornerRadius
-      $0.characterSpacing = 0.83
-      $0.placeholderStyle.color = placeholderColor
-      $0.placeholderStyle.textAlignment = textAlignment
-
-      // set delegate to follow the updates in VGSLabel
-      $0.delegate = self
+    private func configureUI() {
+        let paddings = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
+        let textColor = UIColor.white
+        let borderColor = UIColor.clear
+        let backgroundColor = UIColor.clear
+        let cornerRadius: CGFloat = 6
+        let textAlignment = NSTextAlignment.left
+        let placeholderColor = UIColor.white.withAlphaComponent(0.7)
+        
+        // Secure revealed data with mask in ranges
+        cardNumberLabel.isSecureText = true
+        cardNumberLabel.setSecureText(
+            ranges: [VGSTextRange(start: 5, end: 8),
+                     VGSTextRange(start: 10, end: 13)]
+        )
+        
+        // Set placeholder text. Placeholder will appear until revealed text will be set in VGSLabel
+        cardNumberLabel.placeholder = "XXXX XXXX XXXX XXXX"
+        cardNumberLabel.contentPath = "json.payment_card_number"
+        
+        // Create regex object, split card number to XXXX-XXXX-XXXX-XXXX format.
+        do {
+            let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
+            let template = "$1 $2 $3 $4"
+            let regex = try NSRegularExpression(pattern: cardNumberPattern, options: [])
+            
+            // Add transformation regex to your label.
+            cardNumberLabel.addTransformationRegex(regex, template: template)
+        } catch {
+            assertionFailure("invalid regex, error: \(error)")
+        }
+        
+        expDateLabel.placeholder = "XX/XX"
+        expDateLabel.contentPath = "json.payment_card_expiration_date"
+        
+        cardHolderNameLabel.placeholder = "XXXXXXXXXXXXXXXXXXX"
+        cardHolderNameLabel.contentPath = "json.payment_card_holder_name"
+        
+        // Set default VGSLabel UI style
+        vgsShow.subscribedLabels.forEach {
+            $0.textAlignment = textAlignment
+            $0.textColor = textColor
+            $0.paddings = paddings
+            $0.borderColor = borderColor
+            $0.backgroundColor = backgroundColor
+            $0.layer.cornerRadius = cornerRadius
+            $0.characterSpacing = 0.83
+            $0.placeholderStyle.color = placeholderColor
+            $0.placeholderStyle.textAlignment = textAlignment
+            
+            // set delegate to follow the updates in VGSLabel
+            $0.delegate = self
+        }
+        
+        stackView.addArrangedSubview(cardHolderNameLabel)
+        stackView.addArrangedSubview(cardNumberLabel)
+        stackView.addArrangedSubview(expDateLabel)
     }
-    
-    stackView.addArrangedSubview(cardHolderNameLabel)
-    stackView.addArrangedSubview(cardNumberLabel)
-		stackView.addArrangedSubview(expDateLabel)
-	}
 
 	private func loadData() {
 

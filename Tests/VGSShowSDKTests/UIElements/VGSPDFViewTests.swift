@@ -23,4 +23,31 @@ class VGSPDFViewTests: XCTestCase {
 		pdfView.maskedPdfView.secureDocument = nil
 		XCTAssertFalse(pdfView.hasDocument)
 	}
+    
+    /// Test accessibility properties
+    func testPDFAccessibilityAttributes() {
+        let pdfView = VGSPDFView()
+        
+        // Hint
+        let accHint = "accessibility hint"
+        pdfView.accessibilityHint = accHint
+        XCTAssertNotNil(pdfView.accessibilityHint)
+        XCTAssertEqual(pdfView.accessibilityHint, accHint)
+        
+        // Label
+        let accLabel = "accessibility label"
+        pdfView.accessibilityLabel = accLabel
+        XCTAssertNotNil(pdfView.accessibilityLabel)
+        XCTAssertEqual(pdfView.accessibilityLabel, accLabel)
+        
+        // Element
+        pdfView.isAccessibilityElement = true
+        XCTAssertTrue(pdfView.isAccessibilityElement)
+        
+        // Value
+        let accValue = "acc value"
+        pdfView.accessibilityValue = accValue
+        XCTAssertNotNil(pdfView.accessibilityValue)
+        XCTAssertEqual(pdfView.accessibilityValue, accValue)
+    }
 }
