@@ -9,18 +9,18 @@ jobs:
       xcode: "14.0"
     steps:
       - checkout
-	    - run:
+      - run:
           name: Install xcov
           command: >
             gem install xcov
       - run:
           name: Run Tests
           command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5' -enableCodeCoverage YES
-        - run:
+      - run:
           name: Calculate Test Coverage
           command: >
             xcov -p VGSShowSDK.xcodeproj -s VGSShowSDK --json_report
-	      - run:
+	    - run:
           name: Show Git Branch
           command: |
             echo "Branch: << pipeline.git.branch >>"
