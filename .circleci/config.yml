@@ -20,7 +20,7 @@ jobs:
           name: Calculate Test Coverage
           command: >
             xcov -p VGSShowSDK.xcodeproj -s VGSShowSDK --json_report
-	    - run:
+      - run:
           name: Show Git Branch
           command: |
             echo "Branch: << pipeline.git.branch >>"
@@ -48,7 +48,6 @@ jobs:
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
             -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.0'
-
 
 workflows:
   version: 2.1
