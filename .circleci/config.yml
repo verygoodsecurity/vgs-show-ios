@@ -1,7 +1,7 @@
 # For a detailed guide to building and testing on iOS, read the docs:
 # https://circleci.com/docs/2.0/testing-ios/
 
-version: 2
+version: 2.1
 
 jobs:
   build-and-test-sdk:
@@ -10,8 +10,28 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install xcov
+          command: >
+            gem install xcov
+      - run:
           name: Run Tests
-          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5' -enableCodeCoverage YES
+      - run:
+          name: Calculate Test Coverage
+          command: >
+            xcov -p VGSShowSDK.xcodeproj -s VGSShowSDK --json_report
+      - run:
+          name: Show Git Branch
+          command: |
+            echo "Branch: << pipeline.git.branch >>"
+      - run:
+          name: Push Test Coverage to Compass
+          command: >
+            if [ "<< pipeline.git.branch >>" == "main" ]; then
+              ./ops/publish-test-coverage.sh 
+            else
+              echo "Code coverage will only be pushed to compass on the main branch."
+            fi
   build-and-ui-test-demo-app-ios-16:
     macos:
       xcode: "14.0"
@@ -37,9 +57,8 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
             -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.0'
 
-
 workflows:
-  version: 2
+  version: 2.1
   build-and-test:
     jobs:
       - build-and-test-sdk
