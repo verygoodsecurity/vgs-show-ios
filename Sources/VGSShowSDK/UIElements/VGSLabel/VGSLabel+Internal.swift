@@ -81,6 +81,16 @@ internal extension VGSLabel {
     NSLayoutConstraint.activate(verticalConstraint)
     self.layoutIfNeeded()
   }
+  
+  /// Calculate VGSLabel IntrinsicContentSize
+  /// - NOTE: we have two labels: text label and placeholder label
+  func getIntrinsicContentSize() -> CGSize {
+    /// If label is hidden, return placeholder label size
+    guard !label.isHidden else { return placeholderLabel.intrinsicContentSize }
+    /// Get formatted text from label
+    guard let secured = label.secureAttributedText else { return super.intrinsicContentSize }
+    return secured.size()
+  }
 
 	func setPlaceholderPaddings() {
 		var placeholderPaddings = paddings
