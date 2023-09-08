@@ -221,7 +221,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   
     /// The natural size for the Lbel, considering only properties of the view itself.
     public override var intrinsicContentSize: CGSize {
-      get { return getIntrinsicContentSize()}
+      return getIntrinsicContentSize()
     }
 
     // MARK: - Accessibility Attributes
