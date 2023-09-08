@@ -74,4 +74,16 @@ internal class VGSMaskedLabel: VGSAttributedLabel {
       }
     }
   }
+  
+  /// The natural size for the Lbel, considering only properties of the view itself.
+  override var intrinsicContentSize: CGSize {
+    return getIntrinsicContentSize()
+  }
+  
+  /// Calculate internal label IntrinsicContentSize
+  func getIntrinsicContentSize() -> CGSize {
+    /// Get formatted text from label
+    guard let txt = secureAttributedText else { return super.intrinsicContentSize }
+    return self.computeTextSize(for: txt)
+  }
 }

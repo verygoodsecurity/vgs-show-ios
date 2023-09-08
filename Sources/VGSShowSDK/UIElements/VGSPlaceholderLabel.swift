@@ -88,4 +88,32 @@ internal class VGSAttributedLabel: UILabel {
 		}
 		get { return super.text }
 	}
+  
+  /// The natural size for the Lbel, considering only properties of the view itself.
+  override var intrinsicContentSize: CGSize {
+    guard let txt = text else { return super.intrinsicContentSize }
+    return computeTextSize(for: txt)
+  }
+  
+  /// Calculate intrinsicContentSize for String
+  func computeTextSize(for text: String) -> CGSize {
+       // Use the font of the label for the calculation, fall back to system font if not set
+       let fontToUse = font ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
+       
+       let textAttributes: [NSAttributedString.Key: Any] = [.font: fontToUse]
+       let boundingBox = text.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude),
+                                           options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                           attributes: textAttributes,
+                                           context: nil)
+       
+       return CGSize(width: ceil(boundingBox.width), height: ceil(boundingBox.height))
+   }
+  
+  /// Calculate intrinsicContentSize for NSAttributedString
+  func computeTextSize(for attributedText: NSAttributedString) -> CGSize {
+      let boundingBox = attributedText.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude),
+                                                    options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                                    context: nil)
+      return CGSize(width: ceil(boundingBox.width), height: ceil(boundingBox.height))
+  }
 }

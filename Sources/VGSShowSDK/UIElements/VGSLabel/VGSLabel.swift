@@ -218,6 +218,11 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 	public var placeholderPaddings: UIEdgeInsets? = nil {
 		didSet { setPlaceholderPaddings() }
 	}
+  
+    /// The natural size for the Lbel, considering only properties of the view itself.
+    public override var intrinsicContentSize: CGSize {
+      return getIntrinsicContentSize()
+    }
 
     // MARK: - Accessibility Attributes
     /// A succinct label in a localized string that
