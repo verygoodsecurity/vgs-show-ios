@@ -6,7 +6,7 @@ version: 2.1
 jobs:
   build-and-test-sdk:
     macos:
-      xcode: "14.0"
+      xcode: "14.2"
     steps:
       - checkout
       - run:
@@ -34,7 +34,7 @@ jobs:
             fi
   build-and-ui-test-demo-app-ios-16:
     macos:
-      xcode: "14.0"
+      xcode: "14.2"
     steps:
       - checkout
       - run:
