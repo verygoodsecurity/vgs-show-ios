@@ -13,10 +13,10 @@ internal class VGSAttributedLabel: UILabel {
 	/// Minimum text line height. Default is 0 (ignored on styling).
 	internal var textMinLineHeight: CGFloat = 0
 
-	/// Spacings between charactes. Default is 0 (ignored on styling).
+	/// Spacings between characters. Default is 0 (ignored on styling).
 	internal var characterSpacing: CGFloat = 0
 
-	/// Ingore custom text attributes which can be applied only as `NSAttributedString`. Default is `false`.
+	/// Ignore custom text attributes which can be applied only as `NSAttributedString`. Default is `false`.
 	internal var ignoreCustomStringAttributes: Bool = false
 
 	/// Custom styles.
@@ -89,7 +89,7 @@ internal class VGSAttributedLabel: UILabel {
 		get { return super.text }
 	}
   
-  /// The natural size for the Lbel, considering only properties of the view itself.
+  /// The natural size for the Label, considering only properties of the view itself.
   override var intrinsicContentSize: CGSize {
     guard let txt = text else { return super.intrinsicContentSize }
     return computeTextSize(for: txt)

@@ -147,6 +147,18 @@ extension VGSShowTests {
 		XCTAssertTrue(vgsShow.subscribedViews.count == 1)
 		XCTAssertTrue(vgsShow.subscribedPDFViews.count == 1)
 	}
+    
+    func testSubscribeSecureTextRanges() {
+        XCTAssertTrue(vgsShow.subscribedLabels.count == 0)
+
+        let label1 = VGSLabel()
+        label1.contentPath = "label1"
+        let textRange = VGSTextRange(start: 0, end: 2)
+        label1.setSecureText(ranges: [textRange])
+        vgsShow.subscribe(label1)
+        XCTAssertTrue(vgsShow.subscribedLabels.count == 1)
+        XCTAssertTrue(vgsShow.subscribedViews.count == 1)
+    }
 }
 
 /// Testable view that conforms to public VGSViewProtocol protocol
