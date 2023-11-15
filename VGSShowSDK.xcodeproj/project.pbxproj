@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03D10DB92B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */; };
+		03D10DBC2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */; };
+		03D10DBE2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBD2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift */; };
+		03D10DC02B0501F900C86E40 /* VGSShowRawDataDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBF2B0501F900C86E40 /* VGSShowRawDataDecoderTests.swift */; };
+		03D10DC22B05043500C86E40 /* VGSShowBase64DecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DC12B05043500C86E40 /* VGSShowBase64DecoderTests.swift */; };
 		32010B3A256EACEC00E19C71 /* VGSShowSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 32010B39256EACEC00E19C71 /* VGSShowSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3211D9712542E2B4009BB381 /* VGSShowSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3211D9672542E2B4009BB381 /* VGSShowSDK.framework */; };
 		4409318925B6B8FC00CAF065 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4409318825B6B8FC00CAF065 /* UIApplication+Extensions.swift */; };
@@ -114,6 +119,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRequestOptionsTests.swift; sourceTree = "<group>"; };
+		03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSDataDecoderFactoryTests.swift; sourceTree = "<group>"; };
+		03D10DBD2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowTextDecoderTests.swift; sourceTree = "<group>"; };
+		03D10DBF2B0501F900C86E40 /* VGSShowRawDataDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataDecoderTests.swift; sourceTree = "<group>"; };
+		03D10DC12B05043500C86E40 /* VGSShowBase64DecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowBase64DecoderTests.swift; sourceTree = "<group>"; };
 		32010B39256EACEC00E19C71 /* VGSShowSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSShowSDK.h; sourceTree = "<group>"; };
 		3211D9672542E2B4009BB381 /* VGSShowSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VGSShowSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3211D9702542E2B4009BB381 /* VGSShowSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VGSShowSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +242,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03D10DB72B04F3A400C86E40 /* API Tests */ = {
+			isa = PBXGroup;
+			children = (
+				448F564325879F640024E814 /* APIHostnameValidatorTests.swift */,
+				03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */,
+			);
+			path = "API Tests";
+			sourceTree = "<group>";
+		};
+		03D10DBA2B04F73F00C86E40 /* DecoderTests */ = {
+			isa = PBXGroup;
+			children = (
+				03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */,
+				03D10DC12B05043500C86E40 /* VGSShowBase64DecoderTests.swift */,
+				03D10DBD2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift */,
+				03D10DBF2B0501F900C86E40 /* VGSShowRawDataDecoderTests.swift */,
+			);
+			path = DecoderTests;
+			sourceTree = "<group>";
+		};
 		3211D95D2542E2B4009BB381 = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				44913EF528EB23E6006C871D /* Info.plist */,
+				03D10DBA2B04F73F00C86E40 /* DecoderTests */,
 				4485B516255D5A3B00EA0882 /* Resources */,
 				44A79FAC255D06C6009AF720 /* ParsingTests */,
 				44A79FB5255D06C6009AF720 /* VGSShowTests */,
@@ -608,7 +639,7 @@
 			children = (
 				445FD81B25E38D8300B36614 /* Satellite Tests */,
 				44A79FB6255D06C6009AF720 /* VGSShowTests.swift */,
-				448F564325879F640024E814 /* APIHostnameValidatorTests.swift */,
+				03D10DB72B04F3A400C86E40 /* API Tests */,
 				44A79FB7255D06C6009AF720 /* VGSShowTest+Subscribe.swift */,
 				445FD82425E38EB200B36614 /* VGSShowBaseTestCase.swift */,
 			);
@@ -946,11 +977,15 @@
 				445FD82125E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift in Sources */,
 				44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */,
 				44E3FE842922AA81006A5ACF /* VGSLabelCopyPasteTests.swift in Sources */,
+				03D10DC22B05043500C86E40 /* VGSShowBase64DecoderTests.swift in Sources */,
+				03D10DBE2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift in Sources */,
 				445FD82525E38EB200B36614 /* VGSShowBaseTestCase.swift in Sources */,
 				44A79FC6255D06C6009AF720 /* VGSShowTest+Subscribe.swift in Sources */,
+				03D10DC02B0501F900C86E40 /* VGSShowRawDataDecoderTests.swift in Sources */,
 				44A79FC5255D06C6009AF720 /* VGSShowTests.swift in Sources */,
 				442F806125A5A80000CC04A2 /* VGSTextRangeTests.swift in Sources */,
 				44A79FC3255D06C6009AF720 /* VGSShowNestedDictionaryTests.swift in Sources */,
+				03D10DB92B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift in Sources */,
 				44A79FC7255D06C6009AF720 /* VGSJSONData+Bundle.swift in Sources */,
 				448F564425879F640024E814 /* APIHostnameValidatorTests.swift in Sources */,
 				A0A4EED62A57AD3800172678 /* VGSImageViewTests.swift in Sources */,
@@ -960,6 +995,7 @@
 				44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */,
 				44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */,
 				44BD54AA2637F12F00B74947 /* VGSPDFViewTests.swift in Sources */,
+				03D10DBC2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
