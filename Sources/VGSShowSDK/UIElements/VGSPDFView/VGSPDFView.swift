@@ -18,7 +18,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	public weak var delegate: VGSPDFViewDelegate?
 
   /// Pdf display mode, default is `.singlePageContinuous`.
-	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePage {
+	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePageContinuous {
 		didSet {
 			maskedPdfView.displayMode = pdfDisplayMode
 		}
