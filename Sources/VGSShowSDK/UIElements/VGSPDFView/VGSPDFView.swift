@@ -65,14 +65,14 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
 	/// Name that will be associated with `VGSPDFView` and used as a decoding contentPath on request response with revealed data from your organization vault.
 	public var contentPath: String! {
+    get {
+      return model.decodingContentPath
+    }
 		set {
 			pdfViewModel.decodingContentPath = newValue
 
 			let eventText = "Set content path: \(newValue ?? "*nil*")"
 			logInfoEventWithText(eventText)
-		}
-		get {
-			return model.decodingContentPath
 		}
 	}
 
@@ -136,13 +136,13 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
 	// MARK: - Initialization
 
-	///: nodoc:
+	///:nodoc:
 	override init(frame: CGRect) {
 			super.init(frame: frame)
 			mainInitialization()
 	}
 
-	///: nodoc:
+	///:nodoc:
 	required init?(coder aDecoder: NSCoder) {
 			super.init(coder: aDecoder)
 			mainInitialization()
