@@ -60,4 +60,25 @@ class VGSLabelCopyPasteTests: VGSShowBaseTestCase {
     XCTAssertTrue(transformedTextToCopyAfterMaskReset == "4111111111111111")
 
   }
+  
+  func testCopyTextDelegate() {
+        let label = VGSLabel()
+        let mockDelegate = MockVGSLabelDelegate()
+        label.delegate = mockDelegate
+        label.copyText(format: .raw)
+
+        XCTAssertTrue(mockDelegate.didFinishCopyingText, "Delegate method should be called after copying text")
+        XCTAssertEqual(mockDelegate.lastFormatUsed, .raw, "The format passed to the delegate should be .raw")
+    }
+}
+
+// Mock Delegate
+class MockVGSLabelDelegate: VGSLabelDelegate {
+    var didFinishCopyingText: Bool = false
+    var lastFormatUsed: VGSLabel.CopyTextFormat?
+
+    func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
+        didFinishCopyingText = true
+        lastFormatUsed = format
+    }
 }
