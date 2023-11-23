@@ -18,32 +18,32 @@ internal protocol VGSImageViewModelProtocol: VGSViewModelProtocol {
 
 /// `VGSImageViewModel` holds image view model logic.
 internal class VGSImageViewModel: VGSImageViewModelProtocol {
-    
+
     /// View type.
     var viewType: VGSShowViewType = .image
-    
+
     /// Reference to the binded view.
     weak var view: VGSBaseViewProtocol?
-    
+
     /// Decoding path.
     var decodingContentPath: String = ""
-    
+
     /// Decoding content mode.
     var decodingContentMode: VGSShowDecodingContentMode = .image(.rawData(.base64))
-    
+
     /// Value.
     var value: VGSShowImageContent? {
         didSet {
             onValueChanged?(value)
         }
     }
-    
+
     /// Completion to call on value change.
     var onValueChanged: ((VGSShowImageContent?) -> Void)?
-    
+
     /// Completion to call on error.
     var onError: ((VGSShowError) -> Void)?
-    
+
     /// Handle decoding result.
     /// - Parameter result: `VGSShowDecodingResult` object, decoding result to handle.
     func handleDecodingResult(_ result: VGSShowDecodingResult) {

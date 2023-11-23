@@ -8,9 +8,9 @@
 import Foundation
 
 extension VGSShow {
-  
+
   // MARK: - API Request
-  
+
 	/**
 	Send request to reveal data on specific path. `VGSShow` instance will use all subsribed elements contentPaths to reveal data.
 
@@ -33,7 +33,7 @@ extension VGSShow {
 		for viewTypeName in viewTypeAnalyticsNames {
 			analyticsData.append(viewTypeName)
 		}
-		
+
 		extraAnalyticsInfo["content"] = analyticsData
 
 		// Log warning if no subscribed views.

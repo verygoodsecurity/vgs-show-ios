@@ -18,7 +18,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	public weak var delegate: VGSPDFViewDelegate?
 
   /// Pdf display mode, default is `.singlePageContinuous`.
-	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePage {
+	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePageContinuous {
 		didSet {
 			maskedPdfView.displayMode = pdfDisplayMode
 		}
@@ -65,14 +65,14 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
 	/// Name that will be associated with `VGSPDFView` and used as a decoding contentPath on request response with revealed data from your organization vault.
 	public var contentPath: String! {
+    get {
+      return model.decodingContentPath
+    }
 		set {
 			pdfViewModel.decodingContentPath = newValue
 
 			let eventText = "Set content path: \(newValue ?? "*nil*")"
 			logInfoEventWithText(eventText)
-		}
-		get {
-			return model.decodingContentPath
 		}
 	}
 
@@ -110,10 +110,10 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			if let content = revealedPdfContent {
 				switch content {
 				case .rawData(let pdfData):
-					let extraData: [String: Any] = ["field" : model.viewType.analyticsName]
+					let extraData: [String: Any] = ["field": model.viewType.analyticsName]
 					if let document = PDFDocument(data: pdfData) {
 						maskedPdfView.secureDocument = document
-						//maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
+						// maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
 						let eventText = "PDF has been rendered from data."
 						logInfoEventWithText(eventText)
 						delegate?.documentDidChange?(in: self)

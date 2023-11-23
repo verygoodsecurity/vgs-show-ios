@@ -16,7 +16,7 @@ public struct VGSPlaceholderLabelStyle {
 
 	/// Font.
     public var font: UIFont?
-    
+
     /// Indicates whether placeholder should automatically update its font
     /// when the device’s `UIContentSizeCategory` is changed. It only works
     /// automatically with dynamic fonts

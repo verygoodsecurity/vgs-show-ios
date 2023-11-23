@@ -9,26 +9,26 @@ internal protocol VGSImageViewProtocol: VGSViewProtocol, VGSBaseViewProtocol {
 }
 
 internal extension VGSImageView {
-    
+
     /// Basic initialization & view setup.
     func mainInitialization() {
         /// Add UI elements
         buildUI()
-        
+
         /// Add listeners
         imageViewModel.onValueChanged = { [weak self] (imageContent) in
             self?.revealedImageContent = imageContent
         }
-        
+
         imageViewModel.onError = { [weak self] (error) in
             guard let strongSelf = self else { return }
             strongSelf.delegate?.imageView?(strongSelf, didFailWithError: error)
         }
-        
+
         // Setup image view properties
         imageViewModel.view = self
     }
-    
+
     /// Setup subviews.
     func buildUI() {
         baseImageView.translatesAutoresizingMaskIntoConstraints = false

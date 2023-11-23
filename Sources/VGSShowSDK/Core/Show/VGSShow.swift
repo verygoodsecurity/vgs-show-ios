@@ -40,14 +40,14 @@ public final class VGSShow {
 
 		return removedDuplications
 	}
-  
+
   /// Returns an array of view models form subscribed vgs views.
   internal var subscribedViewModels: [VGSViewModelProtocol] {
     return subscribedViews.map({return $0.model})
   }
-  
+
   // MARK: - Get Subscribed Views
-  
+
   /// Returns an Array of `VGSLabel` objects subscribed to specific `VGSShow` instance.
 	public var subscribedLabels: [VGSLabel] {
 		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
@@ -58,7 +58,7 @@ public final class VGSShow {
 	public var subscribedPDFViews: [VGSPDFView] {
 		return subscribedViews.compactMap({return $0.model.view as? VGSPDFView})
 	}
-  
+
 	// MARK: - Custom HTTP Headers
 
 	/// Set your custom HTTP headers.
@@ -71,7 +71,7 @@ public final class VGSShow {
 	}
 
   // MARK: - Initialzation
-  
+
   /// Initialzation
   ///
   /// - Parameters:
@@ -84,7 +84,7 @@ public final class VGSShow {
     self.tenantId = id
     self.regionalEnvironment = environment
   }
-  
+
   /// Initialzation
   ///
   /// - Parameters:
@@ -97,9 +97,9 @@ public final class VGSShow {
     let env = Self.generateRegionalEnvironmentString(environment, region: dataRegion)
     self.init(id: id, environment: env, hostname: hostname, satellitePort: satellitePort)
   }
-  
+
   // MARK: - Manage Views
-  
+
   /// Subscribes VGSShowSDK  view to specific `VGSShow` instance.
   /// - Parameter view: `VGSViewProtocol` view to register.
   public func subscribe(_ view: VGSViewProtocol) {
@@ -120,7 +120,7 @@ public final class VGSShow {
     trackUnsubscribeEvent(for: view)
     subscribedViews.removeAll(where: {$0 == view})
   }
-  
+
   /// Unsubcribes all `VGSViewProtocol` views from specific `VGSShow` instance.
   public func unsubscribeAllViews() {
     subscribedViews.forEach { (view) in

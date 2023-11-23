@@ -9,7 +9,7 @@ import Foundation
 public struct VGSShowRequestOptions {
 
 	/// Request timeout interval, default is `nil`.
-	public var requestTimeoutInterval: TimeInterval? = nil
+	public var requestTimeoutInterval: TimeInterval?
 
 	/// :nodoc:
 	public init() {}

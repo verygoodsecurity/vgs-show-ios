@@ -6,7 +6,7 @@ import Foundation
 
 /// `VGSShowDecodingResult` represents result of decoding.
 internal enum VGSShowDecodingResult {
-    
+
     /// Success result.
     /// - Parameter content: `VGSShowResultData` object.
 	case success(_ content: VGSShowDecodedContent)

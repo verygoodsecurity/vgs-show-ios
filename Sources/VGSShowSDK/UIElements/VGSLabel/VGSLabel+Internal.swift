@@ -65,15 +65,15 @@ internal extension VGSLabel {
 			logWarningEventWithText(eventText)
 			return
 		}
-    
+
     let views = ["view": self, "label": label]
-      
+
     horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(paddings.left)-[label]-\(paddings.right)-|",
                                                                  options: .alignAllCenterY,
                                                                  metrics: nil,
                                                                  views: views)
     NSLayoutConstraint.activate(horizontalConstraints)
-      
+
     verticalConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(paddings.top)-[label]-\(paddings.bottom)-|",
                                                               options: .alignAllCenterX,
                                                               metrics: nil,
@@ -81,7 +81,7 @@ internal extension VGSLabel {
     NSLayoutConstraint.activate(verticalConstraint)
     self.layoutIfNeeded()
   }
-  
+
   /// Calculate VGSLabel IntrinsicContentSize
   /// - NOTE: we have two labels: text label and placeholder label
   func getIntrinsicContentSize() -> CGSize {
@@ -102,7 +102,7 @@ internal extension VGSLabel {
 
 	func setPlaceholderPaddings() {
 		var placeholderPaddings = paddings
-		
+
 		// Use custom placehoder paddings if needed.
 		if let customPlaceholderPaddings = self.placeholderPaddings {
 			placeholderPaddings = customPlaceholderPaddings
@@ -265,7 +265,7 @@ internal extension VGSLabel {
 	/// - Returns: `String` object, secured string.
   func secureTextInRanges(_ text: String, ranges: [VGSTextRange]?) -> String {
     var securedText = text
-    
+
     let secureTextRanges: [VGSTextRange]
     if let ranges = ranges {
       secureTextRanges = ranges
@@ -273,7 +273,7 @@ internal extension VGSLabel {
 			// Mask everything since range is not defined.
       secureTextRanges = [VGSTextRange(start: nil, end: nil)]
     }
-    
+
     secureTextRanges.forEach { (range) in
       securedText = securedText.secure(in: range, secureSymbol: secureTextSymbol)
     }

@@ -61,7 +61,7 @@ jobs:
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
-            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.0'
+            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.2'
 
   scan-sast-pr:
     parameters:
