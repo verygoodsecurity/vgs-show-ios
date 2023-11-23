@@ -24,4 +24,3 @@ class VGSShowRequestOptionsTests: XCTestCase {
         XCTAssertNil(requestOptions.requestTimeoutInterval, "requestTimeoutInterval should be nil by default")
     }
 }
-

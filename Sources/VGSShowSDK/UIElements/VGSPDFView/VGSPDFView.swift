@@ -110,10 +110,10 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			if let content = revealedPdfContent {
 				switch content {
 				case .rawData(let pdfData):
-					let extraData: [String: Any] = ["field" : model.viewType.analyticsName]
+					let extraData: [String: Any] = ["field": model.viewType.analyticsName]
 					if let document = PDFDocument(data: pdfData) {
 						maskedPdfView.secureDocument = document
-						//maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
+						// maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
 						let eventText = "PDF has been rendered from data."
 						logInfoEventWithText(eventText)
 						delegate?.documentDidChange?(in: self)
@@ -136,13 +136,13 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
 	// MARK: - Initialization
 
-	///:nodoc:
+	///: nodoc:
 	override init(frame: CGRect) {
 			super.init(frame: frame)
 			mainInitialization()
 	}
 
-	///:nodoc:
+	///: nodoc:
 	required init?(coder aDecoder: NSCoder) {
 			super.init(coder: aDecoder)
 			mainInitialization()

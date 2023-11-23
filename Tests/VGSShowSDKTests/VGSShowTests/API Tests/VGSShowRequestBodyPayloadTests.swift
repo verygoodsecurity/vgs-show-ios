@@ -10,7 +10,7 @@ class VGSRequestPayloadBodyTests: XCTestCase {
     func testJSONEncodingWithValidJSON() {
         let validJSON: VGSJSONData = ["key": "value"]
         let payloadBody = VGSRequestPayloadBody.json(validJSON)
-        
+
         switch payloadBody.encodeToRequestBodyData() {
         case .success(let data):
             XCTAssertNotNil(data, "Data should not be nil for valid JSON")
@@ -23,11 +23,11 @@ class VGSRequestPayloadBodyTests: XCTestCase {
             XCTFail("Encoding should succeed, but failed with error: \(error)")
         }
     }
-    
+
     func testJSONEncodingWithInvalidJSON() {
         let invalidJSON: VGSJSONData = ["key": NSDate()] // NSDate is not a valid JSON object
         let payloadBody = VGSRequestPayloadBody.json(invalidJSON)
-        
+
         switch payloadBody.encodeToRequestBodyData() {
         case .success:
             XCTFail("Encoding should fail for invalid JSON")
@@ -35,23 +35,23 @@ class VGSRequestPayloadBodyTests: XCTestCase {
             XCTAssertNotNil(error, "Error should not be nil for invalid JSON")
         }
     }
-    
+
     func testAdditionalHeadersForJSONPayload() {
         let jsonPayload: VGSJSONData = ["key": "value"]
         let payloadBody = VGSRequestPayloadBody.json(jsonPayload)
         let headers = payloadBody.additionalHeaders
-        
+
         XCTAssertEqual(headers["Content-Type"], "application/json", "Content-Type header should be set to application/json for JSON payload")
     }
-    
+
     func testRawPayloadForJSON() {
         let jsonPayload: VGSJSONData = ["key": "value"]
         let payloadBody = VGSRequestPayloadBody.json(jsonPayload)
-        
+
         guard let rawPayload = payloadBody.rawPayload as? VGSJSONData else {
             return XCTFail("Raw payload should be accessible and match the input JSON")
         }
-        
+
         XCTAssertEqual(rawPayload["key"] as? String, "value", "Raw payload should match the original JSON payload")
     }
 }

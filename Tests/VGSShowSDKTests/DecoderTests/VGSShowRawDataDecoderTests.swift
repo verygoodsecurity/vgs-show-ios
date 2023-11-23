@@ -64,4 +64,3 @@ class VGSShowRawDataDecoderTests: XCTestCase {
         }
     }
 }
-

@@ -12,15 +12,15 @@ class VGSPDFViewTests: XCTestCase {
 
   var pdfView: VGSPDFView!
   var mockDelegate: MockVGSPDFViewDelegate!
-  
+
   override func setUp() {
     super.setUp()
     pdfView = VGSPDFView()
     mockDelegate = MockVGSPDFViewDelegate()
     pdfView.delegate = mockDelegate
   }
-  
-    // MARK:- Test PDF document and delegates
+
+    // MARK: - Test PDF document and delegates
     func testPDFDocument() {
       pdfView.contentPath = "test.pdf"
 
@@ -33,8 +33,9 @@ class VGSPDFViewTests: XCTestCase {
       pdfView.maskedPdfView.secureDocument = nil
       XCTAssertFalse(pdfView.hasDocument)
     }
-  
+
     func testRevealedPdfContentWithValidData() {
+      // swiftlint:disable:next force_try
       let validPdfData = try! Data(contentsOf: URL(string: "https://www.gemini.com/documents/credit/Test_PDF.pdf")!)
       pdfView.revealedPdfContent = .rawData(validPdfData)
 
@@ -49,32 +50,32 @@ class VGSPDFViewTests: XCTestCase {
       XCTAssertNil(pdfView.maskedPdfView.secureDocument, "maskedPdfView should not have a secureDocument when invalid PDF data is set")
       XCTAssertTrue(mockDelegate.didFailWithError, "Delegate should be notified of an error")
     }
-    
-    // MARK:- Test accessibility properties
+
+    // MARK: - Test accessibility properties
     func testPDFAccessibilityAttributes() {
         // Hint
         let accHint = "accessibility hint"
         pdfView.accessibilityHint = accHint
         XCTAssertNotNil(pdfView.accessibilityHint)
         XCTAssertEqual(pdfView.accessibilityHint, accHint)
-        
+
         // Label
         let accLabel = "accessibility label"
         pdfView.accessibilityLabel = accLabel
         XCTAssertNotNil(pdfView.accessibilityLabel)
         XCTAssertEqual(pdfView.accessibilityLabel, accLabel)
-        
+
         // Element
         pdfView.isAccessibilityElement = true
         XCTAssertTrue(pdfView.isAccessibilityElement)
-        
+
         // Value
         let accValue = "acc value"
         pdfView.accessibilityValue = accValue
         XCTAssertNotNil(pdfView.accessibilityValue)
         XCTAssertEqual(pdfView.accessibilityValue, accValue)
     }
-  
+
     func testPDFDisplayMode() {
         let defaultMode = PDFDisplayMode.singlePageContinuous
         XCTAssertEqual(pdfView.maskedPdfView.displayMode, defaultMode, "Default pdf mode  should be .singlePage")
@@ -97,7 +98,7 @@ class VGSPDFViewTests: XCTestCase {
         let defaultColor = UIColor.gray.withAlphaComponent(0)
         XCTAssertEqual(pdfView.maskedPdfView.backgroundColor, defaultColor, "maskedPdfView's background color should be set to default color when pdfBackgroundColor is nil")
     }
-  
+
     func testPdfDisplayDirection() {
         let expectedDirection: PDFDisplayDirection = .horizontal
         pdfView.pdfDisplayDirection = expectedDirection
@@ -122,8 +123,8 @@ class VGSPDFViewTests: XCTestCase {
         pdfView.pageShadowsEnabled = expectedShadowsEnabled
         XCTAssertEqual(pdfView.maskedPdfView.pageShadowsEnabled, expectedShadowsEnabled, "maskedPdfView pageShadowsEnabled should be updated to the new value")
     }
-  
-  // MARK:- Test content path
+
+  // MARK: - Test content path
     func testContentPathSetter() {
         let newPath = "new.content.path"
         pdfView.contentPath = newPath
@@ -139,8 +140,8 @@ class VGSPDFViewTests: XCTestCase {
 
         XCTAssertEqual(path, expectedPath, "The contentPath getter should return the expected path")
     }
-  
-  // MARK:- Test pdf format
+
+  // MARK: - Test pdf format
   func testPdfFormatSetter() {
       let newFormat: VGSShowPDFFormat = .rawData(.base64)
       pdfView.pdfFormat = newFormat

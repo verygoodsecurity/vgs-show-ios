@@ -23,4 +23,3 @@ class VGSDataDecoderFactoryTests: XCTestCase {
         XCTAssertTrue(decoder is VGSShowBase64Decoder, "Decoder should be of type VGSShowBase64Decoder for image content mode with base64 format")
     }
 }
-

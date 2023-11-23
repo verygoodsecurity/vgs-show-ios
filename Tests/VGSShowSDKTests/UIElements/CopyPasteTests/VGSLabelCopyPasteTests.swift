@@ -60,7 +60,7 @@ class VGSLabelCopyPasteTests: VGSShowBaseTestCase {
     XCTAssertTrue(transformedTextToCopyAfterMaskReset == "4111111111111111")
 
   }
-  
+
   func testCopyTextDelegate() {
         let label = VGSLabel()
         let mockDelegate = MockVGSLabelDelegate()

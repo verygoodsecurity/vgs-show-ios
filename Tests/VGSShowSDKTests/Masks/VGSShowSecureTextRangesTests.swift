@@ -166,7 +166,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 			}
 		}
 	}
-  
+
   func testValidRangesArray() {
     let cardNumber = "4111111111111111"
     let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
@@ -219,7 +219,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
         XCTAssertTrue(vgsLabel.label.secureText == testItem.espectedResult, "Failed:\n  -espectedResult: \(testItem.espectedResult)\n  -result: \(vgsLabel.label.secureText  ?? "*nil*")")
       }
   }
-  
+
   func testInvalidRangesArray() {
     let cardNumber = "4111111111111111"
     let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
@@ -265,11 +265,11 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 
         let textRanges = testItem.ranges
         vgsLabel.setSecureText(ranges: textRanges)
-        
+
         XCTAssertTrue(vgsLabel.label.secureText == testItem.espectedResult, "Failed:\n  -espectedResult: \(testItem.espectedResult)\n  -result: \(vgsLabel.label.secureText ?? "*nil*")")
       }
   }
-  
+
   func testNonASCIICharacters() {
 
     let vgsLabel = VGSLabel()
@@ -284,7 +284,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
                                               ([VGSTextRange(start: 5, end: 13),
                                                VGSTextRange()],
                                                espectedResult: "*******************")]
-    
+
       let testRevealedData = [
         "٤١١١-١١١١-١١١١-١١١١",
         "考拉睡覺-考拉睡覺-考拉睡覺-考拉睡覺",
@@ -303,22 +303,22 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
         XCTAssertTrue(vgsLabel.label.secureText == testItem.espectedResult, "Failed:\n  -espectedResult: \(testItem.espectedResult)\n  -result: \(vgsLabel.label.secureText ?? "*nil*")")
       }
     }
-      
+
   }
 
   func testSecureTextSymbol() {
     let vgsLabel = VGSLabel()
     vgsLabel.revealedRawText = "Hello WORLD"
     vgsLabel.isSecureText = true
-    
+
     XCTAssertTrue(vgsLabel.label.secureText == "***********")
-    
+
     vgsLabel.secureTextSymbol = "🔥"
     XCTAssertTrue(vgsLabel.label.secureText == "🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
-    
+
     vgsLabel.secureTextSymbol = "X"
     XCTAssertTrue(vgsLabel.label.secureText == "XXXXXXXXXXX")
-    
+
     vgsLabel.secureTextSymbol = ""
     XCTAssertTrue(vgsLabel.label.secureText == "Hello WORLD")
   }

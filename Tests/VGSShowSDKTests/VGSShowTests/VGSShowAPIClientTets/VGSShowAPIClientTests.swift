@@ -21,8 +21,8 @@ class APIClientTests: XCTestCase {
         // Test that the APIClient is initialized with the correct vault URL and ID
         XCTAssertNotNil(apiClient.baseURL, "Base URL should not be nil for valid initialization.")
     }
-  
-  func testValidInitializationSetsCorrectHostURLPolicy()  {
+
+  func testValidInitializationSetsCorrectHostURLPolicy() {
     switch apiClient.hostURLPolicy {
     case .vaultURL(let url):
       XCTAssertNotNil(url, "Host URL policy should be .vaultURL with a non-nil URL for valid initialization.")

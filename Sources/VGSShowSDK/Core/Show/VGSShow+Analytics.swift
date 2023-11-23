@@ -19,7 +19,7 @@ internal extension VGSShow {
 		let extraData = analyticsExtraData(for: view)
 		VGSAnalyticsClient.shared.trackFormEvent(self, type: .fieldUnsubscibe, extraData: extraData)
 	}
-  
+
   /// Track subscribed view configuration settings.
   /// - Parameter view: `VGSViewProtocol` view to track.
   func trackSubscribedViewConfigurationEvent(for view: VGSViewProtocol) {
@@ -27,7 +27,7 @@ internal extension VGSShow {
       trackSubscribedLabelConfigurationEvent(for: label)
 		}
   }
-  
+
   /// Track subscribed label configuration settings.
   /// - Parameter label: `VGSLabel` label to track.
   func trackSubscribedLabelConfigurationEvent(for label: VGSLabel) {

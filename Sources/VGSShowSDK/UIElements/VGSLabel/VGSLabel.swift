@@ -14,7 +14,7 @@ import UIKit
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
   // MARK: - Enums
-  
+
 	/// Text format to copy.
 	@objc public enum CopyTextFormat: Int {
 
@@ -64,7 +64,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
   // MARK: - Functional Attribute
-  
+
   /// Show form that will be assiciated with `VGSLabel`.
 	internal weak var vgsShow: VGSShow?
 
@@ -102,7 +102,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   public var contentPath: String! {
     set {
       labelModel.decodingContentPath = newValue
-			
+
 			let eventText = "Set content path: \(newValue ?? "*nil*")"
 			logInfoEventWithText(eventText)
     }
@@ -147,7 +147,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
       updateTextAndMaskIfNeeded()
     }
   }
-  
+
   /// Text Symbol that will replace visible label text character when securing String. Should be one charcter only.
   public var secureTextSymbol = "*" {
     didSet {
@@ -197,13 +197,13 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
 		self.secureTextRanges = ranges
     vgsShow?.trackSubscribedViewConfigurationEvent(for: self)
-    
+
     /// Apply secure range if needed
     if isSecureText {
       updateTextAndMaskIfNeeded()
     }
   }
-  
+
   // MARK: - UI Attribute
 
   /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
@@ -215,10 +215,10 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   }
 
 	/// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
-	public var placeholderPaddings: UIEdgeInsets? = nil {
+	public var placeholderPaddings: UIEdgeInsets? {
 		didSet { setPlaceholderPaddings() }
 	}
-  
+
     /// The natural size for the Lbel, considering only properties of the view itself.
     public override var intrinsicContentSize: CGSize {
       return getIntrinsicContentSize()
@@ -248,7 +248,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
             placeholderLabel.accessibilityHint = label.accessibilityHint
         }
     }
-    
+
     /// Boolean value that determinates if the text field should be exposed as
     /// an accesibility element.
     public var vgsIsAccessibilityElement: Bool {
@@ -260,7 +260,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
             placeholderLabel.isAccessibilityElement = label.isAccessibilityElement
         }
     }
-    
+
     // MARK: - Font Attributes
     /// Indicates whether `VGSLabel ` should automatically update its font
     /// when the device’s `UIContentSizeCategory` is changed. It only works
@@ -274,7 +274,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
             placeholderLabel.adjustsFontForContentSizeCategory = label.adjustsFontForContentSizeCategory
         }
     }
-    
+
     /// `VGSLabel` text font. By default use default dynamic font style `.body` to update its size
     /// automatically when the device’s `UIContentSizeCategory` changed.
     public var font: UIFont? {
@@ -381,7 +381,7 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 			label.characterSpacing = newValue
 		}
 	}
-  
+
   /// `VGSLabel` adjustsFontSizeToFitWidth mode.
   internal var adjustsFontSizeToFitWidth: Bool {
     get {
@@ -401,14 +401,14 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
       label.baselineAdjustment = newValue
     }
   }
-  
+
   // MARK: - Init
-	
+
   override init(frame: CGRect) {
       super.init(frame: frame)
       mainInitialization()
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       mainInitialization()

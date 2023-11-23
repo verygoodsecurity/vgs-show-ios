@@ -10,7 +10,7 @@ import XCTest
 @testable import VGSShowSDK
 
 class APIHostnameValidatorTests: XCTestCase {
-  
+
 	func testBuildHostURL() {
 		let validURL = URL(string: "https://js.verygoodvault.com/collect-configs/ios-testing.testhost.io__123456.txt")!
 
@@ -97,7 +97,7 @@ class APIHostnameValidatorTests: XCTestCase {
 
 		XCTAssertTrue(secureURL == updatedURL)
 	}
-  
+
   func testValidateCustomHostname_EmptyHostname() {
           let expectation = self.expectation(description: "Completion handler called with nil for empty hostname")
           APIHostnameValidator.validateCustomHostname("", tenantId: "tenant123") { (url) in

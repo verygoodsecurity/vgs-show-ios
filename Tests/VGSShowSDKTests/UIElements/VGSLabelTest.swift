@@ -25,35 +25,35 @@ class VGSLabelTests: XCTestCase {
     /// Test valid jsonSelectors.
     func testLabelTextAttributes() {
         vgsLabel.contentPath = "test.label"
-        
+
         XCTAssertTrue(vgsLabel.contentPath == "test.label")
         XCTAssertTrue(vgsLabel.isEmpty)
-        
+
         vgsLabel.label.secureText = "123"
         XCTAssertFalse(vgsLabel.isEmpty)
         XCTAssertTrue(vgsLabel.label.text == nil)
-        
+
       vgsLabel.label.secureText = ""
         XCTAssertTrue(vgsLabel.isEmpty)
     }
-    
+
     /// Test accessibility properties
     func testLabelAccessibilityAttributes() {
         let accLabel = "accessibility label"
       vgsLabel.vgsAccessibilityLabel = accLabel
         XCTAssertNotNil(vgsLabel.vgsAccessibilityLabel)
         XCTAssertEqual(vgsLabel.vgsAccessibilityLabel, accLabel)
-        
+
         // Hint
         let accHint = "accessibility hint"
       vgsLabel.vgsAccessibilityHint = accHint
         XCTAssertNotNil(vgsLabel.vgsAccessibilityHint)
         XCTAssertEqual(vgsLabel.vgsAccessibilityHint, accHint)
-        
+
         // Element
       vgsLabel.vgsIsAccessibilityElement = true
         XCTAssertTrue(vgsLabel.vgsIsAccessibilityElement)
-        
+
         // Value
         let accValue = "123"
         vgsLabel.label.secureText = accValue
@@ -63,7 +63,7 @@ class VGSLabelTests: XCTestCase {
         XCTAssertTrue(vgsLabel.isEmpty)
         XCTAssertNil(vgsLabel.label.accessibilityValue)
     }
-  
+
       func testDefaultStyle() {
           XCTAssertTrue(vgsLabel.clipsToBounds, "clipsToBounds should be true")
           XCTAssertEqual(vgsLabel.layer.borderColor, UIColor.lightGray.cgColor, "Border color should be set to light gray")
@@ -83,7 +83,7 @@ class VGSLabelTests: XCTestCase {
           let mockText = "test"
           vgsLabel.labelModel.onValueChanged?(mockText)
           XCTAssertEqual(vgsLabel.revealedRawText, mockText, "revealedRawText should be updated with the mock text")
-          
+
           // Simulate an error
           let mockError = VGSShowError(type: .fieldNotFound)
           let mockDelegate = MockVGSLabelErrorDelegate()
@@ -92,14 +92,14 @@ class VGSLabelTests: XCTestCase {
           // Check if the delegate method was called
           XCTAssertTrue(mockDelegate.didFailWithError, "Delegate should be notified of the error")
       }
-  
+
   func testClearText() {
     let accValue = "123"
     vgsLabel.revealedRawText = accValue
     vgsLabel.clearText()
     XCTAssertNil(vgsLabel.revealedRawText, "Label text should be cleared")
   }
-  
+
   func testPropertySetters() {
          let textColor = UIColor.red
          vgsLabel.textColor = textColor
@@ -170,7 +170,7 @@ class VGSLabelTests: XCTestCase {
          let expectedSize = vgsLabel.label.intrinsicContentSize
          XCTAssertEqual(vgsLabel.intrinsicContentSize, expectedSize)
      }
-  
+
   func testFontAndStyleAttributes() {
       let adjustsFontForContentSizeCategory = true
       vgsLabel.vgsAdjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory
@@ -194,7 +194,7 @@ class VGSLabelTests: XCTestCase {
 
       let textMinLineHeight: CGFloat = 12.0
       vgsLabel.textMinLineHeight = textMinLineHeight
-  
+
       let characterSpacing: CGFloat = 2.0
       vgsLabel.characterSpacing = characterSpacing
   }
