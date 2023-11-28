@@ -96,38 +96,6 @@ jobs:
           name: "Semgrep full scan"
           command: semgrep ci
 
-  scan-sast-pr:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
-      SEMGREP_BASELINE_REF: << parameters.default_branch >>
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep diff scan"
-          command: semgrep ci
-
-  scan-sast-full:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep full scan"
-          command: semgrep ci
 
 workflows:
   build-and-test:
