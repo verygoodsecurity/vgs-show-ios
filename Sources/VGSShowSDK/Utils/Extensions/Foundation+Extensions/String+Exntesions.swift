@@ -358,7 +358,7 @@ internal extension String {
 
 			return ""
 		}
-    
+
     // Don't mask when secure symbol is empty
     guard !secureSymbol.isEmpty else {
 			let eventText = "Secure text symbol is empty. Cannot mask text."

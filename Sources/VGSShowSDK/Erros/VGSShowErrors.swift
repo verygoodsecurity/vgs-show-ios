@@ -33,7 +33,7 @@ public enum VGSErrorType: Int {
 
     /// When Image data is invalid.
     case invalidImageData = 1407
-    
+
 	/// When VGS config URL is not valid.
 	case invalidConfigurationURL = 1480
 

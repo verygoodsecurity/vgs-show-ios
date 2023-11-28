@@ -22,7 +22,7 @@ internal extension VGSShow {
     }
     return environmentString
   }
-  
+
   /// Generates API URL with vault id, environment and data region.
   class func generateVaultURL(tenantId: String, regionalEnvironment: String) -> URL? {
 		if !regionalEnironmentStringValid(regionalEnvironment) {
@@ -67,7 +67,7 @@ internal extension VGSShow {
 	class func regionValid(_ region: String) -> Bool {
 	  return !region.isEmpty && region.range(of: ".*[^a-zA-Z0-9-].*", options: .regularExpression) == nil
 	}
-  
+
   /// Validate string representing environment and data region
   class func regionalEnironmentStringValid(_ enironment: String) -> Bool {
     return !enironment.isEmpty && NSPredicate(format: "SELF MATCHES %@", "^(live|sandbox|LIVE|SANDBOX)+((-)+([a-zA-Z0-9]+)|)+\\d*$").evaluate(with: enironment)

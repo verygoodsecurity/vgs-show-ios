@@ -9,7 +9,7 @@ import UIKit
 
 /// VGS ImageView subclass.
 internal class VGSSecureImageView: UIImageView {
-    
+
     /// Secure image, for internal use only
     internal var secureImage: UIImage? {
         get {
@@ -19,7 +19,7 @@ internal class VGSSecureImageView: UIImageView {
             super.image = newValue
         }
     }
-    
+
     @available(*, deprecated, message: "Deprecated attribute.")
     override var image: UIImage? {
         get {

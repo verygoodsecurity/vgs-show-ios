@@ -12,7 +12,7 @@ parameters:
 jobs:
   build-and-test-sdk:
     macos:
-      xcode: "14.0"
+      xcode: "14.2"
     steps:
       - checkout
       - run:
@@ -40,7 +40,7 @@ jobs:
             fi
   build-and-ui-test-demo-app-ios-16:
     macos:
-      xcode: "14.0"
+      xcode: "14.2"
     steps:
       - checkout
       - run:
@@ -61,7 +61,40 @@ jobs:
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
-            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.0'
+            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.2'
+
+  scan-sast-pr:
+    parameters:
+      default_branch:
+        type: string
+        default: main
+    environment:
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      SEMGREP_BRANCH: << pipeline.git.branch >>
+      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+    docker:
+      - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep diff scan"
+          command: semgrep ci
+
+  scan-sast-full:
+    parameters:
+      default_branch:
+        type: string
+        default: main
+    environment:
+      SEMGREP_REPO_URL: << pipeline.project.git_url >>
+      SEMGREP_BRANCH: << pipeline.git.branch >>
+    docker:
+      - image: returntocorp/semgrep
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep full scan"
+          command: semgrep ci
 
   scan-sast-pr:
     parameters:
