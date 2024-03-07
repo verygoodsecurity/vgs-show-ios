@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0345B1802B8E1969002A70C3 /* VGSLabelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */; };
+		03717E332B9A12B2006DC837 /* VGSImageViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */; };
 		038184DC2B0BA1B800928C36 /* String+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */; };
 		03D10DB92B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */; };
 		03D10DBC2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */; };
@@ -127,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelRepresentable.swift; sourceTree = "<group>"; };
+		03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSImageViewRepresentable.swift; sourceTree = "<group>"; };
 		038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtensionTests.swift"; sourceTree = "<group>"; };
 		03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRequestOptionsTests.swift; sourceTree = "<group>"; };
 		03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSDataDecoderFactoryTests.swift; sourceTree = "<group>"; };
@@ -262,6 +264,14 @@
 				0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */,
 			);
 			path = VGSLabelRepresentable;
+			sourceTree = "<group>";
+		};
+		03717E312B9A128F006DC837 /* VGSImageViewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */,
+			);
+			path = VGSImageViewRepresentable;
 			sourceTree = "<group>";
 		};
 		038184DA2B0BA19200928C36 /* ExtensionTests */ = {
@@ -769,6 +779,7 @@
 		A0A4EEBE2A57A66D00172678 /* VGSImageView */ = {
 			isa = PBXGroup;
 			children = (
+				03717E312B9A128F006DC837 /* VGSImageViewRepresentable */,
 				A0A4EEBF2A57A66D00172678 /* VGSImageView+Internal.swift */,
 				A0A4EEC02A57A66D00172678 /* VGSImageViewModel.swift */,
 				A0A4EEC12A57A66D00172678 /* VGSImageView.swift */,
@@ -945,6 +956,7 @@
 				44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */,
 				4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */,
 				44A79F6B255D0678009AF720 /* APIClient.swift in Sources */,
+				03717E332B9A12B2006DC837 /* VGSImageViewRepresentable.swift in Sources */,
 				44BAD78025C7EA520060A170 /* VGSTextRange.swift in Sources */,
 				44A79F76255D0678009AF720 /* VGSTransformationRegex.swift in Sources */,
 				44168FDE26329FAE0088E515 /* VGSPDFView.swift in Sources */,
