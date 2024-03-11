@@ -10,7 +10,7 @@ public struct VGSLabelRepresentable: UIViewRepresentable {
     
     var transformationRegex: VGSTransformationRegex?
   
-    var contentPath: String!
+    var contentPath: String
   
     var placeholder: String?
   
@@ -24,9 +24,9 @@ public struct VGSLabelRepresentable: UIViewRepresentable {
   
     var shouldCopyTextToClipboard = false
   
-    var secureTextStart: Int? = nil
+    var secureTextStart: Int?
   
-    var secureTextEnd: Int? = nil
+    var secureTextEnd: Int?
   
     var secureTextRanges = [VGSTextRange]()
   
@@ -36,7 +36,7 @@ public struct VGSLabelRepresentable: UIViewRepresentable {
   
     var paddings = UIEdgeInsets.zero
   
-    var placeholderPaddings: UIEdgeInsets? = nil
+    var placeholderPaddings: UIEdgeInsets?
   
     var borderColor: UIColor?
     /// Field border line width.
@@ -66,7 +66,10 @@ public struct VGSLabelRepresentable: UIViewRepresentable {
     /// - Parameter error: `VGSShowError` object.
     var onRevealDataDidFail: ((VGSShowError) -> Void)?
 
-    
+    public init(contentPath: String) {
+      self.contentPath = contentPath
+    }
+  
     public func makeUIView(context: Context) -> VGSLabel {
         let vgsLabel = VGSLabel()
         vgsLabel.delegate = context.coordinator
@@ -345,7 +348,7 @@ public struct VGSLabelRepresentable: UIViewRepresentable {
       parent.onTextChange?()
     }
 
-    public func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {
+    public func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat){
       parent.onCopyText?(format)
     }
 
