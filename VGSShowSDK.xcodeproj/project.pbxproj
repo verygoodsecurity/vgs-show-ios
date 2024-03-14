@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0345B1802B8E1969002A70C3 /* VGSLabelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */; };
+		034C25FD2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C25FC2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift */; };
+		034C26012BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C26002BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift */; };
 		03717E332B9A12B2006DC837 /* VGSImageViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */; };
 		03717E362B9A27B4006DC837 /* VGSPDFViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */; };
 		038184DC2B0BA1B800928C36 /* String+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */; };
@@ -129,6 +131,8 @@
 
 /* Begin PBXFileReference section */
 		0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelRepresentable.swift; sourceTree = "<group>"; };
+		034C25FC2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSViewRepresentableProtocol.swift; sourceTree = "<group>"; };
+		034C26002BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSViewRepresentableCallbacksProtocol.swift; sourceTree = "<group>"; };
 		03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSImageViewRepresentable.swift; sourceTree = "<group>"; };
 		03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPDFViewRepresentable.swift; sourceTree = "<group>"; };
 		038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtensionTests.swift"; sourceTree = "<group>"; };
@@ -266,6 +270,15 @@
 				0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */,
 			);
 			path = VGSLabelRepresentable;
+			sourceTree = "<group>";
+		};
+		034C25FB2BA2FBC8004065D9 /* VGSViewRepresentableProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				034C25FC2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift */,
+				034C26002BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift */,
+			);
+			path = VGSViewRepresentableProtocols;
 			sourceTree = "<group>";
 		};
 		03717E312B9A128F006DC837 /* VGSImageViewRepresentable */ = {
@@ -643,6 +656,7 @@
 				A0A4EEBD2A57A66D00172678 /* UIView+Internal.swift */,
 				A0A4EEBE2A57A66D00172678 /* VGSImageView */,
 				44F534E4263697D100ECEA77 /* VGSViewProtocols */,
+				034C25FB2BA2FBC8004065D9 /* VGSViewRepresentableProtocols */,
 				44168FD326329FAE0088E515 /* VGSPDFView */,
 				44A79F63255D0678009AF720 /* VGSLabel */,
 				44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */,
@@ -973,6 +987,7 @@
 				44168FDE26329FAE0088E515 /* VGSPDFView.swift in Sources */,
 				448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */,
 				441690002632A4480088E515 /* VGSDataDecoderFactory.swift in Sources */,
+				034C25FD2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift in Sources */,
 				446DA63E2644191000DDBD5E /* VGSShowRequestOptions.swift in Sources */,
 				A0A4EEC92A57A66D00172678 /* VGSImageViewDelegate.swift in Sources */,
 				44168FE126329FAE0088E515 /* VGSPdfViewModel.swift in Sources */,
@@ -1022,6 +1037,7 @@
 				44168FFF2632A4480088E515 /* VGSShowTextDecoder.swift in Sources */,
 				445FD81625E37F4000B36614 /* VGSShowSatelliteUtils.swift in Sources */,
 				44BAD6DC25C289460060A170 /* VGSLogEvent.swift in Sources */,
+				034C26012BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift in Sources */,
 				44BAD76425C445A70060A170 /* VGSShow+Logging.swift in Sources */,
 				448525C525829F8400721F73 /* VGSShowRequestLogger.swift in Sources */,
 				44BAD6E625C28DEC0060A170 /* VGSLogger.swift in Sources */,

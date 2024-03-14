@@ -5,17 +5,25 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-public struct VGSImageViewRepresentable: UIViewRepresentable {
-
+/// An object that displays revealed image data.
+public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepresentableCallbacksProtocol {
+    /// Name that will be associated with `VGSImageViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     var contentPath: String
-  
+    /// Image content mode, default is `.scaleToFill`.
     var imageContentMode: UIView.ContentMode = .scaleToFill
   
-    var onImageChange: (() -> Void)?
+    // MARK: - VGSImageViewRepresentable interaction callbacks
+    /// Tells when Image View  content did changed.
+    var onContentChanged: (() -> Void)?
+    /// Tells  when reveal data operation was failed for the Image View.
+    /// - Parameter error: `VGSShowError` object.
+    var onRevealError: ((VGSShowError) -> Void)?
   
-    var onRevealImageDidFail: ((VGSShowError) -> Void)?
-  
-  
+    // MARK: - Initialization
+    /// Initialization
+    ///
+    /// - Parameters:
+    ///   - contentPath: `String` path in reveal request response with revealed data that should be displayed in VGSImageViewRepresentable .
     public init(contentPath: String) {
       self.contentPath = contentPath
     }
@@ -26,41 +34,39 @@ public struct VGSImageViewRepresentable: UIViewRepresentable {
         vgsImageView.imageContentMode = imageContentMode
         return vgsImageView
     }
-
-//    /// A Boolean value determines whether the view has image.
-//    public var hasImage: Bool {
-//        return baseImageView.secureImage != nil
-//    }
-//
-//    /// Remove previously reveled image
-//    public func clear() {
-//        baseImageView.secureImage = nil
-//    }
   
     public func updateUIView(_ uiView: VGSImageView, context: Context) {
       
     }
-   
+    /// Name that will be associated with `VGSImageViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     public func contentPath(_ path: String) -> VGSImageViewRepresentable {
       var newRepresentable = self
       newRepresentable.contentPath = path
       return newRepresentable
     }
-
-    public func onImageChange(_ action: (() -> Void)?) -> VGSImageViewRepresentable {
+    /// Set mage content mode, default is `.scaleToFill`.
+    public func imageContentMode(_ mode: UIView.ContentMode) -> VGSImageViewRepresentable {
       var newRepresentable = self
-      newRepresentable.onImageChange = action
+      newRepresentable.imageContentMode = mode
+      return newRepresentable
+    }
+
+    // MARK: - Handle Image View events
+    public func onContentChanged(_ action: (() -> Void)?) -> VGSImageViewRepresentable {
+      var newRepresentable = self
+      newRepresentable.onContentChanged = action
       return newRepresentable
     }
   
     /// Tells  when reveal image operation was failed for the image view.
     ///   - action: `VGSShowError` object.
-    public func onRevealDataDidFail(_ action: ((VGSShowError) -> Void)?) -> VGSImageViewRepresentable {
+    public func onRevealError(_ action: ((VGSShowError) -> Void)?) -> VGSImageViewRepresentable {
       var newRepresentable = self
-      newRepresentable.onRevealImageDidFail = action
+      newRepresentable.onRevealError = action
       return newRepresentable
     }
   
+    // MARK: - Coordinator
     public func makeCoordinator() -> Coordinator {
       return Coordinator(self)
     }
@@ -73,11 +79,11 @@ public struct VGSImageViewRepresentable: UIViewRepresentable {
       }
       
       public func imageDidChange(in imageView: VGSImageView) {
-        parent.onImageChange?()
+        parent.onContentChanged?()
       }
       
       public func imageView(_ imageView: VGSImageView, didFailWithError error: VGSShowError) {
-        parent.onRevealImageDidFail?(error)
+        parent.onRevealError?(error)
       }
     }
 }
