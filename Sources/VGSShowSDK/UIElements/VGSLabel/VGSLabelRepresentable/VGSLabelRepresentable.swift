@@ -14,7 +14,7 @@ protocol VGSLabelRepresentableCallbacksProtocol: VGSViewRepresentableCallbacksPr
 @available(iOS 14.0, *)
 /// A View that displays revealed text data.
 public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepresentableCallbacksProtocol {
-
+    weak var vgsShow: VGSShow?
     /// Name that will be associated with `VGSLabelRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     var contentPath: String
     /// Transformation regex to format raw revealed text.
@@ -35,9 +35,10 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     var secureTextRanges = [VGSTextRange]()
   
     // MARK: - UI Attribute
-    var paddings = UIEdgeInsets.zero
+    /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
+    var labelPaddings = UIEdgeInsets.zero
     /// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
-    var placeholderPaddings: UIEdgeInsets?
+    var placeholderLabelPaddings: UIEdgeInsets?
     /// Field border line color.
     var borderColor: UIColor?
     /// Field border line width.
@@ -74,7 +75,7 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     /// - Parameter error: `VGSShowError` object.
     var onRevealError: ((VGSShowError) -> Void)?
     /// Tells when label input did changed.
-    var onContentChanged: (() -> Void)?
+    var onContentDidChange: (() -> Void)?
     /// Tells when raw text is copied in the specified label.
     ///   - action: `VGSLabel.CopyTextFormat` object, copied text format.
     var onCopyText: ((VGSLabel.CopyTextFormat) -> Void)?
@@ -84,8 +85,9 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     ///
     /// - Parameters:
     ///   - contentPath: `String` path in reveal request response with revealed data that should be displayed in VGSLabelRepresentable .
-    public init(contentPath: String) {
+    public init(vgsShow: VGSShow, contentPath: String) {
       self.contentPath = contentPath
+      self.vgsShow = vgsShow
     }
   
     public func makeUIView(context: Context) -> VGSLabel {
@@ -97,7 +99,7 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
         vgsLabel.placeholderStyle = placeholderStyle
         vgsLabel.isSecureText = isSecureText
         vgsLabel.secureTextSymbol = secureTextSymbol
-        vgsLabel.paddings = paddings
+        vgsLabel.paddings = labelPaddings
         vgsLabel.vgsAccessibilityLabel = vgsAccessibilityLabel
         vgsLabel.vgsAccessibilityHint = vgsAccessibilityHint
         vgsLabel.numberOfLines = numberOfLines
@@ -108,8 +110,8 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
         if let color = borderColor {vgsLabel.borderColor = color}
         if let lineWidth = bodrerWidth {vgsLabel.borderWidth = lineWidth}
       
-        if placeholderPaddings != nil {
-          vgsLabel.placeholderPaddings = placeholderPaddings
+        if placeholderLabelPaddings != nil {
+          vgsLabel.placeholderPaddings = placeholderLabelPaddings
         }
         if secureTextStart != nil || secureTextEnd != nil {
           vgsLabel.setSecureText(start: secureTextStart, end: secureTextEnd)
@@ -127,10 +129,46 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
         if let regex = transformationRegex {
           vgsLabel.textFormattersContainer.addTransformationRegex(regex)
         }
+        vgsShow?.subscribe(vgsLabel)
         return vgsLabel
     }
 
     public func updateUIView(_ uiView: VGSLabel, context: Context) {
+      uiView.font = font
+      uiView.placeholder = placeholder
+      uiView.placeholderStyle = placeholderStyle
+      uiView.isSecureText = isSecureText
+      uiView.secureTextSymbol = secureTextSymbol
+      uiView.paddings = labelPaddings
+      uiView.vgsAccessibilityLabel = vgsAccessibilityLabel
+      uiView.vgsAccessibilityHint = vgsAccessibilityHint
+      uiView.numberOfLines = numberOfLines
+      uiView.textAlignment = textAlignment
+      uiView.lineBreakMode = lineBreakMode
+      uiView.textMinLineHeight = textMinLineHeight
+    
+      if let color = borderColor {uiView.borderColor = color}
+      if let lineWidth = bodrerWidth {uiView.borderWidth = lineWidth}
+    
+      if placeholderLabelPaddings != nil {
+        uiView.placeholderPaddings = placeholderLabelPaddings
+      }
+      if secureTextStart != nil || secureTextEnd != nil {
+        uiView.setSecureText(start: secureTextStart, end: secureTextEnd)
+      }
+      if !secureTextRanges.isEmpty {
+        uiView.setSecureText(ranges: secureTextRanges)
+      }
+      if let adjustsFont = vgsAdjustsFontForContentSizeCategory {
+        uiView.vgsAdjustsFontForContentSizeCategory = adjustsFont
+      }
+      if let txtColor = textColor {
+        uiView.textColor = txtColor
+      }
+    
+      if let regex = transformationRegex {
+        uiView.textFormattersContainer.addTransformationRegex(regex)
+      }
     }
   
     /// Add transformation regex to format raw revealed text.
@@ -200,16 +238,16 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
   
     // MARK: - UI Attribute
     /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
-    public func paddings(_ paddings: UIEdgeInsets) -> VGSLabelRepresentable {
+    public func labelPaddings(_ paddings: UIEdgeInsets) -> VGSLabelRepresentable {
       var newRepresentable = self
-      newRepresentable.paddings = paddings
+      newRepresentable.labelPaddings = paddings
       return newRepresentable
     }
-
+    
     /// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
-    public func placeholderPaddings(_ paddings: UIEdgeInsets) -> VGSLabelRepresentable {
+    public func placeholderLabelPaddings(_ paddings: UIEdgeInsets) -> VGSLabelRepresentable {
       var newRepresentable = self
-      newRepresentable.placeholderPaddings = paddings
+      newRepresentable.placeholderLabelPaddings = paddings
       return newRepresentable
     }
 
@@ -221,7 +259,7 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
       newRepresentable.vgsAccessibilityLabel = label
       return newRepresentable
     }
-    
+
     /// A localized string that contains a brief description of the result of
     /// performing an action on the accessibility element.
     public func vgsAccessibilityHint(_ hint: String?) -> VGSLabelRepresentable {
@@ -294,9 +332,9 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     
     // MARK: - Handle Label events
     /// Tells when label text did changed.
-    public func onContentChanged(_ action: (() -> Void)?) -> VGSLabelRepresentable {
+    public func onContentDidChange(_ action: (() -> Void)?) -> VGSLabelRepresentable {
       var newRepresentable = self
-      newRepresentable.onContentChanged = action
+      newRepresentable.onContentDidChange = action
       return newRepresentable
     }
     /// Tells when raw text is copied in the specified label.
@@ -327,7 +365,7 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
       }
       
       public func labelTextDidChange(_ label: VGSLabel) {
-        parent.onContentChanged?()
+        parent.onContentDidChange?()
       }
 
       public func labelCopyTextDidFinish(_ label: VGSLabel, format: VGSLabel.CopyTextFormat) {

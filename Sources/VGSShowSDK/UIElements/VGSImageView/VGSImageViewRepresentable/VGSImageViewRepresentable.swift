@@ -7,6 +7,7 @@ import SwiftUI
 @available(iOS 14.0, *)
 /// An object that displays revealed image data.
 public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepresentableCallbacksProtocol {
+    weak var vgsShow: VGSShow?
     /// Name that will be associated with `VGSImageViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     var contentPath: String
     /// Image content mode, default is `.scaleToFill`.
@@ -14,7 +15,7 @@ public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRe
   
     // MARK: - VGSImageViewRepresentable interaction callbacks
     /// Tells when Image View  content did changed.
-    var onContentChanged: (() -> Void)?
+    var onContentDidChange: (() -> Void)?
     /// Tells  when reveal data operation was failed for the Image View.
     /// - Parameter error: `VGSShowError` object.
     var onRevealError: ((VGSShowError) -> Void)?
@@ -24,7 +25,8 @@ public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRe
     ///
     /// - Parameters:
     ///   - contentPath: `String` path in reveal request response with revealed data that should be displayed in VGSImageViewRepresentable .
-    public init(contentPath: String) {
+    public init(vgsShow: VGSShow, contentPath: String) {
+      self.vgsShow = vgsShow
       self.contentPath = contentPath
     }
     
@@ -32,11 +34,12 @@ public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRe
         let vgsImageView = VGSImageView()
         vgsImageView.contentPath = contentPath
         vgsImageView.imageContentMode = imageContentMode
+        vgsShow?.subscribe(vgsImageView)
         return vgsImageView
     }
   
     public func updateUIView(_ uiView: VGSImageView, context: Context) {
-      
+        uiView.imageContentMode = imageContentMode
     }
     /// Name that will be associated with `VGSImageViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     public func contentPath(_ path: String) -> VGSImageViewRepresentable {
@@ -52,9 +55,9 @@ public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRe
     }
 
     // MARK: - Handle Image View events
-    public func onContentChanged(_ action: (() -> Void)?) -> VGSImageViewRepresentable {
+    public func onContentDidChange(_ action: (() -> Void)?) -> VGSImageViewRepresentable {
       var newRepresentable = self
-      newRepresentable.onContentChanged = action
+      newRepresentable.onContentDidChange = action
       return newRepresentable
     }
   
@@ -79,7 +82,7 @@ public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRe
       }
       
       public func imageDidChange(in imageView: VGSImageView) {
-        parent.onContentChanged?()
+        parent.onContentDidChange?()
       }
       
       public func imageView(_ imageView: VGSImageView, didFailWithError error: VGSShowError) {

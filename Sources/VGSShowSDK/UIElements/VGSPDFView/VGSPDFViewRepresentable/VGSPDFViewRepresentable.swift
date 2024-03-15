@@ -9,6 +9,7 @@ import PDFKit
 @available(iOS 14.0, *)
 /// A View that displays revealed PDF data.
 public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepresentableCallbacksProtocol {
+    weak var vgsShow: VGSShow?
     /// Name that will be associated with `VGSPDFViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     var contentPath: String
     /// PDF display mode, default is `.singlePageContinuous`.
@@ -26,7 +27,7 @@ public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepr
   
     // MARK: - VGSPDFViewRepresentable interaction callbacks
     /// Tells when PDF View  content did changed.
-    var onContentChanged: (() -> Void)?
+    var onContentDidChange: (() -> Void)?
     /// Tells  when reveal data operation was failed for the PSD View.
     /// - Parameter error: `VGSShowError` object.
     var onRevealError: ((VGSShowError) -> Void)?
@@ -36,7 +37,8 @@ public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepr
     ///
     /// - Parameters:
     ///   - contentPath: `String` path in reveal request response with revealed data that should be displayed in VGSPDFViewRepresentable .
-    public init(contentPath: String) {
+    public init(vgsShow: VGSShow, contentPath: String) {
+      self.vgsShow = vgsShow
       self.contentPath = contentPath
     }
     
@@ -49,12 +51,17 @@ public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepr
         vgsPDFView.displayAsBook = displayAsBook
         vgsPDFView.pdfBackgroundColor = pdfBackgroundColor
         vgsPDFView.pageShadowsEnabled = pageShadowsEnabled
-      
+        vgsShow?.subscribe(vgsPDFView)
         return vgsPDFView
     }
   
     public func updateUIView(_ uiView: VGSPDFView, context: Context) {
-      
+        uiView.pdfDisplayMode = pdfDisplayMode
+        uiView.pdfDisplayDirection = pdfDisplayDirection
+        uiView.pdfAutoScales = pdfAutoScales
+        uiView.displayAsBook = displayAsBook
+        uiView.pdfBackgroundColor = pdfBackgroundColor
+        uiView.pageShadowsEnabled = pageShadowsEnabled
     }
     /// Name that will be associated with `VGSPDFViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
     public func contentPath(_ path: String) -> VGSPDFViewRepresentable {
@@ -101,9 +108,9 @@ public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepr
   
     // MARK: - Handle PDF View events
     /// Tells when PDF View content did changed.
-    public func onContentChanged(_ action: (() -> Void)?) -> VGSPDFViewRepresentable {
+    public func onContentDidChange(_ action: (() -> Void)?) -> VGSPDFViewRepresentable {
       var newRepresentable = self
-      newRepresentable.onContentChanged = action
+      newRepresentable.onContentDidChange = action
       return newRepresentable
     }
   
@@ -128,7 +135,7 @@ public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepr
       }
       
       public func documentDidChange(in pdfView: VGSPDFView) {
-        parent.onContentChanged?()
+        parent.onContentDidChange?()
       }
 
       public func pdfView(_ pdfView: VGSPDFView, didFailWithError error: VGSShowError) {
