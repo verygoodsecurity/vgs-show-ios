@@ -28,7 +28,14 @@ class VGSAttributedLabelTests: XCTestCase {
     }
 
     func testApplyPlaceholderStyle() {
-        let style = VGSPlaceholderLabelStyle(color: .red, font: .systemFont(ofSize: 12), numberOfLines: 1, textAlignment: .center, characterSpacing: 2.0, textMinLineHeight: 20, lineBreakMode: .byTruncatingTail)
+        var style = VGSPlaceholderLabelStyle()
+        style.color = UIColor.red
+        style.font =  UIFont.systemFont(ofSize: 12)
+        style.numberOfLines = 1
+        style.textAlignment = NSTextAlignment.center
+        style.characterSpacing = 2.0
+        style.textMinLineHeight = 20.0
+        style.lineBreakMode = NSLineBreakMode.byTruncatingTail
         attributedLabel.applyPlaceholderStyle(style)
 
         XCTAssertEqual(attributedLabel.textColor, style.color)

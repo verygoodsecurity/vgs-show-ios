@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		#if DEBUG
 		// Setup VGS Show loggers:
 		// Show warnings and errors.
-		VGSLogger.shared.configuration.level = .info
+		VGSLogger.shared.configuration.level = .warning
 
 		// Show network session for reveal requests.
 		VGSLogger.shared.configuration.isNetworkDebugEnabled = true
@@ -34,10 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		// Setup VGS Collect loggers:
 		// Show warnings and errors.
-		VGSCollectLogger.shared.configuration.level = .info
+		VGSCollectLogger.shared.configuration.level = .warning
 
 		// Show network session for collect requests.
-		VGSCollectLogger.shared.configuration.isNetworkDebugEnabled = false
+		VGSCollectLogger.shared.configuration.isNetworkDebugEnabled = true
 
 		// *You can stop all VGS Collect loggers in app:
 		// VGSCollectLogger.shared.disableAllLoggers()
@@ -49,4 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		return true
 	}
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0345B1802B8E1969002A70C3 /* VGSLabelRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */; };
+		034C25FD2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C25FC2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift */; };
+		034C26012BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C26002BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift */; };
+		03717E332B9A12B2006DC837 /* VGSImageViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */; };
+		03717E362B9A27B4006DC837 /* VGSPDFViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */; };
 		038184DC2B0BA1B800928C36 /* String+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */; };
 		03D10DB92B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */; };
 		03D10DBC2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */; };
@@ -125,6 +130,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSLabelRepresentable.swift; sourceTree = "<group>"; };
+		034C25FC2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSViewRepresentableProtocol.swift; sourceTree = "<group>"; };
+		034C26002BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSViewRepresentableCallbacksProtocol.swift; sourceTree = "<group>"; };
+		03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSImageViewRepresentable.swift; sourceTree = "<group>"; };
+		03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPDFViewRepresentable.swift; sourceTree = "<group>"; };
 		038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtensionTests.swift"; sourceTree = "<group>"; };
 		03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRequestOptionsTests.swift; sourceTree = "<group>"; };
 		03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSDataDecoderFactoryTests.swift; sourceTree = "<group>"; };
@@ -254,6 +264,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0345B17E2B8E194D002A70C3 /* VGSLabelRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				0345B17F2B8E1969002A70C3 /* VGSLabelRepresentable.swift */,
+			);
+			path = VGSLabelRepresentable;
+			sourceTree = "<group>";
+		};
+		034C25FB2BA2FBC8004065D9 /* VGSViewRepresentableProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				034C25FC2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift */,
+				034C26002BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift */,
+			);
+			path = VGSViewRepresentableProtocols;
+			sourceTree = "<group>";
+		};
+		03717E312B9A128F006DC837 /* VGSImageViewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */,
+			);
+			path = VGSImageViewRepresentable;
+			sourceTree = "<group>";
+		};
+		03717E342B9A27A2006DC837 /* VGSPDFViewRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */,
+			);
+			path = VGSPDFViewRepresentable;
+			sourceTree = "<group>";
+		};
 		038184DA2B0BA19200928C36 /* ExtensionTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +356,7 @@
 		44168FD326329FAE0088E515 /* VGSPDFView */ = {
 			isa = PBXGroup;
 			children = (
+				03717E342B9A27A2006DC837 /* VGSPDFViewRepresentable */,
 				44168FD926329FAE0088E515 /* VGSSecurePDFView */,
 				44168FD626329FAE0088E515 /* VGSPDFViewDelegate.swift */,
 				44168FD726329FAE0088E515 /* VGSPDFView.swift */,
@@ -612,6 +656,7 @@
 				A0A4EEBD2A57A66D00172678 /* UIView+Internal.swift */,
 				A0A4EEBE2A57A66D00172678 /* VGSImageView */,
 				44F534E4263697D100ECEA77 /* VGSViewProtocols */,
+				034C25FB2BA2FBC8004065D9 /* VGSViewRepresentableProtocols */,
 				44168FD326329FAE0088E515 /* VGSPDFView */,
 				44A79F63255D0678009AF720 /* VGSLabel */,
 				44A79F68255D0678009AF720 /* VGSMaskedLabel.swift */,
@@ -624,6 +669,7 @@
 		44A79F63255D0678009AF720 /* VGSLabel */ = {
 			isa = PBXGroup;
 			children = (
+				0345B17E2B8E194D002A70C3 /* VGSLabelRepresentable */,
 				44A79F64255D0678009AF720 /* VGSLabel+Internal.swift */,
 				44A79F65255D0678009AF720 /* VGSLabelDelegate.swift */,
 				44A79F66255D0678009AF720 /* VGSLabel.swift */,
@@ -758,6 +804,7 @@
 		A0A4EEBE2A57A66D00172678 /* VGSImageView */ = {
 			isa = PBXGroup;
 			children = (
+				03717E312B9A128F006DC837 /* VGSImageViewRepresentable */,
 				A0A4EEBF2A57A66D00172678 /* VGSImageView+Internal.swift */,
 				A0A4EEC02A57A66D00172678 /* VGSImageViewModel.swift */,
 				A0A4EEC12A57A66D00172678 /* VGSImageView.swift */,
@@ -934,11 +981,13 @@
 				44E05118256E49C400DDBE41 /* String+Exntesions.swift in Sources */,
 				4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */,
 				44A79F6B255D0678009AF720 /* APIClient.swift in Sources */,
+				03717E332B9A12B2006DC837 /* VGSImageViewRepresentable.swift in Sources */,
 				44BAD78025C7EA520060A170 /* VGSTextRange.swift in Sources */,
 				44A79F76255D0678009AF720 /* VGSTransformationRegex.swift in Sources */,
 				44168FDE26329FAE0088E515 /* VGSPDFView.swift in Sources */,
 				448F55CA258336BA0024E814 /* VGSRequestBodyPayload.swift in Sources */,
 				441690002632A4480088E515 /* VGSDataDecoderFactory.swift in Sources */,
+				034C25FD2BA2FC13004065D9 /* VGSViewRepresentableProtocol.swift in Sources */,
 				446DA63E2644191000DDBD5E /* VGSShowRequestOptions.swift in Sources */,
 				A0A4EEC92A57A66D00172678 /* VGSImageViewDelegate.swift in Sources */,
 				44168FE126329FAE0088E515 /* VGSPdfViewModel.swift in Sources */,
@@ -963,6 +1012,7 @@
 				44168FFE2632A4480088E515 /* VGSShowRawDataDecoder.swift in Sources */,
 				44168FDF26329FAE0088E515 /* VGSPDFView+Internal.swift in Sources */,
 				441963E12592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift in Sources */,
+				0345B1802B8E1969002A70C3 /* VGSLabelRepresentable.swift in Sources */,
 				44A79F81255D0678009AF720 /* VGSLabelDelegate.swift in Sources */,
 				44A79F84255D0678009AF720 /* VGSMaskedLabel.swift in Sources */,
 				44168FFA2632A4480088E515 /* VGSShowPDFContent.swift in Sources */,
@@ -987,12 +1037,14 @@
 				44168FFF2632A4480088E515 /* VGSShowTextDecoder.swift in Sources */,
 				445FD81625E37F4000B36614 /* VGSShowSatelliteUtils.swift in Sources */,
 				44BAD6DC25C289460060A170 /* VGSLogEvent.swift in Sources */,
+				034C26012BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift in Sources */,
 				44BAD76425C445A70060A170 /* VGSShow+Logging.swift in Sources */,
 				448525C525829F8400721F73 /* VGSShowRequestLogger.swift in Sources */,
 				44BAD6E625C28DEC0060A170 /* VGSLogger.swift in Sources */,
 				44416C0C2642AC150099B48F /* FileManager+Extensions.swift in Sources */,
 				44A79F6D255D0678009AF720 /* VGSShow+Network.swift in Sources */,
 				44A79F80255D0678009AF720 /* VGSLabel+Internal.swift in Sources */,
+				03717E362B9A27B4006DC837 /* VGSPDFViewRepresentable.swift in Sources */,
 				4409318925B6B8FC00CAF065 /* UIApplication+Extensions.swift in Sources */,
 				44A79F6C255D0678009AF720 /* VGSShowRequestResult.swift in Sources */,
 				44A474962588865F00534965 /* URL+Extensions.swift in Sources */,
@@ -1103,7 +1155,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1161,7 +1214,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1187,13 +1241,13 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/VGSShowSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.7;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1218,13 +1272,13 @@
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/VGSShowSDK/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.7;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1246,7 +1300,7 @@
 				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
 				"INFOPLIST_FILE[sdk=*]" = "";
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1270,7 +1324,7 @@
 				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
 				INFOPLIST_FILE = Tests/VGSShowSDKTests/Info.plist;
 				INFOPLIST_PREPROCESS = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
