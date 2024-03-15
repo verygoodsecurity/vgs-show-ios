@@ -9,8 +9,8 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/verygoodsecurity/vgs-show-ios"
 	spec.license      = { type: 'MIT', file: 'LICENSE' }
   spec.author             = { "Very Good Security" => "support@verygoodsecurity.com" }
-  spec.platform     = :ios, "10.0"
-  spec.ios.deployment_target = "10.0"
+  spec.platform     = :ios, "13.0"
+  spec.ios.deployment_target = "13.0"
   spec.source       = { :git => "https://github.com/verygoodsecurity/vgs-show-ios.git", :tag => "#{spec.version}" }
 	spec.requires_arc = true
 
