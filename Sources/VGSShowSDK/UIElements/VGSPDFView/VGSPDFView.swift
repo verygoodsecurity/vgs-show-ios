@@ -17,14 +17,14 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 	/// The object that acts as the delegate of the `VGSPDFView`.
 	public weak var delegate: VGSPDFViewDelegate?
 
-  /// Pdf display mode, default is `.singlePageContinuous`.
+  /// PDF display mode, default is `.singlePageContinuous`.
 	public var pdfDisplayMode: PDFDisplayMode = PDFDisplayMode.singlePageContinuous {
 		didSet {
 			maskedPdfView.displayMode = pdfDisplayMode
 		}
 	}
 
-	/// PDf layout direction, either vertical or horizontal for the given display mode, default is `.vertical`.
+	/// PDF layout direction, either vertical or horizontal for the given display mode, default is `.vertical`.
 	public var pdfDisplayDirection: PDFDisplayDirection = PDFDisplayDirection.vertical {
 		didSet {
 			maskedPdfView.displayDirection = pdfDisplayDirection
@@ -45,7 +45,7 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 		}
 	}
 
-	/// Background color of pdf viewer. Default is `gray` with 50% opacity.
+	/// Background color of PDF viewer.
 	public var pdfBackgroundColor: UIColor? {
 		didSet {
 			maskedPdfView.backgroundColor = pdfBackgroundColor ?? UIColor.gray.withAlphaComponent(0)
