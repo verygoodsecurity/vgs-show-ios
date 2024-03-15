@@ -10,6 +10,8 @@
 		034C25CD2B9F4A64004065D9 /* ShowCardDataSwiftUIHostingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C25CC2B9F4A64004065D9 /* ShowCardDataSwiftUIHostingVC.swift */; };
 		034C25CF2B9F4ABC004065D9 /* ShowCardDataSwiftUIDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C25CE2B9F4ABC004065D9 /* ShowCardDataSwiftUIDemo.swift */; };
 		034C25D12B9F5112004065D9 /* ShowCardDataSwiftUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034C25D02B9F5112004065D9 /* ShowCardDataSwiftUI.storyboard */; };
+		034C26042BA333A1004065D9 /* CardDataCollectionSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C26022BA333A1004065D9 /* CardDataCollectionSwiftUI.swift */; };
+		034C26052BA333A1004065D9 /* CollectCardDataSwiftUIHostingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034C26032BA333A1004065D9 /* CollectCardDataSwiftUIHostingVC.swift */; };
 		44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44014793256641A500A3627B /* UIFont+Extensions.swift */; };
 		4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */; };
 		440CE9F826398B7900FE6B17 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 440CE9F726398B7900FE6B17 /* README.md */; };
@@ -78,6 +80,8 @@
 		034C25CC2B9F4A64004065D9 /* ShowCardDataSwiftUIHostingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDataSwiftUIHostingVC.swift; sourceTree = "<group>"; };
 		034C25CE2B9F4ABC004065D9 /* ShowCardDataSwiftUIDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDataSwiftUIDemo.swift; sourceTree = "<group>"; };
 		034C25D02B9F5112004065D9 /* ShowCardDataSwiftUI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowCardDataSwiftUI.storyboard; sourceTree = "<group>"; };
+		034C26022BA333A1004065D9 /* CardDataCollectionSwiftUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDataCollectionSwiftUI.swift; sourceTree = "<group>"; };
+		034C26032BA333A1004065D9 /* CollectCardDataSwiftUIHostingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectCardDataSwiftUIHostingVC.swift; sourceTree = "<group>"; };
 		44014793256641A500A3627B /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		4409318E25B6B95300CAF065 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		440CE9F726398B7900FE6B17 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			children = (
 				034C25CC2B9F4A64004065D9 /* ShowCardDataSwiftUIHostingVC.swift */,
 				034C25CE2B9F4ABC004065D9 /* ShowCardDataSwiftUIDemo.swift */,
+				034C26022BA333A1004065D9 /* CardDataCollectionSwiftUI.swift */,
+				034C26032BA333A1004065D9 /* CollectCardDataSwiftUIHostingVC.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -579,10 +585,12 @@
 				44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */,
 				44415FDB255D37540012D107 /* Helpers.swift in Sources */,
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
+				034C26052BA333A1004065D9 /* CollectCardDataSwiftUIHostingVC.swift in Sources */,
 				44415FDF255D37610012D107 /* DemoAppConfig.swift in Sources */,
 				4409318F25B6B95300CAF065 /* UIColor+Extensions.swift in Sources */,
 				A0A4EEB82A57A4D500172678 /* CollectImageDemoViewController.swift in Sources */,
 				44014794256641A500A3627B /* UIFont+Extensions.swift in Sources */,
+				034C26042BA333A1004065D9 /* CardDataCollectionSwiftUI.swift in Sources */,
 				A0A4EEBB2A57A4D500172678 /* ShowImageDemoViewController.swift in Sources */,
 				034C25CF2B9F4ABC004065D9 /* ShowCardDataSwiftUIDemo.swift in Sources */,
 				44F534D82636962D00ECEA77 /* CollectViewController.swift in Sources */,
@@ -756,7 +764,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -781,7 +789,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

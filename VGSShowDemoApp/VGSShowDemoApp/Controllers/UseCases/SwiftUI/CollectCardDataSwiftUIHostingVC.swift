@@ -1,18 +1,17 @@
 //
-//  ShowCardDataSwiftUIHostingVC.swift
-//  VGSShowDemoApp
+//  CollectCardDataSwiftUIHostingVC.swift
+//  demoapp
 //
 
 
 import Foundation
 import SwiftUI
 
-@available(iOS 14.0, *)
-class ShowCardDataSwiftUIHostingVC: UIViewController {
+class CollectCardDataSwiftUIHostingVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let swiftUIView = ShowCardDataSwiftUIDemo()
+    let swiftUIView = CardDataCollectionSwiftUI()
     let hostingController = UIHostingController(rootView: swiftUIView)
     addChild(hostingController)
     hostingController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +23,6 @@ class ShowCardDataSwiftUIHostingVC: UIViewController {
           hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
           hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
       ])
-
     hostingController.didMove(toParent: self)
   }
 }

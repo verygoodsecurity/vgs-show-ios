@@ -9,7 +9,7 @@ target 'VGSShowDemoApp' do
 
   # Pods for VGSShowDemoApp
 
-  pod 'VGSCollectSDK'
+  pod 'VGSCollectSDK', '1.16.0'
   pod 'VGSShowSDK', :path => "../"
 
 
