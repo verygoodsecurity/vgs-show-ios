@@ -18,6 +18,6 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Core' do |core|
   #set as default podspec to prevent from downloading additional modules
-    core.source_files = "Sources/VGSShowSDK", "Sources/VGSShowSDK/**/*.{swift}", "Sources/VGSShowSDK/**/*.{h, m}"
+    core.source_files = "Sources/VGSShowSDK", "Sources/VGSShowSDK/**/*.{swift}", "Sources/VGSShowSDK/**/*.{h, m}", "Sources/VGSShowSDK/PrivacyInfo.xcprivacy"
   end
 end
