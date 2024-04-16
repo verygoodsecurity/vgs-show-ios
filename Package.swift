@@ -27,7 +27,8 @@ let package = Package(
 						exclude: [
 							"Info.plist",
 							"VGSShowSDK.h"
-					]),
+					],
+ 		resources: [.copy("PrivacyInfo.xcprivacy")]),
         .testTarget(
             name: "VGSShowSDKTests",
             dependencies: ["VGSShowSDK"],
