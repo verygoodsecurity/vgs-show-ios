@@ -13,6 +13,7 @@
 		03717E332B9A12B2006DC837 /* VGSImageViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */; };
 		03717E362B9A27B4006DC837 /* VGSPDFViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */; };
 		038184DC2B0BA1B800928C36 /* String+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */; };
+		0388128B2BCEB9C600F9CF8C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0388128A2BCEB9C600F9CF8C /* PrivacyInfo.xcprivacy */; };
 		03D10DB92B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */; };
 		03D10DBC2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */; };
 		03D10DBE2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D10DBD2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift */; };
@@ -136,6 +137,7 @@
 		03717E322B9A12B2006DC837 /* VGSImageViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSImageViewRepresentable.swift; sourceTree = "<group>"; };
 		03717E352B9A27B4006DC837 /* VGSPDFViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPDFViewRepresentable.swift; sourceTree = "<group>"; };
 		038184DB2B0BA1B800928C36 /* String+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ExtensionTests.swift"; sourceTree = "<group>"; };
+		0388128A2BCEB9C600F9CF8C /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		03D10DB82B04F3CA00C86E40 /* VGSShowRequestOptionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowRequestOptionsTests.swift; sourceTree = "<group>"; };
 		03D10DBB2B04F75400C86E40 /* VGSDataDecoderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSDataDecoderFactoryTests.swift; sourceTree = "<group>"; };
 		03D10DBD2B04F9C100C86E40 /* VGSShowTextDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowTextDecoderTests.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 			isa = PBXGroup;
 			children = (
 				32010B39256EACEC00E19C71 /* VGSShowSDK.h */,
+				0388128A2BCEB9C600F9CF8C /* PrivacyInfo.xcprivacy */,
 				44A79F5E255D0678009AF720 /* Info.plist */,
 				44A79F41255D0678009AF720 /* Core */,
 				44A79F55255D0678009AF720 /* Utils */,
@@ -917,6 +920,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0388128B2BCEB9C600F9CF8C /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
