@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "VGSShowSDK"
-  spec.version      = "1.2.0"
+  spec.version      = "1.2.1"
   spec.summary      = "VGS Show - is a product suite that allows customers to reveal and show information securely without possession of it."
 	spec.swift_version = '5.0'
   spec.description  = <<-DESC
@@ -18,6 +18,6 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'Core' do |core|
   #set as default podspec to prevent from downloading additional modules
-    core.source_files = "Sources/VGSShowSDK", "Sources/VGSShowSDK/**/*.{swift}", "Sources/VGSShowSDK/**/*.{h, m}"
+    core.source_files = "Sources/VGSShowSDK", "Sources/VGSShowSDK/**/*.{swift}", "Sources/VGSShowSDK/**/*.{h, m}", "Sources/VGSShowSDK/PrivacyInfo.xcprivacy"
   end
 end

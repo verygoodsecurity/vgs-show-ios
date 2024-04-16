@@ -158,9 +158,6 @@ func revealData() {
   }
 }
 ```
-## Local Testing
-To test and verify your integration with VGS directly from your local machine you can use [VGS Satellite](https://github.com/verygoodsecurity/vgs-satellite).
-Check our Satellite [integration  guide](https://www.verygoodsecurity.com/docs/vgs-show/ios-sdk/vgs-satellite-integration).
 
 ## Demo Application
 Demo application for collecting card data on iOS is <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/main/VGSShowDemoApp">here</a>.
@@ -179,7 +176,7 @@ VGSAnalyticsClient.shared.shouldCollectAnalytics = false
 ```
 
 ## Dependencies
-- iOS 10+
+- iOS 13+
 - Swift 5
 
 ## License
