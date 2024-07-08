@@ -12,16 +12,19 @@ parameters:
 jobs:
   build-and-test-sdk:
     macos:
-      xcode: "14.2"
+      xcode: "15.4"
     steps:
       - checkout
+      - run:
+          name: Install Rosetta translation environment on Apple Silicon Mac
+          command: softwareupdate --install-rosetta --agree-to-license
       - run:
           name: Install xcov
           command: >
             gem install xcov
       - run:
           name: Run Tests
-          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5' -enableCodeCoverage YES
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' -enableCodeCoverage YES
       - run:
           name: Calculate Test Coverage
           command: >
@@ -33,14 +36,14 @@ jobs:
       - run:
           name: Push Test Coverage to Compass
           command: >
-            if [ "<< pipeline.git.branch >>" == "main" ]; then
+            if [ "<< pipeline.git.branch >>" == "canary" ]; then
               ./ops/publish-test-coverage.sh 
             else
               echo "Code coverage will only be pushed to compass on the main branch."
             fi
-  build-and-ui-test-demo-app-ios-16:
+  build-and-ui-test-demo-app-ios-17:
     macos:
-      xcode: "14.2"
+      xcode: "15.4"
     steps:
       - checkout
       - run:
@@ -55,13 +58,13 @@ jobs:
             cd .. &&
             cd .. &&
             pod install &&
-            xcrun instruments -w "iPhone 13 (15.5) [" || true &&
-            xcrun instruments -w "iPad Air (5th generation) (16.0) [" || true &&
+            xcrun instruments -w "iPhone 15 (17.5) [" || true &&
+            xcrun instruments -w "iPad Air 13-inch (M2) (17.5) [" || true &&
             xcodebuild test -workspace VGSShowDemoApp.xcworkspace
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.5'
-            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.2'
+            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5'
+            -destination 'platform=iOS Simulator,name=iPad Air 13-inch (M2),OS=17.5'
 
   scan-sast-pr:
     parameters:
@@ -114,8 +117,7 @@ workflows:
             tags:
               only: /^\d+\.\d+\.\d+(?:-\w+){0,1}$/
       - build-and-test-sdk
-      - build-and-ui-test-demo-app-ios-16
-      
+      - build-and-ui-test-demo-app-ios-17
 
   scheduled-security-scan:
     when: << pipeline.parameters.nightly-security-scan >>
@@ -124,4 +126,3 @@ workflows:
           context:
             - security-tools
             - circleci
-
