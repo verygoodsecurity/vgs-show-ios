@@ -24,7 +24,7 @@ jobs:
             gem install xcov
       - run:
           name: Run Tests
-          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4' -enableCodeCoverage YES
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=Phone 15, OS=17.5' -enableCodeCoverage YES
       - run:
           name: Calculate Test Coverage
           command: >
@@ -58,13 +58,13 @@ jobs:
             cd .. &&
             cd .. &&
             pod install &&
-            xcrun instruments -w "iPhone 15 (17.4) [" || true &&
-            xcrun instruments -w "iPad Air (5th generation) (16.2) [" || true &&
+            xcrun instruments -w "iPhone 15 (17.5) [" || true &&
+            xcrun instruments -w "iPad Air 13-inch (M2) (17.5) [" || true &&
             xcodebuild test -workspace VGSShowDemoApp.xcworkspace
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4'
-            -destination 'platform=iOS Simulator,name=iPad Air (5th generation),OS=16.2'
+            -destination 'platform=iOS Simulator,name=iPhone 15 (17.5)'
+            -destination 'platform=iOS Simulator,name=iPad Air 13-inch (M2) (17.5)'
 
   scan-sast-pr:
     parameters:
