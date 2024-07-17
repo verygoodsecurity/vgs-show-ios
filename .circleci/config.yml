@@ -115,10 +115,10 @@ workflows:
               ignore: /.*/
             tags:
               only: /^\d+\.\d+\.\d+(?:-\w+){0,1}$/
-      - build-and-test-sdk
+      - build-and-test-sdk:
           context:
             - circleci
-      - build-and-ui-test-demo-app-ios-17
+      - build-and-ui-test-demo-app-ios-17:
           context:
             - circleci
 
