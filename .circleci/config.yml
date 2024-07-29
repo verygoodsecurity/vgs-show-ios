@@ -117,10 +117,9 @@ workflows:
               only: /^\d+\.\d+\.\d+(?:-\w+){0,1}$/
       - build-and-test-sdk:
           context:
+            - frontend-deploy
             - circleci
       - build-and-ui-test-demo-app-ios-17:
-          context:
-            - circleci
 
   scheduled-security-scan:
     when: << pipeline.parameters.nightly-security-scan >>
