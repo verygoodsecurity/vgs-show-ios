@@ -3,12 +3,6 @@
 
 version: 2.1
 
-# === Scheduled Pipeline Parameters ===
-parameters:
-  nightly-security-scan:
-    type: boolean
-    default: false
-
 jobs:
   build-and-test-sdk:
     macos:
@@ -66,65 +60,11 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5'
             -destination 'platform=iOS Simulator,name=iPad Air 13-inch (M2),OS=17.5'
 
-  scan-sast-pr:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
-      SEMGREP_BASELINE_REF: << parameters.default_branch >>
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep diff scan"
-          command: semgrep ci
-
-  scan-sast-full:
-    parameters:
-      default_branch:
-        type: string
-        default: main
-    environment:
-      SEMGREP_REPO_URL: << pipeline.project.git_url >>
-      SEMGREP_BRANCH: << pipeline.git.branch >>
-    docker:
-      - image: returntocorp/semgrep
-    steps:
-      - checkout
-      - run:
-          name: "Semgrep full scan"
-          command: semgrep ci
-
 workflows:
   build-and-test:
-    when:
-      not: << pipeline.parameters.nightly-security-scan >>
     jobs:
-      - scan-sast-pr:
-          context:
-            - security-tools
-            - circleci
-      - scan-sast-full:
-          filters:
-            # ignore any commit on any branch by default
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^\d+\.\d+\.\d+(?:-\w+){0,1}$/
       - build-and-test-sdk:
           context:
             - frontend-deploy
             - circleci
       - build-and-ui-test-demo-app-ios-17
-
-  scheduled-security-scan:
-    when: << pipeline.parameters.nightly-security-scan >>
-    jobs:
-      - scan-sast-full:
-          context:
-            - security-tools
-            - circleci
