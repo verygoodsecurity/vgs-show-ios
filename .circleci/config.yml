@@ -19,6 +19,9 @@ jobs:
           name: Install Rosetta translation environment on Apple Silicon Mac
           command: softwareupdate --install-rosetta --agree-to-license
       - run:
+          name: Fetch analytics submodule
+          command: git submodule init && git submodule update
+      - run:
           name: Install xcov
           command: >
             gem install xcov
