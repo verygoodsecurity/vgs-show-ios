@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import analytics
 
 extension VGSShow {
 
@@ -27,23 +28,18 @@ extension VGSShow {
 	public func request(path: String, method: VGSHTTPMethod = .post, payload: VGSJSONData? = nil, requestOptions: VGSShowRequestOptions? = nil, completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		// Content analytics.
-		var extraAnalyticsInfo = [String: Any]()
-
-		var analyticsData = contentForAnalytics(from: payload)
+		var contentData = contentForAnalytics(from: payload)
 		for viewTypeName in viewTypeAnalyticsNames {
-			analyticsData.append(viewTypeName)
+      contentData.append(viewTypeName)
 		}
-
-		extraAnalyticsInfo["content"] = analyticsData
 
 		// Log warning if no subscribed views.
 		if !hasViewModels {
 			let event = VGSLogEvent(level: .warning, text: "No subscribed views to reveal data.", severityLevel: .warning)
 			logEvent(event)
 		}
-
-		VGSAnalyticsClient.shared.trackFormEvent(self, type: .beforeSubmit, status: .success, extraData: extraAnalyticsInfo)
-
+    
+    VGSAnalyticsClient.shared.capture(self, event: VGSAnalyticsEvent.Request(status: VGSAnalyticsStatus.ok, code: 200, content: contentData))
 		// Sends request.
 
 		let event = VGSLogEvent(level: .info, text: "Start json request")
@@ -61,14 +57,15 @@ extension VGSShow {
 
 				VGSShowRequestLogger.logSuccessResponse(response, data: data, code: code, responseFormat: responseFormat)
 
-				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
+				strongSelf.handleSuccessResponse(code, data: data, response: response, responseFormat: responseFormat, revealModels: strongSelf.subscribedViewModels, contentData: contentData, completion: block)
 			case .failure(let code, let data, let response, let error):
 				VGSShowRequestLogger.logErrorResponse(response, data: data, error: error, code: code)
 
 				// Track error.
 				let errorMessage = (error as NSError?)?.localizedDescription ?? ""
-				strongSelf.trackErrorEvent(with: code, message: errorMessage, type: .submit, extraInfo: extraAnalyticsInfo)
-
+        VGSAnalyticsClient.shared.capture(
+          strongSelf,
+          event: VGSAnalyticsEvent.Response(status: VGSAnalyticsStatus.failed, code: Int32(code), errorMessage: errorMessage))
 				block(.failure(code, error))
 			}
 		}
@@ -77,9 +74,9 @@ extension VGSShow {
 	// MARK: - Private
 
 	// swiftlint:disable:next function_parameter_count line_length
-	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
+	private func handleSuccessResponse(_ code: Int, data: Data?, response: URLResponse?, responseFormat: VGSShowResponseDecodingFormat, revealModels: [VGSViewModelProtocol], contentData: [String] = [], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
-		if !revealModels.isEmpty {
+    if !revealModels.isEmpty {
 			let contentPaths = revealModels.map({return $0.decodingContentPath})
 			let infoMessage = "Start decoding revealed data for contentPaths:\n\(VGSShow.formatDecodingContentPaths(contentPaths))\n"
 			let event = VGSLogEvent(level: .info, text: infoMessage)
@@ -97,7 +94,7 @@ extension VGSShow {
 			switch jsonDecodingResult {
 			case .success(let json):
 				// Reveal data.
-				revealDecodedResponse(json, code: code, revealModels: revealModels, extraAnalyticsInfo: extraAnalyticsInfo, completion: block)
+				revealDecodedResponse(json, code: code, revealModels: revealModels, contentData: contentData, completion: block)
 
 			case .failure(let error):
 				// Mark reveal request as failed with error - cannot decode response.
@@ -105,13 +102,15 @@ extension VGSShow {
 				let event = VGSLogEvent(level: .warning, text: "Cannot decode request response: \(error)", severityLevel: .error)
 				logEvent(event)
 
-				trackErrorEvent(with: error.code, message: nil, type: .submit, extraInfo: extraAnalyticsInfo)
+        VGSAnalyticsClient.shared.capture(
+          self,
+          event: VGSAnalyticsEvent.Response(status: VGSAnalyticsStatus.failed, code: Int32(code), upstream: VGSAnalyticsUpstream.custom,errorMessage: nil))
 				block(.failure(error.code, error))
 			}
 		}
 	}
 
-	private func revealDecodedResponse(_ json: VGSJSONData, code: Int, revealModels: [VGSViewModelProtocol], extraAnalyticsInfo: [String: Any] = [:], completion block: @escaping (VGSShowRequestResult) -> Void) {
+	private func revealDecodedResponse(_ json: VGSJSONData, code: Int, revealModels: [VGSViewModelProtocol], contentData: [String] = [], completion block: @escaping (VGSShowRequestResult) -> Void) {
 
 		var unrevealedContentPaths = [String]()
 		revealModels.forEach { model in
@@ -151,26 +150,8 @@ extension VGSShow {
 		}
 
 		// Track success.
-		VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .success, extraData: extraAnalyticsInfo)
-
+    VGSAnalyticsClient.shared.capture(self, event: VGSAnalyticsEvent.Response(status: VGSAnalyticsStatus.ok, code: Int32(code), errorMessage: nil))
 		block(.success(code))
-	}
-
-	/// Track error event.
-	/// - Parameters:
-	///   - code: `Int` object, error code.
-	///   - message: `String` object, error message. Defaule is `nil`.
-	///   - type: `VGSAnalyticsEventType` object, event type.
-	///   - extraInfo: `[String: Any]` object, extra info.
-	private func trackErrorEvent(with code: Int, message: String? = nil, type: VGSAnalyticsEventType, extraInfo: [String: Any] = [:]) {
-
-		var extraAnalyticsData = [String: Any]()
-		extraAnalyticsData["statusCode"] = code
-		if message != nil {
-			extraAnalyticsData["error"] = message
-		}
-		let extraData = deepMerge(extraAnalyticsData, extraInfo)
-		VGSAnalyticsClient.shared.trackFormEvent(self, type: .submit, status: .failed, extraData: extraData)
 	}
 
 	/// Custom content for analytics from headers and payload.

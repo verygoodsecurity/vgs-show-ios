@@ -3,6 +3,7 @@
 //  VGSShowSDK
 
 import Foundation
+import analytics
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -110,7 +111,6 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 			if let content = revealedPdfContent {
 				switch content {
 				case .rawData(let pdfData):
-					let extraData: [String: Any] = ["field": model.viewType.analyticsName]
 					if let document = PDFDocument(data: pdfData) {
 						maskedPdfView.secureDocument = document
 						// maskedPdfView.secureDocument = PDFDocument(url: URL(string: ""))
@@ -118,13 +118,13 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 						logInfoEventWithText(eventText)
 						delegate?.documentDidChange?(in: self)
 
-						VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .success, extraData: extraData)
+            VGSAnalyticsClient.shared.capture(vgsShow, event: VGSAnalyticsEvent.ContentRendering(status: VGSAnalyticsStatus.ok, fieldType: model.viewType.analyticsName, contentPath: contentPath))
 					} else {
 						let eventText = "PDF rendering did failed. Invalid PDF data."
 						logWarningEventWithText(eventText, severityLevel: .error)
 						delegate?.pdfView?(self, didFailWithError: VGSShowError(type: .invalidPDFData))
 
-						VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .failed, extraData: extraData)
+            VGSAnalyticsClient.shared.capture(vgsShow, event: VGSAnalyticsEvent.ContentRendering(status: VGSAnalyticsStatus.failed, fieldType: model.viewType.analyticsName, contentPath: contentPath))
 					}
 				}
 			}

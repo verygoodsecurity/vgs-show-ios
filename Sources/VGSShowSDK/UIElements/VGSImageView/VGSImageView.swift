@@ -3,6 +3,7 @@
 //  VGSShowSDK
 
 import Foundation
+import analytics
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -67,20 +68,19 @@ public final class VGSImageView: UIView, VGSImageViewProtocol {
             if let content = revealedImageContent {
                 switch content {
                 case .rawData(let imageData):
-                    let extraData: [String: Any] = ["field": model.viewType.analyticsName]
                     if let image = UIImage(data: imageData) {
                         baseImageView.secureImage = image
                         let eventText = "Image has been rendered from data."
                         logInfoEventWithText(eventText)
                         delegate?.imageDidChange?(in: self)
 
-                        VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .success, extraData: extraData)
+                        VGSAnalyticsClient.shared.capture(vgsShow, event: VGSAnalyticsEvent.ContentRendering(status: VGSAnalyticsStatus.ok, fieldType: model.viewType.analyticsName, contentPath: contentPath))
                     } else {
                         let eventText = "Image rendering did failed. Invalid image data."
                         logWarningEventWithText(eventText, severityLevel: .error)
                         delegate?.imageView?(self, didFailWithError: VGSShowError(type: .invalidImageData))
 
-                        VGSAnalyticsClient.shared.trackEvent(.contentRendering, status: .failed, extraData: extraData)
+                        VGSAnalyticsClient.shared.capture(vgsShow, event: VGSAnalyticsEvent.ContentRendering(status: VGSAnalyticsStatus.failed, fieldType: model.viewType.analyticsName, contentPath: contentPath))
                     }
                 }
             }

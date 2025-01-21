@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import analytics
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -138,11 +139,14 @@ internal extension VGSLabel {
 	func copyText(format: VGSLabel.CopyTextFormat) {
 
 		// Always notify delegate about copy action.
-		defer {
-			let data = ["copy_format": format.analyticsKey]
-			VGSAnalyticsClient.shared.trackEvent(.copy, status: .clicked, extraData: data)
-			delegate?.labelCopyTextDidFinish?(self, format: format)
-		}
+    defer {
+      let analyticsFormat = switch format {
+        case VGSLabel.CopyTextFormat.raw: VGSAnalyticsCopyFormat.raw
+        case VGSLabel.CopyTextFormat.transformed: VGSAnalyticsCopyFormat.formatted
+      }
+      VGSAnalyticsClient.shared.capture(vgsShow, event: VGSAnalyticsEvent.CopyToClipboard(fieldType: model.viewType.analyticsName, contentPath: contentPath,format: analyticsFormat))
+      delegate?.labelCopyTextDidFinish?(self, format: format)
+    }
 
 		// Copy only non-empty text.
 		guard !isEmpty, let rawText = revealedRawText else {

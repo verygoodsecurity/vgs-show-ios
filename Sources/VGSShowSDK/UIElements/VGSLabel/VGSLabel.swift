@@ -23,15 +23,6 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
 		/// Formatted text.
 		case transformed
-
-		var analyticsKey: String {
-			switch self {
-			case .transformed:
-				return "transformed"
-			case .raw:
-				return "raw"
-			}
-		}
 	}
 
 	/// Masked label.
