@@ -30,7 +30,8 @@ jobs:
       - run:
           name: Build analytics xcframework
           command: |
-            ./gradlew embedAndSignAppleFrameworkForXcode
+            cd vgs-sdk-analytics
+            ./gradlew :analytics:embedAndSignAppleFrameworkForXcode --no-configuration-cache
       - run:
           name: Install xcov
           command: >

@@ -845,6 +845,7 @@
 			buildConfigurationList = 3211D97B2542E2B4009BB381 /* Build configuration list for PBXNativeTarget "VGSShowSDK" */;
 			buildPhases = (
 				3211D9622542E2B4009BB381 /* Headers */,
+				B58B44642D41057F00476FA3 /* Build analytics */,
 				3211D9632542E2B4009BB381 /* Sources */,
 				3211D9642542E2B4009BB381 /* Frameworks */,
 				3211D9652542E2B4009BB381 /* Resources */,
@@ -973,6 +974,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		B58B44642D41057F00476FA3 /* Build analytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build analytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/vgs-sdk-analytics/\"\n./gradlew :analytics:embedAndSignAppleFrameworkForXcode --no-configuration-cache\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
