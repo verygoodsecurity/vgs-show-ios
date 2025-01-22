@@ -130,7 +130,8 @@ workflows:
             - frontend-deploy
             - circleci
       - build-and-ui-test-demo-app-ios-17:
-          requires: "build-and-test-sdk"
+          requires:
+            -build-and-test-sdk
 
   scheduled-security-scan:
     when: << pipeline.parameters.nightly-security-scan >>
