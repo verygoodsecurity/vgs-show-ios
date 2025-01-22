@@ -28,11 +28,6 @@ jobs:
             yes | sdkmanager --licenses || true
             echo "sdk.dir=/opt/homebrew/share/android-commandlinetools" >> local.properties
       - run:
-          name: Build analytics xcframework
-          command: |
-            cd vgs-sdk-analytics
-            ./gradlew :analytics:embedAndSignAppleFrameworkForXcode --no-configuration-cache
-      - run:
           name: Install xcov
           command: >
             gem install xcov
