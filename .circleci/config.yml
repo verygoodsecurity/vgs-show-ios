@@ -22,6 +22,16 @@ jobs:
           name: Fetch analytics submodule
           command: git submodule init && git submodule update
       - run:
+          name: Setup Android SDK
+          command: |
+            brew install --cask android-commandlinetools
+            yes | sdkmanager --licenses || true
+            echo "sdk.dir=/opt/homebrew/share/android-commandlinetools" >> local.properties
+      - run:
+          name: Build analytics xcframework
+          command: |
+            ./gradlew embedAndSignAppleFrameworkForXcode
+      - run:
           name: Install xcov
           command: >
             gem install xcov
