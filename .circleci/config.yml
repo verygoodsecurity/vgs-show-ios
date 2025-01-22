@@ -19,10 +19,7 @@ jobs:
           name: Install Rosetta translation environment on Apple Silicon Mac
           command: softwareupdate --install-rosetta --agree-to-license
       - run:
-          name: Fetch analytics submodule
-          command: git submodule init && git submodule update
-      - run:
-          name: Setup Android SDK
+          name: Install Android SDK
           command: |
             brew install --cask android-commandlinetools
             yes | sdkmanager --licenses || true
@@ -31,6 +28,9 @@ jobs:
           name: Install xcov
           command: >
             gem install xcov
+      - run:
+          name: Fetch analytics submodule
+          command: git submodule init && git submodule update
       - run:
           name: Run Tests
           command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' -enableCodeCoverage YES
@@ -130,7 +130,7 @@ workflows:
             - frontend-deploy
             - circleci
       - build-and-ui-test-demo-app-ios-17:
-          requires: build-and-test-sdk
+          requires: "build-and-test-sdk"
 
   scheduled-security-scan:
     when: << pipeline.parameters.nightly-security-scan >>
