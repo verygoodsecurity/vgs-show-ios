@@ -23,7 +23,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .binaryTarget(
             name: "analytics",
-            path: "./Frameworks/analytics.xcframework"
+            path: "./Frameworks/VGSClientSDKAnalytics.xcframework"
         ),
         .target(
             name: "VGSShowSDK",

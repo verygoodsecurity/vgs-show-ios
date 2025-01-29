@@ -991,7 +991,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/vgs-sdk-analytics/\"\n./gradlew :analytics:embedAndSignAppleFrameworkForXcode --no-configuration-cache\n";
+			shellScript = "cd \"$SRCROOT/vgs-sdk-analytics/\"\n./gradlew :VGSClientSDKAnalytics:embedAndSignAppleFrameworkForXcode --no-configuration-cache\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

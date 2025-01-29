@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import VGSClientSDKAnalytics
 
 /// Holds base API client logic.
 internal class APIClient {

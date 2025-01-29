@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import analytics
+import VGSClientSDKAnalytics
 
 internal extension VGSShow {
   

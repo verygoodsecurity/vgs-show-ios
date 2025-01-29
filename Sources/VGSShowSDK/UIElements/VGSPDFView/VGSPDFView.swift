@@ -3,7 +3,7 @@
 //  VGSShowSDK
 
 import Foundation
-import analytics
+import VGSClientSDKAnalytics
 #if canImport(UIKit)
 import UIKit
 #endif
