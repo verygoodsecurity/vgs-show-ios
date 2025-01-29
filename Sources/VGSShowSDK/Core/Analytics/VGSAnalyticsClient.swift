@@ -47,8 +47,6 @@ public class VGSAnalyticsClient {
   public func capture(_ form: VGSShow?, event: VGSAnalyticsEvent) {
     if let unwrappedForm = form {
       sharedAnalyticsManager.capture(vault: unwrappedForm.tenantId, environment: unwrappedForm.regionalEnvironment, formId: unwrappedForm.formId, event: event)
-    } else {
-      print("\(String(describing: type(of: event))) was not captured, because VGSShow param is nil.")
     }
   }
 
