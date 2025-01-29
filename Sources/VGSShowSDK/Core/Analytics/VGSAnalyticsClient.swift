@@ -25,7 +25,7 @@ public class VGSAnalyticsClient {
 	public static let shared = VGSAnalyticsClient()
   
 	/// Enable or disable VGS analytics tracking.
-  public var shouldCollectAnalytics: Bool {
+  public var shouldCollectAnalytics: Bool = true {
     didSet {
       sharedAnalyticsManager.setIsEnabled(isEnabled: shouldCollectAnalytics)
     }
@@ -36,9 +36,7 @@ public class VGSAnalyticsClient {
     sourceVersion: osVersion,
     dependencyManager: sdkIntegration)
 
-	private init() {
-    self.shouldCollectAnalytics = true
-  }
+	private init() {}
   
   public func capture(_ form: VGSShow?, event: VGSAnalyticsEvent) {
     if let unwrappedForm = form {
