@@ -10,7 +10,7 @@ class APIClientTests: XCTestCase {
     var apiClient: APIClient!
 
     override func setUp() {
-      apiClient = APIClient(tenantId: "vaultId", regionalEnvironment: "sandbox", hostname: nil, satellitePort: nil)
+      apiClient = APIClient(tenantId: "vaultId", regionalEnvironment: "sandbox", hostname: nil)
     }
 
     override func tearDown() {

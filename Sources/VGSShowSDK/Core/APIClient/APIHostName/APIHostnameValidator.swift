@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 internal class APIHostnameValidator {
 
 	/// Base validation URL.

@@ -87,10 +87,6 @@ public class VGSAnalyticsClient {
 			data = formDetails
 		}
 
-		if case .satelliteURL = form.apiClient.hostURLPolicy {
-			data["vgsSatellite"] = true
-		}
-
 		trackEvent(type, status: status, extraData: data)
 	}
 
