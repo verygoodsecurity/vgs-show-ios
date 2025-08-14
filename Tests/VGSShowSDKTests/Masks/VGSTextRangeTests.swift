@@ -6,7 +6,7 @@
 import Foundation
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 final class VGSTextRangeTests: XCTestCase {
 
 	struct VGSTextRangeTestItem {

@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSLabelTests: XCTestCase {
       var vgsLabel: VGSLabel!
 

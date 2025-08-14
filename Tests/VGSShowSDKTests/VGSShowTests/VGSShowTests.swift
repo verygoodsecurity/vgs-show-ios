@@ -7,14 +7,15 @@
 
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSShowTests: VGSShowBaseTestCase {
     var vgsShow: VGSShow!
 
     override func setUp() {
-			super.setUp()
-
-      vgsShow = VGSShow(id: "test")
+        super.setUp()
+        Task { @MainActor in
+            vgsShow = VGSShow(id: "test")
+        }
     }
 
     override func tearDown() {

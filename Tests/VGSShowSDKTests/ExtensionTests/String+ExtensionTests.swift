@@ -4,7 +4,7 @@
 //
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class StringExtensionTests: XCTestCase {
 
     // MARK: - String attributes Tests

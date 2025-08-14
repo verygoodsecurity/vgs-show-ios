@@ -5,7 +5,7 @@
 
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSShowPdfViewModelTests: XCTestCase {
 
     var viewModel: VGSShowPdfViewModel!

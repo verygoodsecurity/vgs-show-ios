@@ -4,7 +4,7 @@
 //
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSImageViewModelTests: XCTestCase {
 
     var viewModel: VGSImageViewModel!

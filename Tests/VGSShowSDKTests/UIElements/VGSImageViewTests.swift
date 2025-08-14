@@ -5,7 +5,7 @@
 import Foundation
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSImageViewTests: XCTestCase {
 
     func testImage() {

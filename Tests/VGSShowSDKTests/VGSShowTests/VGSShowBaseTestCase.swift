@@ -10,6 +10,7 @@ import XCTest
 @testable import VGSShowSDK
 
 /// Base VGSShow test case for common setup.
+@MainActor
 class VGSShowBaseTestCase: XCTestCase {
 
 	/// Setup collect before tests.

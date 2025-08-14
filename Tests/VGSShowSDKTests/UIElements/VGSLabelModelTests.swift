@@ -4,7 +4,7 @@
 //
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSLabelModelTests: XCTestCase {
 
     var labelModel: VGSLabelModel!

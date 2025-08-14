@@ -7,7 +7,7 @@ import Foundation
 import XCTest
 import PDFKit
 @testable import VGSShowSDK
-
+@MainActor
 class VGSPDFViewTests: XCTestCase {
 
   var pdfView: VGSPDFView!

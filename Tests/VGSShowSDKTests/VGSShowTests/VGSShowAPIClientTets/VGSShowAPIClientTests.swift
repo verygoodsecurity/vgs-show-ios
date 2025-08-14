@@ -4,7 +4,7 @@
 //
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class APIClientTests: XCTestCase {
 
     var apiClient: APIClient!
@@ -26,8 +26,6 @@ class APIClientTests: XCTestCase {
     switch apiClient.hostURLPolicy {
     case .vaultURL(let url):
       XCTAssertNotNil(url, "Host URL policy should be .vaultURL with a non-nil URL for valid initialization.")
-    case .satelliteURL(let url):
-      XCTAssertNil(url, "Host URL policy should be .satelliteURL with a nil URL for valid initialization with a satellite port.")
     case .invalidVaultURL:
       XCTFail("Host URL policy should not be .invalidVaultURL for valid initialization.")
     default:
