@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 #endif
 
+@MainActor
 internal extension String {
 	var isAlphaNumeric: Bool {
 		return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
@@ -19,7 +20,7 @@ internal extension String {
 		return !isEmpty && range(of: "[^a-zA-Z.0-9-_]", options: .regularExpression) == nil
 	}
 }
-
+@MainActor
 internal extension Optional where Wrapped == String {
 	var isNilOrEmpty: Bool {
 		return self?.isEmpty ?? true
@@ -27,6 +28,7 @@ internal extension Optional where Wrapped == String {
 }
 
 /// String style attributes.
+@MainActor
 internal enum StringStyleAttribute {
 
 	/**
@@ -85,7 +87,7 @@ internal enum StringStyleAttribute {
 	*/
 	case isUnderlined (_ underlineStyle: NSUnderlineStyle)
 }
-
+@MainActor
 internal extension String {
 	/// Style string with specific attributes.
 	/// - Parameter attributes: `StringStyleAttribute`.
@@ -132,7 +134,7 @@ internal extension String {
 		return NSAttributedString(attributedString: attributedString)
 	}
 }
-
+@MainActor
 internal extension String {
 	/// Transform string with mask regex.
 	/// - Parameter regexMask: `VGSShowRegexMask` object.
@@ -154,6 +156,7 @@ internal extension String {
 	}
 }
 
+@MainActor
 internal extension String {
 	func normalizedHostname() -> String? {
 
@@ -199,7 +202,7 @@ internal extension String {
 		return path
 	}
 }
-
+@MainActor
 internal extension String {
 
 	/// Start index from text range. `0` if start is `nil`.

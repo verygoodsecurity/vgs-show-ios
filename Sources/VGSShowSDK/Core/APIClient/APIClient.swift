@@ -8,6 +8,7 @@
 import Foundation
 
 /// Holds base API client logic.
+@MainActor
 internal class APIClient {
 
 	typealias RequestCompletion = ((_ response: APIRequestResult) -> Void)?
@@ -251,51 +252,53 @@ internal class APIClient {
 
 			// Enter sync zone.
 			strongSelf.syncSemaphore.wait()
-
-			// Check if we already have URL. If yes, don't fetch it the same time.
-			if let url = strongSelf.hostURLPolicy.url {
-				completion?(url)
-				// Exit sync zone.
-				strongSelf.syncSemaphore.signal()
-				return
-			}
-
-			// Resolve hostname.
-			APIHostnameValidator.validateCustomHostname(hostname, tenantId: strongSelf.vaultId) {[weak self](url) in
-				if var validUrl = url {
-
-					// Update url scheme if needed.
-					if !validUrl.hasSecureScheme(), let secureURL = URL.urlWithSecureScheme(from: validUrl) {
-						validUrl = secureURL
-					}
-
-					self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
-					completion?(validUrl)
-
-					let text = "✅ Success! VGSShowSDK hostname \(hostname) has been successfully resolved and will be used for requests!"
-					let event = VGSLogEvent(level: .info, text: text)
-					VGSLogger.shared.forwardLogEvent(event)
-
-					// Exit sync zone.
-					self?.syncSemaphore.signal()
-					return
-				} else {
-					guard let strongSelf = self, let validVaultURL = self?.vaultUrl else {
-						return
-					}
-					strongSelf.hostURLPolicy = .customHostURL(.useDefaultVault(validVaultURL))
-
-					let text = "Vault URL will be used!"
-					let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
-					VGSLogger.shared.forwardLogEvent(event)
-
-					completion?(validVaultURL)
-
-					// Exit sync zone.
-					strongSelf.syncSemaphore.signal()
-					return
-				}
-			}
+            Task { @MainActor in
+                
+                // Check if we already have URL. If yes, don't fetch it the same time.
+                if let url = strongSelf.hostURLPolicy.url {
+                    completion?(url)
+                    // Exit sync zone.
+                    strongSelf.syncSemaphore.signal()
+                    return
+                }
+                
+                // Resolve hostname.
+                APIHostnameValidator.validateCustomHostname(hostname, tenantId: strongSelf.vaultId) {[weak self](url) in
+                    if var validUrl = url {
+                        
+                        // Update url scheme if needed.
+                        if !validUrl.hasSecureScheme(), let secureURL = URL.urlWithSecureScheme(from: validUrl) {
+                            validUrl = secureURL
+                        }
+                        
+                        self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
+                        completion?(validUrl)
+                        
+                        let text = "✅ Success! VGSShowSDK hostname \(hostname) has been successfully resolved and will be used for requests!"
+                        let event = VGSLogEvent(level: .info, text: text)
+                        VGSLogger.shared.forwardLogEvent(event)
+                        
+                        // Exit sync zone.
+                        self?.syncSemaphore.signal()
+                        return
+                    } else {
+                        guard let strongSelf = self, let validVaultURL = self?.vaultUrl else {
+                            return
+                        }
+                        strongSelf.hostURLPolicy = .customHostURL(.useDefaultVault(validVaultURL))
+                        
+                        let text = "Vault URL will be used!"
+                        let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+                        VGSLogger.shared.forwardLogEvent(event)
+                        
+                        completion?(validVaultURL)
+                        
+                        // Exit sync zone.
+                        strongSelf.syncSemaphore.signal()
+                        return
+                    }
+                }
+            }
 		}
 	}
 }

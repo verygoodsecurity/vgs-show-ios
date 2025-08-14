@@ -13,6 +13,7 @@ public final class VGSLogger {
   // MARK: - Public vars
 
 	/// Shared instance.
+    @MainActor
 	public static var shared = VGSLogger()
 
 	/// Logging configuration. Check `VGSLoggingConfiguration` for logging options.

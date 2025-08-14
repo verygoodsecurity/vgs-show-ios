@@ -11,6 +11,7 @@ import UIKit
 #endif
 
 /// An object you use for revealing and displaying data in corresponding subscribed VGS Show SDK views.
+@MainActor
 public final class VGSShow {
 
 	/// API client.

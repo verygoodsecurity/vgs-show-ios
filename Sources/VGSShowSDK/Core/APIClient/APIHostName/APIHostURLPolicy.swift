@@ -43,11 +43,11 @@ internal enum APIHostURLPolicy {
 }
 
 // MARK: - CustomStringConvertible
-
-extension APIHostURLPolicy: CustomStringConvertible {
+@MainActor
+extension APIHostURLPolicy: @preconcurrency CustomStringConvertible {
 
 		/// Custom description.
-    var description: String {
+     var description: String {
         switch self {
         case .invalidVaultURL:
             return "*.invalidVaultURL* - API url is *nil*, SDK has incorrect configuration."

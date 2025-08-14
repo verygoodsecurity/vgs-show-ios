@@ -45,8 +45,8 @@ internal enum APICustomHostStatus {
 }
 
 // MARK: - CustomStringConvertible
-
-extension APICustomHostStatus: CustomStringConvertible {
+@MainActor
+extension APICustomHostStatus: @preconcurrency CustomStringConvertible {
 
 	  /// Custom description.
 		var description: String {

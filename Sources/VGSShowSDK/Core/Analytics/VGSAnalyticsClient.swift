@@ -22,6 +22,7 @@ public enum VGSAnalyticsEventType: String {
 /// Client responsably for managing and sending VGS Show SDK analytics events.
 /// Note: we track only VGSShowSDK usage and features statistics.
 /// :nodoc:
+@MainActor
 public class VGSAnalyticsClient {
 
 	public enum AnalyticEventStatus: String {

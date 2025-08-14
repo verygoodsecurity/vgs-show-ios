@@ -5,6 +5,7 @@
 import Foundation
 
 /// `VGSShowDecodingResult` represents result of decoding.
+@MainActor
 internal enum VGSShowDecodingResult {
 
     /// Success result.
