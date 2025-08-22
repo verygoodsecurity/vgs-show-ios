@@ -4,24 +4,30 @@
 //
 import XCTest
 @testable import VGSShowSDK
-@MainActor
+
 class APIClientTests: XCTestCase {
 
     var apiClient: APIClient!
 
     override func setUp() {
-      apiClient = APIClient(tenantId: "vaultId", regionalEnvironment: "sandbox", hostname: nil)
-    }
+        super.setUp()
+        let client: APIClient = MainActor.assumeIsolated {
+                    APIClient(tenantId: "vaultId", regionalEnvironment: "sandbox", hostname: nil)
+                }
+                apiClient = client
+        }
 
     override func tearDown() {
-      apiClient = nil
+        apiClient = nil
+        super.tearDown()
     }
-
+    @MainActor
     func testValidInitialization() {
         // Test that the APIClient is initialized with the correct vault URL and ID
         XCTAssertNotNil(apiClient.baseURL, "Base URL should not be nil for valid initialization.")
     }
-
+    
+    @MainActor
   func testValidInitializationSetsCorrectHostURLPolicy() {
     switch apiClient.hostURLPolicy {
     case .vaultURL(let url):

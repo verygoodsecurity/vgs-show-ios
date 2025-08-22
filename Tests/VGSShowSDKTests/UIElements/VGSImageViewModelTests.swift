@@ -11,15 +11,11 @@ class VGSImageViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        viewModel = VGSImageViewModel()
     }
 
-    override func tearDown() {
-        viewModel = nil
-        super.tearDown()
-    }
 
     func testOnValueChanged() {
+        viewModel = VGSImageViewModel()
         let expect = expectation(description: "onValueChanged should be triggered")
         let expectedData = Data("imageData".utf8)
 
@@ -37,6 +33,7 @@ class VGSImageViewModelTests: XCTestCase {
     }
 
     func testOnError() {
+        viewModel = VGSImageViewModel()
         let expect = expectation(description: "onError should be triggered")
         let expectedError = VGSShowError(type: .invalidJSONPayload)
 
@@ -49,6 +46,7 @@ class VGSImageViewModelTests: XCTestCase {
     }
 
     func testHandleDecodingResultSuccess() {
+        viewModel = VGSImageViewModel()
         let expect = expectation(description: "handleDecodingResult should handle success correctly")
         let expectedData = Data("imageData".utf8)
 
@@ -66,6 +64,7 @@ class VGSImageViewModelTests: XCTestCase {
     }
 
     func testHandleDecodingResultFailure() {
+        viewModel = VGSImageViewModel()
         let expect = expectation(description: "handleDecodingResult should handle failure correctly")
         let expectedError = VGSShowError(type: .invalidJSONPayload)
 

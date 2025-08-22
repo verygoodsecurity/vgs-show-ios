@@ -7,14 +7,14 @@ import XCTest
 
 class VGSShowBase64DecoderTests: XCTestCase {
 
-    var base64Decoder: VGSShowBase64Decoder!
+    var base64Decoder = VGSShowBase64Decoder()
 
     override func setUp() {
         super.setUp()
-        base64Decoder = VGSShowBase64Decoder()
     }
 
     func testDecodeJSONForContentPathWithValidBase64() {
+        base64Decoder = VGSShowBase64Decoder()
         // Given
         let contentPath = "data"
         let originalString = "vgs show test string"
@@ -37,6 +37,7 @@ class VGSShowBase64DecoderTests: XCTestCase {
     }
 
     func testDecodeJSONForContentPathWithInvalidBase64() {
+        base64Decoder = VGSShowBase64Decoder()
         // Given
         let contentPath = "data"
         let invalidBase64String = "Invalid Base64"
@@ -59,6 +60,7 @@ class VGSShowBase64DecoderTests: XCTestCase {
     }
 
     func testDecodeJSONForContentPathWithNotFoundField() {
+        base64Decoder = VGSShowBase64Decoder()
         // Given
         let contentPath = "nonExistingPath"
         let base64String = "dmdzIHNob3cgdGVzdCBzdHJpbmc=" // Valid base64

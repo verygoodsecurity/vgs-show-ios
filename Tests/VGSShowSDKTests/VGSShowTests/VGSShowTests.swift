@@ -7,28 +7,27 @@
 
 import XCTest
 @testable import VGSShowSDK
-@MainActor
+
 class VGSShowTests: VGSShowBaseTestCase {
     var vgsShow: VGSShow!
 
     override func setUp() {
         super.setUp()
-        Task { @MainActor in
-            vgsShow = VGSShow(id: "test")
-        }
+        
+        vgsShow =  MainActor.assumeIsolated {VGSShow(id: "test")}
     }
 
     override func tearDown() {
-			super.tearDown()
-
-      vgsShow = nil
+        super.tearDown()
+        vgsShow = nil
     }
 
+    @MainActor
     func testEnvByDefault() {
         let host = vgsShow.apiClient.baseURL?.host ?? ""
         XCTAssertTrue(host.contains("sandbox"))
     }
-
+    @MainActor
     func testSandboxEnvironmentReturnsTrue() {
       var liveForm = VGSShow(id: "testID", environment: .sandbox)
       var host = liveForm.apiClient.baseURL?.host ?? ""
@@ -42,7 +41,7 @@ class VGSShowTests: VGSShowBaseTestCase {
       host = liveForm.apiClient.baseURL?.host ?? ""
       XCTAssertTrue(host == "testID.sandbox-ua-0505.verygoodproxy.com")
     }
-
+    @MainActor
     func testLiveEnvironmentReturnsTrue() {
       var liveForm = VGSShow(id: "testID", environment: .live)
       var host = liveForm.apiClient.baseURL?.host ?? ""
@@ -56,7 +55,7 @@ class VGSShowTests: VGSShowBaseTestCase {
       host = liveForm.apiClient.baseURL?.host ?? ""
       XCTAssertTrue(host == "testID.live-ua-0505.verygoodproxy.com")
     }
-
+    @MainActor
     func testRegionalEnvironmentReturnsTrue() {
       var liveForm = VGSShow(id: "testID", environment: "live")
       var host = liveForm.apiClient.baseURL?.host ?? ""
@@ -82,7 +81,7 @@ class VGSShowTests: VGSShowBaseTestCase {
       host = sandboxForm.apiClient.baseURL?.host ?? ""
       XCTAssertTrue(host == "testID.sandbox-ua-0505.verygoodproxy.com")
     }
-
+    @MainActor
     func testGenerateRegionalEnvironmentStringReturnsFalse() {
       let notValidEnvStrings = ["liv", "random-ua1", "random-ua-0505",
                                 "live-", "live.com", "live/eu",
@@ -92,7 +91,7 @@ class VGSShowTests: VGSShowBaseTestCase {
         XCTAssertFalse(VGSShow.regionalEnironmentStringValid(env))
       }
     }
-
+    @MainActor
     func testRegionStringValidation() {
       XCTAssertTrue(VGSShow.regionValid("ua-0505"))
       XCTAssertTrue(VGSShow.regionValid("ua0505"))
@@ -103,7 +102,7 @@ class VGSShowTests: VGSShowBaseTestCase {
       XCTAssertFalse(VGSShow.regionValid("ua-0505?param=val"))
       XCTAssertFalse(VGSShow.regionValid("ua-0505#val,id=ua-0505&env=1"))
     }
-
+    @MainActor
     func testCustomHeader() {
         let headerKey = "costom-header"
         let headerValue = "custom header value"
@@ -115,25 +114,25 @@ class VGSShowTests: VGSShowBaseTestCase {
         XCTAssertNotNil(vgsShow.customHeaders)
         XCTAssert(vgsShow.customHeaders![headerKey] == headerValue)
     }
+    @MainActor
+    func testCustomHTTPMethod() {
+        vgsShow.request(path: "post",
+                                        method: .get, payload: nil) { (requestResult) in
 
-		func testCustomHTTPMethod() {
-			vgsShow.request(path: "post",
-											method: .get, payload: nil) { (requestResult) in
+            switch requestResult {
+            case .success:
+                break
+            case .failure:
+                break
+            }
+        }
 
-				switch requestResult {
-				case .success:
-					break
-				case .failure:
-					break
-				}
-			}
-
-			vgsShow.apiClient.urlSession.getAllTasks { (tasks) in
-				for task in tasks {
-					XCTAssertTrue(tasks.count == 1)
-					XCTAssert(task.currentRequest?.httpMethod == "GET")
-					XCTAssertFalse(task.currentRequest?.httpMethod == "POST")
-				}
-			}
-		}
+        vgsShow.apiClient.urlSession.getAllTasks { (tasks) in
+            for task in tasks {
+                XCTAssertTrue(tasks.count == 1)
+                XCTAssert(task.currentRequest?.httpMethod == "GET")
+                XCTAssertFalse(task.currentRequest?.httpMethod == "POST")
+            }
+        }
+    }
 }

@@ -8,7 +8,7 @@
 import XCTest
 import Foundation
 @testable import VGSShowSDK
-
+@MainActor
 final class VGSShowRegexMaskTests: XCTestCase {
 
 	/// Test regex mask formatting.

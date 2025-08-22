@@ -9,17 +9,16 @@ class VGSLabelModelTests: XCTestCase {
 
     var labelModel: VGSLabelModel!
 
-    override func setUp() {
+    override func setUp()  {
         super.setUp()
-        labelModel = VGSLabelModel()
     }
 
     override func tearDown() {
-        labelModel = nil
         super.tearDown()
     }
 
     func testOnValueChanged() {
+        labelModel = VGSLabelModel()
         let expect = expectation(description: "onValueChanged should be triggered")
         let expectedValue = "Test String"
 
@@ -34,6 +33,7 @@ class VGSLabelModelTests: XCTestCase {
     }
 
     func testOnError() {
+        labelModel = VGSLabelModel()
         let expect = expectation(description: "onError should be triggered")
         let expectedError = VGSShowError(type: .invalidJSONPayload)
 
@@ -48,6 +48,7 @@ class VGSLabelModelTests: XCTestCase {
     }
 
     func testHandleDecodingResultSuccess() {
+        labelModel = VGSLabelModel()
         let expect = expectation(description: "handleDecodingResult should handle success correctly")
         let expectedValue = "Test String"
 
@@ -62,6 +63,7 @@ class VGSLabelModelTests: XCTestCase {
     }
 
     func testHandleDecodingResultFailure() {
+        labelModel = VGSLabelModel()
         let expect = expectation(description: "handleDecodingResult should handle failure correctly")
         let expectedError = VGSShowError(type: .invalidJSONPayload)
 
