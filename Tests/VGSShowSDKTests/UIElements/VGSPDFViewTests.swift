@@ -27,7 +27,7 @@ class VGSPDFViewTests: XCTestCase {
       XCTAssertTrue(pdfView.contentPath == "test.pdf")
       XCTAssertFalse(pdfView.hasDocument)
 
-      pdfView.maskedPdfView.secureDocument = PDFDocument(url: URL(string: "https://www.gemini.com/documents/credit/Test_PDF.pdf")!)
+      pdfView.maskedPdfView.secureDocument = PDFDocument(url: URL(string: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf")!)
       _ = XCTWaiter.wait(for: [expectation(description: "Wait for file loading")], timeout: 10.0)
       XCTAssertTrue(pdfView.hasDocument)
 
@@ -37,7 +37,7 @@ class VGSPDFViewTests: XCTestCase {
 
     func testRevealedPdfContentWithValidData() {
       // swiftlint:disable:next force_try
-      let validPdfData = try! Data(contentsOf: URL(string: "https://www.gemini.com/documents/credit/Test_PDF.pdf")!)
+      let validPdfData = try! Data(contentsOf: URL(string: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf")!)
       _ = XCTWaiter.wait(for: [expectation(description: "Wait for file loading")], timeout: 10.0)
       pdfView.revealedPdfContent = .rawData(validPdfData)
 
