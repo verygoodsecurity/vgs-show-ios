@@ -97,7 +97,6 @@ jobs:
           name: "Semgrep full scan"
           command: semgrep ci
 
-
 workflows:
   build-and-test:
     when:
