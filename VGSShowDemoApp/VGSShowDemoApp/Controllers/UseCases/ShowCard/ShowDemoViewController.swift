@@ -7,7 +7,7 @@
 
 import UIKit
 import VGSShowSDK
-
+@MainActor
 class ShowDemoViewController: UIViewController {
 
 	// MARK: - Outlets
@@ -31,8 +31,9 @@ class ShowDemoViewController: UIViewController {
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
-
-		setupAccessabilityIdentifiers()
+        Task { @MainActor in
+            setupAccessabilityIdentifiers()
+        }
 	}
 
 	override func viewDidLoad() {

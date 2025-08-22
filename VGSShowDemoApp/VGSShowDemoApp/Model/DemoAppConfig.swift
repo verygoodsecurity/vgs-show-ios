@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+@MainActor
 final class DemoAppConfig {
   
   var vaultId = "VGS_TEST_VAULT_ID"

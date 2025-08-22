@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import VGSCollectSDK
-
+@MainActor
 class CollectViewController: UIViewController {
 
 	// MARK: - Outlets
@@ -33,7 +33,9 @@ class CollectViewController: UIViewController {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
-		setupAccessabilityIdentifiers()
+        Task { @MainActor in
+            setupAccessabilityIdentifiers()
+        }
 	}
 
 	override func viewDidLoad() {
