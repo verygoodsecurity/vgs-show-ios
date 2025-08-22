@@ -82,6 +82,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// Fill in correct data.
+    @MainActor
 	func fillInCorrectCardData() {
 		VGSTextField.cardHolderName.find(in: app).type("Joe Business")
 		wait(forTimeInterval: 0.2)
@@ -94,6 +95,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// Fill in wrong data to be ignored by VGSCollectSDK (wrong card number).
+    @MainActor
 	func fillInWrongCardData() {
 		VGSTextField.cardNumber.find(in: app).type("123456789")
 		VGSTextField.expirationDate.find(in: app).type("10")
@@ -104,6 +106,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// Tap to collect data.
+    @MainActor
 	func tapToCollectData() {
 		// Tap on collect button to send data.
 		Buttons.collect.find(in: app).tap()
@@ -113,6 +116,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// Tap to reveal data.
+    @MainActor
 	func tapToShowData() {
 		// Tap on show button to reveal data.
 		Buttons.show.find(in: app).tap()
@@ -122,6 +126,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// Tap to copy card number and reset isSecureText masks.
+    @MainActor
 	func tapToCopyCardNumber() {
 		// Tap on copy card number button to hide secure mask.
 		Buttons.copyCard.find(in: app).tap()
@@ -131,6 +136,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// VGSShow state.
+    @MainActor
 	enum VGSShowState {
 
 		/// No revealed data, should be placeholders only.
@@ -142,6 +148,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 
 	/// Test card number secured/unsecured correctly.
 	/// - Parameter isSecured: `Bool` flag, if `true` checked applied masks.
+    @MainActor
 	func testSecuredCardNumber(isSecured: Bool) {
 		if isSecured {
 			XCTAssert(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists)
@@ -156,6 +163,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	/// - Parameters:
 	///   - state: `VGSShowState` object, state to test.
 	///   - isSecuredCardNumber: `Bool` object, if `true` card number should be secured.
+    @MainActor
 	func testVGSShowState(_ state: VGSShowState, isSecuredCardNumber: Bool) {
 		// Verify VGS labels exist.
 		XCTAssert(Labels.VGSLabels.cardHolderName.find(in: app).exists)

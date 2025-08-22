@@ -30,6 +30,7 @@ class VGSShowDemoAppPDFFileTest: VGSShowDemoAppBaseTestCase {
 	}
 
 	/// Test reveal PDF flow.
+    @MainActor
 	func testShowPDF() {
 		// Open PDF tab.
 		navigateToPDFUseCase()

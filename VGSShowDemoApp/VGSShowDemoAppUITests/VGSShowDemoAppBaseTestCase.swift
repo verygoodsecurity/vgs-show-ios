@@ -14,12 +14,14 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 		super.setUp()
 
 		continueAfterFailure = false
-
-		app = XCUIApplication()
-		app.launchArguments.append("VGSDemoAppUITests")
-
-		// Start the app.
-		app.launch()
+        
+        let createdApp: XCUIApplication = MainActor.assumeIsolated {
+                    let app = XCUIApplication()
+                    app.launchArguments.append("VGSDemoAppUITests")
+                    app.launch()
+                    return app
+                }
+        app = createdApp
 	}
 
 	override func tearDown() {
@@ -47,21 +49,25 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	}
 
 	/// Navigate to Card Data use case.
+    @MainActor
 	func navigateToCardDataUseCase() {
 		app.tables.staticTexts[UseCases.showCardData].tap()
 	}
 
 	/// Navigate to PDF use case.
+    @MainActor
 	func navigateToPDFUseCase() {
 		app.tables.staticTexts[UseCases.showPDF].tap()
 	}
 
     /// Navigate to Image use case.
+    @MainActor
     func navigateToImageUseCase() {
         app.tables.staticTexts[UseCases.showImage].tap()
     }
 
 	/// Start app and navigate to specific tab.
+    @MainActor
 	func navigateToTab(identifier tabAccessebilityIdentifier: String) {
 		let tabItem = VGSUITestElement(type: .button, identifier: tabAccessebilityIdentifier)
 
@@ -70,6 +76,7 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	}
 
 	/// Select collect tab.
+    @MainActor
 	func navigateToCollectScreen() {
 		// Apple Bug - accessory id is not set for tabBarItem on iOS 12 https://developer.apple.com/forums/thread/64157
 		if #available(iOS 13, *) {
@@ -81,6 +88,7 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	}
 
 	/// Select show tab.
+    @MainActor
 	func navigateToShowScreen() {
 		// Apple Bug - accessory id is not set for tabBarItem on iOS 12 https://developer.apple.com/forums/thread/64157
 		if #available(iOS 13, *) {
