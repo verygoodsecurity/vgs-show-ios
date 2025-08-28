@@ -73,15 +73,21 @@ jobs:
           when: always
           command: |
             mkdir -p artifacts/ui_screenshots artifacts/ui_bundle
-            if [ -d UITestResults/VGSShowDemoAppUITests.xcresult ]; then
-              xcrun xcresulttool export --path UITestResults/VGSShowDemoAppUITests.xcresult --output-path artifacts/ui_bundle || true
+            # Ensure dirs have at least one file so store_artifacts won't complain
+            : > artifacts/ui_screenshots/.keep
+            : > artifacts/ui_bundle/.keep
+            if [ -d VGSShowDemoApp/UITestResults/VGSShowDemoAppUITests.xcresult ]; then
+              xcrun xcresulttool export \
+                --type directory \
+                --path VGSShowDemoApp/UITestResults/VGSShowDemoAppUITests.xcresult \
+                --output-path artifacts/ui_bundle || true
               find artifacts/ui_bundle -name "*.png" -exec cp {} artifacts/ui_screenshots/ \; || true
             fi
       - store_artifacts:
           path: artifacts/ui_screenshots
           destination: ui_screenshots
       - store_artifacts:
-          path: UITestResults/VGSShowDemoAppUITests.xcresult
+          path: VGSShowDemoApp/UITestResults/VGSShowDemoAppUITests.xcresult
           destination: ui_xcresult
 
   scan-sast-pr:
