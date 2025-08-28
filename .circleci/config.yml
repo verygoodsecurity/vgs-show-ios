@@ -61,10 +61,28 @@ jobs:
             cd .. &&
             pod install &&
             xcrun instruments -w "iPhone 16 (18.4) [" || true &&
-            xcodebuild test -workspace VGSShowDemoApp.xcworkspace
+            mkdir -p UITestResults &&
+            xcodebuild test
+            -workspace VGSShowDemoApp.xcworkspace
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4'
+            -resultBundlePath UITestResults/VGSShowDemoAppUITests.xcresult
+      - run:
+          name: Collect UI-test screenshots & bundle (always)
+          when: always
+          command: |
+            mkdir -p artifacts/ui_screenshots artifacts/ui_bundle
+            if [ -d UITestResults/VGSShowDemoAppUITests.xcresult ]; then
+              xcrun xcresulttool export --path UITestResults/VGSShowDemoAppUITests.xcresult --output-path artifacts/ui_bundle || true
+              find artifacts/ui_bundle -name "*.png" -exec cp {} artifacts/ui_screenshots/ \; || true
+            fi
+      - store_artifacts:
+          path: artifacts/ui_screenshots
+          destination: ui_screenshots
+      - store_artifacts:
+          path: UITestResults/VGSShowDemoAppUITests.xcresult
+          destination: ui_xcresult
 
   scan-sast-pr:
     parameters:
