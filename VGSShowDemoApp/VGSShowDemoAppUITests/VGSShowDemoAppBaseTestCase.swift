@@ -69,10 +69,7 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	/// Start app and navigate to specific tab.
     @MainActor
 	func navigateToTab(identifier tabAccessebilityIdentifier: String) {
-		let tabItem = VGSUITestElement(type: .button, identifier: tabAccessebilityIdentifier)
-
-		XCTAssert(tabItem.exists( in: app, timeout: 1))
-		tabItem.find(in: app).tap()
+        app.buttons[tabAccessebilityIdentifier].tap()
 	}
 
 	/// Select collect tab.
@@ -85,11 +82,6 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	/// Select show tab.
     @MainActor
 	func navigateToShowScreen() {
-		// Apple Bug - accessory id is not set for tabBarItem on iOS 12 https://developer.apple.com/forums/thread/64157
-		if #available(iOS 13, *) {
-			navigateToTab(identifier: TabBar.show.identifier)
-		} else {
-			navigateToTab(identifier: "Show")
-		}
+        navigateToTab(identifier: "Show")
 	}
 }
