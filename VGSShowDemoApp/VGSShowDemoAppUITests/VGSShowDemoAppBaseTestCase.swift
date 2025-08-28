@@ -78,13 +78,8 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 	/// Select collect tab.
     @MainActor
 	func navigateToCollectScreen() {
-		// Apple Bug - accessory id is not set for tabBarItem on iOS 12 https://developer.apple.com/forums/thread/64157
-		if #available(iOS 13, *) {
-			navigateToTab(identifier: TabBar.collect.identifier)
-		} else {
-			// Before switching to collect screen we have only one `Collect` button in tab bar view hierarchy.
-			navigateToTab(identifier: "Collect")
-		}
+        // Before switching to collect screen we have only one `Collect` button in tab bar view hierarchy.
+        navigateToTab(identifier: "Collect")
 	}
 
 	/// Select show tab.
