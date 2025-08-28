@@ -45,6 +45,7 @@ class VGSShowDemoAppNormalFlowTest: VGSBaseRegularFlowTestCase {
 		// For debug.
 		wait(forTimeInterval: 1)
 	}
+    
     @MainActor
 	func testErrorFlow() {
 		// Navigate to Card Data use case.
