@@ -11,6 +11,7 @@ parameters:
 
 jobs:
   build-and-test-sdk:
+    resource_class: m4pro.medium
     macos:
       xcode: "16.3.0"
     steps:
@@ -42,6 +43,7 @@ jobs:
               echo "Code coverage will only be pushed to compass on the main branch."
             fi
   build-and-ui-test-demo-app-ios-18:
+    resource_class: m4pro.medium
     macos:
       xcode: "16.3.0"
     steps:
