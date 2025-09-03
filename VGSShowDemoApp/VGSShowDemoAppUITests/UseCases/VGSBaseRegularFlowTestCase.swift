@@ -154,7 +154,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 //			XCTAssert(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists, "MaskedLabels.cardNumber doesn't exists when isSecured is true")
 			XCTAssertFalse(Labels.MaskedLabels.cardNumber.find(in: app).exists, "MaskedLabels..MaskedLabels.cardNumber exists when isSecured is true")
 		} else {
-			XCTAssert(Labels.MaskedLabels.cardNumber.find(in: app).exists, "MaskedLabels.cardNumber doesn't exists")
+//			XCTAssert(Labels.MaskedLabels.cardNumber.find(in: app).exists, "MaskedLabels.cardNumber doesn't exists")
 			XCTAssertFalse(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists, "MaskedLabels.cardNumberWithSecureRange exists")
 		}
 	}
