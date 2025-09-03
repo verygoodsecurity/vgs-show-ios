@@ -69,12 +69,6 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4'
               | tee xcodebuild.log
               | xcpretty --report junit --output test-results/junit.xml
-      - store_artifacts:
-          path: artifacts/ui_screenshots
-          destination: ui_screenshots
-      - store_artifacts:
-          path: VGSShowDemoApp/UITestResults/VGSShowDemoAppUITests.xcresult
-          destination: ui_xcresult
 
   scan-sast-pr:
     parameters:
