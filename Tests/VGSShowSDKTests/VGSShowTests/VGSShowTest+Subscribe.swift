@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 extension VGSShowTests {
 
 	func testSubscribeUnsubcribeLabels() {

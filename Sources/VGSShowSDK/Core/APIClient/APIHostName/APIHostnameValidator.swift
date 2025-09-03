@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+@MainActor
 internal class APIHostnameValidator {
 
 	/// Base validation URL.
@@ -48,49 +48,48 @@ internal class APIHostnameValidator {
 	private static func performHostnameValidationRequest(with hostname: String, normalizedHostName: String, validationURL: URL, completion: @escaping ((URL?) -> Void)) {
 		let task = URLRequest(url: validationURL)
 		session.dataTask(with: task) { (responseData, response, error) in
-			guard let httpResponse = response as? HTTPURLResponse, let data = responseData else {
-				let text = "Error ❗ Cannot resolve hostname \"\(hostname)\". Invalid response type!"
-				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
-				VGSLogger.shared.forwardLogEvent(event)
-
-				completion(nil)
-				return
-			}
-
-			if let error = error as NSError? {
-				let text = "Error❗Cannot resolve hostname \(hostname) Error: \(error)!"
-				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
-				VGSLogger.shared.forwardLogEvent(event)
-
-				completion(nil)
-				return
-			}
-
-			let statusCode = httpResponse.statusCode
-
-			guard APIClient.Constants.validStatuses.contains(statusCode) else {
-				logErrorForStatusCode(statusCode, hostname: hostname)
-				completion(nil)
-				return
-			}
-
-			let responseText = String(decoding: data, as: UTF8.self)
-
-			let eventText = "response text: \"\(responseText)\""
-			let event = VGSLogEvent(level: .info, text: eventText)
-			VGSLogger.shared.forwardLogEvent(event)
-
-			if responseText.contains(normalizedHostName) {
-				completion(URL(string: responseText))
-				return
-			} else {
-				let text = "Error❗Cannot find hostname: \"\(hostname)\" in list: \"\(responseText)\""
-				let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
-				VGSLogger.shared.forwardLogEvent(event)
-
-				completion(nil)
-				return
-			}
+            Task { @MainActor in
+                guard let httpResponse = response as? HTTPURLResponse, let data = responseData else {
+                    let text = "Error ❗ Cannot resolve hostname \"\(hostname)\". Invalid response type!"
+                    let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+                    VGSLogger.shared.forwardLogEvent(event)
+                    completion(nil)
+                    return
+                }
+                
+                if let error = error as NSError? {
+                    let text = "Error❗Cannot resolve hostname \(hostname) Error: \(error)!"
+                    let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+                    VGSLogger.shared.forwardLogEvent(event)
+                    completion(nil)
+                    return
+                }
+                
+                let statusCode = httpResponse.statusCode
+                
+                guard APIClient.Constants.validStatuses.contains(statusCode) else {
+                    logErrorForStatusCode(statusCode, hostname: hostname)
+                    completion(nil)
+                    return
+                }
+                
+                let responseText = String(decoding: data, as: UTF8.self)
+                
+                let eventText = "response text: \"\(responseText)\""
+                let event = VGSLogEvent(level: .info, text: eventText)
+                VGSLogger.shared.forwardLogEvent(event)
+                
+                if responseText.contains(normalizedHostName) {
+                    completion(URL(string: responseText))
+                    return
+                } else {
+                    let text = "Error❗Cannot find hostname: \"\(hostname)\" in list: \"\(responseText)\""
+                    let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+                    VGSLogger.shared.forwardLogEvent(event)
+                    completion(nil)
+                    return
+                }
+            }
 		}.resume()
 	}
 

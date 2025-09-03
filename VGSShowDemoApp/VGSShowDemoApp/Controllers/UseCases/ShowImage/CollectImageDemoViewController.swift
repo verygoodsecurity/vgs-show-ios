@@ -118,6 +118,7 @@ class CollectImageDemoViewController: UIViewController {
 }
 
 // MARK: - VGSFilePickerControllerDelegate implementation
+@MainActor
 extension CollectImageDemoViewController: VGSFilePickerControllerDelegate {
     
     func userDidPickFileWithInfo(_ info: VGSFileInfo) {

@@ -13,8 +13,8 @@ class VGSLabelTests: XCTestCase {
 
       override func setUp() {
           super.setUp()
-          vgsLabel = VGSLabel()
-          vgsLabel.mainInitialization()
+          vgsLabel = MainActor.assumeIsolated{VGSLabel()}
+//          vgsLabel.mainInitialization()
       }
 
       override func tearDown() {
@@ -23,6 +23,7 @@ class VGSLabelTests: XCTestCase {
       }
 
     /// Test valid jsonSelectors.
+    @MainActor
     func testLabelTextAttributes() {
         vgsLabel.contentPath = "test.label"
 
@@ -38,6 +39,7 @@ class VGSLabelTests: XCTestCase {
     }
 
     /// Test accessibility properties
+    @MainActor
     func testLabelAccessibilityAttributes() {
         let accLabel = "accessibility label"
       vgsLabel.vgsAccessibilityLabel = accLabel
@@ -63,21 +65,21 @@ class VGSLabelTests: XCTestCase {
         XCTAssertTrue(vgsLabel.isEmpty)
         XCTAssertNil(vgsLabel.label.accessibilityValue)
     }
-
+    @MainActor
       func testDefaultStyle() {
           XCTAssertTrue(vgsLabel.clipsToBounds, "clipsToBounds should be true")
           XCTAssertEqual(vgsLabel.layer.borderColor, UIColor.lightGray.cgColor, "Border color should be set to light gray")
           XCTAssertEqual(vgsLabel.layer.borderWidth, 1, "Border width should be 1")
           XCTAssertEqual(vgsLabel.layer.cornerRadius, 4, "Corner radius should be 4")
       }
-
+    @MainActor
       func testUIElementsSetup() {
           vgsLabel.placeholder = "placegolder"
           XCTAssertTrue(vgsLabel.subviews.contains(vgsLabel.label), "label should be a subview of VGSLabel")
           XCTAssertTrue(vgsLabel.subviews.contains(vgsLabel.placeholderLabel), "placeholderLabel should be a subview of VGSLabel")
           XCTAssertFalse(vgsLabel.placeholderLabel.isHidden, "placeholderLabel should not be hidden after initialization")
       }
-
+    @MainActor
       func testCallbacksSetup() {
           // Simulate text value change
           let mockText = "test"
@@ -92,14 +94,14 @@ class VGSLabelTests: XCTestCase {
           // Check if the delegate method was called
           XCTAssertTrue(mockDelegate.didFailWithError, "Delegate should be notified of the error")
       }
-
+    @MainActor
   func testClearText() {
     let accValue = "123"
     vgsLabel.revealedRawText = accValue
     vgsLabel.clearText()
     XCTAssertNil(vgsLabel.revealedRawText, "Label text should be cleared")
   }
-
+    @MainActor
   func testPropertySetters() {
          let textColor = UIColor.red
          vgsLabel.textColor = textColor
@@ -149,7 +151,7 @@ class VGSLabelTests: XCTestCase {
         vgsLabel.baselineAlignment = baselineAlignment
         XCTAssertEqual(vgsLabel.label.baselineAdjustment, baselineAlignment, "baselineAlignment should be set correctly on the internal label")
      }
-
+    @MainActor
      func testSetSecureText() {
          // Test the setSecureText method
          let start = 0
@@ -162,7 +164,7 @@ class VGSLabelTests: XCTestCase {
              XCTFail("Secure text ranges should be set")
          }
      }
-
+    @MainActor
      func testIntrinsicContentSize() {
          // Test the intrinsicContentSize property
          let testString = "Test String"
@@ -170,7 +172,7 @@ class VGSLabelTests: XCTestCase {
          let expectedSize = vgsLabel.label.intrinsicContentSize
          XCTAssertEqual(vgsLabel.intrinsicContentSize, expectedSize)
      }
-
+    @MainActor
   func testFontAndStyleAttributes() {
       let adjustsFontForContentSizeCategory = true
       vgsLabel.vgsAdjustsFontForContentSizeCategory = adjustsFontForContentSizeCategory

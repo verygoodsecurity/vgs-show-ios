@@ -11,7 +11,7 @@ import UIKit
 #endif
 
 /// Delegate methods produced by `VGSLabel`.
-@objc
+@objc @MainActor
 public protocol VGSLabelDelegate {
 
 	/// Tells the delegate when text changes in the specified label.

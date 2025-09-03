@@ -11,18 +11,21 @@ import UIKit
 #endif
 
 /// Protocol describing VGS View.
+@MainActor
 public protocol VGSViewProtocol: UIView {
 	/// Decoding content path.
   var contentPath: String! { get set }
 }
 
 /// Internal VGSView protocol.
+@MainActor
 internal protocol VGSBaseViewProtocol: UIView {
 	var model: VGSViewModelProtocol { get }
 	var vgsShow: VGSShow? {get set}
 }
 
 /// Defines view type.
+@MainActor
 internal enum VGSShowViewType {
 
 	/// Text content (VGSLabel)

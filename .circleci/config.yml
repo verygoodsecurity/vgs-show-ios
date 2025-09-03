@@ -11,8 +11,9 @@ parameters:
 
 jobs:
   build-and-test-sdk:
+    resource_class: m4pro.medium
     macos:
-      xcode: "15.4"
+      xcode: "16.3.0"
     steps:
       - checkout
       - run:
@@ -24,7 +25,7 @@ jobs:
             gem install xcov
       - run:
           name: Run Tests
-          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5' -enableCodeCoverage YES
+          command: xcodebuild test -project VGSShowSDK.xcodeproj -scheme VGSShowSDKTests -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4' -enableCodeCoverage YES
       - run:
           name: Calculate Test Coverage
           command: >
@@ -41,9 +42,10 @@ jobs:
             else
               echo "Code coverage will only be pushed to compass on the main branch."
             fi
-  build-and-ui-test-demo-app-ios-17:
+  build-and-ui-test-demo-app-ios-18:
+    resource_class: m4pro.medium
     macos:
-      xcode: "15.4"
+      xcode: "16.3.0"
     steps:
       - checkout
       - run:
@@ -58,13 +60,13 @@ jobs:
             cd .. &&
             cd .. &&
             pod install &&
-            xcrun instruments -w "iPhone 15 (17.5) [" || true &&
-            xcrun instruments -w "iPad Air 13-inch (M2) (17.5) [" || true &&
-            xcodebuild test -workspace VGSShowDemoApp.xcworkspace
+            xcrun instruments -w "iPhone 16 (18.4) [" || true &&
+            mkdir -p UITestResults &&
+            xcodebuild test
+            -workspace VGSShowDemoApp.xcworkspace
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5'
-            -destination 'platform=iOS Simulator,name=iPad Air 13-inch (M2),OS=17.5'
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4'
 
   scan-sast-pr:
     parameters:
@@ -119,7 +121,7 @@ workflows:
           context:
             - frontend-deploy
             - circleci
-      - build-and-ui-test-demo-app-ios-17
+      - build-and-ui-test-demo-app-ios-18
 
   scheduled-security-scan:
     when: << pipeline.parameters.nightly-security-scan >>

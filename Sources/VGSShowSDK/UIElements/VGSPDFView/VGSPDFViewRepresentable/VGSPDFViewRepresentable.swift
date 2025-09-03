@@ -8,6 +8,7 @@ import PDFKit
 
 @available(iOS 14.0, *)
 /// A View that displays revealed PDF data.
+@MainActor
 public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepresentableCallbacksProtocol {
     weak var vgsShow: VGSShow?
     /// Name that will be associated with `VGSPDFViewRepresentable` and used as a decoding `contentPath` on request response with revealed data from your organization vault.
@@ -133,11 +134,11 @@ public struct VGSPDFViewRepresentable: VGSViewRepresentableProtocol, VGSViewRepr
       init(_ parent: VGSPDFViewRepresentable) {
           self.parent = parent
       }
-      
+      @MainActor
       public func documentDidChange(in pdfView: VGSPDFView) {
         parent.onContentDidChange?()
       }
-
+      @MainActor
       public func pdfView(_ pdfView: VGSPDFView, didFailWithError error: VGSShowError) {
         parent.onRevealError?(error)
       }

@@ -6,6 +6,7 @@
 import Foundation
 
 /// HTTP request methods.
+@MainActor
 public enum VGSHTTPMethod: String {
 	/// GET method.
 	case get = "GET"

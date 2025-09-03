@@ -6,6 +6,7 @@ import Foundation
 
 /// Delegate methods produced by `VGSImageView`.
 @objc
+@MainActor
 public protocol VGSImageViewDelegate {
 
     /// Tells the delegate the image was displayed in view.

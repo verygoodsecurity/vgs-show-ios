@@ -6,6 +6,7 @@
 import Foundation
 
 /// Request payload body.
+@MainActor
 internal enum VGSRequestPayloadBody {
 
 	/**

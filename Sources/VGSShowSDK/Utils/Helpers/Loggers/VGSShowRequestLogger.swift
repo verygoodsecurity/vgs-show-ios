@@ -6,6 +6,7 @@
 import Foundation
 
 /// Utilities to log network requests.
+@MainActor
 internal class VGSShowRequestLogger {
 
 	/// Log sending request.

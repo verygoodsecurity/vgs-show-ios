@@ -14,9 +14,10 @@ class VGSShowBaseTestCase: XCTestCase {
 
 	/// Setup collect before tests.
 	override func setUp() {
-		super.setUp()
-
-		// Disable analytics in unit tests.
-		VGSAnalyticsClient.shared.shouldCollectAnalytics = false
+        super.setUp()
+        // Disable analytics in unit tests.
+        Task {@MainActor in
+            VGSAnalyticsClient.shared.shouldCollectAnalytics = false
+        }
 	}
 }

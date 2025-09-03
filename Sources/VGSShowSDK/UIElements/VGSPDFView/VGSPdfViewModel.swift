@@ -8,11 +8,13 @@ import UIKit
 #endif
 
 /// Protocol for imageView extending VGS view protocols.
+@MainActor
 internal protocol VGSShowPdfViewProtocol: VGSViewProtocol, VGSBaseViewProtocol {
 	var pdfViewModel: VGSShowPdfViewModelProtocol { get }
 }
 
 /// Protocol describing VGS Show Label ViewModel.
+@MainActor
 internal protocol VGSShowPdfViewModelProtocol: VGSViewModelProtocol {
 	/// Value.
 	var value: VGSShowPDFContent? { get set }
@@ -25,13 +27,14 @@ internal protocol VGSShowPdfViewModelProtocol: VGSViewModelProtocol {
 }
 
 /// `VGSShowPdfViewModel` holds pdf view model logic.
+@MainActor
 internal class VGSShowPdfViewModel: VGSShowPdfViewModelProtocol {
 
 	/// View type.
 	let viewType: VGSShowViewType = .pdf
 
 	/// Reference to binded view.
-	weak var view: VGSBaseViewProtocol?
+    weak var view: VGSBaseViewProtocol?
 
 	/// Decoding path.
 	var decodingContentPath: String = ""
