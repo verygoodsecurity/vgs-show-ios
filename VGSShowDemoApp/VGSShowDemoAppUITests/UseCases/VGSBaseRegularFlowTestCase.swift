@@ -151,8 +151,8 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
     @MainActor
 	func testSecuredCardNumber(isSecured: Bool) {
 		if isSecured {
-			XCTAssert(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists)
-			XCTAssertFalse(Labels.MaskedLabels.cardNumber.find(in: app).exists)
+			XCTAssert(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists, "MaskedLabels.cardNumber doesn't exists when isSecured is true")
+			XCTAssertFalse(Labels.MaskedLabels.cardNumber.find(in: app).exists, "MaskedLabels..MaskedLabels.cardNumbeRer exists when isSecured is true")
 		} else {
 			XCTAssert(Labels.MaskedLabels.cardNumber.find(in: app).exists, "MaskedLabels.cardNumber doesn't exists")
 			XCTAssertFalse(Labels.MaskedLabels.cardNumberWithSecureRange.find(in: app).exists, "MaskedLabels.cardNumberWithSecureRange exists")
