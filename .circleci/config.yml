@@ -67,8 +67,6 @@ jobs:
             -scheme VGSShowDemoAppUITests
             -sdk iphonesimulator
             -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4'
-              | tee xcodebuild.log
-              | xcpretty --report junit --output test-results/junit.xml
 
   scan-sast-pr:
     parameters:
