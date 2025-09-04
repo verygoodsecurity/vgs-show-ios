@@ -80,11 +80,12 @@ public struct VGSImageViewRepresentable: VGSViewRepresentableProtocol, VGSViewRe
       init(_ parent: VGSImageViewRepresentable) {
           self.parent = parent
       }
-      
+        
+      @MainActor
       public func imageDidChange(in imageView: VGSImageView) {
         parent.onContentDidChange?()
       }
-      
+      @MainActor
       public func imageView(_ imageView: VGSImageView, didFailWithError error: VGSShowError) {
         parent.onRevealError?(error)
       }

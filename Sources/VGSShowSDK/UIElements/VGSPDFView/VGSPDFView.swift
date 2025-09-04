@@ -10,6 +10,7 @@ import PDFKit
 
 /// An object that displays revealed pdf data.
 @available(iOS 11.0, *)
+@MainActor
 public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
 	// MARK: - Public Vars

@@ -11,6 +11,7 @@ import UIKit
 #endif
 
 /// Protocol describing VGS Show View ViewModel
+@MainActor
 internal protocol VGSViewModelProtocol {
 
 	/// Content path to decode.
@@ -31,6 +32,7 @@ internal protocol VGSViewModelProtocol {
 }
 
 /// Protocol describing VGS Show Label ViewModel.
+@MainActor
 internal protocol VGSLabelViewModelProtocol: VGSViewModelProtocol {
 	/// Value.
 	var value: String? { get set }
@@ -42,12 +44,13 @@ internal protocol VGSLabelViewModelProtocol: VGSViewModelProtocol {
 	var onError: ((VGSShowError) -> Void)? { get set }
 }
 
+@MainActor
 internal class VGSLabelModel: VGSLabelViewModelProtocol {
 
 	/// View type.
 	let viewType: VGSShowViewType = .text
 
-  weak var view: VGSBaseViewProtocol?
+    weak var view: VGSBaseViewProtocol?
 
 	var decodingContentPath: String = ""
 

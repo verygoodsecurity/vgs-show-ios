@@ -145,7 +145,7 @@ internal extension VGSLabel {
 		}
 
 		// Copy only non-empty text.
-		guard !isEmpty, let rawText = revealedRawText else {
+        guard !isEmpty, let rawText = revealedRawText, !rawText.isEmpty else {
 			return
 		}
 

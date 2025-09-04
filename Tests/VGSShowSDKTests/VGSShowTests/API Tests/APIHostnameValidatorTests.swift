@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class APIHostnameValidatorTests: XCTestCase {
 
 	func testBuildHostURL() {

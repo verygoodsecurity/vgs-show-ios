@@ -47,10 +47,6 @@
 		441963E12592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */; };
 		442F806125A5A80000CC04A2 /* VGSTextRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F806025A5A80000CC04A2 /* VGSTextRangeTests.swift */; };
 		44416C0C2642AC150099B48F /* FileManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44416C0A2642A8FC0099B48F /* FileManager+Extensions.swift */; };
-		445FD81625E37F4000B36614 /* VGSShowSatelliteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445FD81525E37F4000B36614 /* VGSShowSatelliteUtils.swift */; };
-		445FD81F25E38D8300B36614 /* VGSShowAPIClientSatelliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445FD81C25E38D8300B36614 /* VGSShowAPIClientSatelliteTests.swift */; };
-		445FD82025E38D8300B36614 /* VGSShow+SatelliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445FD81D25E38D8300B36614 /* VGSShow+SatelliteTests.swift */; };
-		445FD82125E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445FD81E25E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift */; };
 		445FD82525E38EB200B36614 /* VGSShowBaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445FD82425E38EB200B36614 /* VGSShowBaseTestCase.swift */; };
 		4461083225639CDF006479FB /* VGSAnalyticsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083125639CDF006479FB /* VGSAnalyticsClient.swift */; };
 		4461083525639DEE006479FB /* VGSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461083425639DEE006479FB /* VGSUtils.swift */; };
@@ -172,10 +168,6 @@
 		441963E02592357400CAFBB3 /* VGSPlaceholderLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSPlaceholderLabelStyle.swift; sourceTree = "<group>"; };
 		442F806025A5A80000CC04A2 /* VGSTextRangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSTextRangeTests.swift; sourceTree = "<group>"; };
 		44416C0A2642A8FC0099B48F /* FileManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extensions.swift"; sourceTree = "<group>"; };
-		445FD81525E37F4000B36614 /* VGSShowSatelliteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowSatelliteUtils.swift; sourceTree = "<group>"; };
-		445FD81C25E38D8300B36614 /* VGSShowAPIClientSatelliteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowAPIClientSatelliteTests.swift; sourceTree = "<group>"; };
-		445FD81D25E38D8300B36614 /* VGSShow+SatelliteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VGSShow+SatelliteTests.swift"; sourceTree = "<group>"; };
-		445FD81E25E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowSatelliteUtilsTests.swift; sourceTree = "<group>"; };
 		445FD82425E38EB200B36614 /* VGSShowBaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowBaseTestCase.swift; sourceTree = "<group>"; };
 		4461083125639CDF006479FB /* VGSAnalyticsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSAnalyticsClient.swift; sourceTree = "<group>"; };
 		4461083425639DEE006479FB /* VGSUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSUtils.swift; sourceTree = "<group>"; };
@@ -331,7 +323,6 @@
 		03F875372B06360B00EC2E60 /* VGSShowAPIClientTets */ = {
 			isa = PBXGroup;
 			children = (
-				445FD81B25E38D8300B36614 /* Satellite Tests */,
 				03F875382B06372000EC2E60 /* VGSShowAPIClientTests.swift */,
 			);
 			path = VGSShowAPIClientTets;
@@ -440,24 +431,6 @@
 				44416C0A2642A8FC0099B48F /* FileManager+Extensions.swift */,
 			);
 			path = "FileManager+Extensions";
-			sourceTree = "<group>";
-		};
-		445FD81425E37F4000B36614 /* SatelliteUtils */ = {
-			isa = PBXGroup;
-			children = (
-				445FD81525E37F4000B36614 /* VGSShowSatelliteUtils.swift */,
-			);
-			path = SatelliteUtils;
-			sourceTree = "<group>";
-		};
-		445FD81B25E38D8300B36614 /* Satellite Tests */ = {
-			isa = PBXGroup;
-			children = (
-				445FD81C25E38D8300B36614 /* VGSShowAPIClientSatelliteTests.swift */,
-				445FD81D25E38D8300B36614 /* VGSShow+SatelliteTests.swift */,
-				445FD81E25E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift */,
-			);
-			path = "Satellite Tests";
 			sourceTree = "<group>";
 		};
 		4461083025639CBB006479FB /* Analytics */ = {
@@ -574,7 +547,6 @@
 			isa = PBXGroup;
 			children = (
 				446DA63C2644191000DDBD5E /* VGSShowRequestOptions */,
-				445FD81425E37F4000B36614 /* SatelliteUtils */,
 				448F5625258742270024E814 /* APIHostName */,
 				44A79F43255D0678009AF720 /* APIClient.swift */,
 				448F55C9258336BA0024E814 /* VGSRequestBodyPayload.swift */,
@@ -1039,7 +1011,6 @@
 				441963C12590C36100CAFBB3 /* VGSPlaceholderLabel.swift in Sources */,
 				448B53A4256FEBF3006D730F /* VGSTextFormattersCoordinator.swift in Sources */,
 				44168FFF2632A4480088E515 /* VGSShowTextDecoder.swift in Sources */,
-				445FD81625E37F4000B36614 /* VGSShowSatelliteUtils.swift in Sources */,
 				44BAD6DC25C289460060A170 /* VGSLogEvent.swift in Sources */,
 				034C26012BA3015E004065D9 /* VGSViewRepresentableCallbacksProtocol.swift in Sources */,
 				44BAD76425C445A70060A170 /* VGSShow+Logging.swift in Sources */,
@@ -1063,7 +1034,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				445FD82125E38D8300B36614 /* VGSShowSatelliteUtilsTests.swift in Sources */,
 				44CC283825A48FA4009B1480 /* VGSShowSecureTextRangesTests.swift in Sources */,
 				03FD6ED32B0F9CF000B9E0B7 /* VGSLabelModelTests.swift in Sources */,
 				038184DC2B0BA1B800928C36 /* String+ExtensionTests.swift in Sources */,
@@ -1083,9 +1053,7 @@
 				448F564425879F640024E814 /* APIHostnameValidatorTests.swift in Sources */,
 				03FD6ED12B0F9BB900B9E0B7 /* VGSImageViewModelTests.swift in Sources */,
 				A0A4EED62A57AD3800172678 /* VGSImageViewTests.swift in Sources */,
-				445FD81F25E38D8300B36614 /* VGSShowAPIClientSatelliteTests.swift in Sources */,
 				44A79FC4255D06C6009AF720 /* VGSJSONContentPathsTests.swift in Sources */,
-				445FD82025E38D8300B36614 /* VGSShow+SatelliteTests.swift in Sources */,
 				44A79FCA255D06C6009AF720 /* VGSLabelTest.swift in Sources */,
 				44A79FC9255D06C6009AF720 /* VGSShowRegexMaskTests.swift in Sources */,
 				03FD6ECD2B0F8EA600B9E0B7 /* VGSShowRequestBodyPayloadTests.swift in Sources */,
@@ -1160,13 +1128,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1219,12 +1188,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1251,7 +1221,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1281,7 +1251,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vgs.framework.VGSShowsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1314,7 +1284,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1340,7 +1310,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

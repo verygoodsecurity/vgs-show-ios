@@ -11,7 +11,7 @@ internal struct VGSTextFormattersCoordinator {
   // MARK: - Private
 
   /// An array of `VGSTransformationRegex` objects.
-	private (set) internal var transformationRegexes: [VGSTransformationRegex] = []
+	private(set) internal var transformationRegexes: [VGSTransformationRegex] = []
 
   // MARK: - Interface
 
@@ -28,7 +28,7 @@ internal struct VGSTextFormattersCoordinator {
 	/// Apply all formatters to text.
 	/// - Parameter text: `String` object to format.
 	/// - Returns: `String` object, formatted text.
-	internal func formatText(_ text: String) -> String {
+    @MainActor internal func formatText(_ text: String) -> String {
 		if !hasFormatting {return text}
 
 		return text.transformWithRegexes(transformationRegexes)

@@ -17,6 +17,7 @@ typealias VGSSecureTextTestRanges = (ranges: [VGSTextRange], espectedResult: Str
 final class VGSShowSecureTextRangesTests: XCTestCase {
 
 	/// Test regex mask formatting.
+    @MainActor
 	func testFormattedRanges() {
 
 		let cardNumber = "4111111111111111"
@@ -133,6 +134,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 	}
 
 	/// Test regex mask formatting.
+    @MainActor
 	func testFormattedRangesWithEmojis() {
 
 		let rawText = "🇺🇸123"
@@ -166,7 +168,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
 			}
 		}
 	}
-
+@MainActor
   func testValidRangesArray() {
     let cardNumber = "4111111111111111"
     let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
@@ -219,7 +221,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
         XCTAssertTrue(vgsLabel.label.secureText == testItem.espectedResult, "Failed:\n  -espectedResult: \(testItem.espectedResult)\n  -result: \(vgsLabel.label.secureText  ?? "*nil*")")
       }
   }
-
+  @MainActor
   func testInvalidRangesArray() {
     let cardNumber = "4111111111111111"
     let cardNumberPattern = "(\\d{4})(\\d{4})(\\d{4})(\\d{4})"
@@ -269,7 +271,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
         XCTAssertTrue(vgsLabel.label.secureText == testItem.espectedResult, "Failed:\n  -espectedResult: \(testItem.espectedResult)\n  -result: \(vgsLabel.label.secureText ?? "*nil*")")
       }
   }
-
+  @MainActor
   func testNonASCIICharacters() {
 
     let vgsLabel = VGSLabel()
@@ -305,7 +307,7 @@ final class VGSShowSecureTextRangesTests: XCTestCase {
     }
 
   }
-
+  @MainActor
   func testSecureTextSymbol() {
     let vgsLabel = VGSLabel()
     vgsLabel.revealedRawText = "Hello WORLD"

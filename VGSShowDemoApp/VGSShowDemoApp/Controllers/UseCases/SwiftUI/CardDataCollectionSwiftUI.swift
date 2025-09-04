@@ -109,7 +109,7 @@ struct CardDataCollectionSwiftUI: View {
              let cardHolderName = aliases["card_holderName"] {
             
             print("""
-            card_namber: \(cardNumber)\n
+            card_number: \(cardNumber)\n
             expiration_date: \(expDate)
             """)
             let payload = ["payment_card_holder_name": cardHolderName,

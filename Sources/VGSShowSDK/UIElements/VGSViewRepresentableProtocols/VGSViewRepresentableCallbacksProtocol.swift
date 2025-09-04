@@ -6,6 +6,7 @@
 import Foundation
 
 /// VGSViewRepresentable Callback handler protocol.
+@MainActor
 protocol VGSViewRepresentableCallbacksProtocol {
   /// Tells when VGSViewRepresentable  content did changed.
   var onContentDidChange: (() -> Void)? { get set }

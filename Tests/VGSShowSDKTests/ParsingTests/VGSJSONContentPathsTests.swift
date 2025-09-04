@@ -8,7 +8,7 @@
 import XCTest
 import Foundation
 @testable import VGSShowSDK
-
+@MainActor
 class VGSJSONContentPathsTests: XCTestCase {
 
 	/// Test valid json content paths.

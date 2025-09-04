@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import VGSCollectSDK
-
+@MainActor
 class CollectViewController: UIViewController {
 
 	// MARK: - Outlets
@@ -33,7 +33,9 @@ class CollectViewController: UIViewController {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 
-		setupAccessabilityIdentifiers()
+        Task { @MainActor in
+            setupAccessabilityIdentifiers()
+        }
 	}
 
 	override func viewDidLoad() {
@@ -66,7 +68,7 @@ class CollectViewController: UIViewController {
 
 	private func setupElementsConfiguration() {
 
-    let cardHolderNameConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardHolderName")
+    let cardHolderNameConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "card_holder_name")
     cardHolderNameConfiguration.type = .cardHolderName
     cardHolderNameConfiguration.isRequiredValidOnly = false
     cardHolderNameConfiguration.keyboardType = .asciiCapable
@@ -76,7 +78,7 @@ class CollectViewController: UIViewController {
 
     cardHolderName.becomeFirstResponder()
     
-		let cardConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "cardNumber")
+		let cardConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "card_number")
 		cardConfiguration.type = .cardNumber
 		cardConfiguration.isRequiredValidOnly = true
 		cardConfiguration.keyboardType = .asciiCapableNumberPad
@@ -85,7 +87,7 @@ class CollectViewController: UIViewController {
 		cardNumber.textAlignment = .natural
 		cardNumber.cardIconLocation = .right
 
-		let expDateConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "expDate")
+		let expDateConfiguration = VGSConfiguration(collector: vgsCollect, fieldName: "card_expirationDate")
 		expDateConfiguration.isRequiredValidOnly = true
 		expDateConfiguration.type = .expDate
 
@@ -139,12 +141,12 @@ class CollectViewController: UIViewController {
 
 					print("SUCCESS: \(jsonData)")
 					if let aliases = jsonData["json"] as? [String: Any],
-						let cardNumber = aliases["cardNumber"],
-            let expDate = aliases["expDate"],
-            let cardHolderName = aliases["cardHolderName"] {
+						let cardNumber = aliases["card_number"],
+            let expDate = aliases["card_expirationDate"],
+            let cardHolderName = aliases["card_holder_name"] {
           
 						self?.resultLabel.text =  """
-						card_namber: \(cardNumber)\n
+						card_number: \(cardNumber)\n
 						expiration_date: \(expDate)
 						"""
             let payload = ["payment_card_holder_name": cardHolderName,

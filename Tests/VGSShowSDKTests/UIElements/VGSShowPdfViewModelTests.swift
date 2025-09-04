@@ -5,17 +5,17 @@
 
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSShowPdfViewModelTests: XCTestCase {
 
     var viewModel: VGSShowPdfViewModel!
 
     override func setUp() {
         super.setUp()
-        viewModel = VGSShowPdfViewModel()
     }
 
     func testHandleDecodingResultSuccess() {
+        viewModel = VGSShowPdfViewModel()
         let expectedData = Data(repeating: 0, count: 5)
         let decodingResult: VGSShowDecodingResult = .success(.rawData(expectedData))
 
@@ -34,6 +34,7 @@ class VGSShowPdfViewModelTests: XCTestCase {
     }
 
     func testHandleDecodingResultFailure() {
+        viewModel = VGSShowPdfViewModel()
         let expectedError = VGSShowError(type: .invalidBase64Data)
         let decodingResult: VGSShowDecodingResult = .failure(expectedError)
 

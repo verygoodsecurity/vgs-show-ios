@@ -5,7 +5,7 @@
 
 import Foundation
 import UIKit
-
+@MainActor
 extension UIFont {
 
 	/// Large title font with fallback for earlier iOS versions.

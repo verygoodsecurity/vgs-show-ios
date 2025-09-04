@@ -28,6 +28,7 @@ class VGSShowImageDemoTests: VGSShowDemoAppBaseTestCase {
     }
     
     /// Test reveal Image flow.
+    @MainActor
     func testShowImage() {
         // Open Image tab.
         navigateToImageUseCase()

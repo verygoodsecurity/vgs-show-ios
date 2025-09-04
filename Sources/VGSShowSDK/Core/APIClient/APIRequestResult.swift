@@ -6,6 +6,7 @@
 import Foundation
 
 /// Response enum cases for SDK requests.
+@MainActor
 internal enum APIRequestResult {
 	/**
 	Success response case.

@@ -18,6 +18,7 @@ struct VGSUITestElement {
 	/// Find element in app.
 	/// - Parameter app: `XCUIApplication` object.
 	/// - Returns: `XCUIElement` object.
+    @MainActor
 	func find(in app: XCUIApplication) -> XCUIElement {
 		switch type {
 		case .label:
@@ -46,6 +47,7 @@ struct VGSUITestElement {
 	///   - app: `XCUIApplication` object.
 	///   - timeout: `TimeInterval` to wait, default is `3`.
 	/// - Returns: `Bool` flag, `true` if exists.
+    @MainActor
 	func exists(in app: XCUIApplication, timeout: TimeInterval = 3) -> Bool {
 		return find(in: app).waitForExistence(timeout: timeout)
 	}

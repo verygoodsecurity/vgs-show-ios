@@ -7,7 +7,7 @@ import Foundation
 
 import XCTest
 @testable import VGSShowSDK
-
+@MainActor
 class VGSLabelCopyPasteTests: VGSShowBaseTestCase {
 
   /// Test copy raw text option.
@@ -54,7 +54,7 @@ class VGSLabelCopyPasteTests: VGSShowBaseTestCase {
     label.resetAllMasks()
 
     let rawTextToCopyAfterMaskReset = label.provideTextForPasteboard(with: .raw)
-    XCTAssertTrue(rawTextToCopy == "4111111111111111")
+    XCTAssertTrue(rawTextToCopyAfterMaskReset == "4111111111111111")
 
     let transformedTextToCopyAfterMaskReset = label.provideTextForPasteboard(with: .transformed)
     XCTAssertTrue(transformedTextToCopyAfterMaskReset == "4111111111111111")

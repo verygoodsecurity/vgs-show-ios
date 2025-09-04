@@ -8,6 +8,7 @@
 import Foundation
 
 /// Holds base API client logic.
+@MainActor
 internal class APIClient {
 
 	typealias RequestCompletion = ((_ response: APIRequestResult) -> Void)?
@@ -78,34 +79,13 @@ internal class APIClient {
 	///   - tenantId: `String` object, should be valid tenant id.
 	///   - regionalEnvironment: `String` object, should be valid environment.
 	///   - hostname: `String?` object, should be valid hostname or `nil`.
-	///   - satellitePort: `Int?` object, custom port for satellite configuration. **IMPORTANT! Use only with .sandbox environment!**.
-	required internal init(tenantId: String, regionalEnvironment: String, hostname: String?, satellitePort: Int?) {
+	required internal init(tenantId: String, regionalEnvironment: String, hostname: String?) {
 		self.vaultUrl = VGSShow.generateVaultURL(tenantId: tenantId, regionalEnvironment: regionalEnvironment)
 		self.vaultId = tenantId
 
 		guard let validVaultURL = vaultUrl else {
 			// Cannot resolve hostname with invalid Vault URL.
 			self.hostURLPolicy = .invalidVaultURL
-			return
-		}
-
-		// Check satellite port is *nil* for regular API flow.
-		guard satellitePort == nil else {
-			// Try to build satellite URL.
-			guard let port = satellitePort, let satelliteURL = VGSShowSatelliteUtils.buildSatelliteURL(with: regionalEnvironment, hostname: hostname, satellitePort: port) else {
-
-				// Use vault URL as fallback if cannot resolve satellite flow.
-				self.hostURLPolicy = .vaultURL(validVaultURL)
-				return
-			}
-
-			// Use satellite URL and return.
-			self.hostURLPolicy = .satelliteURL(satelliteURL)
-
-			let message = "Satellite has been configured successfully! Satellite URL is: \(satelliteURL.absoluteString)"
-			let event = VGSLogEvent(level: .info, text: message)
-			VGSLogger.shared.forwardLogEvent(event)
-
 			return
 		}
 
@@ -155,8 +135,6 @@ internal class APIClient {
 		switch hostURLPolicy {
 		case .invalidVaultURL:
 			url = nil
-		case .satelliteURL(let satelliteURL):
-			url = satelliteURL
 		case .vaultURL(let vaultURL):
 			url = vaultURL
 		case .customHostURL(let status):
@@ -274,51 +252,53 @@ internal class APIClient {
 
 			// Enter sync zone.
 			strongSelf.syncSemaphore.wait()
-
-			// Check if we already have URL. If yes, don't fetch it the same time.
-			if let url = strongSelf.hostURLPolicy.url {
-				completion?(url)
-				// Exit sync zone.
-				strongSelf.syncSemaphore.signal()
-				return
-			}
-
-			// Resolve hostname.
-			APIHostnameValidator.validateCustomHostname(hostname, tenantId: strongSelf.vaultId) {[weak self](url) in
-				if var validUrl = url {
-
-					// Update url scheme if needed.
-					if !validUrl.hasSecureScheme(), let secureURL = URL.urlWithSecureScheme(from: validUrl) {
-						validUrl = secureURL
-					}
-
-					self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
-					completion?(validUrl)
-
-					let text = "✅ Success! VGSShowSDK hostname \(hostname) has been successfully resolved and will be used for requests!"
-					let event = VGSLogEvent(level: .info, text: text)
-					VGSLogger.shared.forwardLogEvent(event)
-
-					// Exit sync zone.
-					self?.syncSemaphore.signal()
-					return
-				} else {
-					guard let strongSelf = self, let validVaultURL = self?.vaultUrl else {
-						return
-					}
-					strongSelf.hostURLPolicy = .customHostURL(.useDefaultVault(validVaultURL))
-
-					let text = "Vault URL will be used!"
-					let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
-					VGSLogger.shared.forwardLogEvent(event)
-
-					completion?(validVaultURL)
-
-					// Exit sync zone.
-					strongSelf.syncSemaphore.signal()
-					return
-				}
-			}
+            Task { @MainActor in
+                
+                // Check if we already have URL. If yes, don't fetch it the same time.
+                if let url = strongSelf.hostURLPolicy.url {
+                    completion?(url)
+                    // Exit sync zone.
+                    strongSelf.syncSemaphore.signal()
+                    return
+                }
+                
+                // Resolve hostname.
+                APIHostnameValidator.validateCustomHostname(hostname, tenantId: strongSelf.vaultId) {[weak self](url) in
+                    if var validUrl = url {
+                        
+                        // Update url scheme if needed.
+                        if !validUrl.hasSecureScheme(), let secureURL = URL.urlWithSecureScheme(from: validUrl) {
+                            validUrl = secureURL
+                        }
+                        
+                        self?.hostURLPolicy = .customHostURL(.resolved(validUrl))
+                        completion?(validUrl)
+                        
+                        let text = "✅ Success! VGSShowSDK hostname \(hostname) has been successfully resolved and will be used for requests!"
+                        let event = VGSLogEvent(level: .info, text: text)
+                        VGSLogger.shared.forwardLogEvent(event)
+                        
+                        // Exit sync zone.
+                        self?.syncSemaphore.signal()
+                        return
+                    } else {
+                        guard let strongSelf = self, let validVaultURL = self?.vaultUrl else {
+                            return
+                        }
+                        strongSelf.hostURLPolicy = .customHostURL(.useDefaultVault(validVaultURL))
+                        
+                        let text = "Vault URL will be used!"
+                        let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+                        VGSLogger.shared.forwardLogEvent(event)
+                        
+                        completion?(validVaultURL)
+                        
+                        // Exit sync zone.
+                        strongSelf.syncSemaphore.signal()
+                        return
+                    }
+                }
+            }
 		}
 	}
 }
