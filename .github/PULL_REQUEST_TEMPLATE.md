@@ -1,7 +1,4 @@
-## Fixes [iOSSDK-XXXX]
+## Fixes [DEVX-XXXX]
 
 ## Description of changes
-(insert text here)
 
-## Testing
-(insert text here)

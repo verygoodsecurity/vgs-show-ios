@@ -24,10 +24,10 @@ If applicable, add screenshots to help explain your problem.
 
 **Environment (please complete the following information):**
  - SDK Version [e.g. 1.4.1]
- - iOS Version: [e.g. iOS 13.1+]
- - Xcode Version: [e.g. Xcode 11.4.1]
- - Device: [e.g. iPhone 6]
- - Dependency manager and it's version:
+ - iOS Version: [e.g. iOS 18.1+]
+ - Xcode Version: [e.g. Xcode 15.4.1]
+ - Device: [e.g. iPhone 16]
+ - Dependency manager:
     - [ ] Cocoapods: [e.g.  1.9.1]
 
 **Additional context**
