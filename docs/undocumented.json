@@ -1,6 +1,26 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/dmytro.khludkov/projects/vgs-show-ios/Sources/VGSShowSDK/UIElements/VGSImageView/VGSImageViewRepresentable/VGSImageViewRepresentable.swift",
+      "line": 9,
+      "symbol": "VGSImageViewRepresentable",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dmytro.khludkov/projects/vgs-show-ios/Sources/VGSShowSDK/UIElements/VGSLabel/VGSLabelRepresentable/VGSLabelRepresentable.swift",
+      "line": 16,
+      "symbol": "VGSLabelRepresentable",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dmytro.khludkov/projects/vgs-show-ios/Sources/VGSShowSDK/UIElements/VGSPDFView/VGSPDFViewRepresentable/VGSPDFViewRepresentable.swift",
+      "line": 12,
+      "symbol": "VGSPDFViewRepresentable",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    }
   ],
-  "source_directory": "/Users/donald.rodriguez/Documents/Projects/VGS/repos/vgs-show-ios"
+  "source_directory": "/Users/dmytro.khludkov/projects/vgs-show-ios"
 }
