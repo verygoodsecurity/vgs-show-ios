@@ -114,6 +114,7 @@
 		A0A4EECF2A57A76900172678 /* VGSShowImageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EECC2A57A76900172678 /* VGSShowImageContent.swift */; };
 		A0A4EED02A57A76900172678 /* VGSShowRawDataFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EECD2A57A76900172678 /* VGSShowRawDataFormat.swift */; };
 		A0A4EED62A57AD3800172678 /* VGSImageViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EED42A57AAE900172678 /* VGSImageViewTests.swift */; };
+		BF41CAC12EB3C18900917E27 /* AGENTS_template.md in Resources */ = {isa = PBXBuildFile; fileRef = BF41CAC02EB3C18900917E27 /* AGENTS_template.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +238,7 @@
 		A0A4EECC2A57A76900172678 /* VGSShowImageContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageContent.swift; sourceTree = "<group>"; };
 		A0A4EECD2A57A76900172678 /* VGSShowRawDataFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowRawDataFormat.swift; sourceTree = "<group>"; };
 		A0A4EED42A57AAE900172678 /* VGSImageViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSImageViewTests.swift; sourceTree = "<group>"; };
+		BF41CAC02EB3C18900917E27 /* AGENTS_template.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = AGENTS_template.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +333,7 @@
 		3211D95D2542E2B4009BB381 = {
 			isa = PBXGroup;
 			children = (
+				BF41CAC02EB3C18900917E27 /* AGENTS_template.md */,
 				44A79F3F255D0678009AF720 /* Sources */,
 				44A79FAA255D06C6009AF720 /* Tests */,
 				3211D9682542E2B4009BB381 /* Products */,
@@ -892,6 +895,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF41CAC12EB3C18900917E27 /* AGENTS_template.md in Resources */,
 				0388128B2BCEB9C600F9CF8C /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
