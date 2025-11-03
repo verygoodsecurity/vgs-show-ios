@@ -230,11 +230,14 @@ All tests must avoid logging raw secrets. Use synthetic sample strings.
 ---
 ## 17. Upgrade Workflow
 1. Bump SDK version (SPM/CocoaPods) explicitly.
-2. Rebuild & run tests (cover all strategy cases above).
-3. Scan for new deprecations (`grep -R "deprecated"`).
-4. Update this AGENTS file if new public view types / options added.
-5. Confirm logging defaults unchanged.
-6. Validate error code set (diff old vs new) and adapt mapping tests.
+2. Use exact semantic version pinning (no range operators) for deterministic builds:
+   - CocoaPods: `pod 'VGSShowSDK', '1.3.0'`
+   - SPM: `.package(url: "https://github.com/verygoodsecurity/vgs-show-ios", exact: "1.3.0")`
+3. Rebuild & run tests (cover all strategy cases above).
+4. Scan for new deprecations (`grep -R "deprecated"`).
+5. Update this AGENTS file if new public view types / options added.
+6. Confirm logging defaults unchanged.
+7. Validate error code set (diff old vs new) and adapt mapping tests.
 
 ---
 ## 18. Security Checklist (Per PR)
