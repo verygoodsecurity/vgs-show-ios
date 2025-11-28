@@ -8,35 +8,40 @@ import Foundation
 import UIKit
 #endif
 
-/// Holds placeholder styles.
+/// A configuration object that defines the visual appearance of placeholder text in `VGSLabel`.
+///
+/// `VGSPlaceholderLabelStyle` provides fine-grained control over how placeholder text is displayed
+/// while waiting for revealed data. Customize fonts, colors, alignment, line breaking, and spacing
+/// to match your app's design system.
+///
+/// - SeeAlso: `VGSLabel.placeholder`, `VGSLabel.placeholderStyle`
 public struct VGSPlaceholderLabelStyle {
 
-	/// Color. Default is gray with 70% opacity.
-	public var color: UIColor = UIColor.gray.withAlphaComponent(0.7)
+    /// The color of the placeholder text. Default is gray with 70% opacity.
+    public var color: UIColor = UIColor.gray.withAlphaComponent(0.7)
 
-	/// Font.
+    /// The font used for placeholder text. When `nil`, the label's main font is used.
   public var font: UIFont?
 
-  /// Indicates whether placeholder should automatically update its font
-  /// when the device’s `UIContentSizeCategory` is changed. It only works
-  /// automatically with dynamic fonts
+  /// A Boolean value indicating whether the font automatically scales with Dynamic Type.
+    /// Only works with fonts from the `UIFont.preferredFont(...)` family. Default is `false`.
   public var adjustsFontForContentSizeCategory: Bool = false
 
-	/// Number of lines, default is `1`.
-	public var numberOfLines: Int = 1
+    /// The maximum number of lines for placeholder text. Default is `1`.
+    public var numberOfLines: Int = 1
 
-	/// Text alignment.
-	public var textAlignment: NSTextAlignment?
+    /// The horizontal text alignment. When `nil`, the label's text alignment is used.
+    public var textAlignment: NSTextAlignment?
 
-	/// Character spacing. Default is `0`.
-	public var characterSpacing: CGFloat = 0
+    /// The character (letter) spacing in points. Default is `0`.
+    public var characterSpacing: CGFloat = 0
 
-	/// Minimum text line height. Default is `0`.
-	public var textMinLineHeight: CGFloat = 0
+    /// The minimum line height in points. Default is `0` (automatic).
+    public var textMinLineHeight: CGFloat = 0
 
-	/// Line break mode.
-	public var lineBreakMode: NSLineBreakMode?
+    /// The line break mode. When `nil`, the label's line break mode is used.
+    public var lineBreakMode: NSLineBreakMode?
   
-  /// Initialization.
+  /// Creates a placeholder style with default values.
   public init(){}
 }
