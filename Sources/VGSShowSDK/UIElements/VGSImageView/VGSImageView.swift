@@ -11,19 +11,70 @@ import UIKit
 public final class VGSImageView: UIView, VGSImageViewProtocol {
 
     // MARK: - Public properties
-    /// Image content mode, default is `.scaleToFill`.
+    /// Controls how the revealed image is displayed within the view's bounds.
+        ///
+        /// Uses standard `UIView.ContentMode` values to determine scaling and positioning.
+        /// Default is `.scaleToFill`.
+        ///
+        /// ## Common Options
+        ///
+        /// - `.scaleToFill`: Scales to fill bounds (may distort aspect ratio)
+        /// - `.scaleAspectFit`: Scales to fit within bounds while maintaining aspect ratio
+        /// - `.scaleAspectFill`: Scales to fill bounds while maintaining aspect ratio (may clip)
+        /// - `.center`: Centers image without scaling
+        ///
+        /// ## Example
+        ///
+        /// ```swift
+        /// avatarView.imageContentMode = .scaleAspectFill
+        /// ```
     public var imageContentMode: UIView.ContentMode = UIView.ContentMode.scaleToFill {
         didSet {
             baseImageView.contentMode = imageContentMode
         }
     }
 
-    /// A Boolean value determines whether the view has image.
+    /// A Boolean value indicating whether the view has successfully loaded an image.
+        ///
+        /// Use this property to check if the image view contains revealed image data.
+        ///
+        /// - Returns: `true` if an image has been revealed and rendered; `false` otherwise.
+        ///
+        /// ## Example
+        ///
+        /// ```swift
+        /// show.request(path: "/reveal") { result in
+        ///     if avatarView.hasImage {
+        ///         print("Avatar loaded successfully")
+        ///     } else {
+        ///         print("No avatar data")
+        ///     }
+        /// }
+        /// ```
+        ///
+        /// - Note: This property is safe to access and log, as it only exposes metadata.
     public var hasImage: Bool {
         return baseImageView.secureImage != nil
     }
 
-    /// Remove previously reveled image
+    /// Removes the currently revealed image from the view.
+        ///
+        /// After calling this method, the image view returns to its empty state. A new reveal request
+        /// is required to display an image again.
+        ///
+        /// ## Example
+        ///
+        /// ```swift
+        /// // Clear image when navigating away
+        /// override func viewWillDisappear(_ animated: Bool) {
+        ///     super.viewWillDisappear(animated)
+        ///     avatarView.clear()
+        /// }
+        /// ```
+        ///
+        /// - Important: This operation is irreversible. To display an image again, you must make a new reveal request.
+        ///
+        /// - SeeAlso: `hasImage`
     public func clear() {
         baseImageView.secureImage = nil
     }
