@@ -69,7 +69,7 @@ struct CardDataCollectionSwiftUI: View {
           .border(color: (cardTextFieldState?.isValid ?? true) ? validColor : invalidColor, lineWidth: 1)
           .frame(height: 54)
         VGSExpDateTextFieldRepresentable(configuration: expDateConfiguration)
-          .placeholder("10/2025")
+          .placeholder("10/2035")
           .monthPickerFormat(.longSymbols)
           .textFieldPadding(paddings)
           .border(color: (expDateTextFieldState?.isValid ?? true) ? validColor : invalidColor, lineWidth: 1)
