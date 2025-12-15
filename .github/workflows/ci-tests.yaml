@@ -1,0 +1,203 @@
+name: CI Tests
+
+on:
+  pull_request:
+    branches:
+      - '**'
+  push:
+    branches:
+      - 'main'
+    tags:
+      - '*.*.*'
+      - '*.*.*-*'
+
+jobs:
+  build-and-test-sdk:
+    name: Build & Test SDK (iOS ${{ matrix.ios }}, Xcode ${{ matrix.xcode }})
+    runs-on: macos-14
+    strategy:
+      matrix:
+        xcode: ['16.2']
+        ios: ['18.2']
+        device: ['iPhone 16']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode ${{ matrix.xcode }}
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ matrix.xcode }}
+
+      - name: List installed runtimes & devices (debug)
+        run: |
+          xcrun simctl list runtimes
+          xcrun simctl list devices
+
+      - name: Create and Boot Simulator
+        run: |
+          # Find or create the target simulator
+          DEVICE_NAME="${{ matrix.device }}"
+          IOS_VERSION="${{ matrix.ios }}"
+          
+          SIMULATOR_UDID=$(xcrun simctl list devices available | grep "$DEVICE_NAME" | grep -o '([A-F0-9-]*)\s*$' | tr -d '() ' | head -n 1 || echo "")
+          
+          if [ -z "$SIMULATOR_UDID" ]; then
+            echo "Creating new $DEVICE_NAME simulator with iOS $IOS_VERSION"
+            SIMULATOR_UDID=$(xcrun simctl create "$DEVICE_NAME-Test" "com.apple.CoreSimulator.SimDeviceType.${DEVICE_NAME// /-}" "com.apple.CoreSimulator.SimRuntime.iOS-${IOS_VERSION//./-}")
+          fi
+          
+          echo "Using simulator: $SIMULATOR_UDID"
+          echo "SIMULATOR_UDID=$SIMULATOR_UDID" >> $GITHUB_ENV
+          
+          # Boot simulator
+          xcrun simctl shutdown "$SIMULATOR_UDID" || true
+          xcrun simctl boot "$SIMULATOR_UDID"
+          xcrun simctl bootstatus "$SIMULATOR_UDID" -b
+          
+          echo "Simulator booted successfully"
+
+      - name: Install Rosetta (Apple Silicon)
+        run: |
+          softwareupdate --install-rosetta --agree-to-license || echo "Rosetta already installed or not needed"
+
+      - name: Install xcov
+        run: gem install xcov
+
+      - name: Run Unit Tests
+        run: |
+          set -eo pipefail
+          xcodebuild \
+            test \
+            -project VGSShowSDK.xcodeproj \
+            -scheme VGSShowSDKTests \
+            -destination 'platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.ios }}' \
+            -enableCodeCoverage YES \
+            | tee xcodebuild.log \
+            | xcpretty --report junit --output test-results/junit.xml || true
+          
+          status=${PIPESTATUS[0]}
+          echo "xcodebuild exit status: $status"
+          exit $status
+
+      - name: Calculate Test Coverage
+        run: |
+          xcov -p VGSShowSDK.xcodeproj -s VGSShowSDK --json_report
+
+      - name: Show Git Branch
+        run: |
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Base ref: ${{ github.base_ref }}"
+
+      - name: Push Test Coverage to Compass
+        if: github.ref == 'refs/heads/main'
+        run: |
+          ./ops/publish-test-coverage.sh
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-xcode-${{ matrix.xcode }}
+          path: test-results/
+          if-no-files-found: warn
+
+      - name: Upload Xcodebuild Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcodebuild-log-${{ matrix.xcode }}
+          path: xcodebuild.log
+          if-no-files-found: warn
+
+  build-and-ui-test-demo-app:
+    name: Build & UI Test Demo App (iOS ${{ matrix.ios }}, Xcode ${{ matrix.xcode }})
+    runs-on: macos-14
+    strategy:
+      matrix:
+        xcode: ['16.2']
+        ios: ['18.2']
+        device: ['iPhone 16']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode ${{ matrix.xcode }}
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ matrix.xcode }}
+
+      - name: Create and Boot Simulator
+        run: |
+          # Find or create the target simulator
+          DEVICE_NAME="${{ matrix.device }}"
+          IOS_VERSION="${{ matrix.ios }}"
+          
+          SIMULATOR_UDID=$(xcrun simctl list devices available | grep "$DEVICE_NAME" | grep -o '([A-F0-9-]*)\s*$' | tr -d '() ' | head -n 1 || echo "")
+          
+          if [ -z "$SIMULATOR_UDID" ]; then
+            echo "Creating new $DEVICE_NAME simulator with iOS $IOS_VERSION"
+            SIMULATOR_UDID=$(xcrun simctl create "$DEVICE_NAME-Test" "com.apple.CoreSimulator.SimDeviceType.${DEVICE_NAME// /-}" "com.apple.CoreSimulator.SimRuntime.iOS-${IOS_VERSION//./-}")
+          fi
+          
+          echo "Using simulator: $SIMULATOR_UDID"
+          
+          # Boot simulator
+          xcrun simctl shutdown "$SIMULATOR_UDID" || true
+          xcrun simctl boot "$SIMULATOR_UDID"
+          xcrun simctl bootstatus "$SIMULATOR_UDID" -b
+          
+          echo "Simulator booted successfully"
+
+      - name: Configure UI Test Data
+        env:
+          PDFTOKEN: ${{ secrets.PDFTOKEN }}
+          IMAGETOKEN: ${{ secrets.IMAGETOKEN }}
+          VAULT_ID: ${{ secrets.VAULT_ID }}
+          PATH_SECRET: ${{ secrets.PATH }}
+        run: |
+          cd VGSShowDemoApp/VGSShowDemoApp/Resources
+          plutil -insert pdftoken -string "${PDFTOKEN}" UITestsMockedData.plist
+          plutil -insert imagetoken -string "${IMAGETOKEN}" UITestsMockedData.plist
+          plutil -insert vaultID -string "${VAULT_ID}" UITestsMockedData.plist
+          plutil -insert path -string "${PATH_SECRET}" UITestsMockedData.plist
+          cd ../../..
+
+      - name: Install CocoaPods Dependencies
+        run: |
+          cd VGSShowDemoApp
+          pod install
+
+      - name: Wait for Simulator
+        run: |
+          xcrun instruments -w "iPhone 16 (18.2) [" || true
+
+      - name: Run UI Tests
+        run: |
+          set -eo pipefail
+          cd VGSShowDemoApp
+          mkdir -p UITestResults
+          xcodebuild \
+            test \
+            -workspace VGSShowDemoApp.xcworkspace \
+            -scheme VGSShowDemoAppUITests \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.ios }}' \
+            | tee xcodebuild.log \
+            | xcpretty --report junit --output UITestResults/junit.xml || true
+
+      - name: Upload UI Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-results-xcode-${{ matrix.xcode }}
+          path: VGSShowDemoApp/UITestResults/
+          if-no-files-found: warn
+
+      - name: Upload Xcodebuild Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: demoapp-ui-tests-log-xcode-${{ matrix.xcode }}
+          path: VGSShowDemoApp/xcodebuild.log
+          if-no-files-found: warn
