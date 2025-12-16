@@ -45,10 +45,10 @@ final class DemoAppConfig {
 					return
 			}
 
-			self.vaultId = dictionary["vaultID"] as? String ?? ""
-			self.path =  dictionary["path"] as? String ?? ""
-			self.pdfFilePayload["pdf_file"] = dictionary["pdftoken"] as? String
-            self.imageFilePayload["image_file"] = dictionary["imagetoken"] as? String
+			self.vaultId = dictionary["VAULT_ID"] as? String ?? ""
+			self.path =  dictionary["PATH"] as? String ?? ""
+			self.pdfFilePayload["pdf_file"] = dictionary["PDF_TOKEN"] as? String
+            self.imageFilePayload["image_file"] = dictionary["IMAGE_TOKEN"] as? String
 		}
 	}
 }
