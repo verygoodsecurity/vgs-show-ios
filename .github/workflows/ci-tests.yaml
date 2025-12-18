@@ -96,7 +96,7 @@ jobs:
 
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: test-results-xcode-${{ matrix.xcode }}
           path: test-results/
@@ -104,7 +104,7 @@ jobs:
 
       - name: Upload Xcodebuild Log
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: xcodebuild-log-${{ matrix.xcode }}
           path: xcodebuild.log
@@ -188,7 +188,7 @@ jobs:
 
       - name: Upload UI Test Results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: ui-test-results-xcode-${{ matrix.xcode }}
           path: VGSShowDemoApp/UITestResults/
@@ -196,7 +196,7 @@ jobs:
 
       - name: Upload Xcodebuild Log
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: demoapp-ui-tests-log-xcode-${{ matrix.xcode }}
           path: VGSShowDemoApp/xcodebuild.log
