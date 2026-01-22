@@ -5,27 +5,52 @@
 
 import Foundation
 
-/// HTTP request methods.
+/// HTTP request methods supported by VGSShow SDK.
+///
+/// Use these standard HTTP methods when making reveal requests to your vault.
+/// The method determines how the request is processed by your backend.
+///
+/// - SeeAlso: `VGSShow.request(path:method:payload:requestOptions:completion:)`
 @MainActor
 public enum VGSHTTPMethod: String {
-	/// GET method.
-	case get = "GET"
+    /// HTTP GET method - retrieve data.
+    case get = "GET"
 
-	/// POST method.
-	case post = "POST"
+    /// HTTP POST method - submit data (default for reveal requests).
+    case post = "POST"
 
-	/// PUT method.
-	case put = "PUT"
+    /// HTTP PUT method - update/replace data.
+    case put = "PUT"
 
-	/// PATCH method.
-	case patch = "PATCH"
+    /// HTTP PATCH method - partially update data.
+    case patch = "PATCH"
 
-	/// DELETE method.
-	case delete = "DELETE"
+    /// HTTP DELETE method - remove data.
+    case delete = "DELETE"
 }
 
-/// Key-value data type, usually used for response format.
+/// A dictionary representing JSON data, typically used for request payloads and responses.
+///
+/// ## Example
+///
+/// ```swift
+/// let payload: VGSJSONData = [
+///     "reveal": ["user.email", "user.phone"],
+///     "user_id": "123"
+/// ]
+/// show.request(path: "/reveal", payload: payload) { result in }
+/// ```
 public typealias VGSJSONData = [String: Any]
 
-/// Key-value data type, used in http request headers.
+/// A dictionary representing HTTP request headers.
+///
+/// ## Example
+///
+/// ```swift
+/// let headers: VGSHTTPHeaders = [
+///     "X-Correlation-ID": UUID().uuidString,
+///     "X-Client-Version": "1.0.0"
+/// ]
+/// show.customHeaders = headers
+/// ```
 public typealias VGSHTTPHeaders = [String: String]

@@ -10,37 +10,91 @@ import Foundation
 import UIKit
 #endif
 
-/// An object you use for revealing and displaying data in corresponding subscribed VGS Show SDK views.
+/// A session object that manages secure data reveal operations for VGS Show SDK views.
+///
+/// `VGSShow` is the core orchestrator for revealing previously tokenized or aliased data from your VGS vault.
+/// It coordinates multiple UI views (`VGSLabel`, `VGSImageView`, `VGSPDFView`) and handles network requests,
+/// response decoding, and secure data distribution to subscribed views.
+///
+/// ## Overview
+///
+/// Use a `VGSShow` instance to:
+/// - Initialize a secure session bound to your vault and environment
+/// - Subscribe views that will display revealed data
+/// - Execute reveal requests that fetch and distribute data to views
+/// - Manage custom HTTP headers for your requests
+/// - Track subscribed views
+///
+/// ## Key Features
+///
+/// - **Single-Request Multi-View Updates**: One request can populate multiple views simultaneously
+/// - **Automatic Content Path Routing**: Each view's `contentPath` determines which JSON field it displays
+/// - **Secure Data Handling**: Raw revealed data is managed only within SDK views
+/// - **Environment Support**: Works with sandbox, production, and regional vault environments
+/// - **Error Handling**: Comprehensive error reporting via `VGSShowError` and completion handlers
+///
+/// ## Usage
+///
+/// ### Basic Setup
+///
+/// ```swift
+/// // Initialize for sandbox environment
+/// let show = VGSShow(id: "vaultId", environment: .sandbox)
+///
+/// // Create and subscribe a label
+/// let label = VGSLabel()
+/// label.contentPath = "user.email"
+/// show.subscribe(label)
+///
+/// // Reveal data
+/// show.request(path: "/reveal") { result in
+///     switch result {
+///     case .success(let statusCode):
+///         print("Revealed successfully: \(statusCode)")
+///     case .failure(let statusCode, let error):
+///         print("Reveal failed: \(error?.localizedDescription ?? "")")
+///     }
+/// }
+///
+/// ## Important Notes
+///
+/// - Each `VGSShow` instance is bound to a single vault and environment
+/// - Ensure all subscribed views have non-empty `contentPath` values before making requests
+/// - Raw revealed data is never logged or persisted outside SDK views
+/// - Views automatically update when the reveal request completes successfully
+/// - Use `unsubscribe(_:)` or `unsubscribeAllViews()` to clean up when views are deallocated
+///
+/// - SeeAlso: `VGSLabel`, `VGSImageView`, `VGSPDFView`, `VGSShowRequestResult`
 @MainActor
 public final class VGSShow {
 
-	/// API client.
-	internal let apiClient: APIClient
+    /// API client.
+    internal let apiClient: APIClient
 
-	/// Environment string with region param.
+    /// Environment string with region param.
   internal let regionalEnvironment: String
 
-	/// Current tenant id.
-	internal let tenantId: String
+    /// Current tenant id.
+    internal let tenantId: String
 
-	/// Unique form identifier.
-	internal let formId = UUID().uuidString
+    /// Unique form identifier.
+    internal let formId = UUID().uuidString
 
   /// Array of subsribed view models
   internal var subscribedViews = [VGSBaseViewProtocol]()
 
-	/// `true` if has subscribed viewModels to reveal.
-	internal var hasViewModels: Bool {
-		return !subscribedViews.isEmpty
-	}
+    /// `true` if has subscribed viewModels to reveal.
+    internal var hasViewModels: Bool {
+        return !subscribedViews.isEmpty
+    }
 
-	/// Array of subscribed view type analytics names.
-	internal var viewTypeAnalyticsNames: [String] {
-		let allSubscribedViewTypes = subscribedViews.map({$0.model.viewType.analyticsName})
-		let removedDuplications = Array(Set(allSubscribedViewTypes))
+    /// Array of subscribed view type analytics names.
+    internal var viewTypeAnalyticsNames: [String] {
+        let allSubscribedViewTypes = subscribedViews.map({$0.model.viewType.analyticsName})
+        let removedDuplications = Array(Set(allSubscribedViewTypes))
 
-		return removedDuplications
-	}
+        return removedDuplications
+    }
 
   /// Returns an array of view models form subscribed vgs views.
   internal var subscribedViewModels: [VGSViewModelProtocol] {
@@ -50,26 +104,26 @@ public final class VGSShow {
   // MARK: - Get Subscribed Views
 
   /// Returns an Array of `VGSLabel` objects subscribed to specific `VGSShow` instance.
-	public var subscribedLabels: [VGSLabel] {
-		return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
-	}
+    public var subscribedLabels: [VGSLabel] {
+        return subscribedViews.compactMap({return $0.model.view as? VGSLabel})
+    }
 
-	/// Returns an Array of `VGSPDFView` objects subscribed to specific `VGSShow` instance.
-	@available(iOS 11.0, *)
-	public var subscribedPDFViews: [VGSPDFView] {
-		return subscribedViews.compactMap({return $0.model.view as? VGSPDFView})
-	}
+    /// Returns an Array of `VGSPDFView` objects subscribed to specific `VGSShow` instance.
+    @available(iOS 11.0, *)
+    public var subscribedPDFViews: [VGSPDFView] {
+        return subscribedViews.compactMap({return $0.model.view as? VGSPDFView})
+    }
 
-	// MARK: - Custom HTTP Headers
+    // MARK: - Custom HTTP Headers
 
-	/// Set your custom HTTP headers.
-	public var customHeaders: [String: String]? {
-		didSet {
-			if customHeaders != oldValue {
-				apiClient.customHeader = customHeaders
-			}
-		}
-	}
+    /// Set your custom HTTP headers.
+    public var customHeaders: [String: String]? {
+        didSet {
+            if customHeaders != oldValue {
+                apiClient.customHeader = customHeaders
+            }
+        }
+    }
 
   // MARK: - Initialzation
 
@@ -78,8 +132,8 @@ public final class VGSShow {
   /// - Parameters:
   ///   - id: `String` object, your organization vault id.
   ///   - environment: `String` object, your organization vault environment with data region.(e.g. "live", "live-eu1", "sanbox").
-	///   - hostname: `String` object. Custom Hostname, if not set, data will be sent to Vault Url. Default is `nil`.
-	public init(id: String, environment: String, hostname: String? = nil) {
+    ///   - hostname: `String` object. Custom Hostname, if not set, data will be sent to Vault Url. Default is `nil`.
+    public init(id: String, environment: String, hostname: String? = nil) {
         self.apiClient = APIClient(tenantId: id, regionalEnvironment: environment, hostname: hostname)
         self.tenantId = id
         self.regionalEnvironment = environment
@@ -91,8 +145,8 @@ public final class VGSShow {
   ///   - id: `String` object, your organization vault id.
   ///   - environment: `VGSEnvironment` object, your organization vault environment. By default `.sandbox`.
   ///   - dataRegion: `String` object, id of data storage region (e.g. "eu-123").
-	///   - hostname: `String` object. Custom Hostname, if not set, data will be sent to Vault Url. Default is `nil`.
-	public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil, hostname: String? = nil) {
+    ///   - hostname: `String` object. Custom Hostname, if not set, data will be sent to Vault Url. Default is `nil`.
+    public convenience init(id: String, environment: VGSEnvironment = .sandbox, dataRegion: String? = nil, hostname: String? = nil) {
     let env = Self.generateRegionalEnvironmentString(environment, region: dataRegion)
     self.init(id: id, environment: env, hostname: hostname)
   }
@@ -106,9 +160,9 @@ public final class VGSShow {
       return
     }
     if !subscribedViews.contains(where: { return view == $0}) {
-			vgsView.vgsShow = self
-			subscribedViews.append(vgsView)
-			trackSubscribeEvent(for: view)
+            vgsView.vgsShow = self
+            subscribedViews.append(vgsView)
+            trackSubscribeEvent(for: view)
       trackSubscribedViewConfigurationEvent(for: view)
     }
   }

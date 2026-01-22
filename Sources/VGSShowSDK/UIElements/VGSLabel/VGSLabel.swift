@@ -15,96 +15,96 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
   // MARK: - Enums
 
-	/// Text format to copy.
-	@objc public enum CopyTextFormat: Int {
+    /// Text format to copy.
+    @objc public enum CopyTextFormat: Int {
 
-		/// Raw revealed text.
-		case raw
+        /// Raw revealed text.
+        case raw
 
-		/// Formatted text.
-		case transformed
+        /// Formatted text.
+        case transformed
 
-		var analyticsKey: String {
-			switch self {
-			case .transformed:
-				return "transformed"
-			case .raw:
-				return "raw"
-			}
-		}
-	}
+        var analyticsKey: String {
+            switch self {
+            case .transformed:
+                return "transformed"
+            case .raw:
+                return "raw"
+            }
+        }
+    }
 
-	/// Masked label.
+    /// Masked label.
   internal var label = VGSMaskedLabel(frame: .zero)
 
-	/// Placeholder label.
-	internal let placeholderLabel = VGSAttributedLabel(frame: .zero)
+    /// Placeholder label.
+    internal let placeholderLabel = VGSAttributedLabel(frame: .zero)
 
-	/// Field content type (will be used for decoding).
-	internal let fieldType: VGSShowDecodingContentMode = .text
+    /// Field content type (will be used for decoding).
+    internal let fieldType: VGSShowDecodingContentMode = .text
 
   /// Horizontal constraints.
-	internal var horizontalConstraints = [NSLayoutConstraint]()
+    internal var horizontalConstraints = [NSLayoutConstraint]()
 
-	/// Vertical constraints.
+    /// Vertical constraints.
   internal var verticalConstraint = [NSLayoutConstraint]()
 
-	/// Horizontal placeholder constraints.
-	internal var horizontalPlaceholderConstraints = [NSLayoutConstraint]()
+    /// Horizontal placeholder constraints.
+    internal var horizontalPlaceholderConstraints = [NSLayoutConstraint]()
 
-	/// Vertical placeholder constraints.
-	internal var verticalPlaceholderConstraint = [NSLayoutConstraint]()
+    /// Vertical placeholder constraints.
+    internal var verticalPlaceholderConstraint = [NSLayoutConstraint]()
 
   /// View model, hodls business logic.
-	internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
+    internal var labelModel: VGSLabelViewModelProtocol = VGSLabelModel()
 
   /// Wrapper to support internal `VGSBaseViewProtocol`.
-	internal var model: VGSViewModelProtocol {
+    internal var model: VGSViewModelProtocol {
     return labelModel
   }
 
   // MARK: - Functional Attribute
 
   /// Show form that will be assiciated with `VGSLabel`.
-	internal weak var vgsShow: VGSShow?
+    internal weak var vgsShow: VGSShow?
 
-	/// Text formatters container, holds different formatters.
-	internal var textFormattersContainer = VGSTextFormattersCoordinator() {
-		didSet {
-			updateTextAndMaskIfNeeded()
-		}
-	}
+    /// Text formatters container, holds different formatters.
+    internal var textFormattersContainer = VGSTextFormattersCoordinator() {
+        didSet {
+            updateTextAndMaskIfNeeded()
+        }
+    }
 
-	/// Last revealed text.
-	internal var revealedRawText: String? {
-		didSet {
-			updateTextAndMaskIfNeeded()
-		}
-	}
+    /// Last revealed text.
+    internal var revealedRawText: String? {
+        didSet {
+            updateTextAndMaskIfNeeded()
+        }
+    }
 
-	// MARK: - Delegates
+    // MARK: - Delegates
 
-	/// The object that acts as the delegate of the VGSLabel.
-	public weak var delegate: VGSLabelDelegate?
+    /// The object that acts as the delegate of the VGSLabel.
+    public weak var delegate: VGSLabelDelegate?
 
-	// MARK: - Public interface
+    // MARK: - Public interface
 
-	/// Add transformation regex to format raw revealed text.
-	/// - Parameters:
-	///   - regex: `NSRegularExpression` object, transformation regex.
-	///   - template: `String` object, template for replacement.
-	public func addTransformationRegex(_ regex: NSRegularExpression, template: String) {
-		let transformationRegex = VGSTransformationRegex(regex: regex, template: template)
-		textFormattersContainer.addTransformationRegex(transformationRegex)
-	}
+    /// Add transformation regex to format raw revealed text.
+    /// - Parameters:
+    ///   - regex: `NSRegularExpression` object, transformation regex.
+    ///   - template: `String` object, template for replacement.
+    public func addTransformationRegex(_ regex: NSRegularExpression, template: String) {
+        let transformationRegex = VGSTransformationRegex(regex: regex, template: template)
+        textFormattersContainer.addTransformationRegex(transformationRegex)
+    }
 
   /// Name that will be associated with `VGSLabel` and used as a decoding contentPath on request response with revealed data from your organization vault.
   public var contentPath: String! {
     set {
       labelModel.decodingContentPath = newValue
 
-			let eventText = "Set content path: \(newValue ?? "*nil*")"
-			logInfoEventWithText(eventText)
+            let eventText = "Set content path: \(newValue ?? "*nil*")"
+            logInfoEventWithText(eventText)
     }
     get {
       return model.decodingContentPath
@@ -118,31 +118,31 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
   /// Revealed text length.
   public var revealedRawTextLength: Int {
-		return revealedRawText?.count ?? 0
+        return revealedRawText?.count ?? 0
   }
 
-	/// Placeholder text.
-	public var placeholder: String? {
-		didSet {
-			let eventText = "Set placeholder: \(placeholder ?? "*nil*")"
-			logInfoEventWithText(eventText)
+    /// Placeholder text.
+    public var placeholder: String? {
+        didSet {
+            let eventText = "Set placeholder: \(placeholder ?? "*nil*")"
+            logInfoEventWithText(eventText)
 
-			updateTextAndMaskIfNeeded()
-		}
-	}
+            updateTextAndMaskIfNeeded()
+        }
+    }
 
-	/// Placeholder text styles.
-	public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
-		didSet {
-			placeholderLabel.applyPlaceholderStyle(placeholderStyle)
-		}
-	}
+    /// Placeholder text styles.
+    public var placeholderStyle: VGSPlaceholderLabelStyle = VGSPlaceholderLabelStyle() {
+        didSet {
+            placeholderLabel.applyPlaceholderStyle(placeholderStyle)
+        }
+    }
 
-	/// `Bool` flag. Apply secure mask if `true`. If secure range is not defined mask all text. Default is `false`.
+    /// `Bool` flag. Apply secure mask if `true`. If secure range is not defined mask all text. Default is `false`.
   public var isSecureText: Bool = false {
     didSet {
-			let eventText = "isSecureText did change: \(isSecureText). Update text."
-			logInfoEventWithText(eventText)
+            let eventText = "isSecureText did change: \(isSecureText). Update text."
+            logInfoEventWithText(eventText)
 
       updateTextAndMaskIfNeeded()
     }
@@ -151,51 +151,116 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// Text Symbol that will replace visible label text character when securing String. Should be one charcter only.
   public var secureTextSymbol = "*" {
     didSet {
-			let eventText = "Set new secure sybmol: \(secureTextSymbol)"
-			logInfoEventWithText(eventText)
+            let eventText = "Set new secure sybmol: \(secureTextSymbol)"
+            logInfoEventWithText(eventText)
 
-			if secureTextSymbol.count > 1 {
-				let eventText = "Secure sybmol: \(secureTextSymbol) should be one character only!"
-				logWarningEventWithText(eventText)
-			}
+            if secureTextSymbol.count > 1 {
+                let eventText = "Secure sybmol: \(secureTextSymbol) should be one character only!"
+                logWarningEventWithText(eventText)
+            }
 
       if isSecureText { updateTextAndMaskIfNeeded() }
     }
   }
 
-	/// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to populate label with revealed data.
-	public func clearText() {
-		revealedRawText = nil
+    /// Clear last revealed text and set it to `nil`.  **IMPORTANT!** New request is required to populate label with revealed data.
+    public func clearText() {
+        revealedRawText = nil
 
-		let eventText = "Previous revealed text has been cleared! New request is required to populate label with revealed data."
-		logWarningEventWithText(eventText)
-	}
+        let eventText = "Previous revealed text has been cleared! New request is required to populate label with revealed data."
+        logWarningEventWithText(eventText)
+    }
 
-	/// Copy text to pasteboard with format.
-	/// - Parameter format: `VGSLabel.CopyTextFormat` object, text format to copy. Default is `.raw`.
-	public func copyTextToClipboard(format: CopyTextFormat = .raw) {
-		copyText(format: format)
-	}
+    /// Copy text to pasteboard with format.
+    /// - Parameter format: `VGSLabel.CopyTextFormat` object, text format to copy. Default is `.raw`.
+    public func copyTextToClipboard(format: CopyTextFormat = .raw) {
+        copyText(format: format)
+    }
 
   /// An array of `VGSTextRanges`, where `VGSLabel.secureTextSymbol` should replace text character.
   internal var secureTextRanges: [VGSTextRange]?
 
-	/// Set text range to be replaced with `VGSLabel.secureTextSymbol`.
-	/// - Parameters:
-	///   - start: `Int` object. Defines range start, should be less or equal to `end` and string length. Default is `nil`.
-	///   - end: `Int` object. Defines range end, should be greater or equal to `end` and string length. Default is `nil`.
-	public func setSecureText(start: Int? = nil, end: Int? = nil) {
+    /// Defines a single text range to be masked with the secure symbol.
+    ///
+    /// Use this method to mask a specific portion of the revealed text. The range is inclusive of `start`
+    /// and exclusive of `end`. To mask multiple ranges, use `setSecureText(ranges:)` instead.
+    ///
+    /// - Parameters:
+    ///   - start: The starting index of the range to mask (inclusive). Default is `nil` (start of string).
+    ///   - end: The ending index of the range to mask (exclusive). Default is `nil` (end of string).
+    ///
+    /// ## Examples
+    ///
+    /// ### Show Last 4 Digits
+    ///
+    /// ```swift
+    /// cardLabel.isSecureText = true
+    /// show.request(path: "/reveal") { result in
+    ///     let length = cardLabel.revealedRawTextLength
+    ///     if length > 4 {
+    ///         // Mask positions 0 to length-4
+    ///         cardLabel.setSecureText(start: 0, end: length - 4)
+    ///     }
+    /// }
+    /// // Text: "1234567812345678"
+    /// // Display: "************5678"
+    /// ```
+    ///
+    /// ### Show First 3 and Last 4
+    ///
+    /// ```swift
+    /// phoneLabel.isSecureText = true
+    /// show.request(path: "/reveal") { result in
+    ///     let length = phoneLabel.revealedRawTextLength
+    ///     if length > 7 {
+    ///         // Mask middle portion
+    ///         phoneLabel.setSecureText(start: 3, end: length - 4)
+    ///     }
+    /// }
+    /// // Text: "5551234567"
+    /// // Display: "555****567"
+    /// ```
+    ///
+    /// - Important: Ensure `isSecureText` is `true` for masking to take effect. Call this method after
+    ///              the reveal request completes and length is known.
+    ///
+    /// - SeeAlso: `setSecureText(ranges:)`, `isSecureText`, `secureTextSymbol`, `revealedRawTextLength`
+    public func setSecureText(start: Int? = nil, end: Int? = nil) {
     let ranges = [VGSTextRange(start: start, end: end)]
     setSecureText(ranges: ranges)
   }
 
-	/// Set array of text ranges to be replaced with `VGSLabel.secureTextSymbol`.
-	/// - Parameter ranges: `[VGSTextRange]` object, an array of `VGSTextRange` objects to be applied subsequently.
+    /// Defines multiple text ranges to be masked with the secure symbol.
+    ///
+    /// Use this method to mask multiple non-contiguous portions of revealed text. Ranges are applied in order.
+    ///
+    /// - Parameter ranges: An array of `VGSTextRange` objects defining which portions to mask.
+    ///
+    /// ## Example
+    ///
+    /// ### Mask Multiple Sections
+    ///
+    /// ```swift
+    /// // Show only positions 4-6 and 12-14 of a credit card
+    /// let ranges = [
+    ///     VGSTextRange(start: 0, end: 4),      // Mask first 4
+    ///     VGSTextRange(start: 7, end: 12),     // Mask middle 5
+    ///     VGSTextRange(start: 15, end: nil)    // Mask last part
+    /// ]
+    /// cardLabel.isSecureText = true
+    /// cardLabel.setSecureText(ranges: ranges)
+    /// // Text: "1234567812345678"
+    /// // Display: "****567*****4567"
+    /// ```
+    ///
+    /// - Important: Ensure `isSecureText` is `true` for masking to take effect.
+    ///
+    /// - SeeAlso: `VGSTextRange`, `setSecureText(start:end:)`, `isSecureText`
   public func setSecureText(ranges: [VGSTextRange]) {
-		let eventText = "Set secure ranges: \(ranges.debugText)"
-		logInfoEventWithText(eventText)
+        let eventText = "Set secure ranges: \(ranges.debugText)"
+        logInfoEventWithText(eventText)
 
-		self.secureTextRanges = ranges
+        self.secureTextRanges = ranges
     vgsShow?.trackSubscribedViewConfigurationEvent(for: self)
 
     /// Apply secure range if needed
@@ -209,15 +274,15 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
   /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
   public var paddings = UIEdgeInsets.zero {
     didSet {
-			setTextPaddings()
-			setPlaceholderPaddings()
-		}
+            setTextPaddings()
+            setPlaceholderPaddings()
+        }
   }
 
-	/// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
-	public var placeholderPaddings: UIEdgeInsets? {
-		didSet { setPlaceholderPaddings() }
-	}
+    /// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
+    public var placeholderPaddings: UIEdgeInsets? {
+        didSet { setPlaceholderPaddings() }
+    }
 
     /// The natural size for the Lbel, considering only properties of the view itself.
     public override var intrinsicContentSize: CGSize {
@@ -286,15 +351,15 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
         }
     }
 
-	/// Number of lines.
-	public var numberOfLines: Int {
-		get {
-				return label.numberOfLines
-		}
-		set {
-			label.numberOfLines = newValue
-		}
-	}
+    /// Number of lines.
+    public var numberOfLines: Int {
+        get {
+                return label.numberOfLines
+        }
+        set {
+            label.numberOfLines = newValue
+        }
+    }
 
   /// `VGSLabel` text color.
   public var textColor: UIColor? {
@@ -306,25 +371,25 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     }
   }
 
-	/// `VGSLabel` text alignment.
-	public var textAlignment: NSTextAlignment {
-		get {
-				return label.textAlignment
-		}
-		set {
-			label.textAlignment = newValue
-		}
-	}
+    /// `VGSLabel` text alignment.
+    public var textAlignment: NSTextAlignment {
+        get {
+                return label.textAlignment
+        }
+        set {
+            label.textAlignment = newValue
+        }
+    }
 
-	/// `VGSLabel` line break mode.
-	public var lineBreakMode: NSLineBreakMode {
-		get {
-			return label.lineBreakMode
-		}
-		set {
-			label.lineBreakMode = newValue
-		}
-	}
+    /// `VGSLabel` line break mode.
+    public var lineBreakMode: NSLineBreakMode {
+        get {
+            return label.lineBreakMode
+        }
+        set {
+            label.lineBreakMode = newValue
+        }
+    }
 
   /// `VGSLabel` layer corner radius.
   public var cornerRadius: CGFloat {
@@ -360,27 +425,27 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
     }
   }
 
-	// MARK: - Custom text styles
+    // MARK: - Custom text styles
 
-	/// `VGSLabel` minimum text line height. 
-	public var textMinLineHeight: CGFloat {
-		get {
-			return label.textMinLineHeight
-		}
-		set {
-			label.textMinLineHeight = newValue
-		}
-	}
+    /// `VGSLabel` minimum text line height.
+    public var textMinLineHeight: CGFloat {
+        get {
+            return label.textMinLineHeight
+        }
+        set {
+            label.textMinLineHeight = newValue
+        }
+    }
 
-	/// `VGSLabel` text character spacing.
-	public var characterSpacing: CGFloat {
-		get {
-			return label.characterSpacing
-		}
-		set {
-			label.characterSpacing = newValue
-		}
-	}
+    /// `VGSLabel` text character spacing.
+    public var characterSpacing: CGFloat {
+        get {
+            return label.characterSpacing
+        }
+        set {
+            label.characterSpacing = newValue
+        }
+    }
 
   /// `VGSLabel` adjustsFontSizeToFitWidth mode.
   internal var adjustsFontSizeToFitWidth: Bool {

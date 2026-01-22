@@ -65,7 +65,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 			static let cardNumberWithSecureRange: VGSUITestElement = .init(type: .label, identifier: "4111 **** **** 1111")
 
 			/// Card number with expiration date.
-			static let expirationDate: VGSUITestElement = .init(type: .label, identifier: "10/2025")
+			static let expirationDate: VGSUITestElement = .init(type: .label, identifier: "10/2035")
 		}
 
 		/// Placeholder labels.
@@ -88,7 +88,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 		wait(forTimeInterval: 0.2)
 		VGSTextField.cardNumber.find(in: app).type("4111111111111111")
 		VGSTextField.expirationDate.find(in: app).type("10")
-		VGSTextField.expirationDate.find(in: app).type("2025", shouldClear: false)
+		VGSTextField.expirationDate.find(in: app).type("2035", shouldClear: false)
 
 		// Tap on view to close keyboard.
 		Screens.collect.find(in: app).tap()
@@ -99,7 +99,7 @@ class VGSBaseRegularFlowTestCase: VGSShowDemoAppBaseTestCase {
 	func fillInWrongCardData() {
 		VGSTextField.cardNumber.find(in: app).type("123456789")
 		VGSTextField.expirationDate.find(in: app).type("10")
-		VGSTextField.expirationDate.find(in: app).type("2025", shouldClear: false)
+		VGSTextField.expirationDate.find(in: app).type("2035", shouldClear: false)
 
 		// Tap on view to close keyboard.
 		Screens.collect.find(in: app).tap()
