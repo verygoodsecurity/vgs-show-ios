@@ -1,0 +1,4 @@
+interface:
+  display_name: "VGS Show Security Review"
+  short_description: "Review security and privacy compliance"
+  default_prompt: "Use $vgs-show-security-privacy-review to audit VGSShowSDK changes."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "VGS Show Jazzy Docs"
+  short_description: "Regenerate API docs with jazzy"
+  default_prompt: "Use $vgs-show-docs-jazzy to rebuild the SDK docs output."
