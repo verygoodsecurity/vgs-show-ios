@@ -1,0 +1,4 @@
+interface:
+  display_name: "VGS Show Planning"
+  short_description: "Plan complex tasks and break them down"
+  default_prompt: "Use $vgs-show-planning to analyze a complex task and produce a step-by-step plan."
