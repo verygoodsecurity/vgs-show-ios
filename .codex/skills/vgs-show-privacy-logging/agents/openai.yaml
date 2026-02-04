@@ -1,0 +1,4 @@
+interface:
+  display_name: "VGS Show Privacy and Logging"
+  short_description: "Audit logging, analytics, and privacy manifest"
+  default_prompt: "Use $vgs-show-privacy-logging to check logging and privacy rules."

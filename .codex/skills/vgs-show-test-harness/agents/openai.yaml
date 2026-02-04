@@ -1,0 +1,4 @@
+interface:
+  display_name: "VGS Show Test Harness"
+  short_description: "Add or update VGSShowSDK unit tests"
+  default_prompt: "Use $vgs-show-test-harness to add coverage for new SDK behavior."
