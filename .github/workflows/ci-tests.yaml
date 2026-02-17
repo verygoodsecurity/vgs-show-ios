@@ -159,10 +159,10 @@ jobs:
           plutil -insert path -string "${PATH_SECRET}" UITestsMockedData.plist
           cd ../../..
 
-      - name: Install CocoaPods Dependencies
+      - name: Resolve Swift Package Dependencies
         run: |
           cd VGSShowDemoApp
-          pod install
+          xcodebuild -resolvePackageDependencies -project VGSShowDemoApp.xcodeproj -scheme VGSShowDemoAppUITests
 
       - name: Wait for Simulator
         run: |
@@ -175,7 +175,7 @@ jobs:
           mkdir -p UITestResults
           xcodebuild \
             test \
-            -workspace VGSShowDemoApp.xcworkspace \
+            -project VGSShowDemoApp.xcodeproj \
             -scheme VGSShowDemoAppUITests \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.ios }}' \

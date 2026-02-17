@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>VAULT_ID</key>
+	<string>vault-id</string>
+	<key>PATH</key>
+	<string>/post</string>
+	<key>PDF_TOKEN</key>
+	<string>pdf-token</string>
+	<key>IMAGE_TOKEN</key>
+	<string>image-token</string>
+</dict>
 </plist>
