@@ -14,11 +14,11 @@ on:
 jobs:
   build-and-test-sdk:
     name: Build & Test SDK (iOS ${{ matrix.ios }}, Xcode ${{ matrix.xcode }})
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
         xcode: ['16.2']
-        ios: ['18.2']
+        ios: ['26.2']
         device: ['iPhone 16']
     steps:
       - name: Checkout
@@ -92,7 +92,7 @@ jobs:
 
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: test-results-xcode-${{ matrix.xcode }}
           path: test-results/
@@ -100,7 +100,7 @@ jobs:
 
       - name: Upload Xcodebuild Log
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: xcodebuild-log-${{ matrix.xcode }}
           path: xcodebuild.log
@@ -108,11 +108,11 @@ jobs:
 
   build-and-ui-test-demo-app:
     name: Build & UI Test Demo App (iOS ${{ matrix.ios }}, Xcode ${{ matrix.xcode }})
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
         xcode: ['16.2']
-        ios: ['18.2']
+        ios: ['26.2']
         device: ['iPhone 16']
     steps:
       - name: Checkout
@@ -166,7 +166,7 @@ jobs:
 
       - name: Wait for Simulator
         run: |
-          xcrun instruments -w "iPhone 16 (18.2) [" || true
+          xcrun instruments -w "iPhone 16 (${{ matrix.ios }}) [" || true
 
       - name: Run UI Tests
         run: |
@@ -184,7 +184,7 @@ jobs:
 
       - name: Upload UI Test Results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: ui-test-results-xcode-${{ matrix.xcode }}
           path: VGSShowDemoApp/UITestResults/
@@ -192,7 +192,7 @@ jobs:
 
       - name: Upload Xcodebuild Log
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
         with:
           name: demoapp-ui-tests-log-xcode-${{ matrix.xcode }}
           path: VGSShowDemoApp/xcodebuild.log
