@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,13 +38,14 @@
 		44F535022636CC5700ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */; };
 		44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */; };
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
-		E6FF21FE8A6D437FAA73D7DF /* VGSShowSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 47E90994851B40B3AE6A5F7B /* VGSShowSDK */; };
-		C5BAF93C8CF145B8BE7BCDA5 /* VGSCollectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA0924CD2804DB3915E0132 /* VGSCollectSDK */; };
 		A0060F8A2A58A2F20060CE85 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0060F892A58A2F20060CE85 /* InitialViewController.swift */; };
 		A0A4EEA82A57A31300172678 /* ShowImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A4EEA72A57A31300172678 /* ShowImage.storyboard */; };
 		A0A4EEB82A57A4D500172678 /* CollectImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */; };
 		A0A4EEBB2A57A4D500172678 /* ShowImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */; };
 		A0A4EED32A57A8E800172678 /* VGSShowImageDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */; };
+		C5BAF93C8CF145B8BE7BCDA5 /* VGSCollectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA0924CD2804DB3915E0132 /* VGSCollectSDK */; };
+		D4A7E1A230C00A6D00000001 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7E1A130C00A6D00000001 /* SceneDelegate.swift */; };
+		E6FF21FE8A6D437FAA73D7DF /* VGSShowSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 47E90994851B40B3AE6A5F7B /* VGSShowSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectImageDemoViewController.swift; sourceTree = "<group>"; };
 		A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageDemoViewController.swift; sourceTree = "<group>"; };
 		A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageDemoTests.swift; sourceTree = "<group>"; };
+		D4A7E1A130C00A6D00000001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				4444EEEA255E6446002C9215 /* AppDelegate.swift */,
+				D4A7E1A130C00A6D00000001 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -433,8 +436,9 @@
 		44415F90255D36F90012D107 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					44415F97255D36F90012D107 = {
 						CreatedOnToolsVersion = 11.5;
@@ -460,7 +464,7 @@
 			);
 			mainGroup = 44415F8F255D36F90012D107;
 			packageReferences = (
-				3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference "VGSShowSDK" */,
+				3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference ".." */,
 				8AA783822F1C450085E67AA4 /* XCRemoteSwiftPackageReference "vgs-collect-ios" */,
 			);
 			productRefGroup = 44415F99255D36F90012D107 /* Products */;
@@ -537,6 +541,7 @@
 				A0060F8A2A58A2F20060CE85 /* InitialViewController.swift in Sources */,
 				44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */,
 				4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */,
+				D4A7E1A230C00A6D00000001 /* SceneDelegate.swift in Sources */,
 				44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */,
 				44415FDB255D37540012D107 /* Helpers.swift in Sources */,
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
@@ -619,6 +624,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -627,8 +633,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4445Y664U5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -648,6 +656,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -680,6 +689,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -688,8 +698,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4445Y664U5;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -702,6 +714,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
@@ -715,7 +728,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -740,7 +752,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -761,10 +772,8 @@
 		44415FC6255D36FB0012D107 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowDemoAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -785,10 +794,8 @@
 		44415FC7255D36FB0012D107 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowDemoAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -809,9 +816,7 @@
 		44415FC9255D36FB0012D107 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowDemoAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -831,9 +836,7 @@
 		44415FCA255D36FB0012D107 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
 				INFOPLIST_FILE = VGSShowDemoAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -892,7 +895,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference "VGSShowSDK" */ = {
+		3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference ".." */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ..;
 		};
@@ -903,22 +906,22 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/verygoodsecurity/vgs-collect-ios";
 			requirement = {
-				kind = exactVersion;
-				version = 1.18.1;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.18.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		47E90994851B40B3AE6A5F7B /* VGSShowSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference "VGSShowSDK" */;
-			productName = VGSShowSDK;
-		};
 		3BA0924CD2804DB3915E0132 /* VGSCollectSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AA783822F1C450085E67AA4 /* XCRemoteSwiftPackageReference "vgs-collect-ios" */;
 			productName = VGSCollectSDK;
+		};
+		47E90994851B40B3AE6A5F7B /* VGSShowSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference ".." */;
+			productName = VGSShowSDK;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
