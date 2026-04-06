@@ -14,20 +14,21 @@ on:
 jobs:
   build-and-test-sdk:
     name: Build & Test SDK (iOS ${{ matrix.ios }}, Xcode ${{ matrix.xcode }})
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
-        xcode: ['16.2']
-        ios: ['18.2']
-        device: ['iPhone 16']
+        xcode: ['26.1.1']
+        ios: ['26.1']
+        device: ['iPhone 17']
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup Xcode ${{ matrix.xcode }}
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: ${{ matrix.xcode }}
+      - name: Select Xcode ${{ matrix.xcode }}
+        run: |
+          XCODE_APP="/Applications/Xcode_${{ matrix.xcode }}.app"
+          sudo xcode-select --switch "$XCODE_APP/Contents/Developer"
+          xcodebuild -version
 
       - name: List installed runtimes & devices (debug)
         run: |
@@ -108,20 +109,21 @@ jobs:
 
   build-and-ui-test-demo-app:
     name: Build & UI Test Demo App (iOS ${{ matrix.ios }}, Xcode ${{ matrix.xcode }})
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
-        xcode: ['16.2']
-        ios: ['18.2']
-        device: ['iPhone 16']
+        xcode: ['26.1.1']
+        ios: ['26.1']
+        device: ['iPhone 17']
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup Xcode ${{ matrix.xcode }}
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: ${{ matrix.xcode }}
+      - name: Select Xcode ${{ matrix.xcode }}
+        run: |
+          XCODE_APP="/Applications/Xcode_${{ matrix.xcode }}.app"
+          sudo xcode-select --switch "$XCODE_APP/Contents/Developer"
+          xcodebuild -version
 
       - name: Create and Boot Simulator
         run: |
@@ -166,7 +168,7 @@ jobs:
 
       - name: Wait for Simulator
         run: |
-          xcrun instruments -w "iPhone 16 (18.2) [" || true
+          xcrun instruments -w "${{ matrix.device }} (${{ matrix.ios }}) [" || true
 
       - name: Run UI Tests
         run: |

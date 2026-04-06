@@ -44,8 +44,8 @@ internal enum VGSShowViewType {
 			return "text"
 		case .pdf:
 			return "pdf"
-        case .image:
-            return "image"
+		case .image:
+			return "image"
 		}
 	}
 }

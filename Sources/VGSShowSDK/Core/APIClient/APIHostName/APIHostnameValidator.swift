@@ -73,7 +73,13 @@ internal class APIHostnameValidator {
                     return
                 }
                 
-                let responseText = String(decoding: data, as: UTF8.self)
+				guard let responseText = String(bytes: data, encoding: .utf8) else {
+					let text = "Error ❗ Cannot decode hostname validation response for \"\(hostname)\" as UTF-8."
+					let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
+					VGSLogger.shared.forwardLogEvent(event)
+					completion(nil)
+					return
+				}
                 
                 let eventText = "response text: \"\(responseText)\""
                 let event = VGSLogEvent(level: .info, text: eventText)

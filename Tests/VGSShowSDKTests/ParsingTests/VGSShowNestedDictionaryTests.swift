@@ -31,7 +31,7 @@ class VGSShowNestedDictionaryTests: XCTestCase {
 		for data in provideTestData(validPaths: false) {
 			let json = data.value
 			let keyPath = data.key
-			if let _: String = json.valueForKeyPath(keyPath: keyPath) {
+			if (json.valueForKeyPath(keyPath: keyPath) as String?) != nil {
 				XCTFail("wrong keypath: \(keyPath) in json: \(json)")
 			}
 		}

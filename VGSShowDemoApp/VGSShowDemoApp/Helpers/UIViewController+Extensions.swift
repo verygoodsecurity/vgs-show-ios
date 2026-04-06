@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-	// swiftlint:disable
 	static func show(message: String, controller: UIViewController) {
 		let toastView = UIView(frame: .zero)
 		toastView.backgroundColor = UIColor.black.withAlphaComponent(0.7)

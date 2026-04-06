@@ -8,35 +8,24 @@ import XCTest
 import PDFKit
 @testable import VGSShowSDK
 
-// Test-only: we promise these stay on MainActor.
-extension VGSPDFView: @unchecked Sendable {}
-extension MockVGSPDFViewDelegate: @unchecked Sendable {}
-
+@MainActor
 class VGSPDFViewTests: XCTestCase {
 
   var pdfView: VGSPDFView!
   var mockDelegate: MockVGSPDFViewDelegate!
 
-    override func setUp() {
-        super.setUp()
-
-        // Do all MainActor work inside this block, but don't touch `self` here.
-        let (view, delegate): (VGSPDFView, MockVGSPDFViewDelegate) = MainActor.assumeIsolated {
-            let delegate = MockVGSPDFViewDelegate()
-            let view = VGSPDFView()            // @MainActor init — OK here
-            view.delegate = delegate           // @MainActor property — OK here
-            return (view, delegate)
-        }
-
-        // Assign to test properties outside the block (nonisolated)
-        self.pdfView = view
-        self.mockDelegate = delegate
+    private func configureSUT() {
+        let delegate = MockVGSPDFViewDelegate()
+        let view = VGSPDFView()
+        view.delegate = delegate
+        pdfView = view
+        mockDelegate = delegate
     }
-    
 
     // MARK: - Test PDF document and delegates
     @MainActor
     func testPDFDocument() {
+      configureSUT()
       pdfView.contentPath = "test.pdf"
 
       XCTAssertTrue(pdfView.contentPath == "test.pdf")
@@ -51,6 +40,7 @@ class VGSPDFViewTests: XCTestCase {
     }
     @MainActor
     func testRevealedPdfContentWithValidData() {
+      configureSUT()
       // swiftlint:disable:next force_try
       let validPdfData = try! Data(contentsOf: URL(string: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf")!)
       _ = XCTWaiter.wait(for: [expectation(description: "Wait for file loading")], timeout: 10.0)
@@ -61,6 +51,7 @@ class VGSPDFViewTests: XCTestCase {
     }
     @MainActor
     func testRevealedPdfContentWithInvalidData() {
+      configureSUT()
       let invalidPdfData = Data() // Assuming empty data is invalid for a PDF
       pdfView.revealedPdfContent = .rawData(invalidPdfData)
 
@@ -71,6 +62,7 @@ class VGSPDFViewTests: XCTestCase {
     // MARK: - Test accessibility properties
     @MainActor
     func testPDFAccessibilityAttributes() {
+        configureSUT()
         // Hint
         let accHint = "accessibility hint"
         pdfView.accessibilityHint = accHint
@@ -95,41 +87,48 @@ class VGSPDFViewTests: XCTestCase {
     }
     @MainActor
     func testPDFDisplayMode() {
+        configureSUT()
         let defaultMode = PDFDisplayMode.singlePageContinuous
         XCTAssertEqual(pdfView.maskedPdfView.displayMode, defaultMode, "Default pdf mode  should be .singlePage")
     }
     @MainActor
     func testSetPDFDisplayMode() {
+        configureSUT()
         let newMode = PDFDisplayMode.twoUpContinuous
         pdfView.pdfDisplayMode = newMode
         XCTAssertEqual(pdfView.maskedPdfView.displayMode, newMode, "maskedPdfView's pdfDisplayMode set to the new mode")
     }
     @MainActor
     func testSetPDFBackgroundColor() {
+        configureSUT()
         let newColor = UIColor.red
         pdfView.pdfBackgroundColor = newColor
         XCTAssertEqual(pdfView.maskedPdfView.backgroundColor, newColor, "maskedPdfView's background color should be set to the new color")
     }
     @MainActor
     func testSetPDFBackgroundColorNil() {
+        configureSUT()
         pdfView.pdfBackgroundColor = nil
         let defaultColor = UIColor.gray.withAlphaComponent(0)
         XCTAssertEqual(pdfView.maskedPdfView.backgroundColor, defaultColor, "maskedPdfView's background color should be set to default color when pdfBackgroundColor is nil")
     }
     @MainActor
     func testPdfDisplayDirection() {
+        configureSUT()
         let expectedDirection: PDFDisplayDirection = .horizontal
         pdfView.pdfDisplayDirection = expectedDirection
         XCTAssertEqual(pdfView.maskedPdfView.displayDirection, expectedDirection, "maskedPdfView display direction should be updated to the new direction")
     }
     @MainActor
     func testPdfAutoScales() {
+        configureSUT()
         let expectedAutoScales = false
         pdfView.pdfAutoScales = expectedAutoScales
         XCTAssertEqual(pdfView.maskedPdfView.autoScales, expectedAutoScales, "maskedPdfView auto scales should be updated to the new value")
     }
     @MainActor
     func testDisplayAsBook() {
+        configureSUT()
         let expectedDisplayAsBook = true
         pdfView.displayAsBook = expectedDisplayAsBook
         XCTAssertEqual(pdfView.maskedPdfView.displaysAsBook, expectedDisplayAsBook, "maskedPdfView display as book should be updated to the new value")
@@ -137,6 +136,7 @@ class VGSPDFViewTests: XCTestCase {
 
     @MainActor
     func testPageShadowsEnabled() {
+        configureSUT()
         let expectedShadowsEnabled = false
         pdfView.pageShadowsEnabled = expectedShadowsEnabled
         XCTAssertEqual(pdfView.maskedPdfView.pageShadowsEnabled, expectedShadowsEnabled, "maskedPdfView pageShadowsEnabled should be updated to the new value")
@@ -145,6 +145,7 @@ class VGSPDFViewTests: XCTestCase {
   // MARK: - Test content path
     @MainActor
     func testContentPathSetter() {
+        configureSUT()
         let newPath = "new.content.path"
         pdfView.contentPath = newPath
 
@@ -153,6 +154,7 @@ class VGSPDFViewTests: XCTestCase {
     }
     @MainActor
     func testContentPathGetter() {
+        configureSUT()
         let expectedPath = "expected.content.path"
         pdfView.pdfViewModel.decodingContentPath = expectedPath
         let path = pdfView.contentPath
@@ -163,6 +165,7 @@ class VGSPDFViewTests: XCTestCase {
     // MARK: - Test pdf format
     @MainActor
     func testPdfFormatSetter() {
+      configureSUT()
       let newFormat: VGSShowPDFFormat = .rawData(.base64)
       pdfView.pdfFormat = newFormat
 

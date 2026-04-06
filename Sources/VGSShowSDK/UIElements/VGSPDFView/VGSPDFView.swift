@@ -251,13 +251,13 @@ public final class VGSPDFView: UIView, VGSShowPdfViewProtocol {
 
     // MARK: - Initialization
 
-    ///:nodoc:
+    /// :nodoc:
     override init(frame: CGRect) {
             super.init(frame: frame)
             mainInitialization()
     }
 
-    ///:nodoc:
+    /// :nodoc:
     required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             mainInitialization()

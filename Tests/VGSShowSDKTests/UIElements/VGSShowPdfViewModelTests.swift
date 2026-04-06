@@ -10,10 +10,6 @@ class VGSShowPdfViewModelTests: XCTestCase {
 
     var viewModel: VGSShowPdfViewModel!
 
-    override func setUp() {
-        super.setUp()
-    }
-
     func testHandleDecodingResultSuccess() {
         viewModel = VGSShowPdfViewModel()
         let expectedData = Data(repeating: 0, count: 5)

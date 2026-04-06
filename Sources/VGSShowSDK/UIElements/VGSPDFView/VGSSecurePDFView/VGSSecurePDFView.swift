@@ -17,12 +17,11 @@ internal class VGSSecurePDFView: PDFView {
 
 	/// PDF document.
 	internal var secureDocument: PDFDocument? {
-		set {
-			super.document = newValue
-		}
-
 		get {
 			return super.document
+		}
+		set {
+			super.document = newValue
 		}
 	}
 

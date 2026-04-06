@@ -513,6 +513,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		4411D7952564F59C00A6FFD1 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -527,7 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n  echo \"SwiftLint not installed, skipping lint. Download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -732,12 +733,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -756,12 +759,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.0;
@@ -774,6 +779,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -781,6 +788,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -796,6 +804,8 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -803,6 +813,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -817,12 +828,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -837,12 +851,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

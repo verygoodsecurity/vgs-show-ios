@@ -165,6 +165,7 @@ internal class APIClient {
 		sendDataRequestWithURL(requestURL, path: path, method: method, payload: payload, requestOptions: requestOptions, block: block)
 	}
 
+	// swiftlint:disable:next function_parameter_count
 	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion) {
 
 		let encodingResult = payload.encodeToRequestBodyData()

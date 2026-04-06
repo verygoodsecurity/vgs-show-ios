@@ -116,7 +116,7 @@ public enum VGSErrorType: Int {
 /// - The `type` property is never `nil` in production (force-unwrap safe for error handling)
 ///
 /// - SeeAlso: `VGSErrorType`, `VGSShowRequestResult`
-public class VGSShowError: NSError {
+public class VGSShowError: NSError, @unchecked Sendable {
 
     /// `VGSErrorType `-  required for each `VGSError` instance.
     public let type: VGSErrorType!
@@ -126,7 +126,7 @@ public class VGSShowError: NSError {
         return type.rawValue
     }
 
-    ///:nodoc:
+    /// :nodoc:
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

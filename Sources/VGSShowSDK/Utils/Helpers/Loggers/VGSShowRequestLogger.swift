@@ -126,7 +126,9 @@ internal class VGSShowRequestLogger {
 	/// - Returns: `String` object, pretty printed `JSON`.
 	private static func stringifyJSONForLogs(_ vgsJSON: VGSJSONData) -> String {
 		if let json = try? JSONSerialization.data(withJSONObject: vgsJSON, options: .prettyPrinted) {
-			let stringToPrint = String(decoding: json, as: UTF8.self)
+			guard let stringToPrint = String(bytes: json, encoding: .utf8) else {
+				return ""
+			}
 			if stringToPrint.count > maxTextCountToPrintLimit {
 				return "VGSShowSDK response size is too big to print. Use debugger if needed."
 			} else {

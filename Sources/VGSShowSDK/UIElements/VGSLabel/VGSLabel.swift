@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 #endif
 
+// swiftlint:disable file_length
 /// A view that displays revealed text data.
 public final class VGSLabel: UIView, VGSLabelProtocol {
 
@@ -100,14 +101,14 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
 
   /// Name that will be associated with `VGSLabel` and used as a decoding contentPath on request response with revealed data from your organization vault.
   public var contentPath: String! {
+    get {
+      return model.decodingContentPath
+    }
     set {
       labelModel.decodingContentPath = newValue
 
-            let eventText = "Set content path: \(newValue ?? "*nil*")"
-            logInfoEventWithText(eventText)
-    }
-    get {
-      return model.decodingContentPath
+      let eventText = "Set content path: \(newValue ?? "*nil*")"
+      logInfoEventWithText(eventText)
     }
   }
 
@@ -479,3 +480,4 @@ public final class VGSLabel: UIView, VGSLabelProtocol {
       mainInitialization()
   }
 }
+// swiftlint:enable file_length

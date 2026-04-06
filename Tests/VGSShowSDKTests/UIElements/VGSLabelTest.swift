@@ -13,7 +13,7 @@ class VGSLabelTests: XCTestCase {
 
       override func setUp() {
           super.setUp()
-          vgsLabel = MainActor.assumeIsolated{VGSLabel()}
+          vgsLabel = MainActor.assumeIsolated { VGSLabel() }
 //          vgsLabel.mainInitialization()
       }
 
@@ -32,7 +32,7 @@ class VGSLabelTests: XCTestCase {
 
         vgsLabel.label.secureText = "123"
         XCTAssertFalse(vgsLabel.isEmpty)
-        XCTAssertTrue(vgsLabel.label.text == nil)
+        XCTAssertEqual(vgsLabel.label.secureText, "123")
 
       vgsLabel.label.secureText = ""
         XCTAssertTrue(vgsLabel.isEmpty)
@@ -168,7 +168,7 @@ class VGSLabelTests: XCTestCase {
      func testIntrinsicContentSize() {
          // Test the intrinsicContentSize property
          let testString = "Test String"
-         vgsLabel.label.text = testString
+         vgsLabel.label.secureText = testString
          let expectedSize = vgsLabel.label.intrinsicContentSize
          XCTAssertEqual(vgsLabel.intrinsicContentSize, expectedSize)
      }

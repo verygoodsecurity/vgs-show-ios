@@ -14,18 +14,14 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 		super.setUp()
 
 		continueAfterFailure = false
-        
-        let createdApp: XCUIApplication = MainActor.assumeIsolated {
-                    let app = XCUIApplication()
-                    app.launchArguments.append("VGSDemoAppUITests")
-                    app.launch()
-                    return app
-                }
-        app = createdApp
-	}
 
-	override func tearDown() {
-		super.tearDown()
+		let createdApp: XCUIApplication = MainActor.assumeIsolated {
+			let app = XCUIApplication()
+			app.launchArguments.append("VGSDemoAppUITests")
+			app.launch()
+			return app
+		}
+		app = createdApp
 	}
 
 	enum TabBar {
@@ -43,45 +39,45 @@ class VGSShowDemoAppBaseTestCase: XCTestCase {
 
 		/// Show pdf use case flow cell.
 		static let showPDF = "Show Collected PDF"
-        
-        /// Show image use case flow cell.
-        static let showImage = "Show Collected Image"
+
+		/// Show image use case flow cell.
+		static let showImage = "Show Collected Image"
 	}
 
 	/// Navigate to Card Data use case.
-    @MainActor
+	@MainActor
 	func navigateToCardDataUseCase() {
 		app.tables.staticTexts[UseCases.showCardData].tap()
 	}
 
 	/// Navigate to PDF use case.
-    @MainActor
+	@MainActor
 	func navigateToPDFUseCase() {
 		app.tables.staticTexts[UseCases.showPDF].tap()
 	}
 
-    /// Navigate to Image use case.
-    @MainActor
-    func navigateToImageUseCase() {
-        app.tables.staticTexts[UseCases.showImage].tap()
-    }
+	/// Navigate to Image use case.
+	@MainActor
+	func navigateToImageUseCase() {
+		app.tables.staticTexts[UseCases.showImage].tap()
+	}
 
 	/// Start app and navigate to specific tab.
-    @MainActor
+	@MainActor
 	func navigateToTab(identifier tabAccessebilityIdentifier: String) {
-        app.buttons[tabAccessebilityIdentifier].tap()
+		app.buttons[tabAccessebilityIdentifier].tap()
 	}
 
 	/// Select collect tab.
-    @MainActor
+	@MainActor
 	func navigateToCollectScreen() {
-        // Before switching to collect screen we have only one `Collect` button in tab bar view hierarchy.
-        navigateToTab(identifier: "Collect")
+		// Before switching to collect screen we have only one `Collect` button in tab bar view hierarchy.
+		navigateToTab(identifier: "Collect")
 	}
 
 	/// Select show tab.
-    @MainActor
+	@MainActor
 	func navigateToShowScreen() {
-        navigateToTab(identifier: "Show")
+		navigateToTab(identifier: "Show")
 	}
 }

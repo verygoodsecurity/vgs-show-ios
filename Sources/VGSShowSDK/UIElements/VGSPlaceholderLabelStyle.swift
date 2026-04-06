@@ -42,6 +42,6 @@ public struct VGSPlaceholderLabelStyle {
     /// The line break mode. When `nil`, the label's line break mode is used.
     public var lineBreakMode: NSLineBreakMode?
   
-  /// Creates a placeholder style with default values.
-  public init(){}
+	/// Creates a placeholder style with default values.
+	public init() {}
 }
