@@ -1,7 +1,7 @@
 [![UT](https://img.shields.io/badge/Unit_Test-pass-green)]()
 [![license](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![swift](https://img.shields.io/badge/swift-5.9-orange)]()
-[![AI Agents Ready](https://img.shields.io/badge/AI_Agents-Ready-brightgreen)](./AGENTS.md)
+[![AI Agents Ready](https://img.shields.io/badge/AI_Agents-Ready-brightgreen)](./skills/vgs-show-ios-guide/references/AGENTS.md)
 <img src="./VGSZeroData.png" height="20">
 
 # VGS Show iOS SDK
@@ -70,12 +70,30 @@ dependencies: [
 ```
 
 ## AI Agent Integration
-Use [`AGENTS.md`](./AGENTS.md) as context for autonomous coding agents integrating or maintaining `VGSShowSDK`. It lists public APIs, security constraints, validation rules, upgrade & testing expectations.
+This repository ships a public AI skill at [`skills/vgs-show-ios-guide/SKILL.md`](./skills/vgs-show-ios-guide/SKILL.md) for teams integrating `VGSShowSDK` into an app.
+
+Recommended: install the skill with `skills.sh`. This is the easiest way to give a compatible AI agent the repository-specific guidance it needs for `VGSShowSDK` integrations.
+
+The installed skill bundle includes `references/AGENTS.md`, which is the canonical durable integration guide for this SDK.
+
+What the skill is useful for:
+- matching guidance to the installed `VGSShowSDK` version when that version can be detected
+- steering integrations toward the correct reveal setup for text, image, PDF, and SwiftUI representable use cases
+- enforcing non-empty `contentPath` values before requests and batching subscribed views through a single `VGSShow`
+- preserving secure masking, safe copy behavior, and redacted error or logging guidance
+- following the testing and upgrade rules in [`references/AGENTS.md`](./skills/vgs-show-ios-guide/references/AGENTS.md)
+
+Install the skill with `skills.sh`:
+```bash
+npx skills add https://github.com/verygoodsecurity/vgs-show-ios --skill vgs-show-ios-guide
+```
+
+If your AI tool does not support skills yet, load [`skills/vgs-show-ios-guide/references/AGENTS.md`](./skills/vgs-show-ios-guide/references/AGENTS.md) directly.
 
 Minimal System Prompt Example:
 ```
 You are an autonomous engineering agent integrating the VGS Show iOS SDK into an existing Swift app.
-Use the full contents of AGENTS.md as the authoritative policy.
+Use skills/vgs-show-ios-guide/references/AGENTS.md as the authoritative policy.
 Constraints:
 - Only public, non-deprecated APIs.
 - No raw sensitive data in logs/tests.
@@ -91,7 +109,7 @@ Return: Modified Swift source files only, no secrets.
 Developer Prompt (Inline Example for a Single Task):
 ```
 Task: Add secure display of account number with custom last-4 masking while preserving transformation regex formatting.
-Follow AGENTS.md guidelines.
+Follow skills/vgs-show-ios-guide/references/AGENTS.md.
 Do not log raw account number; add tests for masking and a negative near-miss path key.
 ```
 
