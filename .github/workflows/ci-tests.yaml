@@ -81,9 +81,12 @@ jobs:
           xcov -p VGSShowSDK.xcodeproj -s VGSShowSDK --json_report
 
       - name: Show Git Branch
+        env:
+          GIT_BRANCH: ${{ github.ref_name }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Base ref: ${{ github.base_ref }}"
+          echo "Branch: ${GIT_BRANCH}"
+          echo "Base ref: ${BASE_REF}"
 
       - name: Push Test Coverage to Compass
         if: github.ref == 'refs/heads/main'
