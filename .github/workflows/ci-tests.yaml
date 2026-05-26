@@ -22,7 +22,7 @@ jobs:
         device: ['iPhone 17']
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Select Xcode ${{ matrix.xcode }}
         run: |
@@ -82,9 +82,12 @@ jobs:
           xcov -p VGSShowSDK.xcodeproj -s VGSShowSDK --json_report
 
       - name: Show Git Branch
+        env:
+          GIT_BRANCH: ${{ github.ref_name }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          echo "Branch: ${{ github.ref_name }}"
-          echo "Base ref: ${{ github.base_ref }}"
+          echo "Branch: ${GIT_BRANCH}"
+          echo "Base ref: ${BASE_REF}"
 
       - name: Push Test Coverage to Compass
         if: github.ref == 'refs/heads/main'
@@ -93,7 +96,7 @@ jobs:
 
       - name: Upload Test Results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: test-results-xcode-${{ matrix.xcode }}
           path: test-results/
@@ -101,7 +104,7 @@ jobs:
 
       - name: Upload Xcodebuild Log
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: xcodebuild-log-${{ matrix.xcode }}
           path: xcodebuild.log
@@ -117,7 +120,7 @@ jobs:
         device: ['iPhone 17']
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Select Xcode ${{ matrix.xcode }}
         run: |
@@ -186,7 +189,7 @@ jobs:
 
       - name: Upload UI Test Results
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: ui-test-results-xcode-${{ matrix.xcode }}
           path: VGSShowDemoApp/UITestResults/
@@ -194,7 +197,7 @@ jobs:
 
       - name: Upload Xcodebuild Log
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: demoapp-ui-tests-log-xcode-${{ matrix.xcode }}
           path: VGSShowDemoApp/xcodebuild.log
