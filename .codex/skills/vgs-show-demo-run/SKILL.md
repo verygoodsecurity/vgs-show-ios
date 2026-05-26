@@ -6,11 +6,11 @@ description: Build and run the VGSShow demo app on simulator; use when verifying
 # VGS Show Demo Run
 
 ## Overview
-Run the demo app locally in the iOS simulator using the CocoaPods workspace.
+Run the demo app locally in the iOS simulator using the SwiftPM-based Xcode project.
 
 ## Workflow
-1. Install CocoaPods dependencies in VGSShowDemoApp if needed.
-2. Open VGSShowDemoApp/VGSShowDemoApp.xcworkspace and select the VGSShowDemoApp scheme.
+1. Open VGSShowDemoApp/VGSShowDemoApp.xcodeproj and select the VGSShowDemoApp scheme.
+2. Allow Xcode to resolve Swift package dependencies for VGSShowSDK and VGSCollectSDK.
 3. Choose a simulator and build/run.
 4. Set a sandbox vault id using the initial screen or DemoAppConfig and avoid committing real IDs.
 5. Validate reveal flows without logging raw data.

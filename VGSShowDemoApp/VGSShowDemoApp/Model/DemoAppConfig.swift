@@ -45,10 +45,20 @@ final class DemoAppConfig {
 					return
 			}
 
-			self.vaultId = dictionary["VAULT_ID"] as? String ?? ""
-			self.path =  dictionary["PATH"] as? String ?? ""
-			self.pdfFilePayload["pdf_file"] = dictionary["PDF_TOKEN"] as? String
-            self.imageFilePayload["image_file"] = dictionary["IMAGE_TOKEN"] as? String
+			func stringValue(for keys: [String]) -> String? {
+				for key in keys {
+					if let value = dictionary[key] as? String, !value.isEmpty {
+						return value
+					}
+				}
+
+				return nil
+			}
+
+			self.vaultId = stringValue(for: ["VAULT_ID", "vaultID"]) ?? ""
+			self.path = stringValue(for: ["PATH", "path"]) ?? ""
+			self.pdfFilePayload["pdf_file"] = stringValue(for: ["PDF_TOKEN", "pdftoken"])
+            self.imageFilePayload["image_file"] = stringValue(for: ["IMAGE_TOKEN", "imagetoken"])
 		}
 	}
 }

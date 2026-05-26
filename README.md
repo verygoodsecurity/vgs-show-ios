@@ -210,6 +210,7 @@ All components require a non-empty `contentPath` set before a request.
 
 ### Demo Application
 A demo application showcasing reveal flows is available: <a href="https://github.com/verygoodsecurity/vgs-show-ios/tree/main/VGSShowDemoApp">VGSShowDemoApp</a>.
+Open `VGSShowDemoApp/VGSShowDemoApp.xcodeproj` and let Xcode resolve Swift package dependencies for the demo app.
 
 ### Releases
 Follow SDK updates on the [Releases page](https://github.com/verygoodsecurity/vgs-show-ios/releases).

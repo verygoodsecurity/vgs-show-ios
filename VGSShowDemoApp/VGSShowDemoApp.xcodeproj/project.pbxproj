@@ -528,7 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n  echo \"SwiftLint not installed, skipping lint. Download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "CONFIG_PATH=\"${SRCROOT}/../.swiftlint.yml\"\nif [ ! -f \"$CONFIG_PATH\" ]; then\n  CONFIG_PATH=\"${SRCROOT}/.swiftlint.yml\"\nfi\n\nif which swiftlint >/dev/null; then\n  if [ -f \"$CONFIG_PATH\" ]; then\n    for path in \\\n      \"${SRCROOT}/VGSShowDemoApp\" \\\n      \"${SRCROOT}/VGSShowDemoAppTests\" \\\n      \"${SRCROOT}/VGSShowDemoAppUITests\"\n    do\n      if [ -d \"$path\" ]; then\n        swiftlint lint --config \"$CONFIG_PATH\" \"$path\"\n      fi\n    done\n  else\n    echo \"SwiftLint config not found, skipping lint.\"\n  fi\nelse\n  echo \"SwiftLint not installed, skipping lint. Download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -729,6 +729,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -755,6 +756,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -923,8 +925,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/verygoodsecurity/vgs-collect-ios";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.18.1;
+				kind = exactVersion;
+				version = 1.18.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
