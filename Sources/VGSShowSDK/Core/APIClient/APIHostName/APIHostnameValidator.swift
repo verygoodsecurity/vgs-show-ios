@@ -9,6 +9,8 @@ import Foundation
 @MainActor
 internal class APIHostnameValidator {
 
+	typealias HostnameValidationCompletion = @MainActor @Sendable (URL?) -> Void
+
 	/// Base validation URL.
   private static let hostValidatorBaseURL = URL(string: "https://js.verygoodvault.com/collect-configs")!
 
@@ -20,7 +22,7 @@ internal class APIHostnameValidator {
 	///   - hostname: `String` object, hostname to validate.
 	///   - tenantId: `String` object, tenant id.
 	///   - completion: `((URL?) -> Void)` completion block.
-  internal static func validateCustomHostname(_ hostname: String, tenantId: String, completion: @escaping ((URL?) -> Void)) {
+  internal static func validateCustomHostname(_ hostname: String, tenantId: String, completion: @escaping HostnameValidationCompletion) {
 
     guard !hostname.isEmpty else {
       completion(nil)
@@ -44,8 +46,8 @@ internal class APIHostnameValidator {
 	///   - hostname: `String` object, hostname to validate.
 	///   - normalizedHostName: `String` object, normalized hostname.
 	///   - validationURL: `URL` object, validation URL.
-	///   - completion:`((URL?) -> Void)` completion block.
-	private static func performHostnameValidationRequest(with hostname: String, normalizedHostName: String, validationURL: URL, completion: @escaping ((URL?) -> Void)) {
+	///   - completion: `((URL?) -> Void)` completion block.
+	private static func performHostnameValidationRequest(with hostname: String, normalizedHostName: String, validationURL: URL, completion: @escaping HostnameValidationCompletion) {
 		let task = URLRequest(url: validationURL)
 		session.dataTask(with: task) { (responseData, response, error) in
             Task { @MainActor in
@@ -106,7 +108,7 @@ internal class APIHostnameValidator {
 	private static func logErrorForStatusCode(_ statusCode: Int, hostname: String) {
 		switch statusCode {
 		case 403:
-			let warningText = "A specified host: \"\(hostname)\" was not correct❗Looks like you don't activate cname for Show SDK on the Dashboard"
+				let warningText = "The specified host: \"\(hostname)\" was not correct❗Looks like you have not activated CNAME for Show SDK on the Dashboard"
 			let event = VGSLogEvent(level: .warning, text: warningText, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 		default:

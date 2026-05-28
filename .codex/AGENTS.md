@@ -2,11 +2,11 @@
 
 Internal contributor guide for agents and maintainers working inside the `vgs-show-ios` repository.
 
-This file complements the root `AGENTS.md`:
-- Root `AGENTS.md` is for integrator agents and public API usage.
+This file complements the public integration guide:
+- Root `AGENTS.md` is a symlink/alias to `skills/vgs-show-ios-guide/references/AGENTS.md` for integrator agents and public API usage.
 - This `.codex/AGENTS.md` is for contributors changing SDK internals, tests, demo flows, docs, and release artifacts.
 
-If a task changes public API, observable integration behavior, supported versions, security guidance, or user-facing examples, update the root `AGENTS.md` and `README.md` in the same change when needed.
+If a task changes public API, observable integration behavior, supported versions, security guidance, or user-facing examples, update `skills/vgs-show-ios-guide/references/AGENTS.md` and `README.md` in the same change when needed. Keep root `AGENTS.md` as the symlink/alias, not a duplicated file.
 
 ## Scope
 - Maintain `VGSShowSDK` internals without leaking sensitive revealed data.
@@ -16,7 +16,7 @@ If a task changes public API, observable integration behavior, supported version
 
 ## First Read
 Before changing code or docs:
-1. Read the root `AGENTS.md` to preserve the public integration contract.
+1. Read `skills/vgs-show-ios-guide/references/AGENTS.md` to preserve the public integration contract.
 2. Read `README.md` if the task may affect setup, usage examples, or supported features.
 3. Inspect the touched module and its tests before editing.
 4. Keep unrelated worktree changes untouched.
@@ -105,7 +105,9 @@ Contributor rule: internal classes help implement the SDK, but they are not part
 - `README.md`
   Public install and usage guidance.
 - `AGENTS.md`
-  Public integration contract for external agents.
+  Symlink/alias to the public integration contract for external agents.
+- `skills/vgs-show-ios-guide/references/AGENTS.md`
+  Canonical public integration contract for external agents.
 
 ## Security And Privacy Rules
 1. Never commit real revealed data.
@@ -121,19 +123,21 @@ Contributor rule: internal classes help implement the SDK, but they are not part
 6. Keep secure rendering inside SDK-managed views.
    Do not add code that persists raw reveal values outside the view pipeline unless there is an explicit, reviewed product requirement.
 7. Scrub examples and docs.
-   `README.md`, root `AGENTS.md`, demo app code, and test comments must not contain secrets or realistic customer data.
+   `README.md`, `skills/vgs-show-ios-guide/references/AGENTS.md`, root `AGENTS.md`, demo app code, and test comments must not contain secrets or realistic customer data.
 8. Review custom headers carefully.
    Examples may show non-sensitive metadata headers only. Never commit secrets or encourage secret-bearing headers in logs.
 
 If a task touches logging, analytics, or the privacy manifest, use the `vgs-show-privacy-logging` skill.
 
 ## Public API And Docs Sync Rules
-Update the root `AGENTS.md` when:
+Update `skills/vgs-show-ios-guide/references/AGENTS.md` when:
 - public types, enums, delegates, or options change
 - integration sequencing changes
 - security constraints or error-handling expectations change
 - supported environments or initialization guidance change
 - testing expectations for integrators materially change
+
+Root `AGENTS.md` must remain a symlink/alias to the canonical skill reference. Do not replace it with a duplicated markdown file.
 
 Update `README.md` when:
 - install instructions or version pins change
@@ -151,7 +155,7 @@ When public API changes, also review:
 - `.jazzy.yaml`
 - demo app flows under `VGSShowDemoApp`
 
-Contributor rule: if root `AGENTS.md` or `README.md` becomes stale after your change, treat that as an incomplete task.
+Contributor rule: if `skills/vgs-show-ios-guide/references/AGENTS.md`, its root alias, or `README.md` becomes stale after your change, treat that as an incomplete task.
 
 ## Testing Expectations
 - Add or update targeted tests under `Tests/VGSShowSDKTests`.
@@ -199,5 +203,5 @@ A contributor task is not complete until all applicable items are true:
 - source changes align with the current public contract or intentionally update it
 - tests for the touched behavior are added or updated
 - no sensitive data was introduced into source, fixtures, docs, screenshots, or logs
-- root `AGENTS.md` and `README.md` were updated if the change affects integrators
+- `skills/vgs-show-ios-guide/references/AGENTS.md` and `README.md` were updated if the change affects integrators, with root `AGENTS.md` preserved as the alias
 - generated docs were refreshed if public API documentation changed

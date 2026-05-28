@@ -5,21 +5,12 @@
 import XCTest
 @testable import VGSShowSDK
 
+@MainActor
 class VGSAttributedLabelTests: XCTestCase {
 
-    var attributedLabel: VGSAttributedLabel!
-
-    override func setUp() {
-        super.setUp()
-        attributedLabel = MainActor.assumeIsolated {VGSAttributedLabel()}
-    }
-
-    override func tearDown() {
-        super.tearDown()
-        attributedLabel = nil
-    }
     @MainActor
     func testCustomStyleApplication() {
+        let attributedLabel = VGSAttributedLabel()
         attributedLabel.textMinLineHeight = 10
         attributedLabel.characterSpacing = 1.5
         attributedLabel.text = "Test String"
@@ -28,6 +19,7 @@ class VGSAttributedLabelTests: XCTestCase {
     }
     @MainActor
     func testApplyPlaceholderStyle() {
+            let attributedLabel = VGSAttributedLabel()
             var style = VGSPlaceholderLabelStyle()
             style.color = UIColor.red
             style.font =  UIFont.systemFont(ofSize: 12)
@@ -48,6 +40,7 @@ class VGSAttributedLabelTests: XCTestCase {
     }
     @MainActor
     func testTextSetting() {
+        let attributedLabel = VGSAttributedLabel()
         attributedLabel.ignoreCustomStringAttributes = false
         attributedLabel.characterSpacing = 1.5
         attributedLabel.text = "Test String"
@@ -56,6 +49,7 @@ class VGSAttributedLabelTests: XCTestCase {
     }
     @MainActor
     func testIntrinsicContentSize() {
+        let attributedLabel = VGSAttributedLabel()
         attributedLabel.text = "Test"
         let expectedSize = attributedLabel.computeTextSize(for: attributedLabel.text!)
         XCTAssertEqual(attributedLabel.intrinsicContentSize, expectedSize, "Intrinsic content size should match computed size for string")

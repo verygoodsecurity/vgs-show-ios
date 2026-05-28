@@ -246,11 +246,15 @@ All tests must avoid logging raw secrets. Use synthetic sample strings.
 2. Use exact semantic version pinning (no range operators) for deterministic builds:
    - CocoaPods: `pod 'VGSShowSDK', '1.3.0'`
    - SPM: `.package(url: "https://github.com/verygoodsecurity/vgs-show-ios", exact: "1.3.0")`
-3. Rebuild and run tests (cover all strategy cases above).
-4. Scan for new deprecations (`grep -R "deprecated"`).
-5. Update this AGENTS file if new public view types or options are added.
-6. Confirm logging defaults unchanged.
-7. Validate the error code set (diff old vs new) and adapt mapping tests.
+3. Preserve toolchain compatibility unless the release intentionally drops it:
+   - Public package manifests should keep `// swift-tools-version:5.9` for backward-compatible SwiftPM loading.
+   - CocoaPods should advertise both supported language modes: Swift 5.9 and Swift 6.
+   - Source builds should validate Swift 6 language mode and, when backward compatibility is claimed, a Swift 5.9-compatible build mode.
+4. Rebuild and run tests (cover all strategy cases above).
+5. Scan for new deprecations (`grep -R "deprecated"`).
+6. Update this AGENTS file if new public view types, options, or supported toolchain requirements are added.
+7. Confirm logging defaults unchanged.
+8. Validate the error code set (diff old vs new) and adapt mapping tests.
 
 ---
 ## 18. Security Checklist (Per PR)

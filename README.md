@@ -1,6 +1,6 @@
 [![UT](https://img.shields.io/badge/Unit_Test-pass-green)]()
 [![license](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![swift](https://img.shields.io/badge/swift-5.9-orange)]()
+[![swift](https://img.shields.io/badge/swift-5.9%20%7C%206-orange)]()
 [![AI Agents Ready](https://img.shields.io/badge/AI_Agents-Ready-brightgreen)](./skills/vgs-show-ios-guide/references/AGENTS.md)
 <img src="./VGSZeroData.png" height="20">
 
@@ -19,7 +19,8 @@ Table of contents
    * [Before you start](#before-you-start)
    * [Integration](#integration)
       * [CocoaPods](#cocoapods)
-      * [Swift Package Manager](#swift-package-manager-xcode-12)
+      * [Swift Package Manager](#swift-package-manager)
+      * [Toolchain Compatibility](#toolchain-compatibility)
    * [AI Agent Integration](#ai-agent-integration)
    * [Usage](#usage)
       * [Import SDK](#import-sdk)
@@ -53,7 +54,7 @@ Then run:
 pod install
 ```
 
-### Swift Package Manager, Xcode 12+
+### Swift Package Manager
 From Xcode: File > Add Packages… and enter:
 ```
 https://github.com/verygoodsecurity/vgs-show-ios
@@ -68,6 +69,11 @@ dependencies: [
 ]
 // ...existing code...
 ```
+
+### Toolchain Compatibility
+`VGSShowSDK` supports Swift 5.9 and Swift 6 language modes. The SDK project is configured for Swift 6, while the Swift Package manifest intentionally remains `// swift-tools-version:5.9` so SwiftPM clients using older compatible toolchains can still load the package.
+
+CocoaPods publishes both supported Swift language versions through `spec.swift_versions = ['5.9', '6.0']`.
 
 ## AI Agent Integration
 This repository ships a public AI skill at [`skills/vgs-show-ios-guide/SKILL.md`](./skills/vgs-show-ios-guide/SKILL.md) for teams integrating `VGSShowSDK` into an app.
@@ -224,7 +230,8 @@ VGSAnalyticsClient.shared.shouldCollectAnalytics = false
 
 ## Dependencies
 - iOS 13+
-- Swift 5.9
+- Swift 5.9 or Swift 6 language mode
+- SwiftPM manifest tools version 5.9
 
 ## License
 VGSShow iOS SDK is released under the MIT license. See [LICENSE](./LICENSE) for details.

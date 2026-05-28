@@ -61,6 +61,9 @@ jobs:
       - name: Install xcov
         run: gem install xcov
 
+      - name: Validate SwiftPM Manifest
+        run: swift package describe
+
       - name: Run Unit Tests
         run: |
           set -eo pipefail
@@ -69,6 +72,7 @@ jobs:
             -project VGSShowSDK.xcodeproj \
             -scheme VGSShowSDKTests \
             -destination 'platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.ios }}' \
+            SWIFT_VERSION=6.0 \
             -enableCodeCoverage YES \
             | tee xcodebuild.log \
             | xcpretty --report junit --output test-results/junit.xml

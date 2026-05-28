@@ -97,6 +97,7 @@ Move between versions or replace deprecated behavior.
 - load both current-version and target-version snapshots
 - target-version `AGENTS.md` is the authoritative destination rule set
 - use release notes and current repo docs to capture version-to-version changes
+- preserve the documented SwiftPM tools version and supported Swift language modes unless the target release intentionally drops compatibility
 - call out behavior changes that cannot be preserved exactly
 
 ### `troubleshoot`
