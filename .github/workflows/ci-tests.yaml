@@ -17,17 +17,18 @@ jobs:
     runs-on: macos-15
     strategy:
       matrix:
-        xcode: ['16.2']
-        ios: ['26.2']
-        device: ['iPhone 16']
+        xcode: ['26.1.1']
+        ios: ['26.1']
+        device: ['iPhone 17']
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - name: Setup Xcode ${{ matrix.xcode }}
-        uses: maxim-lobanov/setup-xcode@ed7a3b1fda3918c0306d1b724322adc0b8cc0a90 # v1
-        with:
-          xcode-version: ${{ matrix.xcode }}
+      - name: Select Xcode ${{ matrix.xcode }}
+        run: |
+          XCODE_APP="/Applications/Xcode_${{ matrix.xcode }}.app"
+          sudo xcode-select --switch "$XCODE_APP/Contents/Developer"
+          xcodebuild -version
 
       - name: List installed runtimes & devices (debug)
         run: |
@@ -60,6 +61,9 @@ jobs:
       - name: Install xcov
         run: gem install xcov
 
+      - name: Validate SwiftPM Manifest
+        run: swift package describe
+
       - name: Run Unit Tests
         run: |
           set -eo pipefail
@@ -68,6 +72,7 @@ jobs:
             -project VGSShowSDK.xcodeproj \
             -scheme VGSShowSDKTests \
             -destination 'platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.ios }}' \
+            SWIFT_VERSION=6.0 \
             -enableCodeCoverage YES \
             | tee xcodebuild.log \
             | xcpretty --report junit --output test-results/junit.xml
@@ -114,17 +119,18 @@ jobs:
     runs-on: macos-15
     strategy:
       matrix:
-        xcode: ['16.2']
-        ios: ['26.2']
-        device: ['iPhone 16']
+        xcode: ['26.1.1']
+        ios: ['26.1']
+        device: ['iPhone 17']
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - name: Setup Xcode ${{ matrix.xcode }}
-        uses: maxim-lobanov/setup-xcode@ed7a3b1fda3918c0306d1b724322adc0b8cc0a90 # v1
-        with:
-          xcode-version: ${{ matrix.xcode }}
+      - name: Select Xcode ${{ matrix.xcode }}
+        run: |
+          XCODE_APP="/Applications/Xcode_${{ matrix.xcode }}.app"
+          sudo xcode-select --switch "$XCODE_APP/Contents/Developer"
+          xcodebuild -version
 
       - name: Create and Boot Simulator
         run: |
@@ -162,14 +168,14 @@ jobs:
           plutil -insert path -string "${PATH_SECRET}" UITestsMockedData.plist
           cd ../../..
 
-      - name: Install CocoaPods Dependencies
+      - name: Resolve Swift Package Dependencies
         run: |
           cd VGSShowDemoApp
-          pod install
+          xcodebuild -resolvePackageDependencies -project VGSShowDemoApp.xcodeproj -scheme VGSShowDemoAppUITests
 
       - name: Wait for Simulator
         run: |
-          xcrun instruments -w "iPhone 16 (${{ matrix.ios }}) [" || true
+          xcrun instruments -w "${{ matrix.device }} (${{ matrix.ios }}) [" || true
 
       - name: Run UI Tests
         run: |
@@ -178,7 +184,7 @@ jobs:
           mkdir -p UITestResults
           xcodebuild \
             test \
-            -workspace VGSShowDemoApp.xcworkspace \
+            -project VGSShowDemoApp.xcodeproj \
             -scheme VGSShowDemoAppUITests \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=${{ matrix.device }},OS=${{ matrix.ios }}' \

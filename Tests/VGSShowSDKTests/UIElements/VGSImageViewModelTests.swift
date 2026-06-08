@@ -9,11 +9,6 @@ class VGSImageViewModelTests: XCTestCase {
 
     var viewModel: VGSImageViewModel!
 
-    override func setUp() {
-        super.setUp()
-    }
-
-
     func testOnValueChanged() {
         viewModel = VGSImageViewModel()
         let expect = expectation(description: "onValueChanged should be triggered")

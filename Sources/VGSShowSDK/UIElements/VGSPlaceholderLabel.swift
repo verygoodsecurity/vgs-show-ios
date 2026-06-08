@@ -71,6 +71,7 @@ internal class VGSAttributedLabel: UILabel {
 
 	// MARK: - Override
 	override var text: String? {
+		get { return super.text }
 		set {
 			if let string = newValue {
 				if isCustomAttributedString {
@@ -86,7 +87,6 @@ internal class VGSAttributedLabel: UILabel {
 			// Set text if custom attributes not specified.
 			super.text = newValue
 		}
-		get { return super.text }
 	}
 
   /// The natural size for the Lbel, considering only properties of the view itself.

@@ -74,18 +74,22 @@ struct ShowCardDataSwiftUIDemo: View {
           })
           .border(color: expDateLabelBorderColor, lineWidth: 1)
           .frame(height: 54)
-        Button(action: {
+        Button(
+          action: {
             // Reveal show data
             self.loadData()
-          }) {
+          },
+          label: {
             Text("Reveal Data")
-                .padding()
-                .cornerRadius(8)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 2)
-                )
-        }.padding(.top, 50)
+              .padding()
+              .cornerRadius(8)
+              .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                  .stroke(Color.blue, lineWidth: 2)
+              )
+          }
+        )
+        .padding(.top, 50)
         Text(responseState).padding(.top, 50)
       }.padding(.leading, 20)
        .padding(.trailing, 20)

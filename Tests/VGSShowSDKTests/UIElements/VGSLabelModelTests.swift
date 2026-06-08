@@ -9,14 +9,6 @@ class VGSLabelModelTests: XCTestCase {
 
     var labelModel: VGSLabelModel!
 
-    override func setUp()  {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testOnValueChanged() {
         labelModel = VGSLabelModel()
         let expect = expectation(description: "onValueChanged should be triggered")

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,12 +38,14 @@
 		44F535022636CC5700ECEA77 /* VGSShowDemoAppPDFFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */; };
 		44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */; };
 		44F5350B2636D07E00ECEA77 /* CollectPDFDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */; };
-		9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */; };
 		A0060F8A2A58A2F20060CE85 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0060F892A58A2F20060CE85 /* InitialViewController.swift */; };
 		A0A4EEA82A57A31300172678 /* ShowImage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A4EEA72A57A31300172678 /* ShowImage.storyboard */; };
 		A0A4EEB82A57A4D500172678 /* CollectImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */; };
 		A0A4EEBB2A57A4D500172678 /* ShowImageDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */; };
 		A0A4EED32A57A8E800172678 /* VGSShowImageDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */; };
+		C5BAF93C8CF145B8BE7BCDA5 /* VGSCollectSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA0924CD2804DB3915E0132 /* VGSCollectSDK */; };
+		D4A7E1A230C00A6D00000001 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A7E1A130C00A6D00000001 /* SceneDelegate.swift */; };
+		E6FF21FE8A6D437FAA73D7DF /* VGSShowSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 47E90994851B40B3AE6A5F7B /* VGSShowSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,14 +116,12 @@
 		44F534F32636C24500ECEA77 /* VGSShowDemoAppPDFFileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGSShowDemoAppPDFFileTest.swift; sourceTree = "<group>"; };
 		44F535082636D07E00ECEA77 /* ShowDemoPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDemoPDFViewController.swift; sourceTree = "<group>"; };
 		44F535092636D07E00ECEA77 /* CollectPDFDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPDFDemoViewController.swift; sourceTree = "<group>"; };
-		8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.debug.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A0060F892A58A2F20060CE85 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		A0A4EEA72A57A31300172678 /* ShowImage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowImage.storyboard; sourceTree = "<group>"; };
 		A0A4EEAF2A57A4D500172678 /* CollectImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectImageDemoViewController.swift; sourceTree = "<group>"; };
 		A0A4EEB22A57A4D500172678 /* ShowImageDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowImageDemoViewController.swift; sourceTree = "<group>"; };
 		A0A4EED22A57A8E800172678 /* VGSShowImageDemoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGSShowImageDemoTests.swift; sourceTree = "<group>"; };
-		EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VGSShowDemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGSShowDemoApp.release.xcconfig"; path = "Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp.release.xcconfig"; sourceTree = "<group>"; };
+		D4A7E1A130C00A6D00000001 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E388E3BB9BA126239E8F61B /* Pods_VGSShowDemoApp.framework in Frameworks */,
+				E6FF21FE8A6D437FAA73D7DF /* VGSShowSDK in Frameworks */,
+				C5BAF93C8CF145B8BE7BCDA5 /* VGSCollectSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +169,6 @@
 				44415FB1255D36FA0012D107 /* VGSShowDemoAppTests */,
 				44415FBC255D36FB0012D107 /* VGSShowDemoAppUITests */,
 				44415F99255D36F90012D107 /* Products */,
-				6B6C3F3E71A2627BBDD0889D /* Pods */,
 				D2D807564E6A7C1CC5CD8FBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -242,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				4444EEEA255E6446002C9215 /* AppDelegate.swift */,
+				D4A7E1A130C00A6D00000001 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -343,15 +344,6 @@
 			path = ShowPDF;
 			sourceTree = "<group>";
 		};
-		6B6C3F3E71A2627BBDD0889D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */,
-				FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		A0A4EEA92A57A4D500172678 /* ShowImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +364,6 @@
 		D2D807564E6A7C1CC5CD8FBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EA9CA56A736D304D4EEEAB24 /* Pods_VGSShowDemoApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,12 +375,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44415FC2255D36FB0012D107 /* Build configuration list for PBXNativeTarget "VGSShowDemoApp" */;
 			buildPhases = (
-				859DC0A0F807725B445D03B9 /* [CP] Check Pods Manifest.lock */,
 				44415F94255D36F90012D107 /* Sources */,
 				44415F95255D36F90012D107 /* Frameworks */,
 				44415F96255D36F90012D107 /* Resources */,
 				44A70C63255D3BD1006C29E8 /* Embed Frameworks */,
-				8002C8556CB122513E0C7407 /* [CP] Embed Pods Frameworks */,
 				4411D7952564F59C00A6FFD1 /* Run Script */,
 			);
 			buildRules = (
@@ -397,6 +386,10 @@
 			dependencies = (
 			);
 			name = VGSShowDemoApp;
+			packageProductDependencies = (
+				47E90994851B40B3AE6A5F7B /* VGSShowSDK */,
+				3BA0924CD2804DB3915E0132 /* VGSCollectSDK */,
+			);
 			productName = VGSShowDemoApp;
 			productReference = 44415F98255D36F90012D107 /* VGSShowDemoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -443,8 +436,9 @@
 		44415F90255D36F90012D107 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					44415F97255D36F90012D107 = {
 						CreatedOnToolsVersion = 11.5;
@@ -469,6 +463,10 @@
 				Base,
 			);
 			mainGroup = 44415F8F255D36F90012D107;
+			packageReferences = (
+				3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference ".." */,
+				8AA783822F1C450085E67AA4 /* XCRemoteSwiftPackageReference "vgs-collect-ios" */,
+			);
 			productRefGroup = 44415F99255D36F90012D107 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -515,6 +513,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		4411D7952564F59C00A6FFD1 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -529,46 +528,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint lint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		8002C8556CB122513E0C7407 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VGSShowDemoApp/Pods-VGSShowDemoApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		859DC0A0F807725B445D03B9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VGSShowDemoApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "CONFIG_PATH=\"${SRCROOT}/../.swiftlint.yml\"\nif [ ! -f \"$CONFIG_PATH\" ]; then\n  CONFIG_PATH=\"${SRCROOT}/.swiftlint.yml\"\nfi\n\nif which swiftlint >/dev/null; then\n  if [ -f \"$CONFIG_PATH\" ]; then\n    for path in \\\n      \"${SRCROOT}/VGSShowDemoApp\" \\\n      \"${SRCROOT}/VGSShowDemoAppTests\" \\\n      \"${SRCROOT}/VGSShowDemoAppUITests\"\n    do\n      if [ -d \"$path\" ]; then\n        swiftlint lint --config \"$CONFIG_PATH\" \"$path\"\n      fi\n    done\n  else\n    echo \"SwiftLint config not found, skipping lint.\"\n  fi\nelse\n  echo \"SwiftLint not installed, skipping lint. Download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -582,6 +542,7 @@
 				A0060F8A2A58A2F20060CE85 /* InitialViewController.swift in Sources */,
 				44F5350A2636D07E00ECEA77 /* ShowDemoPDFViewController.swift in Sources */,
 				4444EEEB255E6446002C9215 /* AppDelegate.swift in Sources */,
+				D4A7E1A230C00A6D00000001 /* SceneDelegate.swift in Sources */,
 				44F534D92636962D00ECEA77 /* ShowDemoViewController.swift in Sources */,
 				44415FDB255D37540012D107 /* Helpers.swift in Sources */,
 				440F04D4256E748D00540D58 /* UIDevice+Extensions.swift in Sources */,
@@ -664,6 +625,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -672,8 +634,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4445Y664U5;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -693,6 +657,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
@@ -725,6 +690,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -733,8 +699,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4445Y664U5;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -747,6 +715,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
@@ -756,22 +725,23 @@
 		};
 		44415FC3255D36FB0012D107 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8526D5F51B34025364C09BDA /* Pods-VGSShowDemoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -782,22 +752,23 @@
 		};
 		44415FC4255D36FB0012D107 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEE8B136898B7DAC15443032 /* Pods-VGSShowDemoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4445Y664U5;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.0;
@@ -808,10 +779,10 @@
 		44415FC6255D36FB0012D107 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -819,6 +790,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -832,10 +804,10 @@
 		44415FC7255D36FB0012D107 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -843,6 +815,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -856,15 +829,16 @@
 		44415FC9255D36FB0012D107 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -878,15 +852,16 @@
 		44415FCA255D36FB0012D107 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4445Y664U5;
+				GENERATE_APP_INTENTS_METADATA = NO;
 				INFOPLIST_FILE = VGSShowDemoAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "$(inherited) -weak_framework AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = VGS.VGSShowDemoAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -937,6 +912,37 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8AA783822F1C450085E67AA4 /* XCRemoteSwiftPackageReference "vgs-collect-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/verygoodsecurity/vgs-collect-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 1.18.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3BA0924CD2804DB3915E0132 /* VGSCollectSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8AA783822F1C450085E67AA4 /* XCRemoteSwiftPackageReference "vgs-collect-ios" */;
+			productName = VGSCollectSDK;
+		};
+		47E90994851B40B3AE6A5F7B /* VGSShowSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EF07ADEF11947DB87083BAE /* XCLocalSwiftPackageReference ".." */;
+			productName = VGSShowSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44415F90255D36F90012D107 /* Project object */;
 }

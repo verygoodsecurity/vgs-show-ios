@@ -90,4 +90,5 @@ fastlane/test_output
 
 iOSInjectionProject/
 VGSShowDemoApp/Pods
-VGSShowDemoApp/VGSShowDemoApp.xcworkspace/xcshareddata
+VGSShowDemoApp/VGSShowDemoApp.xcworkspace/
+VGSShowDemoApp/VGSShowDemoApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/

@@ -27,15 +27,15 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     var isSecureText = false
     /// Text Symbol that will replace visible label text character when securing String. Should be one charcter only. Default is `*` symbol.
     var secureTextSymbol = "*"
-    ///`Int` object. Defines range start, should be less or equal to `end` and string length. Default is `nil`.
+    /// `Int` object. Defines range start, should be less or equal to `end` and string length. Default is `nil`.
     var secureTextStart: Int?
-    ///`Int` object. Defines range end, should be greater or equal to `end` and string length. Default is `nil`.
+    /// `Int` object. Defines range end, should be greater or equal to `end` and string length. Default is `nil`.
     var secureTextEnd: Int?
     /// An array of `VGSTextRange` objects to be applied subsequently.
     var secureTextRanges = [VGSTextRange]()
   
     // MARK: - UI Attribute
-    /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
+    // `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
     var labelPaddings = UIEdgeInsets.zero
     /// `UIEdgeInsets` for placeholder. Default is `nil`. If placeholder paddings not set, `paddings` property will be used to control placeholder insets. **IMPORTANT!** Paddings should be non-negative.
     var placeholderLabelPaddings: UIEdgeInsets?
@@ -50,8 +50,6 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     /// A localized string that contains a brief description of the result of
     /// performing an action on the accessibility element.
     var vgsAccessibilityHint: String?
-    /// `UIEdgeInsets` for text. **IMPORTANT!** Paddings should be non-negative.
-
     // MARK: - Font Attributes
     /// Indicates whether `VGSLabelRepresentable ` should automatically update its font
     /// when the device’s `UIContentSizeCategory` is changed. It only works
@@ -203,7 +201,7 @@ public struct VGSLabelRepresentable: VGSViewRepresentableProtocol, VGSLabelRepre
     }
 
     /// `Bool` flag. Apply secure mask if `true`. If secure range is not defined mask all text. Default is `false`.
-    public func isSecureText(_ isSecure: Bool) ->  VGSLabelRepresentable{
+    public func isSecureText(_ isSecure: Bool) -> VGSLabelRepresentable {
       var newRepresentable = self
       newRepresentable.isSecureText = isSecure
       return newRepresentable

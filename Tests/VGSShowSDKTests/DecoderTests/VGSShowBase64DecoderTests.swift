@@ -9,10 +9,6 @@ class VGSShowBase64DecoderTests: XCTestCase {
 
     var base64Decoder = VGSShowBase64Decoder()
 
-    override func setUp() {
-        super.setUp()
-    }
-
     func testDecodeJSONForContentPathWithValidBase64() {
         base64Decoder = VGSShowBase64Decoder()
         // Given

@@ -12,8 +12,6 @@ import VGSCollectSDK
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-	var window: UIWindow?
-
 	/// App delegate initializer.
 	override init() {
 		super.init()

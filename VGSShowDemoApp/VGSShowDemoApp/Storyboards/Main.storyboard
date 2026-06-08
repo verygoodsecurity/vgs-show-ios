@@ -304,7 +304,7 @@
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
                                         <connections>
-                                            <segue destination="iSE-mf-zRH" kind="push" id="YuU-ye-eiT"/>
+                                            <segue destination="iSE-mf-zRH" kind="show" id="YuU-ye-eiT"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="GDV-sG-9Uj" rowHeight="55" style="IBUITableViewCellStyleDefault" id="YSD-oW-Zbd">
@@ -324,7 +324,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="csf-iT-IrO" kind="push" id="1vI-O0-Mzm"/>
+                                            <segue destination="csf-iT-IrO" kind="show" id="1vI-O0-Mzm"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="qzQ-VQ-P9i" rowHeight="55" style="IBUITableViewCellStyleDefault" id="xOh-En-phX">
@@ -344,7 +344,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="UxD-wm-gla" kind="push" id="2GV-7F-lc8"/>
+                                            <segue destination="UxD-wm-gla" kind="show" id="2GV-7F-lc8"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="xRA-7i-WyJ" rowHeight="55" style="IBUITableViewCellStyleDefault" id="vQT-Dm-ngf">
@@ -376,7 +376,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Demo" id="HPz-t0-R8Y">
-                        <barButtonItem key="rightBarButtonItem" title="VaultID" style="plain" id="JfZ-0I-vaB">
+                        <barButtonItem key="rightBarButtonItem" title="VaultID" id="JfZ-0I-vaB">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="SAE-fL-UPW">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

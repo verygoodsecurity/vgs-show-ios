@@ -11,7 +11,8 @@ import Foundation
 @MainActor
 internal class APIClient {
 
-	typealias RequestCompletion = ((_ response: APIRequestResult) -> Void)?
+	typealias RequestCompletion = @MainActor @Sendable (_ response: APIRequestResult) -> Void
+	typealias HostUpdateCompletion = @MainActor @Sendable (_ url: URL) -> Void
 
 	// MARK: - Constants
 
@@ -54,7 +55,7 @@ internal class APIClient {
 		return self.hostURLPolicy.url
 	}
 
-	/// Host URL policy. Determinates final URL to send reveal requests.
+	/// Host URL policy. Determines final URL to send reveal requests.
 	internal var hostURLPolicy: APIHostURLPolicy
 
 	/// Serial queue for syncing requests on resolving hostname flow.
@@ -109,7 +110,7 @@ internal class APIClient {
 
 	// MARK: - Public
 
-	internal func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, requestOptions: VGSShowRequestOptions?, completion block: RequestCompletion) {
+	internal func sendRequestWithJSON(path: String, method: VGSHTTPMethod = .post, value: VGSJSONData?, requestOptions: VGSShowRequestOptions?, completion block: RequestCompletion?) {
 
 		let payload = VGSRequestPayloadBody.json(value)
 		resolveURLForRequest(path: path, method: method, payload: payload, requestOptions: requestOptions, block: block)
@@ -124,7 +125,7 @@ internal class APIClient {
 	///   - payload: `VGSRequestPayloadBody` object.
 	///   - requestOptions: `VGSShowRequestOptions?` object, request options.
 	///   - block: `RequestCompletion` completion block.
-	private func resolveURLForRequest(path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion) {
+	private func resolveURLForRequest(path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion?) {
 
 		let url: URL?
 
@@ -165,7 +166,8 @@ internal class APIClient {
 		sendDataRequestWithURL(requestURL, path: path, method: method, payload: payload, requestOptions: requestOptions, block: block)
 	}
 
-	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion) {
+	// swiftlint:disable:next function_parameter_count
+	private func sendDataRequestWithURL(_ requestURL: URL, path: String, method: VGSHTTPMethod, payload: VGSRequestPayloadBody, requestOptions: VGSShowRequestOptions?, block: RequestCompletion?) {
 
 		let encodingResult = payload.encodeToRequestBodyData()
 
@@ -194,7 +196,7 @@ internal class APIClient {
 			// Perform request.
 			self.performRequest(request: request, completion: block)
 		case .failure(let error):
-			let text = "cannot encode payload \(payload.rawPayload ?? "Uknown payload format"), error: \(error)"
+			let text = "cannot encode payload \(payload.rawPayload ?? "Unknown payload format"), error: \(error)"
 			let event = VGSLogEvent(level: .warning, text: text, severityLevel: .error)
 			VGSLogger.shared.forwardLogEvent(event)
 
@@ -202,7 +204,7 @@ internal class APIClient {
 		}
 	}
 
-	private func performRequest(request: URLRequest, completion block: RequestCompletion) {
+	private func performRequest(request: URLRequest, completion block: RequestCompletion?) {
 		// Send data
 		urlSession.dataTask(with: request) { (data, response, error) in
 			DispatchQueue.main.async {
@@ -245,7 +247,7 @@ internal class APIClient {
 
 	// MARK: - Custom Host Name
 
-	private func updateHost(with hostname: String, completion: ((URL) -> Void)? = nil) {
+	private func updateHost(with hostname: String, completion: HostUpdateCompletion? = nil) {
 
 		dataSyncQueue.async {[weak self] in
 			guard let strongSelf = self else {return}

@@ -69,23 +69,27 @@ struct CardDataCollectionSwiftUI: View {
           .border(color: (cardTextFieldState?.isValid ?? true) ? validColor : invalidColor, lineWidth: 1)
           .frame(height: 54)
         VGSExpDateTextFieldRepresentable(configuration: expDateConfiguration)
-          .placeholder("10/2025")
+          .placeholder("10/2035")
           .monthPickerFormat(.longSymbols)
           .textFieldPadding(paddings)
           .border(color: (expDateTextFieldState?.isValid ?? true) ? validColor : invalidColor, lineWidth: 1)
           .frame(height: 54)
-        Button(action: {
-          UIApplication.shared.endEditing()
-          sendData()
-        }) {
+        Button(
+          action: {
+            UIApplication.shared.endEditing()
+            sendData()
+          },
+          label: {
             Text("Send data")
-                .padding()
-                .cornerRadius(8)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 2)
-                )
-        }.padding(.top, 50)
+              .padding()
+              .cornerRadius(8)
+              .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                  .stroke(Color.blue, lineWidth: 2)
+              )
+          }
+        )
+        .padding(.top, 50)
         Text(responseState).padding(.top, 50)
       }.padding(.leading, 20)
        .padding(.trailing, 20)
