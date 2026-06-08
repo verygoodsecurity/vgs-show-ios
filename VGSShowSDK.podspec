@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "VGSShowSDK"
-  spec.version      = "1.3.0"
+  spec.version      = "1.3.1"
   spec.summary      = "VGS Show - is a product suite that allows customers to reveal and show information securely without possession of it."
 	spec.swift_versions = ['5.9', '6.0']
   spec.description  = <<-DESC

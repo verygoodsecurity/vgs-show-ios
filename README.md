@@ -47,7 +47,7 @@ Table of contents
 
 Add to your `Podfile` (pin exact version for reproducibility):
 ```ruby
-pod 'VGSShowSDK', '1.3.0'
+pod 'VGSShowSDK', '1.3.1'
 ```
 Then run:
 ```bash
@@ -59,13 +59,13 @@ From Xcode: File > Add Packages… and enter:
 ```
 https://github.com/verygoodsecurity/vgs-show-ios
 ```
-Select version rule "Exact" and specify `1.3.0`.
+Select version rule "Exact" and specify `1.3.1`.
 
 Or in `Package.swift` (exact version pin):
 ```swift
 // ...existing code...
 dependencies: [
-  .package(url: "https://github.com/verygoodsecurity/vgs-show-ios", exact: "1.3.0")
+  .package(url: "https://github.com/verygoodsecurity/vgs-show-ios", exact: "1.3.1")
 ]
 // ...existing code...
 ```

@@ -44,7 +44,7 @@ Private forks or internal mirrors do not override the public repo.
 Do not block the task on version detection. If unknown, use default-branch guidance and disclose it.
 
 **Step 3 — match tag to version:**
-- exact match (`1.3.0` or `v1.3.0`)
+- exact match (`1.3.1` or `v1.3.1`)
 - nearest compatible tag with same `major.minor` and highest patch not newer than installed
 - highest tag satisfying a version range
 - exact git SHA or branch when the dependency points to one
@@ -120,9 +120,9 @@ A task may have a secondary mode, but the primary mode controls planning and out
 ## Output contract
 
 Begin every response by stating which version the guidance is based on, using one of:
-- `Using VGSShowSDK 1.3.0.`
-- `Detected VGSShowSDK 1.3.0 from Package.resolved.`
+- `Using VGSShowSDK 1.3.1.`
+- `Detected VGSShowSDK 1.3.1 from Package.resolved.`
 - `Could not determine the installed VGSShowSDK version; using latest guidance from the default branch.`
-- `Exact tag 1.3.1 was not found; using nearest compatible tag 1.3.0.`
+- `Exact tag 1.3.2 was not found; using nearest compatible tag 1.3.1.`
 
 Then proceed using the active version-matched snapshot.
