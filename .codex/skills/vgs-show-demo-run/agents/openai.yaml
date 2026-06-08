@@ -1,4 +1,0 @@
-interface:
-  display_name: "VGS Show Demo Run"
-  short_description: "Build and run the demo app on simulator"
-  default_prompt: "Use $vgs-show-demo-run to launch the VGSShow demo app."

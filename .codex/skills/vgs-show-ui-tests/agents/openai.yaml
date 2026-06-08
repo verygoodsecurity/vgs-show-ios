@@ -1,4 +1,0 @@
-interface:
-  display_name: "VGS Show UI Tests"
-  short_description: "Run or update VGSShowDemoApp UI tests"
-  default_prompt: "Use $vgs-show-ui-tests to execute or adjust XCUITests."

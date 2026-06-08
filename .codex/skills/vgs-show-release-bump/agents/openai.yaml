@@ -1,4 +1,0 @@
-interface:
-  display_name: "VGS Show Release Bump"
-  short_description: "Bump versions and prep a release"
-  default_prompt: "Use $vgs-show-release-bump to update version pins and release files."

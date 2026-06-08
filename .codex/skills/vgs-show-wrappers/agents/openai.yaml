@@ -1,4 +1,0 @@
-interface:
-  display_name: "VGS Show Wrappers"
-  short_description: "SwiftUI + Combine wrappers for VGSShow"
-  default_prompt: "Use $vgs-show-wrappers to build SwiftUI and Combine wrappers."

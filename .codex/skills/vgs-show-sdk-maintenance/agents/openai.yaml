@@ -1,4 +1,0 @@
-interface:
-  display_name: "VGS Show SDK Maintenance"
-  short_description: "Maintain core SDK APIs, safety, and tests"
-  default_prompt: "Use $vgs-show-sdk-maintenance to plan and execute a safe VGSShowSDK change."
